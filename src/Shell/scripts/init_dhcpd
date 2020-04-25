@@ -1,0 +1,111 @@
+#!/bin/sh
+#
+PATH=/sbin:/bin
+DHCPCD=/opt/keexybox/dhcpd/sbin/dhcpd
+NAME=dhcpcd
+PIDDIR=/opt/keexybox/dhcpd
+PIDFILE=$PIDDIR/dhcpcd.pid
+LEASEFILE=/opt/keexybox/dhcpd/etc/dhcpd.leases
+CONFIGFILE=/opt/keexybox/dhcpd/etc/dhcpd.conf
+
+test -x $DHCPCD || exit 0
+
+INTERFACES=/etc/network/interfaces
+
+. /lib/lsb/init-functions
+
+sanity()
+{
+    local x=
+
+    case "$($DHCPCD --version)" in
+    [1234].*)
+        log_failure_msg "Not running $NAME because an older version" \
+            "is currently preferred"
+        exit 6
+    esac
+
+    for x in $(ls $PIDDIR/dhcpcd*.pid); do
+        [ -f "$x" ] || continue
+        log_failure_msg "Not running $NAME because there is aleady an" \
+            "interface specific instance"
+        log_failure_msg "$x"
+        exit 6
+    done
+        
+    if grep -q "^[[:space:]]*iface[[:space:]]*.*[[:space:]]*inet[[:space:]]*dhcp" \
+    $INTERFACES; then
+        log_failure_msg "Not running $NAME because $INTERFACES"
+        log_failure_msg "defines some interfaces that will use a" \
+            "DHCP client"
+        exit 6
+    fi
+}
+
+case "$1" in
+start)
+    sanity
+    if pidofproc -p $PIDFILE $DHCPCD >/dev/null; then
+        log_warning_msg "$NAME is already running"
+        exit 0
+    fi
+    $DHCPCD -cf $CONFIGFILE -lf $LEASEFILE -pf $PIDFILE
+        ;;
+stop)
+    #sanity
+    #$DHCPCD -x
+    PID=$(cat ${PIDFILE})
+    kill -0 ${PID}
+    if [ $? -eq 0 ]; then
+        kill ${PID}
+        rm ${PIDFILE}
+    fi
+    ;;
+restart|force-reload)
+    PID=$(cat ${PIDFILE})
+    kill -0 ${PID}
+    if [ $? -eq 0 ]; then
+        kill ${PID}
+        rm ${PIDFILE}
+    fi
+    sanity
+    $DHCPCD -cf $CONFIGFILE -lf $LEASEFILE -pf $PIDFILE
+    ;;
+try-restart)
+    if ! pidofproc -p $PIDFILE $DHCPCD >/dev/null; then
+        log_warning_msg "$NAME is not running"
+    else
+        PID=$(cat ${PIDFILE})
+        kill -0 ${PID}
+        if [ $? -eq 0 ]; then
+            kill ${PID}
+            rm ${PIDFILE}
+        fi
+        sanity
+        $DHCPCD -cf $CONFIGFILE -lf $LEASEFILE -pf $PIDFILE
+    fi
+    ;;
+reload)
+    if ! pidofproc -p $PIDFILE $DHCPCD >/dev/null; then
+        log_failure_msg "$NAME is not running"
+        exit 7
+    fi
+    PID=$(cat ${PIDFILE})
+    kill -0 ${PID}
+    if [ $? -eq 0 ]; then
+        kill ${PID}
+        rm ${PIDFILE}
+    fi
+    sanity
+    $DHCPCD -cf $CONFIGFILE -lf $LEASEFILE -pf $PIDFILE
+    #sanity
+    #$DHCPCD -n -cf $CONFIGFILE -lf $LEASEFILE -pf $PIDFILE
+        ;;
+status)
+        status_of_proc -p $PIDFILE $DHCPCD "$NAME" || exit $?
+        ;;
+*)
+        log_failure_msg "Usage: /etc/init.d/dhcpcd {start|stop|restart|try-restart|force-reload|status}"
+    exit 1
+        ;;
+esac

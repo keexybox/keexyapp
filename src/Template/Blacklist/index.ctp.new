@@ -1,0 +1,189 @@
+<div class="box box-info">
+  <div class="box-header">
+    <h3 class="box-title"><?= __('Blacklist categories')?></h3>
+  </div>
+  <!-- /.box-header -->
+  <div class="box-body">
+    <div class="row bottom-buffer">
+      <div class="col-sm-2"><!-- actions -->
+        <?= $this->Html->link(
+            $this->Html->tag('span', "", [
+              'class' => "glyphicon glyphicon-plus",
+              'aria-hidden' => "true",
+              'title' => __("Add new domains to blacklist"),
+            ]),
+          ['controller' => 'blacklist', 'action' => 'add'],
+          ['escape' => false])
+        ?>
+        <?= $this->Html->link(
+            $this->Html->tag('span', "", [
+              'class' => "glyphicon glyphicon-import",
+              'aria-hidden' => "true",
+              'title' => __("Import new domains to blacklist"),
+            ]),
+            ['controller' => 'blacklist', 'action' => 'import'],
+            ['escape' => false]
+          )
+        ?>
+        <?= $this->Html->link(
+            $this->Html->tag('span', "", [
+              'class' => "glyphicon glyphicon-search",
+              'aria-hidden' => "true",
+              'title' => __("Query the blacklist"),
+            ]),
+            ['controller' => 'blacklist', 'action' => 'query'],
+            ['escape' => false]
+          )
+        ?>
+        <?= $this->Html->link(
+            $this->Html->tag('span', "", [
+              'class' => "glyphicon glyphicon-refresh",
+              'aria-hidden' => "true",
+              'title' => __("Refresh the blacklist"),
+            ]),
+            ['controller' => 'blacklist', 'action' => 'refresh'],
+            ['escape' => false]
+          )
+        ?>
+      </div><!-- /.col actions -->
+
+    </div><!-- /.row -->
+
+    <?php if (isset($categories) and is_array($categories)): ?>
+      <?= $this->Form->create('action', [ 
+          'onsubmit' => "return confirm(\"".__('Confirm action ?')."\");"
+        ])
+      ?>
+      <table class="table table-bordered table-striped">
+        <thead>
+          <tr>
+            <th><input type="checkbox" id="select_all"/></th>
+            <th><?= __('Category') ?></th>
+            <th><?= __('Websites') ?></th>
+            <th class="actions"><?= __('Actions') ?></th>
+          </tr>
+        </thead>
+        <tbody>
+          <?php foreach ($categories as $category): ?>
+          <tr>
+            <td><input class="checkbox" type="checkbox" name="check[]" value="<?= $category->category ?>"></td>
+            <td><?= h($category->category) ?></td>
+            <td>
+              <?= $this->Html->link($category->websites,
+                  [ 'action' => 'query', '?' => ['results' => 25, 'category' => $category->category, 'query' => '', 'action' => 'search']],
+                  ['escape' => false]
+                )
+              ?>
+            </td>
+            <td>
+              <?= $this->Html->link(
+                $this->Html->tag('span', "", [
+                  'class' => "glyphicon glyphicon-export",
+                  'aria-hidden' => "true",
+                  'title' => __("Export blacklist's category"),
+                  ]),
+                  ['action' => 'export', $category->category],
+                  ['escape' => false]
+                )
+              ?>
+              <?= $this->Form->postLink(
+                $this->Html->tag('span', "", [
+                    'class' => "glyphicon glyphicon-trash",
+                    'aria-hidden' => "true",
+                    'title' => __("Delete"),
+                  ]),
+                  ['action' => 'deleteCategory', $category->category],
+                  ['escape' => false, 'confirm' => __("Are you sure to delete the category {0} and all the domains it contains ?", $category->category)]
+                )
+              ?>
+            </td>
+          </tr>
+          <?php endforeach ?>
+        </tbody>
+      </table>
+
+      <div class="row">
+        <div class="col-lg-2">
+            <?= $this->Form->input('action', [
+                'type' => 'select',
+                'label' => false,
+                'options' => [
+                  'setcategory' => __('Change category'), 
+                  'export' => __('Export categories'),
+                  'delete' => __('Delete categories'),
+                  ],
+                'empty' => __('(select action)'),
+                'id' => "action",
+                'class' => "form-control",
+                'required' => "required",
+              ]);
+            ?>
+        </div>
+        <div id="setcategory" class="dynform" style="display:none">
+          <div class="col-lg-2" name="select-category">
+            <?= $this->Form->input('category', [
+              'type' => 'select',
+              'label' => false,
+              'options' => $categories_list,
+              'empty' => __('(Select existing category)'),
+              'class' => "form-control",
+              ]);
+          ?>
+          </div>
+          <div class="col-lg-2" name="select-category">
+            <?= $this->Form->input('newcategory', [
+              'label' => false,
+              'class' => "form-control",
+              'placeholder' => __('Set a new category'),
+              ]);
+            ?>
+          </div>
+        </div>
+        <div class="col-lg-1">
+          <?= $this->Form->button(
+              $this->Html->tag('span', '', [
+                'class' => "glyphicon glyphicon-ok",
+                'aria-hidden' => "true",
+                'title' => __("Go"),
+                ])."&nbsp".__('Go'),
+              [ 'class' => "btn btn-default pull-right", 'escape' => false]) 
+          ?>
+        </div>
+      </div>
+    <?= $this->Form->end() ?>
+
+    <?php else: ?>
+      <div class="alert alert-info">
+        <?= __('Blacklist is emty.') ?>
+        <br>
+        <?= __('You can download lists on Internet and import them to blacklist (Squidguard lists are compatible with Keexybox).') ?>
+      </div>
+    <?php endif ?>
+
+  </div><!-- /.box-body -->
+
+  <div class="box-footer">
+    <div class="row">
+
+      <!-- footer massive actions -->
+
+    </div><!-- /.row -->
+  
+    <?= $this->fetch('postLink') ?>
+  
+  </div><!-- /.box-footer -->
+
+</div><!-- /.box -->
+
+
+<script src="/js/selectall.js"></script>
+
+<script>
+  $(document).ready(function() {
+    $('#' + $("#action").val()).show();
+    $('select#action').change(function() {
+        $('.dynform').hide();
+      $('#' + $(this).val()).show();
+      });
+  });
+</script>

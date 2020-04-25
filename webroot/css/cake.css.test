@@ -1,0 +1,34 @@
+
+/* Couleur lien */
+a:hover {
+  color: #15848F;
+}
+
+a {
+  color: #1798A5;
+}
+
+header a:hover {
+      color: #ffffff;
+}
+header a {
+  color: #C2B6C2;
+}
+header ul li{
+      display: inline;
+}
+
+
+header {
+  background-color: #808080;
+  color: #ffffff;
+  font-size: 20px;
+  height: 25px;
+  line-height: 20px;
+  padding: 20px 0px;
+  box-shadow: 5px 5px rgba(0, 0, 0, 0.24);
+}
+
+h1 {
+  color:660033;
+}

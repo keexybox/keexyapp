@@ -1,0 +1,16 @@
+[class*="col-"] {
+    /*background-color: lightgreen;*/
+    /*border: 2px solid black;*/
+    /*border-radius: 6px;*/
+    /*line-height: 40px;*/
+    /*text-align: left;*/
+    /*for bootstrap debug*/
+    border: 2px solid grey;
+	        
+}
+
+[class*="row"] {
+    border-radius: 6px;
+    border: 2px solid black;
+}
+

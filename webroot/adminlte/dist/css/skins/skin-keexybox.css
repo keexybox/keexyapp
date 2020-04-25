@@ -1,0 +1,252 @@
+/*
+ * Skin: Keexybox
+ * -----------
+ */
+.skin-keexybox .main-header .navbar {
+  /* background-color: #00a65a; */
+  /* background-color: #15848F; */
+  background-color: #660066;
+}
+.skin-keexybox .main-header .navbar .nav > li > a {
+  color: #ffffff;
+}
+.skin-keexybox .main-header .navbar .nav > li > a:hover,
+.skin-keexybox .main-header .navbar .nav > li > a:active,
+.skin-keexybox .main-header .navbar .nav > li > a:focus,
+.skin-keexybox .main-header .navbar .nav .open > a,
+.skin-keexybox .main-header .navbar .nav .open > a:hover,
+.skin-keexybox .main-header .navbar .nav .open > a:focus,
+.skin-keexybox .main-header .navbar .nav > .active > a {
+  background: rgba(0, 0, 0, 0.1);
+  color: #f6f6f6;
+}
+.skin-keexybox .main-header .navbar .sidebar-toggle {
+  color: #ffffff;
+}
+.skin-keexybox .main-header .navbar .sidebar-toggle:hover {
+  color: #f6f6f6;
+  background: rgba(0, 0, 0, 0.1);
+}
+.skin-keexybox .main-header .navbar .sidebar-toggle {
+  color: #fff;
+}
+.skin-keexybox .main-header .navbar .sidebar-toggle:hover {
+  /* background-color: #008d4c; */
+  /* background-color: #0d5259; */
+  background-color: #a2008f;
+}
+@media (max-width: 767px) {
+  .skin-keexybox .main-header .navbar .dropdown-menu li.divider {
+    /* background-color: rgba(255, 255, 255, 0.1); */
+    background-color: rgba(255, 255, 255, 0.1);
+  }
+  .skin-keexybox .main-header .navbar .dropdown-menu li a {
+    color: #fff;
+  }
+  .skin-keexybox .main-header .navbar .dropdown-menu li a:hover {
+    background: #008d4c;
+  }
+}
+.skin-keexybox .main-header .logo {
+  /* background-color: #008d4c; */
+  background-color: #660066;
+  /* background-color: #0d5259; */
+  color: #ffffff;
+  border-bottom: 0 solid transparent;
+}
+.skin-keexybox .main-header .logo:hover {
+  /* background-color: #008749; */
+  background-color: #a2008f;
+}
+.skin-keexybox .main-header li.user-header {
+  /* background-color: #00a65a; */
+  /* background-color: #1ba5b1; */
+  background-color: #a2008f;
+}
+.user-info {
+  text-align: left;
+}
+.skin-keexybox .content-header {
+  background: transparent;
+}
+.skin-keexybox .wrapper,
+.skin-keexybox .main-sidebar,
+.skin-keexybox .left-side {
+  /* background-color: #222d32; */
+  /* background-color: #330033; */
+  background-color: #f9fafc;
+  /*background-color: #662000; */
+}
+.skin-keexybox .user-panel > .info,
+.skin-keexybox .user-panel > .info > a {
+  /* color: #fff; */
+  /* color: #444444; */
+  color: #fa4d03;
+}
+.skin-keexybox .sidebar-menu > li.header {
+  /* color: #4b646f; */
+  color: white;
+  /* background: #1a2226; */
+  background: #a2008f;
+}
+.skin-keexybox .sidebar-menu > li > a {
+  border-left: 3px solid transparent;
+}
+.skin-keexybox .sidebar-menu > li:hover > a,
+.skin-keexybox .sidebar-menu > li.active > a,
+.skin-keexybox .sidebar-menu > li.menu-open > a {
+  /* color: #ffffff; */
+  /* background: #1e282c; */
+  /* background: #1a001a; */
+  /* color: #000000; */
+  color: #fa4d03;
+  background: #f4f4f5;
+}
+.skin-keexybox .sidebar-menu > li.active > a {
+  /* border-left-color: #00a65a; */
+  /* border-left-color: #ff5100; */
+  border-left-color: #fa4d03;
+}
+.skin-keexybox .sidebar-menu > li > .treeview-menu {
+  margin: 0 1px;
+  /* background: #2c3b41; */
+  background: #f4f4f5;
+  /* background: #1a001a; */
+  /* background: #ff5100; */
+}
+.skin-keexybox .sidebar a {
+  /* color: #b8c7ce; */
+  /* color: #444444; */
+  /* color: #fa4d03; */
+  color: #660066;
+}
+.skin-keexybox .sidebar a:hover {
+  text-decoration: none;
+}
+.skin-keexybox .sidebar-menu .treeview-menu > li > a {
+  /* color: #8aa4af; */
+  /* color: #ffffff; */
+  /* color: #777777; */
+  color: #fa4d03;
+  /* color: #660066; */
+}
+.skin-keexybox .sidebar-menu .treeview-menu > li.active > a,
+.skin-keexybox .sidebar-menu .treeview-menu > li > a:hover {
+  /* color: #ffffff; */
+  /* color: #000000; */
+  /* color: #a2008f; */
+  color: #660066;
+}
+.skin-keexybox .sidebar-form {
+  border-radius: 3px;
+  border: 1px solid #374850;
+  margin: 10px 10px;
+}
+.skin-keexybox .sidebar-form input[type="text"],
+.skin-keexybox .sidebar-form .btn {
+  box-shadow: none;
+  background-color: #374850;
+  border: 1px solid transparent;
+  height: 35px;
+}
+.skin-keexybox .sidebar-form input[type="text"] {
+  color: #666;
+  border-top-left-radius: 2px;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 2px;
+}
+.skin-keexybox .sidebar-form input[type="text"]:focus,
+.skin-keexybox .sidebar-form input[type="text"]:focus + .input-group-btn .btn {
+  background-color: #fff;
+  color: #666;
+}
+.skin-keexybox .sidebar-form input[type="text"]:focus + .input-group-btn .btn {
+  border-left-color: #fff;
+}
+.skin-keexybox .sidebar-form .btn {
+  color: #999;
+  border-top-left-radius: 0;
+  border-top-right-radius: 2px;
+  border-bottom-right-radius: 2px;
+  border-bottom-left-radius: 0;
+}
+
+/*
+ * Keexybox adds
+ * -----------
+ */
+
+.user-menu:hover {
+  /* background-color: #1ba5b1; */
+  background-color: #a2008f;
+}
+
+/* Online offline status */
+.fa-circle-offline {
+  color: #383838;
+}
+
+.fa-circle-online {
+  color: #33cc33;
+}
+
+.fa-circle-pause {
+  color: #ff8533;
+}
+/* end Online offline status */
+
+/* Logo auto resize */
+.logo img {
+   padding: 4px;
+   object-fit: contain;
+   margin: 0 auto;
+}
+
+.logo .logo-lg img {
+    max-width: 220px;
+    max-height: 60px;
+}
+
+.logo .logo-mini img {
+    max-width: 50px;
+    max-height: 50px;
+}
+
+/* end Logo auto resize */
+
+.login-page {
+  min-height: 100%;
+  /* background-color: #0d5259!important; */
+  background-color: #660066!important;
+  z-index: 800;
+  color: white;
+}
+.login-form-logo {
+  color: gray;
+}
+
+.success-status-color{
+  color: green;
+}
+
+.critical-status-color{
+  color: #ff3333;
+}
+
+.error-message {
+  color: #ff3333;
+}
+.http-link-color-error, .http-link-color-error:hover{
+  color: #fa4d03;
+}
+
+.console-display {
+  font-family: monospace;
+  background-color: black;
+  color: white;
+  padding-top: 10px;
+  padding-right: 10px;
+  padding-bottom: 10px;
+  padding-left: 10px;
+}

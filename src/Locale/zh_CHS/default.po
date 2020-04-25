@@ -1,0 +1,3203 @@
+# LANGUAGE translation of CakePHP Application
+# Copyright 2020 Benoit SAGLIETTO <bsaglietto@keexybox.org>
+#
+
+#: Controller/BlacklistController.php:59
+msgid "all"
+msgstr "全部"
+
+#: Controller/BlacklistController.php:111;450
+#: Controller/ProfilesRoutingController.php:205
+#: Controller/ToolsController.php:184
+msgid "Please define a category"
+msgstr "请限定类别"
+
+#: Controller/BlacklistController.php:125
+#: Controller/DevicesController.php:154;251
+#: Controller/ProfilesIpfiltersController.php:310
+#: Controller/ProfilesRoutingController.php:234
+#: Controller/ToolsController.php:70
+#: Controller/UsersController.php:148
+msgid "Nothing was selected."
+msgstr "没有选择任何内容。"
+
+#: Controller/BlacklistController.php:256
+msgid "Following domains are invalid and were not added to the Blacklist: "
+msgstr "下列域名无效，未添加到黑名单： "
+
+#: Controller/BlacklistController.php:258
+msgid "Domains added successfully to the Blacklist."
+msgstr "已成功将域名添加到黑名单。"
+
+#: Controller/BlacklistController.php:272
+msgid "Domains imported successfully to Blacklist from lists."
+msgstr "域名已成功从列表导入黑名单。"
+
+#: Controller/BlacklistController.php:274
+msgid "Some lists were invalid to import domains to the Blacklist."
+msgstr "有些列表无效，无法将域名导入黑名单。"
+
+#: Controller/BlacklistController.php:328
+msgid "Domain {0} has been deleted."
+msgstr "域名{0}已被删除。"
+
+#: Controller/BlacklistController.php:330
+msgid "Domain {0} could not be deleted."
+msgstr "无法删除域名{0}。"
+
+#: Controller/BlacklistController.php:330;352;379
+#: Controller/ConfigController.php:121;1025
+#: Controller/ConnectionsController.php:364
+#: Controller/DevicesController.php:354;456;485;666
+#: Controller/ProfilesController.php:594
+#: Controller/ProfilesIpfiltersController.php:397;485;510;540;566
+#: Controller/ProfilesRoutingController.php:511
+#: Controller/ProfilesTimesController.php:52
+#: Controller/UsersController.php:498;545;592;598
+msgid "Please try again."
+msgstr "请重试。"
+
+#: Controller/BlacklistController.php:349
+msgid "Category {0} has been deleted."
+msgstr "类别{0}已被删除。"
+
+#: Controller/BlacklistController.php:352
+msgid "Unable to delete category {0}."
+msgstr "无法删除类别{0}。"
+
+#: Controller/BlacklistController.php:373
+msgid "Domains imported successfully to the Blacklist."
+msgstr "已成功将域名导入到黑名单。"
+
+#: Controller/BlacklistController.php:375
+msgid "Unable to import domains to the Blacklist, please try with another file."
+msgstr "无法将域名导入黑名单，请尝试使用其他文件。"
+
+#: Controller/BlacklistController.php:379
+#: Controller/DevicesController.php:666
+#: Controller/ProfilesController.php:594
+#: Controller/UsersController.php:498
+msgid "Unable to upload file."
+msgstr "无法上传文件。"
+
+#: Controller/ConfigController.php:90
+msgid "{0} configuration files generated successfully."
+msgstr "已成功生成{0}配置文件。"
+
+#: Controller/ConfigController.php:92;385;613;873;1022
+#: Controller/ProfilesController.php:137;305
+msgid "Unable to write {0} configuration files."
+msgstr "无法写入{0}配置文件。"
+
+#: Controller/ConfigController.php:118
+msgid "The value has been changed successfully."
+msgstr "值已更改成功。"
+
+#: Controller/ConfigController.php:121
+msgid "Unable to change the value."
+msgstr "无法更改值。"
+
+#: Controller/ConfigController.php:250;300;317;540
+#: Model/Table/ActivesConnectionsTable.php:65
+#: Model/Table/ConfigTable.php:61;77
+#: Model/Table/DevicesTable.php:108
+#: Model/Table/ProfilesIpfiltersTable.php:92;119;125
+#: Model/Table/ProfilesRoutingTable.php:67
+msgid "Invalid IP address"
+msgstr "IP地址无效"
+
+#: Controller/ConfigController.php:381
+msgid "Network settings successfully saved. Please adjust the DHCP settings and reboot KeexyBox."
+msgstr "网络设置已成功保存。请调整DHCP设置并重新启动KeexyBox。"
+
+#: Controller/ConfigController.php:389
+msgid "Internal network IP and ouput IP must be in a different subnets."
+msgstr "内部网络IP和输出IP必须在不同的子网中。"
+
+#: Controller/ConfigController.php:391
+msgid "Output network IP and gateway are not in the same subnet."
+msgstr "输出网络IP和网关不在同一子网中。"
+
+#: Controller/ConfigController.php:393
+msgid "Network settings have not been updated."
+msgstr "网络设置尚未更新。"
+
+#: Controller/ConfigController.php:604;607;610
+msgid "DHCP settings updated successfully."
+msgstr "DHCP设置成功更新。"
+
+#: Controller/ConfigController.php:610
+msgid "But DHCP reload failed."
+msgstr "但是DHCP重新加载失败。"
+
+#: Controller/ConfigController.php:617
+msgid "One or more DHCP IP Addresses does not match with subnets."
+msgstr "一个或多个DHCP IP地址与子网不匹配。"
+
+#: Controller/ConfigController.php:619
+msgid "One or more DHCP IP Addresses are used by KeexyBox."
+msgstr "KeexyBox使用一个或多个DHCP IP地址。"
+
+#: Controller/ConfigController.php:621
+msgid "DHCP settings have not been updated."
+msgstr "DHCP设置尚未更新。"
+
+#: Controller/ConfigController.php:680
+msgid "Invalid country code"
+msgstr "国家代码无效"
+
+#: Controller/ConfigController.php:699
+#: Model/Table/BlacklistTable.php:44
+#: Model/Table/ConfigTable.php:149
+#: Model/Table/ProfilesRoutingTable.php:78
+msgid "Invalid domain"
+msgstr "域名格式无效"
+
+#: Controller/ConfigController.php:719
+#: Model/Table/ConfigTable.php:113;129
+msgid "Invalid name"
+msgstr "名称无效"
+
+#: Controller/ConfigController.php:740
+msgid "Certificate updated successfully. It will be active after next reboot."
+msgstr "证书已更新成功。下次重启后会被激活。"
+
+#: Controller/ConfigController.php:742
+msgid "Unable to generate certificate."
+msgstr "无法生成证书。"
+
+#: Controller/ConfigController.php:745
+msgid "Certificate has not been updated."
+msgstr "证书未被更新。"
+
+#: Controller/ConfigController.php:834
+msgid "Invalid ntp server"
+msgstr "ntp服务器无效"
+
+#: Controller/ConfigController.php:865;867
+msgid "Date and time settings saved successfully."
+msgstr "日期和时间设置已成功保存。"
+
+#: Controller/ConfigController.php:867
+msgid "But unable to restart NTP service."
+msgstr "但是无法重启NTP服务。"
+
+#: Controller/ConfigController.php:877
+msgid "Date and time settings have not been updated."
+msgstr "日期和时间设置尚未更新。"
+
+#: Controller/ConfigController.php:937
+msgid "Routing cache expiration must be between 1 and 15 days."
+msgstr "路由缓存过期时间必须介于1到15天之间。"
+
+#: Controller/ConfigController.php:962;978
+msgid "Invalid log retention value"
+msgstr "日志保留值无效"
+
+#: Controller/ConfigController.php:991
+msgid "Unable to set DNS redirectors"
+msgstr "无法设置DNS重定向"
+
+#: Controller/ConfigController.php:1017;1019
+msgid "Settings saved successfully."
+msgstr "设置已成功保存。"
+
+#: Controller/ConfigController.php:1019
+#: Controller/ProfilesController.php:301
+msgid "But unable to reload DNS service."
+msgstr "但无法重新加载DNS服务。"
+
+#: Controller/ConfigController.php:1025
+msgid "Settings could not be saved."
+msgstr "无法保存设置"
+
+#: Controller/ConnectionsController.php:241
+msgid "No connection information found for this IP address."
+msgstr "找不到此IP地址的连接信息。"
+
+#: Controller/ConnectionsController.php:362
+msgid "The connection history has been deleted."
+msgstr "连接历史记录已被删除。"
+
+#: Controller/ConnectionsController.php:364
+msgid "The connection history could not be deleted."
+msgstr "无法删除连接历史记录。"
+
+#: Controller/DevicesController.php:135
+#: Controller/ProfilesIpfiltersController.php:297
+#: Controller/ProfilesRoutingController.php:185
+#: Controller/UsersController.php:131
+msgid "Please select a profile."
+msgstr "请选择配置文件。"
+
+#: Controller/DevicesController.php:251
+msgid "No devices were added."
+msgstr "未添加任何设备。"
+
+#: Controller/DevicesController.php:333;336;339;342;354;427;430;433;436;456
+msgid "The device could not be saved."
+msgstr "无法保存设备。"
+
+#: Controller/DevicesController.php:333;427
+msgid "DHCP IP address does not match with any KeexyBox subnets."
+msgstr "DHCP IP地址与任何KeexyBox子网都不匹配。"
+
+#: Controller/DevicesController.php:336;430
+msgid "DHCP IP address is being used by input interface."
+msgstr "输入接口正在使用DHCP IP地址。"
+
+#: Controller/DevicesController.php:339;433
+msgid "DHCP IP address is being used by output interface."
+msgstr "输出接口正在使用DHCP IP地址。"
+
+#: Controller/DevicesController.php:342;436
+msgid "DHCP IP address is being used by the gateway."
+msgstr "网关正在使用DHCP IP地址。"
+
+#: Controller/DevicesController.php:348;442
+msgid "The device has been saved."
+msgstr "设备已保存。"
+
+#: Controller/DevicesController.php:404;406
+msgid "By default IP addresses will be assigned in the subnet {0} if DHCP is enabled."
+msgstr "默认情况下，如果启用了DHCP，将在子网{0}中分配IP地址。"
+
+#: Controller/DevicesController.php:404;406
+msgid "Here you can reserve an IP address for this device."
+msgstr "您可以在此处为该设备保留一个IP地址。"
+
+#: Controller/DevicesController.php:404
+msgid "If you want this device to use KeexyBox as DNS only, define an IP address in the {0} subnet."
+msgstr "如果希望此设备仅将KeexyBox用作DNS，请在{0}子网中定义一个IP地址。"
+
+#: Controller/DevicesController.php:447
+#: Controller/UsersController.php:267
+msgid "Do you want to reconnect {0} with new profile?"
+msgstr "是否要将{0}与新配置文件重新连接？"
+
+#: Controller/DevicesController.php:482
+msgid "The device has been deleted."
+msgstr "设备已被删除。"
+
+#: Controller/DevicesController.php:485
+msgid "The device could not be deleted."
+msgstr "设备无法被删除。"
+
+#: Controller/DevicesController.php:618;625;630
+#: Controller/UsersController.php:454;461;466
+msgid "Import error line number {0}."
+msgstr "行号{0}导入错误。"
+
+#: Controller/DevicesController.php:641
+msgid "Devices have been imported successfully."
+msgstr "设备已成功导入。"
+
+#: Controller/DevicesController.php:644
+msgid "Devices have been imported with errors."
+msgstr "设备已导入，但有错误"
+
+#: Controller/DevicesController.php:654
+msgid "Devices not imported."
+msgstr "未导入设备。"
+
+#: Controller/DevicesController.php:654
+#: Controller/UsersController.php:491
+msgid "Bad CSV headers."
+msgstr "CSV标题错误。"
+
+#: Controller/DevicesController.php:695
+msgid "Device {0} connected successfully."
+msgstr "设备{0}已成功连接。"
+
+#: Controller/DevicesController.php:697
+msgid "Unable to connect {0} device. Please check if the device is on the network."
+msgstr "无法连接{0}设备。请检查设备是否已连接网络。"
+
+#: Controller/DevicesController.php:745
+msgid "Device {0} has been disconnected."
+msgstr "设备{0}已断开连接。"
+
+#: Controller/DevicesController.php:747
+msgid "Unable to disconnect Device {0}."
+msgstr "无法断开设备{0}。"
+
+#: Controller/DevicesController.php:774
+msgid "Device {0} connection has been paused."
+msgstr "设备{0}连接已暂停。"
+
+#: Controller/DevicesController.php:776
+msgid "Unable to pause connection of device {0}."
+msgstr "无法暂停设备{0}的连接。"
+
+#: Controller/DevicesController.php:802
+msgid "Device {0} connection resumed."
+msgstr "设备{0}连接已恢复。"
+
+#: Controller/DevicesController.php:804
+msgid "Unable to resume connection of the device {0}."
+msgstr "无法恢复设备{0}的连接。"
+
+#: Controller/DevicesController.php:829
+msgid "The device {0} has been reconnected successfully."
+msgstr "设备{0}已成功重新连接。"
+
+#: Controller/DevicesController.php:831
+msgid "Unable to reconnect the device {0}."
+msgstr "无法重新连接设备{0}。"
+
+#: Controller/ProfilesController.php:119
+msgid "Profile added successfully."
+msgstr "配置文件已添加成功。"
+
+#: Controller/ProfilesController.php:119
+msgid "Please now adjust the profile settings."
+msgstr "现在请调整配置文件设置。"
+
+#: Controller/ProfilesController.php:128
+msgid "Unable to reload DNS service."
+msgstr "无法重新加载DNS服务。"
+
+#: Controller/ProfilesController.php:141
+msgid "Unable to add the profile."
+msgstr "无法添加配置文件。"
+
+#: Controller/ProfilesController.php:255;272
+msgid "One or more connection schedules were not saved."
+msgstr "一个或多个连接计划未保存。"
+
+#: Controller/ProfilesController.php:255
+msgid "End time was before start time or no day was selected."
+msgstr "结束时间早于开始时间或未选择日期。"
+
+#: Controller/ProfilesController.php:272
+msgid "End time was before start time."
+msgstr "结束时间早于开始时间。"
+
+#: Controller/ProfilesController.php:294;297;301
+msgid "Profile saved successfully."
+msgstr "配置文件保存成功。"
+
+#: Controller/ProfilesController.php:310
+msgid "Unable to update profile."
+msgstr "无法更新配置文件。"
+
+#: Controller/ProfilesController.php:404
+msgid "All users and devices reconnected successfully."
+msgstr "所有用户和设备都已成功重新连接。"
+
+#: Controller/ProfilesController.php:406
+msgid "Unable to reconnect all users and devices."
+msgstr "无法重新连接所有用户和设备。"
+
+#: Controller/ProfilesController.php:589
+msgid "File has been uploaded successfully."
+msgstr "文件已成功上传。"
+
+#: Controller/ProfilesController.php:589
+msgid "Please select below data to import."
+msgstr "请选择以下要导入的数据。"
+
+#: Controller/ProfilesController.php:684
+msgid "Unable to import profile."
+msgstr "无法导入配置文件。"
+
+#: Controller/ProfilesController.php:743
+msgid "Profile imported successfully."
+msgstr "配置文件已导入成功。"
+
+#: Controller/ProfilesController.php:748
+msgid "No profile defined to import data."
+msgstr "没有定义要导入数据的配置文件。"
+
+#: Controller/ProfilesController.php:761
+msgid "No data to import."
+msgstr "没有要导入的数据。"
+
+#: Controller/ProfilesController.php:819
+msgid "Profile {0} has been deleted."
+msgstr "配置文件{0}已被删除。"
+
+#: Controller/ProfilesController.php:823
+msgid "Deleting profile {0} is forbidden."
+msgstr "禁止删除配置文件{0}。"
+
+#: Controller/ProfilesController.php:842
+msgid "Profile ID is not specified."
+msgstr "未指定配置文件ID。"
+
+#: Controller/ProfilesController.php:846
+msgid "Profile {0} has been reloaded successfully."
+msgstr "配置文件{0}已成功重新加载。"
+
+#: Controller/ProfilesController.php:848
+msgid "Unable to reload profile {0}."
+msgstr "无法重新加载配置文件{0}。"
+
+#: Controller/ProfilesIpfiltersController.php:215;267
+msgid "Please select rule position."
+msgstr "请选择规则位置。"
+
+#: Controller/ProfilesIpfiltersController.php:379;513
+msgid "Last IP must be greater than first IP"
+msgstr "最后一个IP必须大于第一个IP"
+
+#: Controller/ProfilesIpfiltersController.php:389;477;502;532
+msgid "Firewall rule has been saved."
+msgstr "防火墙规则已保存。"
+
+#: Controller/ProfilesIpfiltersController.php:397;400;485;510;540
+msgid "Firewall rule could not be saved."
+msgstr "无法保存防火墙规则。"
+
+#: Controller/ProfilesIpfiltersController.php:400
+msgid "Following ports are invalid: "
+msgstr "下列端口无效： "
+
+#: Controller/ProfilesIpfiltersController.php:564
+msgid "Firewall rule has been deleted."
+msgstr "防火墙规则已被删除。"
+
+#: Controller/ProfilesIpfiltersController.php:566
+msgid "Firewall rule could not be deleted."
+msgstr "无法删除防火墙规则。"
+
+#: Controller/ProfilesRoutingController.php:180;182
+msgid "Selected domain routings have been copied successfully."
+msgstr "已成功复制选定的域名路由。"
+
+#: Controller/ProfilesRoutingController.php:180
+msgid "Except for the following addresses which already exist for the profile: {0}"
+msgstr "除了以下已经存在的配置文件地址：{0}"
+
+#: Controller/ProfilesRoutingController.php:221
+msgid "Please select routing target."
+msgstr "请选择路由目标。"
+
+#: Controller/ProfilesRoutingController.php:380;382;465
+msgid "Domain routings saved successfully."
+msgstr "已成功保存域名路由。"
+
+#: Controller/ProfilesRoutingController.php:380
+msgid "Except for the following addresses: {0}"
+msgstr "除了以下地址：{0}"
+
+#: Controller/ProfilesRoutingController.php:472
+msgid "Domain routings have not been saved."
+msgstr "尚未保存域名路由。"
+
+#: Controller/ProfilesRoutingController.php:473
+msgid "Invalid address"
+msgstr "地址无效"
+
+#: Controller/ProfilesRoutingController.php:509
+msgid "Domain routing {0} has been deleted."
+msgstr "域名路由{0}已被删除。"
+
+#: Controller/ProfilesRoutingController.php:511
+msgid "Domain routing {0} could not be deleted."
+msgstr "无法删除域名路由{0}。"
+
+#: Controller/ProfilesTimesController.php:50
+msgid "Connection schedule has been deleted."
+msgstr "已删除连接计划。"
+
+#: Controller/ProfilesTimesController.php:52
+msgid "Connection schedule could not be deleted."
+msgstr "无法删除连接计划。"
+
+#: Controller/ToolsController.php:48
+msgid "DNS Service for domain filtering"
+msgstr "用于域名过滤的DNS服务"
+
+#: Controller/ToolsController.php:49
+msgid "Service which assigns automatically an IP address on devices"
+msgstr "在设备上自动分配IP地址的服务"
+
+#: Controller/ToolsController.php:50
+msgid "Service for time synchronization"
+msgstr "时间同步服务"
+
+#: Controller/ToolsController.php:53
+msgid "Service for routing and firewall rules"
+msgstr "路由和防火墙规则服务"
+
+#: Controller/ToolsController.php:54
+msgid "Anonymization service"
+msgstr "匿名服务"
+
+#: Controller/ToolsController.php:97
+msgid "Service {0} {1} successfull."
+msgstr "服务{0}{1}成功。"
+
+#: Controller/ToolsController.php:99
+msgid "Service {0} {1} failed."
+msgstr "服务{0}{1}失败。"
+
+#: Controller/UsersController.php:186
+msgid "The user has been added successfully."
+msgstr "用户已成功添加。"
+
+#: Controller/UsersController.php:201
+msgid "Unable to add the user."
+msgstr "无法添加用户。"
+
+#: Controller/UsersController.php:265
+msgid "The user has been updated successfully."
+msgstr "用户已成功更新。"
+
+#: Controller/UsersController.php:275
+msgid "Unable to update the user."
+msgstr "无法更新用户。"
+
+#: Controller/UsersController.php:303
+msgid "The user {0} has been deleted."
+msgstr "用户{0}已被删除。"
+
+#: Controller/UsersController.php:308
+msgid "Deleting the user {0} is forbidden."
+msgstr "禁止删除用户{0}。"
+
+#: Controller/UsersController.php:477
+msgid "Users have been imported successfully."
+msgstr "用户已成功导入。"
+
+#: Controller/UsersController.php:481
+msgid "Users have been imported with errors."
+msgstr "导入用户时出错。"
+
+#: Controller/UsersController.php:491
+msgid "Users not imported."
+msgstr "未导入用户。"
+
+#: Controller/UsersController.php:545;592;598
+msgid "Incorrect login or password."
+msgstr "登录名或密码不正确。"
+
+#: Controller/UsersController.php:594
+msgid "You do not have management permissions."
+msgstr "您没有管理权限。"
+
+#: Controller/UsersController.php:632
+msgid "You are now connected to the Internet."
+msgstr "您现在已连接到互联网。"
+
+#: Controller/UsersController.php:634
+msgid "Unable to connect you to the Internet."
+msgstr "无法连接到互联网。"
+
+#: Controller/UsersController.php:658
+msgid "You are now disconnected from the internet."
+msgstr "您现在已断开与互联网的连接。"
+
+#: Controller/UsersController.php:660
+msgid "Unable to disconnect you from the Internet."
+msgstr "无法断开与互联网的连接。"
+
+#: Controller/UsersController.php:664
+msgid "Your connection is paused."
+msgstr "您的连接已暂停。"
+
+#: Controller/UsersController.php:664
+msgid "Disconnections are forbidden for paused connections."
+msgstr "禁止断开暂停的连接。"
+
+#: Controller/UsersController.php:692
+msgid "The user {0} has been disconnected successfully."
+msgstr "用户{0}已成功断开连接。"
+
+#: Controller/UsersController.php:694
+msgid "Unable to disconnect the user {0}."
+msgstr "无法断开用户{0}的连接。"
+
+#: Controller/UsersController.php:720
+msgid "The connection of the user {0} has been paused."
+msgstr "用户{0}的连接已暂停。"
+
+#: Controller/UsersController.php:722
+msgid "Unable to pause the connection of the user {0}."
+msgstr "无法暂停用户{0}的连接。"
+
+#: Controller/UsersController.php:748
+msgid "The connection of the user {0} has been resumed."
+msgstr "用户{0}的连接已恢复。"
+
+#: Controller/UsersController.php:750
+msgid "Unable to resume the connection of the user {0}."
+msgstr "无法恢复用户{0}的连接。"
+
+#: Controller/UsersController.php:776
+msgid "The user {0} has been reconnected successfully."
+msgstr "用户{0}已成功重新连接。"
+
+#: Controller/UsersController.php:778
+msgid "Unable to reconnect the user {0}."
+msgstr "无法重新连接用户{0}。"
+
+#: Controller/Component/ConnectionDurationComponent.php:39
+msgid "15 minutes"
+msgstr "15分钟"
+
+#: Controller/Component/ConnectionDurationComponent.php:40
+msgid "30 minutes"
+msgstr "30分钟"
+
+#: Controller/Component/ConnectionDurationComponent.php:41
+msgid "1 hour"
+msgstr "1小时"
+
+#: Controller/Component/ConnectionDurationComponent.php:42
+msgid "2 hours"
+msgstr "2小时"
+
+#: Controller/Component/ConnectionDurationComponent.php:43
+msgid "4 hours"
+msgstr "4小时"
+
+#: Controller/Component/ConnectionDurationComponent.php:44
+msgid "8 hours"
+msgstr "8小时"
+
+#: Controller/Component/ConnectionDurationComponent.php:45
+msgid "12 hours"
+msgstr "12小时"
+
+#: Controller/Component/ConnectionDurationComponent.php:46
+msgid "1 day"
+msgstr "1天"
+
+#: Controller/Component/ConnectionDurationComponent.php:47
+msgid "1 week"
+msgstr "1周"
+
+#: Controller/Component/ConnectionDurationComponent.php:48
+msgid "2 weeks"
+msgstr "2周"
+
+#: Controller/Component/ConnectionDurationComponent.php:49
+msgid "1 month"
+msgstr "1个月"
+
+#: Model/Table/ActivesConnectionsTable.php:71
+msgid "This IP is already connected"
+msgstr "该IP已连接"
+
+#: Model/Table/BlacklistTable.php:37
+#: Model/Table/DevicesTable.php:77
+#: Model/Table/UsersNoHashPasswordTable.php:56
+#: Model/Table/UsersTable.php:50
+msgid "The value must be alphanumeric and may contain hyphens (-) and underscores (_)"
+msgstr "该值必须是字母数字，可以包含连字符（-）和下划线（_）"
+
+#: Model/Table/ConfigTable.php:97
+msgid "The value must be alphanumeric"
+msgstr "该值必须是字母数字"
+
+#: Model/Table/ConfigTable.php:165;201
+msgid "The value must be between {0} and {1} days"
+msgstr "该值必须介于{0}和{1}天之间"
+
+#: Model/Table/DevicesTable.php:68
+msgid "Device name already used"
+msgstr "设备名称已被占用"
+
+#: Model/Table/DevicesTable.php:87
+#: Model/Table/ProfilesTable.php:94
+#: Model/Table/UsersNoHashPasswordTable.php:68
+#: Model/Table/UsersTable.php:62
+msgid "This name is already taken"
+msgstr "该名称已被占用"
+
+#: Model/Table/DevicesTable.php:95
+#: Model/Table/ProfilesRoutingTable.php:53
+msgid "The value should not be empty"
+msgstr "值不得为空"
+
+#: Model/Table/DevicesTable.php:99
+msgid "Invalid MAC address"
+msgstr "MAC地址无效"
+
+#: Model/Table/DevicesTable.php:114
+msgid "This IP address is already reserved"
+msgstr "该IP地址已被保留"
+
+#: Model/Table/ProfilesIpfiltersTable.php:83;110;111
+msgid "The IP address is required"
+msgstr "IP地址必填"
+
+#: Model/Table/ProfilesIpfiltersTable.php:84
+msgid "The netmask is required"
+msgstr "子网掩码必填"
+
+#: Model/Table/ProfilesIpfiltersTable.php:152
+msgid "Invalid Hostname"
+msgstr "主机名无效"
+
+#: Model/Table/UsersNoHashPasswordTable.php:77
+msgid "The hashed password must 60 chars"
+msgstr "哈希密码必须为60个字符"
+
+#: Model/Table/UsersTable.php:71
+msgid "Passwords do not match"
+msgstr "密码不匹配"
+
+#: Model/Table/UsersTable.php:77
+msgid "Password must contain at least 8 characters"
+msgstr "密码必须至少包含8个字符"
+
+#: Shell/ArpShell.php:155
+msgid "Unknown"
+msgstr "未知"
+
+#: Shell/ServiceShell.php:251;259
+msgid "DHCP service is disabled"
+msgstr "DHCP服务已禁用"
+
+#: Template/Blacklist/add.ctp:9
+#: Template/Blacklist/index.ctp:11
+#: Template/Blacklist/query.ctp:11
+#: Template/Blacklist/wadd.ctp:2
+msgid "Add domains to the Blacklist"
+msgstr "将域名添加到黑名单中"
+
+#: Template/Blacklist/add.ctp:19
+#: Template/Blacklist/wadd.ctp:27
+msgid "Here you can add domains to the Blacklist line per line or separated by a space"
+msgstr "您可以在这里将域名添加到黑名单中，可以逐行添加或用空格隔开"
+
+#: Template/Blacklist/add.ctp:36
+#: Template/Blacklist/wadd.ctp:44
+msgid "Overwrite the category of existing domains in the Blacklist"
+msgstr "覆盖黑名单中现有域名的类别"
+
+#: Template/Blacklist/add.ctp:44
+#: Template/Blacklist/wadd.ctp:52
+msgid "You can here import domains to the Blacklist from lists available on the Internet (one URL per line)"
+msgstr "您可以在这里从互联网下载，然后将域名导入黑名单中（每行一个URL）"
+
+#: Template/Blacklist/add.ctp:58
+#: Template/Blacklist/index.ctp:52
+#: Template/Blacklist/query.ctp:58;97
+#: Template/Blacklist/wadd.ctp:66
+#: Template/Tools/domain_issue.ctp:64
+msgid "Category"
+msgstr "类别"
+
+#: Template/Blacklist/add.ctp:64
+#: Template/Blacklist/index.ctp:126
+#: Template/Blacklist/query.ctp:144
+#: Template/Blacklist/wadd.ctp:72
+#: Template/ProfilesRouting/add.ctp:101
+#: Template/ProfilesRouting/edit.ctp:84
+#: Template/ProfilesRouting/index.ctp:172
+#: Template/Tools/domain_issue.ctp:117
+msgid "(Select existing category)"
+msgstr "（选择现有类别）"
+
+#: Template/Blacklist/add.ctp:71
+#: Template/Blacklist/wadd.ctp:79
+msgid "Or create new category"
+msgstr "或者创建新类别"
+
+#: Template/Blacklist/add.ctp:77
+#: Template/Blacklist/wadd.ctp:85
+msgid "Category name"
+msgstr "类别名"
+
+#: Template/Blacklist/add.ctp:94;95
+#: Template/Config/certificate.ctp:109;110
+#: Template/Config/datetime.ctp:78;79
+#: Template/Config/dhcp.ctp:163;164
+#: Template/Config/edit.ctp:31;32
+#: Template/Config/misc.ctp:126;127
+#: Template/Config/network.ctp:275;276
+#: Template/Devices/add.ctp:100;101
+#: Template/Devices/add2.ctp:99;100
+#: Template/Devices/edit.ctp:96;97
+#: Template/Devices/import.ctp:36;37
+#: Template/Profiles/add.ctp:64;65
+#: Template/Profiles/edit.ctp:374;375
+#: Template/Profiles/export.ctp:74;75
+#: Template/Profiles/import.ctp:335;336
+#: Template/Profiles/upload_import.ctp:36;37
+#: Template/ProfilesIpfilters/add.ctp:252;253;264;265
+#: Template/ProfilesIpfilters/edit.ctp:272;273;284;285
+#: Template/ProfilesRouting/add.ctp:125;126
+#: Template/ProfilesRouting/edit.ctp:109;110
+#: Template/Users/add.ctp:105;106
+#: Template/Users/edit.ctp:127;128
+#: Template/Users/import.ctp:36;37
+msgid "Cancel"
+msgstr "取消"
+
+#: Template/Blacklist/add.ctp:104;105
+#: Template/Blacklist/import.ctp:44;45
+#: Template/Blacklist/wadd.ctp:104;105
+#: Template/Config/certificate.ctp:119;120
+#: Template/Config/datetime.ctp:87;88
+#: Template/Config/dhcp.ctp:172;173
+#: Template/Config/edit.ctp:40;41
+#: Template/Config/misc.ctp:135;136
+#: Template/Config/network.ctp:284;285
+#: Template/Config/wpa.ctp:49;50
+#: Template/Devices/add.ctp:109;110
+#: Template/Devices/add2.ctp:108;109
+#: Template/Devices/edit.ctp:105;106
+#: Template/Devices/import.ctp:45;46
+#: Template/Profiles/add.ctp:73;74
+#: Template/Profiles/edit.ctp:383;384
+#: Template/Profiles/wadd.ctp:80;81
+#: Template/Profiles/wedit.ctp:394
+#: Template/ProfilesIpfilters/add.ctp:276;277
+#: Template/ProfilesIpfilters/edit.ctp:296;297
+#: Template/ProfilesRouting/add.ctp:135;136
+#: Template/ProfilesRouting/edit.ctp:119;120
+#: Template/Users/add.ctp:114;115
+#: Template/Users/edit.ctp:136;137
+#: Template/Users/import.ctp:45;46
+#: Template/Users/wadd.ctp:6;115;116
+msgid "Save"
+msgstr "保存"
+
+#: Template/Blacklist/add.ctp:116
+#: Template/Blacklist/wadd.ctp:116
+msgid "Import domains to the Blacklist from a file"
+msgstr "将域名从文件导入黑名单"
+
+#: Template/Blacklist/add.ctp:120
+#: Template/Blacklist/wadd.ctp:120
+msgid "To import domains from tar.gz file, please click on {0}."
+msgstr "如需从tar.gz文件导入域名，请点击{0}。"
+
+#: Template/Blacklist/add.ctp:120;129;130
+#: Template/Blacklist/wadd.ctp:120;131;132
+#: Template/Profiles/import.ctp:344;345
+msgid "Import"
+msgstr "导入"
+
+#: Template/Blacklist/add.ctp:121
+#: Template/Blacklist/wadd.ctp:121
+msgid "Domains will be automatically categorized."
+msgstr "域名将会自动分类。"
+
+#: Template/Blacklist/import.ctp:8
+#: Template/Blacklist/query.ctp:20
+msgid "Import domains to the Blacklist"
+msgstr "将域名导入黑名单"
+
+#: Template/Blacklist/import.ctp:16
+#: Template/Profiles/upload_import.ctp:16
+msgid "Select tar.gz file"
+msgstr "选择tar.gz文件"
+
+#: Template/Blacklist/import.ctp:35;36
+#: Template/Config/wpa.ctp:39;40
+msgid "Close"
+msgstr "关闭"
+
+#: Template/Blacklist/index.ctp:3
+msgid "Blacklist categories"
+msgstr "黑名单类别"
+
+#: Template/Blacklist/index.ctp:20
+#: Template/Blacklist/query.ctp:3
+msgid "Query the Blacklist"
+msgstr "查询黑名单"
+
+#: Template/Blacklist/index.ctp:30
+msgid "Refresh the Blacklist"
+msgstr "刷新黑名单"
+
+#: Template/Blacklist/index.ctp:43
+#: Template/Blacklist/query.ctp:85
+#: Template/Config/advanced.ctp:14
+#: Template/Connections/history.ctp:25
+#: Template/Connections/index.ctp:35
+#: Template/Devices/index.ctp:56
+#: Template/Devices/scan.ctp:26
+#: Template/Devices/wscan.ctp:20
+#: Template/ProfilesIpfilters/index.ctp:58
+#: Template/ProfilesRouting/index.ctp:58
+#: Template/Statistics/logs.ctp:31
+#: Template/Statistics/most_queried.ctp:30
+#: Template/Tools/domain_issue.ctp:50
+#: Template/Tools/services.ctp:59
+#: Template/Users/index.ctp:46
+msgid "Do you confirm the action?"
+msgstr "您确认这项操作吗？"
+
+#: Template/Blacklist/index.ctp:53
+msgid "Domains"
+msgstr "域名"
+
+#: Template/Blacklist/index.ctp:54
+#: Template/Config/advanced.ctp:98
+#: Template/Connections/adminview.ctp:46
+#: Template/Connections/history.ctp:41
+#: Template/Connections/index.ctp:52
+#: Template/Devices/index.ctp:71
+#: Template/Devices/scan.ctp:37
+#: Template/Profiles/edit.ctp:218
+#: Template/Profiles/index.ctp:50
+#: Template/Profiles/wedit.ctp:236
+#: Template/ProfilesIpfilters/index.ctp:73
+#: Template/ProfilesRouting/index.ctp:71
+#: Template/Statistics/logs.ctp:45
+#: Template/Statistics/most_active_clients.ctp:33
+#: Template/Statistics/most_queried.ctp:40
+#: Template/Tools/services.ctp:71
+#: Template/Users/index.ctp:60
+msgid "Actions"
+msgstr "操作"
+
+#: Template/Blacklist/index.ctp:74
+msgid "Export all domains of this category"
+msgstr "导出此类别的所有域名"
+
+#: Template/Blacklist/index.ctp:84
+#: Template/Blacklist/query.ctp:129
+#: Template/Connections/history.ctp:141;162
+#: Template/Devices/index.ctp:129;154
+#: Template/Profiles/edit.ctp:271
+#: Template/Profiles/index.ctp:160
+#: Template/Profiles/wedit.ctp:289
+#: Template/ProfilesIpfilters/index.ctp:151;178
+#: Template/ProfilesRouting/index.ctp:130;158
+#: Template/Tools/domain_issue.ctp:102
+#: Template/Users/index.ctp:125;151
+msgid "Delete"
+msgstr "删除"
+
+#: Template/Blacklist/index.ctp:87
+msgid "Are you sure you want to delete the category {0} and all the domains it contains?"
+msgstr "确定要删除类别{0}及其包含的所有域名吗？"
+
+#: Template/Blacklist/index.ctp:104
+#: Template/Blacklist/query.ctp:128
+#: Template/Tools/domain_issue.ctp:101
+msgid "Change the category"
+msgstr "更改类别"
+
+#: Template/Blacklist/index.ctp:105
+msgid "Export categories"
+msgstr "导出类别"
+
+#: Template/Blacklist/index.ctp:106
+msgid "Delete categories"
+msgstr "删除类别"
+
+#: Template/Blacklist/index.ctp:108
+#: Template/Blacklist/query.ctp:131
+#: Template/Connections/history.ctp:163
+#: Template/Connections/index.ctp:299
+#: Template/Devices/index.ctp:156
+#: Template/ProfilesIpfilters/index.ctp:179
+#: Template/ProfilesRouting/index.ctp:159
+#: Template/Tools/domain_issue.ctp:104
+#: Template/Tools/services.ctp:141
+#: Template/Users/index.ctp:153
+msgid "(select action)"
+msgstr "（选择操作）"
+
+#: Template/Blacklist/index.ctp:135
+#: Template/Blacklist/query.ctp:153
+#: Template/ProfilesRouting/add.ctp:112
+#: Template/ProfilesRouting/edit.ctp:91;97
+#: Template/ProfilesRouting/index.ctp:181
+#: Template/Tools/domain_issue.ctp:126
+msgid "Set a new category"
+msgstr "设定新类别"
+
+#: Template/Blacklist/index.ctp:145;146
+#: Template/Blacklist/query.ctp:163;164
+#: Template/Connections/history.ctp:174;175
+#: Template/Connections/index.ctp:310;311
+#: Template/Devices/index.ctp:183;184
+#: Template/ProfilesIpfilters/index.ctp:231;232
+#: Template/ProfilesRouting/index.ctp:215;216
+#: Template/Tools/domain_issue.ctp:136;137
+#: Template/Tools/services.ctp:154;155
+#: Template/Users/index.ctp:178;179
+msgid "Run"
+msgstr "运行"
+
+#: Template/Blacklist/index.ctp:157
+#: Template/Profiles/edit.ctp:103
+#: Template/Profiles/import.ctp:219
+#: Template/Profiles/wedit.ctp:119
+msgid "The Blacklist is empty."
+msgstr "黑名单是空的。"
+
+#: Template/Blacklist/index.ctp:159
+msgid "You can download lists on Internet and import them to the Blacklist."
+msgstr "您可以在网上下载并导入黑名单。"
+
+#: Template/Blacklist/query.ctp:30
+msgid "List Blacklist categories"
+msgstr "列出黑名单类别"
+
+#: Template/Blacklist/query.ctp:45
+#: Template/Config/advanced.ctp:67
+#: Template/Element/search_general_form.ctp:8
+#: Template/Element/search_log_form.ctp:65
+msgid "Results/page"
+msgstr "结果/页"
+
+#: Template/Blacklist/query.ctp:96
+#: Template/Element/search_log_form.ctp:72
+#: Template/Statistics/logs.ctp:41
+#: Template/Statistics/most_queried.ctp:38
+#: Template/Tools/domain_issue.ctp:16;63
+msgid "Domain"
+msgstr "域名"
+
+#: Template/Blacklist/wadd.ctp:2
+#: Template/Config/wdatetime.ctp:3
+#: Template/Config/wdhcp.ctp:2
+#: Template/Config/wend.ctp:1
+#: Template/Config/wnetwork.ctp:2
+#: Template/Config/wstart.ctp:1
+#: Template/Devices/wscan.ctp:1
+#: Template/Profiles/wadd.ctp:2
+#: Template/Profiles/wedit.ctp:1
+#: Template/Users/wadd.ctp:2
+msgid "KeexyBox’s configuration wizard"
+msgstr "KeexyBox配置助手"
+
+#: Template/Blacklist/wadd.ctp:6
+msgid "The Blacklist is KeexyBox’s internal database containing the domains to block. By default the Blacklist is empty, KeexyBox is not provided with any list of domains. Here you can add domains to block or import lists that you can retrieve from the Internet."
+msgstr "黑名单是KeexyBox的内部数据库，包含要阻止的域名。默认情况下黑名单为空，KeexyBox不提供任何域名列表。您可以在这里添加域名，以阻止或导入从互联网检索到的列表。"
+
+#: Template/Blacklist/wadd.ctp:7
+msgid "Click {0} if you do not want to do it now."
+msgstr "如果您现在不想完成该操作，请点击{0}。"
+
+#: Template/Blacklist/wadd.ctp:7;99;126
+#: Template/Devices/wscan.ctp:8;71
+#: Template/Profiles/wadd.ctp:12;75
+#: Template/Profiles/wedit.ctp:388
+#: Template/Users/wadd.ctp:7;110
+msgid "Skip / Next"
+msgstr "跳过/下一步"
+
+#: Template/Blacklist/wadd.ctp:98;125
+#: Template/Config/wdatetime.ctp:86
+#: Template/Config/wdhcp.ctp:193
+#: Template/Config/wend.ctp:20
+#: Template/Config/wnetwork.ctp:285
+#: Template/Devices/wscan.ctp:70
+#: Template/Profiles/wadd.ctp:74
+#: Template/Users/wadd.ctp:109
+msgid "Back"
+msgstr "返回"
+
+#: Template/Config/advanced.ctp:8
+msgid "Advanced settings and configuration management"
+msgstr "高级设置与配置管理"
+
+#: Template/Config/advanced.ctp:18
+msgid "Generate configuration files"
+msgstr "生成配置文件"
+
+#: Template/Config/advanced.ctp:32
+msgid "(select a configuration)"
+msgstr "（选择配置）"
+
+#: Template/Config/advanced.ctp:44;45
+msgid "Generate"
+msgstr "生成"
+
+#: Template/Config/advanced.ctp:59
+msgid "Advanced settings"
+msgstr "高级设置"
+
+#: Template/Config/advanced.ctp:76
+#: Template/Element/search_general_form.ctp:17
+#: Template/Profiles/edit.ctp:443
+#: Template/Profiles/wedit.ctp:453
+msgid "Search"
+msgstr "搜索"
+
+#: Template/Config/advanced.ctp:113
+#: Template/Config/wpa.ctp:17
+#: Template/Devices/index.ctp:118
+#: Template/Profiles/edit.ctp:167;177
+#: Template/Profiles/index.ctp:105
+#: Template/Profiles/wedit.ctp:184;194
+#: Template/ProfilesIpfilters/index.ctp:141
+#: Template/ProfilesRouting/index.ctp:120
+#: Template/Users/index.ctp:113
+msgid "Edit"
+msgstr "编辑"
+
+#: Template/Config/advanced.ctp:130
+#: Template/Element/paginator.ctp:3
+msgid "previous"
+msgstr "上一步"
+
+#: Template/Config/advanced.ctp:132
+#: Template/Element/paginator.ctp:5
+msgid "next"
+msgstr "下一步"
+
+#: Template/Config/certificate.ctp:9
+msgid "Generate SSL certificate"
+msgstr "生成SSL证书"
+
+#: Template/Config/certificate.ctp:15
+msgid "Certificate will be replaced. Confirm?"
+msgstr "证书将被更换。确认？"
+
+#: Template/Config/certificate.ctp:21
+msgid "Common Name"
+msgstr "通用名称"
+
+#: Template/Config/certificate.ctp:26
+msgid "(fqdn or hostname)"
+msgstr "（fqdn或主机名）"
+
+#: Template/Config/certificate.ctp:34
+msgid "Country code"
+msgstr "国家代码"
+
+#: Template/Config/certificate.ctp:41
+msgid "(2 letter code)"
+msgstr "（2个字母代码）"
+
+#: Template/Config/certificate.ctp:49
+msgid "State or Province Name"
+msgstr "州/省名称"
+
+#: Template/Config/certificate.ctp:54
+msgid "(full name)"
+msgstr "（全名）"
+
+#: Template/Config/certificate.ctp:62
+msgid "Locality Name"
+msgstr "地方名"
+
+#: Template/Config/certificate.ctp:67
+msgid "(e.g. city)"
+msgstr "（例如城市）"
+
+#: Template/Config/certificate.ctp:75
+msgid "Organization Name"
+msgstr "组织名称"
+
+#: Template/Config/certificate.ctp:80
+msgid "(e.g. company)"
+msgstr "（例如公司）"
+
+#: Template/Config/certificate.ctp:88
+msgid "Organizational Unit Name"
+msgstr "组织单位名称"
+
+#: Template/Config/certificate.ctp:93
+msgid "(e.g. department)"
+msgstr "组织单位名称"
+
+#: Template/Config/datetime.ctp:9
+#: Template/Config/wdatetime.ctp:3
+msgid "Date and time settings"
+msgstr "日期和时间设置"
+
+#: Template/Config/datetime.ctp:17
+#: Template/Config/wdatetime.ctp:29
+msgid "Date"
+msgstr "日期"
+
+#: Template/Config/datetime.ctp:27
+#: Template/Config/wdatetime.ctp:39
+#: Template/Statistics/logs.ctp:44
+msgid "Time"
+msgstr "时间"
+
+#: Template/Config/datetime.ctp:37
+#: Template/Config/wdatetime.ctp:49
+msgid "Time zone"
+msgstr "时区"
+
+#: Template/Config/datetime.ctp:49
+#: Template/Config/wdatetime.ctp:61
+msgid "NTP server 1"
+msgstr "NTP服务器 1"
+
+#: Template/Config/datetime.ctp:60
+#: Template/Config/wdatetime.ctp:72
+msgid "NTP server 2"
+msgstr "NTP服务器 2"
+
+#: Template/Config/dhcp.ctp:9
+#: Template/Config/wdhcp.ctp:2
+msgid "DHCP settings"
+msgstr "DHCP设置"
+
+#: Template/Config/dhcp.ctp:21
+#: Template/Config/wdhcp.ctp:56
+msgid "Enable DHCP"
+msgstr "启用 DHCP"
+
+#: Template/Config/dhcp.ctp:33
+#: Template/Config/wdhcp.ctp:68
+msgid "Check this box if you want to use KeexyBox as DNS only and do not want to use it as gateway."
+msgstr "如果只想将KeexyBox用作DNS而不想将其用作网关，请选中此框。"
+
+#: Template/Config/dhcp.ctp:46;96
+#: Template/Config/wdhcp.ctp:81;131
+msgid "Address range for the network: {0}"
+msgstr "网络地址范围：{0}"
+
+#: Template/Config/dhcp.ctp:51;111
+#: Template/Config/wdhcp.ctp:86;146
+msgid "DHCP start IP"
+msgstr "DHCP起始IP"
+
+#: Template/Config/dhcp.ctp:71;131
+#: Template/Config/wdhcp.ctp:106;166
+msgid "DHCP end IP"
+msgstr "DHCP结束IP"
+
+#: Template/Config/dhcp.ctp:107
+#: Template/Config/wdhcp.ctp:142
+msgid "DHCP will work on subnet {0} only for devices that have an IP address reserved. However, defining the IP range here is required."
+msgstr "DHCP将仅对保留IP地址的设备的子网{0}有效。但是，必须在此定义IP范围。"
+
+#: Template/Config/edit.ctp:8
+msgid "Edit setting: {0}"
+msgstr "编辑设置：{0}"
+
+#: Template/Config/index.ctp:8
+msgid "System control panel"
+msgstr "系统控制面板"
+
+#: Template/Config/index.ctp:16
+#: Template/Layout/adminlte.ctp:211
+msgid "Network"
+msgstr "网络"
+
+#: Template/Config/index.ctp:19
+#: Template/Layout/adminlte.ctp:212
+msgid "Date and time"
+msgstr "日期和时间"
+
+#: Template/Config/index.ctp:22
+#: Template/Layout/adminlte.ctp:213
+msgid "DHCP"
+msgstr "DHCP"
+
+#: Template/Config/index.ctp:25
+msgid "SSL certificate"
+msgstr "SSL 证书"
+
+#: Template/Config/index.ctp:28
+#: Template/Layout/adminlte.ctp:215
+msgid "Miscellaneous"
+msgstr "其他事项"
+
+#: Template/Config/misc.ctp:8
+msgid "Miscellaneous settings"
+msgstr "其他设置""
+
+#: Template/Config/misc.ctp:16
+msgid "Domains routing and DNS options"
+msgstr "域名路由和DNS选项"
+
+#: Template/Config/misc.ctp:18
+msgid "Clear the domain routing cache"
+msgstr "清除域名路由缓存"
+
+#: Template/Config/misc.ctp:20
+msgid "Clear"
+msgstr "清除"
+
+#: Template/Config/misc.ctp:22
+msgid "Are you sure to clear the domain routing cache?"
+msgstr "确定要清除域名路由缓存吗？"
+
+#: Template/Config/misc.ctp:32
+msgid "Domain routing cache expiration (days)"
+msgstr "域名路由缓存有效期（天）"
+
+#: Template/Config/misc.ctp:51
+msgid "Use defined DNS as redirectors"
+msgstr "使用定义的DNS作为重定向器""
+
+#: Template/Config/misc.ctp:58
+msgid "User and device options"
+msgstr "用户和设备选项"
+
+#: Template/Config/misc.ctp:60
+msgid "Default user connection time"
+msgstr "默认用户连接时间"
+
+#: Template/Config/misc.ctp:74
+msgid "Default language for users and devices"
+msgstr "用户和设备的默认语言"
+
+#: Template/Config/misc.ctp:86
+msgid "Log options"
+msgstr "日志选项"
+
+#: Template/Config/misc.ctp:88
+msgid "Maximum retention of logs in database (days)"
+msgstr "数据库中日志的最长保留时间（天）"
+
+#: Template/Config/misc.ctp:103
+msgid "Maximum retention of logs on the hard drive (days)"
+msgstr "硬盘上日志的最长保留时间（天）"
+
+#: Template/Config/network.ctp:2
+#: Template/Config/wnetwork.ctp:2
+msgid "Network settings"
+msgstr "网络设置"
+
+#: Template/Config/network.ctp:11
+#: Template/Config/wnetwork.ctp:6;32
+msgid "Input network"
+msgstr "接入网络"
+
+#: Template/Config/network.ctp:19
+msgid "The input network is where the users and devices are located."
+msgstr "接入网络是用户和设备所在的位置。"
+
+#: Template/Config/network.ctp:23;116
+#: Template/Config/wnetwork.ctp:39;130
+msgid "Interface"
+msgstr "界面"
+
+#: Template/Config/network.ctp:40;41;133;134
+#: Template/Config/wnetwork.ctp:56;57;147;148
+#: Template/Config/wpa.ctp:9
+msgid "Wi-fi settings"
+msgstr "Wi-Fi设置"
+
+#: Template/Config/network.ctp:50;141
+#: Template/Config/wnetwork.ctp:64;155
+#: Template/Connections/adminview.ctp:21
+#: Template/Connections/history.ctp:35
+#: Template/Connections/index.ctp:46
+#: Template/Connections/view.ctp:21
+#: Template/Devices/scan.ctp:34
+#: Template/Devices/wscan.ctp:28
+msgid "IP address"
+msgstr "IP地址"
+
+#: Template/Config/network.ctp:70;161
+#: Template/Config/wnetwork.ctp:84;175
+msgid "Netmask"
+msgstr "子网掩码"
+
+#: Template/Config/network.ctp:103
+#: Template/Config/wnetwork.ctp:117
+msgid "Output network"
+msgstr "输出网络"
+
+#: Template/Config/network.ctp:112
+#: Template/Config/wnetwork.ctp:126
+msgid "The output network is where your internet router is located."
+msgstr "输出网络是您的互联网路由器所在的位置。"
+
+#: Template/Config/network.ctp:116
+#: Template/Config/wnetwork.ctp:130
+msgid "(It can be the same as input network)"
+msgstr "（输出网络可以与接入网络相同）"
+
+#: Template/Config/network.ctp:194
+msgid "DNS and Gateway"
+msgstr "DNS与网关"
+
+#: Template/Config/network.ctp:202
+#: Template/Config/wnetwork.ctp:216
+msgid "Gateway"
+msgstr "网关"
+
+#: Template/Config/network.ctp:222
+#: Template/Config/wnetwork.ctp:236
+msgid "DNS 1"
+msgstr "DNS 1"
+
+#: Template/Config/network.ctp:242
+#: Template/Config/wnetwork.ctp:256
+msgid "DNS 2"
+msgstr "DNS 2"
+
+#: Template/Config/wdatetime.ctp:7
+msgid "You need to set the date and time so that the Internet access times are well managed."
+msgstr "您需要设置日期和时间，以便良好地管理互联网访问时间。"
+
+#: Template/Config/wdatetime.ctp:9
+msgid "Adjust the time and date."
+msgstr "调整时间和日期。"
+
+#: Template/Config/wdatetime.ctp:10
+msgid "Set your time zone."
+msgstr "设置您的时区。"
+
+#: Template/Config/wdatetime.ctp:87;91
+#: Template/Config/wdhcp.ctp:194;198
+#: Template/Config/wnetwork.ctp:286;290
+#: Template/Profiles/wedit.ctp:393
+msgid "Next"
+msgstr "下一步"
+
+#: Template/Config/wdhcp.ctp:6;18;29
+msgid "The DHCP allows you to dynamically assign an IP address and other network settings to each device on your network."
+msgstr "DHCP允许您为网络上的每个设备动态分配IP地址和其他网络设置。"
+
+#: Template/Config/wdhcp.ctp:8;20
+msgid "Disable the DHCP on your Internet router to avoid conflict with KeexyBox DHCP."
+msgstr "禁用互联网路由器上的DHCP，以避免与KeexyBox DHCP冲突。"
+
+#: Template/Config/wdhcp.ctp:9;21
+msgid "Define a range of IP addresses to use for your devices in the {0} network."
+msgstr "定义要用于{0}网络中设备的IP地址范围。"
+
+#: Template/Config/wdhcp.ctp:10
+msgid "Define a range of IP addresses in the {0} network."
+msgstr "定义{0}网络中的IP地址范围。"
+
+#: Template/Config/wdhcp.ctp:31
+msgid "Log in to the management interface of your Internet router."
+msgstr "登录到互联网路由器的管理界面。"
+
+#: Template/Config/wdhcp.ctp:32
+msgid "In the DHCP settings, specify the IP address {0} for the DNS."
+msgstr "在DHCP设置中，指定DNS的IP地址{0}。"
+
+#: Template/Config/wdhcp.ctp:202
+#: Template/Profiles/wedit.ctp:388
+msgid "Skip"
+msgstr "跳过"
+
+#: Template/Config/wend.ctp:5
+msgid "Your KeexyBox setup is complete!"
+msgstr "您的KeexyBox设置已完成。"
+
+#: Template/Config/wend.ctp:6
+msgid "You will be able to connect to KeexyBox using one of the URLs below:"
+msgstr "您将能够使用以下其中一个URL连接到KeexyBox："
+
+#: Template/Config/wend.ctp:12
+msgid "Please note the URLs and click {0} to restart the system."
+msgstr "请记下URL并点击{0}重新启动系统。"
+
+#: Template/Config/wend.ctp:12;21
+msgid "Finish"
+msgstr "完成"
+
+#: Template/Config/wnetwork.ctp:6
+msgid "To use KeexyBox for filtering and anonymous access over the Internet, a second network must be created. This new network called {0} is the one where all your devices will now be located (PCs, tablets, smartphones, connected objects, etc.)."
+msgstr "如需使用KeexyBox在互联网上进行信息过滤和匿名访问，必须创建第二个网络。这个名为{0}的新网络是您所有设备（PC、平板电脑、智能手机与连接设备等）所在的网络。"
+
+#: Template/Config/wnetwork.ctp:8
+msgid "Define the interface, IP address, and netmask."
+msgstr "定义接口、IP地址和子网掩码。"
+
+#: Template/Config/wnetwork.ctp:9;19
+msgid "Define the IP addresses of your DNS servers."
+msgstr "定义DNS服务器的IP地址"
+
+#: Template/Config/wnetwork.ctp:17
+msgid "To use KeexyBox as Internet filtering only:"
+msgstr "仅使用KeexyBox作为互联网信息过滤："
+
+#: Template/Config/wnetwork.ctp:208
+msgid "DNS"
+msgstr "DNS"
+
+#: Template/Config/wstart.ctp:5
+msgid "Congratulations! KeexyBox is installed."
+msgstr "恭喜！KeexyBox已安装。"
+
+#: Template/Config/wstart.ctp:6
+msgid "We will now assist you in setting up your KeexyBox."
+msgstr "我们现在将帮助您设置KeexyBox。"
+
+#: Template/Config/wstart.ctp:7
+msgid "How would you like to use it?"
+msgstr "您的预计用途为？"
+
+#: Template/Config/wstart.ctp:9
+msgid "For Internet filtering and anonymous access?"
+msgstr "用于互联网信息过滤和匿名访问？"
+
+#: Template/Config/wstart.ctp:12
+msgid "For Internet filtering only and DHCP enabled on KeexyBox?"
+msgstr "仅用于互联网信息过滤并在KeexyBox上启用DHCP？"
+
+#: Template/Config/wstart.ctp:15
+msgid "For Internet filtering only and DHCP disabled on KeexyBox?"
+msgstr "仅用于互联网信息过滤并在KeexyBox上禁用DHCP？"
+
+#: Template/Config/wstart.ctp:23
+#: Template/Tools/services.ctp:112;139
+msgid "Start"
+msgstr "开始"
+
+#: Template/Config/wstart.ctp:42
+msgid "You must choose how you want to use KeexyBox."
+msgstr "您必须选择您要如何使用KeexyBox。"
+
+#: Template/Connections/adminview.ctp:2
+#: Template/Connections/history.ctp:105
+#: Template/Connections/view.ctp:2
+msgid "Connection information"
+msgstr "连接信息"
+
+#: Template/Connections/adminview.ctp:9
+#: Template/Connections/view.ctp:9
+#: Template/Profiles/edit.ctp:12
+#: Template/Profiles/import.ctp:14
+#: Template/Profiles/wedit.ctp:28
+msgid "General"
+msgstr "基本信息"
+
+#: Template/Connections/adminview.ctp:17
+#: Template/Connections/view.ctp:17
+#: Template/Devices/add.ctp:17;22
+#: Template/Devices/add2.ctp:17;22
+#: Template/Devices/edit.ctp:17;22
+#: Template/Devices/index.ctp:66
+#: Template/Devices/scan.ctp:35
+#: Template/Devices/wscan.ctp:29
+#: Template/Profiles/add.ctp:17;22
+#: Template/Profiles/edit.ctp:19;24
+#: Template/Profiles/import.ctp:19;32
+#: Template/Profiles/index.ctp:45
+#: Template/Profiles/wadd.ctp:8;31;36
+#: Template/Profiles/wedit.ctp:35;40
+#: Template/Users/add.ctp:30
+#: Template/Users/edit.ctp:30
+#: Template/Users/wadd.ctp:38
+msgid "Name"
+msgstr "姓名"
+
+#: Template/Connections/adminview.ctp:25
+#: Template/Connections/view.ctp:25
+msgid "Connection start time"
+msgstr "连接开始时间"
+
+#: Template/Connections/adminview.ctp:32;173
+#: Template/Connections/view.ctp:32
+msgid "Connection end time"
+msgstr "连接结束时间"
+
+#: Template/Connections/adminview.ctp:34
+#: Template/Connections/index.ctp:116
+#: Template/Connections/view.ctp:34
+msgid "None"
+msgstr "没有"
+
+#: Template/Connections/adminview.ctp:42;183
+#: Template/Connections/view.ctp:42
+msgid "Connection status"
+msgstr "连接状态"
+
+#: Template/Connections/adminview.ctp:55;107
+#: Template/Connections/index.ctp:134;213;298
+msgid "Pause the connection"
+msgstr "暂停连接"
+
+#: Template/Connections/adminview.ctp:58;110
+#: Template/Connections/index.ctp:137;216
+msgid "Pause the connection of {0}?"
+msgstr "暂停连接{0}？"
+
+#: Template/Connections/adminview.ctp:67;119
+#: Template/Connections/index.ctp:145;224;298
+msgid "Resume the connection"
+msgstr "恢复连接"
+
+#: Template/Connections/adminview.ctp:70;122
+#: Template/Connections/index.ctp:148;227
+msgid "Resume the connection of {0}?"
+msgstr "恢复连接{0}？"
+
+#: Template/Connections/adminview.ctp:80;132
+#: Template/Connections/index.ctp:156;235;298
+#: Template/Layout/adminlte.ctp:163
+#: Template/Layout/connection_view.ctp:133
+#: Template/Layout/loginlte.ctp:133
+#: Template/Layout/wizard.ctp:158
+msgid "Disconnect"
+msgstr "断开连接"
+
+#: Template/Connections/adminview.ctp:83;135
+#: Template/Connections/index.ctp:159;238
+msgid "Disconnect {0}?"
+msgstr "断开连接{0}？"
+
+#: Template/Connections/adminview.ctp:91;144
+#: Template/Connections/index.ctp:166;245;298
+#: Template/Element/Flash/reconnect_link.ctp:1
+msgid "Reconnect"
+msgstr "重新连接"
+
+#: Template/Connections/adminview.ctp:94;147
+#: Template/Connections/index.ctp:169;248
+msgid "Reconnect {0}?"
+msgstr "重新连接{0}？"
+
+#: Template/Connections/adminview.ctp:155
+#: Template/Connections/history.ctp:121
+#: Template/Connections/index.ctp:189;268
+msgid "Visited domains"
+msgstr "访问的域名"
+
+#: Template/Connections/adminview.ctp:184
+msgid "Ended"
+msgstr "已结束"
+
+#: Template/Connections/adminview.ctp:204;209
+#: Template/Connections/history.ctp:36
+#: Template/Connections/index.ctp:48
+#: Template/Connections/view.ctp:63;68
+#: Template/Devices/add.ctp:41
+#: Template/Devices/add2.ctp:41
+#: Template/Devices/edit.ctp:39
+#: Template/Devices/index.ctp:68
+#: Template/ProfilesRouting/add.ctp:74
+#: Template/ProfilesRouting/edit.ctp:56
+#: Template/ProfilesRouting/index.ctp:69
+#: Template/Statistics/logs.ctp:43
+#: Template/Users/add.ctp:57
+#: Template/Users/edit.ctp:57
+#: Template/Users/index.ctp:57
+#: Template/Users/wadd.ctp:65
+msgid "Profile"
+msgstr "配置文件"
+
+#: Template/Connections/adminview.ctp:213
+#: Template/Connections/view.ctp:72
+#: Template/Profiles/add.ctp:28
+#: Template/Profiles/edit.ctp:126
+#: Template/Profiles/import.ctp:38
+#: Template/Profiles/index.ctp:46
+#: Template/Profiles/wadd.ctp:9;42
+#: Template/Profiles/wedit.ctp:10;142
+msgid "Default connection type"
+msgstr "默认连接类型"
+
+#: Template/Connections/adminview.ctp:216;474
+#: Template/Connections/view.ctp:75;333
+#: Template/Profiles/add.ctp:33
+#: Template/Profiles/edit.ctp:134
+#: Template/Profiles/import.ctp:50
+#: Template/Profiles/index.ctp:63
+#: Template/Profiles/wadd.ctp:47
+#: Template/Profiles/wedit.ctp:150
+#: Template/ProfilesRouting/add.ctp:65
+#: Template/ProfilesRouting/edit.ctp:46
+#: Template/ProfilesRouting/index.ctp:91;191
+msgid "Direct"
+msgstr "直接"
+
+#: Template/Connections/adminview.ctp:218;475
+#: Template/Connections/view.ctp:77;334
+#: Template/Profiles/add.ctp:33
+#: Template/Profiles/edit.ctp:135
+#: Template/Profiles/import.ctp:50
+#: Template/Profiles/index.ctp:64
+#: Template/Profiles/wadd.ctp:47
+#: Template/Profiles/wedit.ctp:151
+#: Template/ProfilesRouting/add.ctp:65
+#: Template/ProfilesRouting/edit.ctp:46
+#: Template/ProfilesRouting/index.ctp:92;191
+msgid "Tor"
+msgstr "Tor"
+
+#: Template/Connections/adminview.ctp:224
+#: Template/Connections/view.ctp:83
+#: Template/Profiles/add.ctp:42
+#: Template/Profiles/edit.ctp:142
+#: Template/Profiles/wadd.ctp:10;56
+#: Template/Profiles/wedit.ctp:11;158
+msgid "Default Firewall rule"
+msgstr "默认防火墙规则"
+
+#: Template/Connections/adminview.ctp:228
+#: Template/Connections/view.ctp:87
+#: Template/Profiles/edit.ctp:35
+#: Template/Profiles/import.ctp:84;91
+#: Template/Profiles/wedit.ctp:7;51
+msgid "Statistics enabled"
+msgstr "已启用数据统计"
+
+#: Template/Connections/adminview.ctp:233;244;271;282;293;306;397;434;458
+#: Template/Connections/view.ctp:92;103;130;141;152;165;256;293;317
+#: Template/Devices/index.ctp:70
+#: Template/ProfilesIpfilters/index.ctp:72
+#: Template/ProfilesRouting/index.ctp:70
+#: Template/Users/index.ctp:58
+msgid "Enabled"
+msgstr "已启用"
+
+#: Template/Connections/adminview.ctp:239
+#: Template/Connections/view.ctp:98
+#: Template/Profiles/edit.ctp:158
+#: Template/Profiles/import.ctp:103;110
+#: Template/Profiles/wedit.ctp:12;174
+msgid "Redirect DNS queries to TOR"
+msgstr "将DNS查询重定向到TOR"
+
+#: Template/Connections/adminview.ctp:261
+#: Template/Connections/view.ctp:120
+#: Template/Profiles/import.ctp:147
+msgid "Search engine options and Blacklist categories"
+msgstr "搜索引擎选项和黑名单类别"
+
+#: Template/Connections/adminview.ctp:266
+#: Template/Connections/view.ctp:125
+#: Template/Profiles/edit.ctp:66
+#: Template/Profiles/import.ctp:161
+#: Template/Profiles/wedit.ctp:82
+msgid "Force Google SafeSearch"
+msgstr "强制Google SafeSearch（谷歌安全搜索）"
+
+#: Template/Connections/adminview.ctp:277
+#: Template/Connections/view.ctp:136
+#: Template/Profiles/edit.ctp:75
+#: Template/Profiles/import.ctp:179
+#: Template/Profiles/wedit.ctp:91
+msgid "Force Bing SafeSearch"
+msgstr "强制Bing SafeSearch（Bing安全搜索）"
+
+#: Template/Connections/adminview.ctp:288
+#: Template/Connections/view.ctp:147
+#: Template/Profiles/edit.ctp:84
+#: Template/Profiles/import.ctp:197
+#: Template/Profiles/wedit.ctp:100
+msgid "Force Youtube SafeSearch"
+msgstr "强制Youtube SafeSearch（Youtube安全搜索）"
+
+#: Template/Connections/adminview.ctp:323
+#: Template/Connections/view.ctp:182
+#: Template/Profiles/edit.ctp:199
+#: Template/Profiles/import.ctp:267
+#: Template/Profiles/wedit.ctp:13;217
+msgid "Connection schedules"
+msgstr "连接计划"
+
+#: Template/Connections/adminview.ctp:337
+#: Template/Connections/view.ctp:196
+msgid "mon. "
+msgstr "星期一"
+
+#: Template/Connections/adminview.ctp:341
+#: Template/Connections/view.ctp:200
+msgid "tues. "
+msgstr "星期二"
+
+#: Template/Connections/adminview.ctp:345
+#: Template/Connections/view.ctp:204
+msgid "wed. "
+msgstr "星期三"
+
+#: Template/Connections/adminview.ctp:349
+#: Template/Connections/view.ctp:208
+msgid "thurs. "
+msgstr "星期四"
+
+#: Template/Connections/adminview.ctp:353
+#: Template/Connections/view.ctp:212
+msgid "fri. "
+msgstr "星期五"
+
+#: Template/Connections/adminview.ctp:357
+#: Template/Connections/view.ctp:216
+msgid "sat. "
+msgstr "星期六"
+
+#: Template/Connections/adminview.ctp:361
+#: Template/Connections/view.ctp:220
+msgid "sun. "
+msgstr "星期天"
+
+#: Template/Connections/adminview.ctp:387
+#: Template/Connections/view.ctp:246
+msgid "Firewall rules"
+msgstr "防火墙规则"
+
+#: Template/Connections/adminview.ctp:392
+#: Template/Connections/view.ctp:251
+#: Template/ProfilesIpfilters/index.ctp:66
+msgid "Position"
+msgstr "位置"
+
+#: Template/Connections/adminview.ctp:393
+#: Template/Connections/view.ctp:252
+#: Template/ProfilesIpfilters/index.ctp:68
+msgid "Destination IP"
+msgstr "目的IP"
+
+#: Template/Connections/adminview.ctp:394
+#: Template/Connections/view.ctp:253
+#: Template/ProfilesIpfilters/add.ctp:205
+#: Template/ProfilesIpfilters/edit.ctp:225
+#: Template/ProfilesIpfilters/index.ctp:69
+msgid "Protocol"
+msgstr "协议"
+
+#: Template/Connections/adminview.ctp:395
+#: Template/Connections/view.ctp:254
+#: Template/ProfilesIpfilters/index.ctp:70
+msgid "Ports"
+msgstr "端口"
+
+#: Template/Connections/adminview.ctp:396
+#: Template/Connections/view.ctp:255
+#: Template/ProfilesIpfilters/index.ctp:71
+msgid "Target"
+msgstr "目标"
+
+#: Template/Connections/adminview.ctp:450
+#: Template/Connections/view.ctp:309
+msgid "Domains routing"
+msgstr "域名路由""
+
+#: Template/Connections/adminview.ctp:456
+#: Template/Connections/view.ctp:315
+#: Template/ProfilesRouting/edit.ctp:17
+#: Template/ProfilesRouting/index.ctp:67
+msgid "Address"
+msgstr "地址"
+
+#: Template/Connections/adminview.ctp:457
+#: Template/Connections/view.ctp:316
+#: Template/ProfilesRouting/add.ctp:60
+#: Template/ProfilesRouting/edit.ctp:41
+#: Template/ProfilesRouting/index.ctp:68
+msgid "Connection type"
+msgstr "连接类型"
+
+#: Template/Connections/adminview.ctp:485
+#: Template/Connections/view.ctp:344
+#: Template/ProfilesRouting/index.ctp:105
+msgid "yes"
+msgstr "是"
+
+#: Template/Connections/history.ctp:3
+#: Template/Connections/index.ctp:12
+msgid "Ended connections"
+msgstr "已结束的连接"
+
+#: Template/Connections/history.ctp:13
+#: Template/Connections/index.ctp:3
+msgid "Current connections"
+msgstr "当前连接"
+
+#: Template/Connections/history.ctp:33
+#: Template/Connections/index.ctp:44
+msgid "Connection name"
+msgstr "连接名称"
+
+#: Template/Connections/history.ctp:34
+#: Template/Connections/index.ctp:45
+msgid "Device/User"
+msgstr "设备/用户"
+
+#: Template/Connections/history.ctp:37
+#: Template/Connections/index.ctp:49
+msgid "Type"
+msgstr "类型"
+
+#: Template/Connections/history.ctp:38
+msgid "Duration"
+msgstr "期限"
+
+#: Template/Connections/history.ctp:39
+#: Template/Connections/index.ctp:50
+msgid "Start Time"
+msgstr "开始时间"
+
+#: Template/Connections/history.ctp:40
+#: Template/Connections/index.ctp:51
+msgid "End Time"
+msgstr "结束时间"
+
+#: Template/Connections/history.ctp:82
+#: Template/Connections/index.ctp:114
+msgid "Device"
+msgstr "设备"
+
+#: Template/Connections/history.ctp:86
+#: Template/Connections/index.ctp:120
+msgid "User"
+msgstr "用户"
+
+#: Template/Connections/history.ctp:144
+msgid "Confirm?"
+msgstr "确认？"
+
+#: Template/Connections/index.ctp:22
+msgid "Connect a device to the Internet"
+msgstr "将一台设备连接到互联网"
+
+#: Template/Connections/index.ctp:47
+#: Template/Tools/services.ctp:70
+msgid "Status"
+msgstr "状态"
+
+#: Template/Connections/index.ctp:93
+msgid "Connected"
+msgstr "已连接"
+
+#: Template/Connections/index.ctp:102
+#: Template/Layout/adminlte.ctp:135
+#: Template/Layout/connection_view.ctp:105
+#: Template/Layout/loginlte.ctp:105
+#: Template/Layout/wizard.ctp:130
+msgid "Paused"
+msgstr "已暂停"
+
+#: Template/Connections/index.ctp:176;255
+msgid "View the connection details"
+msgstr "查看连接详情"
+
+#: Template/Devices/add.ctp:8
+#: Template/Devices/add2.ctp:8
+#: Template/Devices/index.ctp:13
+msgid "Add a device"
+msgstr "添加设备"
+
+#: Template/Devices/add.ctp:29
+#: Template/Devices/add2.ctp:29
+#: Template/Devices/edit.ctp:28
+#: Template/Devices/index.ctp:67
+#: Template/Devices/scan.ctp:36
+#: Template/Devices/wscan.ctp:30
+msgid "MAC address"
+msgstr "MAC 地址"
+
+#: Template/Devices/add.ctp:46
+#: Template/Devices/add2.ctp:46
+#: Template/Devices/edit.ctp:44
+#: Template/Devices/index.ctp:170
+#: Template/Devices/scan.ctp:83
+#: Template/Devices/wscan.ctp:62
+#: Template/Profiles/import.ctp:126;137
+#: Template/ProfilesIpfilters/add.ctp:47
+#: Template/ProfilesIpfilters/edit.ctp:47
+#: Template/ProfilesIpfilters/index.ctp:193
+#: Template/ProfilesRouting/index.ctp:204
+#: Template/Users/add.ctp:62
+#: Template/Users/edit.ctp:62
+#: Template/Users/index.ctp:166
+#: Template/Users/wadd.ctp:70
+msgid "(select a profile)"
+msgstr "（选择配置文件）"
+
+#: Template/Devices/add.ctp:54
+#: Template/Devices/add2.ctp:54
+#: Template/Devices/edit.ctp:52
+#: Template/Users/add.ctp:69
+#: Template/Users/edit.ctp:69
+#: Template/Users/wadd.ctp:77
+msgid "Language"
+msgstr "语言"
+
+#: Template/Devices/add.ctp:67
+#: Template/Devices/add2.ctp:66
+#: Template/Devices/edit.ctp:64
+#: Template/Devices/index.ctp:69
+msgid "DHCP reservation IP address"
+msgstr "DHCP保留IP地址"
+
+#: Template/Devices/add.ctp:67
+#: Template/Devices/add2.ctp:66
+#: Template/Devices/edit.ctp:64
+msgid "(optional)"
+msgstr "（可选）"
+
+#: Template/Devices/add.ctp:86
+#: Template/Devices/add2.ctp:85
+#: Template/Devices/edit.ctp:82
+#: Template/Devices/index.ctp:152
+#: Template/ProfilesIpfilters/index.ctp:174
+#: Template/ProfilesRouting/index.ctp:154
+#: Template/Users/add.ctp:83
+#: Template/Users/edit.ctp:85;106
+#: Template/Users/index.ctp:149
+#: Template/Users/wadd.ctp:91
+msgid "Enable"
+msgstr "启用"
+
+#: Template/Devices/edit.ctp:8
+msgid "Edit device: {0}"
+msgstr "编辑设备：{0}"
+
+#: Template/Devices/import.ctp:8
+msgid "Import devices"
+msgstr "导入设备"
+
+#: Template/Devices/import.ctp:16
+#: Template/Users/import.ctp:16
+msgid "Select csv file"
+msgstr "选择csv文件"
+
+#: Template/Devices/index.ctp:4
+#: Template/Devices/wscan.ctp:7
+#: Template/Layout/adminlte.ctp:198
+msgid "Devices"
+msgstr "设备"
+
+#: Template/Devices/index.ctp:22
+msgid "Export devices to CSV"
+msgstr "导出设备到CSV"
+
+#: Template/Devices/index.ctp:32
+msgid "Import devices from CSV"
+msgstr "从CSV文件导入设备"
+
+#: Template/Devices/index.ctp:42
+#: Template/Devices/scan.ctp:3
+#: Template/Devices/wscan.ctp:1
+msgid "Scan and add devices"
+msgstr "扫描和添加设备"
+
+#: Template/Devices/index.ctp:92
+#: Template/Profiles/index.ctp:77;91
+#: Template/ProfilesIpfilters/index.ctp:115
+#: Template/Users/index.ctp:84;99
+msgid "Yes"
+msgstr "是"
+
+#: Template/Devices/index.ctp:97
+#: Template/Profiles/index.ctp:82;96
+#: Template/ProfilesIpfilters/index.ctp:120
+#: Template/Users/index.ctp:89;104
+msgid "No"
+msgstr "否"
+
+#: Template/Devices/index.ctp:107
+msgid "Connect the device to the Internet"
+msgstr "将设备连接到互联网"
+
+#: Template/Devices/index.ctp:110
+msgid "Connect the device {0}?"
+msgstr "连接设备{0}？"
+
+#: Template/Devices/index.ctp:132
+#: Template/ProfilesRouting/index.ctp:133
+#: Template/Users/index.ctp:128
+msgid "Are you sure you want to delete {0}?"
+msgstr "您确定要删除{0}吗？"
+
+#: Template/Devices/index.ctp:150
+#: Template/Layout/adminlte.ctp:167
+#: Template/Layout/connection_view.ctp:137
+#: Template/Layout/loginlte.ctp:137
+#: Template/Layout/wizard.ctp:162
+#: Template/Users/login.ctp:42
+msgid "Connect"
+msgstr "连接"
+
+#: Template/Devices/index.ctp:151
+#: Template/ProfilesIpfilters/index.ctp:173
+#: Template/ProfilesRouting/index.ctp:153
+#: Template/Users/index.ctp:148
+msgid "Disable"
+msgstr "禁用"
+
+#: Template/Devices/index.ctp:153
+#: Template/Users/index.ctp:150
+msgid "Change the profile"
+msgstr "更改配置文件"
+
+#: Template/Devices/scan.ctp:14
+msgid "List devices"
+msgstr "列出设备"
+
+#: Template/Devices/scan.ctp:61
+msgid "Add this device"
+msgstr "添加该设备"
+
+#: Template/Devices/scan.ctp:95;96
+msgid "Add devices"
+msgstr "添加设备"
+
+#: Template/Devices/wscan.ctp:5
+msgid "By default a device can be connected to the Internet only if its user has authenticated on KeexyBox’s captive portal. However, if you have to connect devices such as a voice assistant or IP camera, you will need to connect them to the Internet without using the captive portal."
+msgstr "默认情况下，用户必须在KeexyBox强制认证门户网站上进行身份验证后，设备才能连接到互联网。但是，如果必须连接语音助手或IP摄像机等设备，则需要将它们连接到互联网，无需使用强制认证门户网站。"
+
+#: Template/Devices/wscan.ctp:6
+msgid "The devices listed below have been detected on your network. You can declare them to KeexyBox by assigning a profile. If you do not see them all, turn them on and click {0}."
+msgstr "在您的网络上检测到下列设备。您可以通过分配配置文件的方式，将它们声明为KeexyBox。如果看不到全部，请全部打开并点击{0}。"
+
+#: Template/Devices/wscan.ctp:6;80
+msgid "Rescan"
+msgstr "重新扫描"
+
+#: Template/Devices/wscan.ctp:7
+msgid "When KeexyBox is set up, remember to connect the devices you have declared to the Internet. To do this, you will have to go to {0}."
+msgstr "设置KeexyBox后，请记住将已声明的设备连接到互联网。为此，您必须进入{0}。"
+
+#: Template/Devices/wscan.ctp:7
+msgid "Connection Settings"
+msgstr "连接设置"
+
+#: Template/Devices/wscan.ctp:8
+msgid "If you do not want to declare them now, or you do not need to declare any more, click {0}."
+msgstr "如果现在不想声明它们，或者不再需要声明它们，请点击{0}。"
+
+#: Template/Devices/wscan.ctp:72;76
+#: Template/ProfilesIpfilters/add.ctp:192
+#: Template/ProfilesIpfilters/edit.ctp:211
+msgid "Add"
+msgstr "添加"
+
+#: Template/Element/search_log_form.ctp:6
+msgid "Start date"
+msgstr "开始日期"
+
+#: Template/Element/search_log_form.ctp:24
+msgid "End date"
+msgstr "结束日期"
+
+#: Template/Element/search_log_form.ctp:41
+msgid "View"
+msgstr "查看"
+
+#: Template/Element/search_log_form.ctp:47
+msgid "View type"
+msgstr "视图类型"
+
+#: Template/Element/search_log_form.ctp:49
+msgid "Charts"
+msgstr "图表"
+
+#: Template/Element/search_log_form.ctp:50
+msgid "Log"
+msgstr "日志"
+
+#: Template/Element/search_log_form.ctp:51
+#: Template/Statistics/most_queried.ctp:23
+msgid "Most queried domains"
+msgstr "查询最多的域名"
+
+#: Template/Element/search_log_form.ctp:52
+#: Template/Statistics/most_active_clients.ctp:23
+msgid "Most active users and devices"
+msgstr "最活跃的用户和设备"
+
+#: Template/Element/search_log_form.ctp:59
+msgid "Results/page / Max top values"
+msgstr "结果/页面/最大顶值"
+
+#: Template/Element/search_log_form.ctp:89
+msgid "Connected User/Device"
+msgstr "已连接的用户/设备"
+
+#: Template/Element/search_log_form.ctp:98
+msgid "(Select a user/device)"
+msgstr "（选择用户/设备）"
+
+#: Template/Element/search_log_form.ctp:108
+msgid "User/Device IP"
+msgstr "用户/设备IP"
+
+#: Template/Element/search_log_form.ctp:125;131
+#: Template/Statistics/logs.ctp:40
+msgid "Filter status"
+msgstr "筛选器状态"
+
+#: Template/Element/search_log_form.ctp:133
+msgid "All"
+msgstr "全部"
+
+#: Template/Element/search_log_form.ctp:134
+msgid "Blocked"
+msgstr "已阻止"
+
+#: Template/Element/search_log_form.ctp:135
+#: Template/Statistics/logs.ctp:66
+msgid "Accepted"
+msgstr "已接受"
+
+#: Template/Element/search_log_form.ctp:146;147
+msgid "Filter"
+msgstr "筛选器"
+
+#: Template/Element/Flash/reboot_link.ctp:6
+msgid "You need to reboot KeexyBox. Reboot now?"
+msgstr "您需要重新启动KeexyBox。立即重启？"
+
+#: Template/Element/Flash/reload_link.ctp:6
+msgid "Clic here to reload"
+msgstr "点击此处，重新加载"
+
+#: Template/Element/Flash/restart_link.ctp:6
+msgid "Clic here to restart"
+msgstr "点击此处，重新启动"
+
+#: Template/Help/licenses.ctp:1
+#: Template/Help/wlicenses.ctp:1
+#: Template/Layout/adminlte.ctp:242
+msgid "Licenses"
+msgstr "许可证"
+
+#: Template/Help/licenses.ctp:5
+#: Template/Help/wlicenses.ctp:5
+msgid "KeexyBox license"
+msgstr "KeexyBox许可证"
+
+#: Template/Help/licenses.ctp:6
+#: Template/Help/wlicenses.ctp:6
+msgid "This software is distributed under the {0} license, the source codes of which are in the following directories:"
+msgstr "此软件在{0}许可证下分发，其源代码在以下目录中："
+
+#: Template/Help/licenses.ctp:51
+#: Template/Help/wlicenses.ctp:51
+msgid "Extra software packages and licenses"
+msgstr "额外的软件包和许可证"
+
+#: Template/Help/licenses.ctp:52
+#: Template/Help/wlicenses.ctp:52
+msgid "KeexyBox software comes with extra software packages."
+msgstr "KeexyBox软件附带额外的软件包。"
+
+#: Template/Help/wlicenses.ctp:107
+msgid "I decline"
+msgstr "我拒绝"
+
+#: Template/Help/wlicenses.ctp:108
+msgid "I accept"
+msgstr "我接受"
+
+#: Template/Layout/adminlte-nh.ctp:10
+#: Template/Layout/adminlte.ctp:10;272
+#: Template/Layout/connection_view.ctp:6;161
+#: Template/Layout/error.ctp:6;48
+#: Template/Layout/loginlte.ctp:6;161
+#: Template/Layout/wizard.ctp:10;193
+msgid "The box to keep the Internet under your control"
+msgstr "控制互联网的盒子"
+
+#: Template/Layout/adminlte.ctp:100
+#: Template/Layout/connection_view.ctp:65
+#: Template/Layout/loginlte.ctp:65
+#: Template/Layout/wizard.ctp:95
+#: Template/Users/add.ctp:91
+#: Template/Users/edit.ctp:94;113
+#: Template/Users/index.ctp:59
+#: Template/Users/wadd.ctp:99
+msgid "Admin"
+msgstr "管理员"
+
+#: Template/Layout/adminlte.ctp:106
+#: Template/Layout/connection_view.ctp:71
+#: Template/Layout/loginlte.ctp:71
+#: Template/Layout/wizard.ctp:101
+msgid "Authenticated to manage KeexyBox"
+msgstr "已通过身份验证，可管理KeexyBox"
+
+#: Template/Layout/adminlte.ctp:107
+#: Template/Layout/connection_view.ctp:72
+#: Template/Layout/loginlte.ctp:72
+#: Template/Layout/wizard.ctp:102
+msgid "Login: {0}"
+msgstr "登录名：{0}"
+
+#: Template/Layout/adminlte.ctp:108;149
+#: Template/Layout/connection_view.ctp:73;119
+#: Template/Layout/loginlte.ctp:73;119
+#: Template/Layout/wizard.ctp:103;144
+msgid "Name: {0}"
+msgstr "姓名：{0}"
+
+#: Template/Layout/adminlte.ctp:110
+#: Template/Layout/connection_view.ctp:75
+#: Template/Layout/loginlte.ctp:75
+#: Template/Layout/wizard.ctp:105
+msgid "Not authenticated to manage KeexyBox"
+msgstr "未通过身份验证，无法管理KeexyBox"
+
+#: Template/Layout/adminlte.ctp:117
+#: Template/Layout/connection_view.ctp:82
+#: Template/Layout/loginlte.ctp:82
+#: Template/Layout/wizard.ctp:112
+msgid "Quit"
+msgstr "退出"
+
+#: Template/Layout/adminlte.ctp:119
+#: Template/Layout/wizard.ctp:114
+#: Template/Users/adminlogin.ctp:32
+msgid "Sign in"
+msgstr "登录"
+
+#: Template/Layout/adminlte.ctp:133
+#: Template/Layout/connection_view.ctp:103
+#: Template/Layout/loginlte.ctp:103
+#: Template/Layout/wizard.ctp:128
+msgid "Online"
+msgstr "在线"
+
+#: Template/Layout/adminlte.ctp:137
+#: Template/Layout/connection_view.ctp:107
+#: Template/Layout/loginlte.ctp:107
+#: Template/Layout/wizard.ctp:132
+msgid "Offline"
+msgstr "离线"
+
+#: Template/Layout/adminlte.ctp:148
+#: Template/Layout/connection_view.ctp:118
+#: Template/Layout/loginlte.ctp:118
+#: Template/Layout/wizard.ctp:143
+msgid "Connected to the Internet"
+msgstr "已连接到互联网"
+
+#: Template/Layout/adminlte.ctp:150
+#: Template/Layout/connection_view.ctp:120
+#: Template/Layout/loginlte.ctp:120
+#: Template/Layout/wizard.ctp:145
+msgid "IP Address: {0}"
+msgstr "IP地址：{0}"
+
+#: Template/Layout/adminlte.ctp:151
+#: Template/Layout/connection_view.ctp:121
+#: Template/Layout/loginlte.ctp:121
+#: Template/Layout/wizard.ctp:146
+msgid "Profile: {0}"
+msgstr "配置文件：{0}"
+
+#: Template/Layout/adminlte.ctp:153
+#: Template/Layout/connection_view.ctp:123
+#: Template/Layout/loginlte.ctp:123
+#: Template/Layout/wizard.ctp:148
+msgid "Disconnected from the Internet"
+msgstr "已断开与互联网的连接"
+
+#: Template/Layout/adminlte.ctp:160
+#: Template/Layout/connection_view.ctp:130
+#: Template/Layout/loginlte.ctp:130
+#: Template/Layout/wizard.ctp:155
+msgid "Info"
+msgstr "信息"
+
+#: Template/Layout/adminlte.ctp:186
+#: Template/Profiles/index.ctp:48
+msgid "Statistics"
+msgstr "统计"
+
+#: Template/Layout/adminlte.ctp:188
+msgid "Connections"
+msgstr "连接"
+
+#: Template/Layout/adminlte.ctp:191
+msgid "Connection settings"
+msgstr "连接设置"
+
+#: Template/Layout/adminlte.ctp:197
+#: Template/Users/index.ctp:4
+msgid "Users"
+msgstr "用户"
+
+#: Template/Layout/adminlte.ctp:199
+#: Template/Profiles/index.ctp:4
+msgid "Profiles"
+msgstr "配置文件"
+
+#: Template/Layout/adminlte.ctp:200
+msgid "Blacklist"
+msgstr "黑名单"
+
+#: Template/Layout/adminlte.ctp:205
+msgid "System settings"
+msgstr "系统设置"
+
+#: Template/Layout/adminlte.ctp:214
+msgid "SSL Certificate"
+msgstr "SSL 证书"
+
+#: Template/Layout/adminlte.ctp:220
+msgid "Tools & diagnostics"
+msgstr "工具与诊断"
+
+#: Template/Layout/adminlte.ctp:226
+msgid "Services and power"
+msgstr "服务和电源"
+
+#: Template/Layout/adminlte.ctp:227
+msgid "Domain check"
+msgstr "域名检查"
+
+#: Template/Layout/adminlte.ctp:228
+msgid "Iptables status"
+msgstr "Iptables状态"
+
+#: Template/Layout/adminlte.ctp:229
+msgid "System state"
+msgstr "系统状态"
+
+#: Template/Layout/adminlte.ctp:234
+msgid "Help"
+msgstr "帮助"
+
+#: Template/Layout/adminlte.ctp:240
+msgid "Website"
+msgstr "网站"
+
+#: Template/Layout/adminlte.ctp:241
+msgid "Documentation"
+msgstr "文件"
+
+#: Template/Layout/adminlte.ctp:242
+msgid "Donate"
+msgstr "捐赠"
+
+#: Template/Layout/connection_view.ctp:85;89
+#: Template/Layout/loginlte.ctp:85;89
+msgid "Manage"
+msgstr "管理"
+
+#: Template/Profiles/add.ctp:8
+#: Template/Profiles/wadd.ctp:2;22
+msgid "Add a new profile"
+msgstr "添加新配置文件"
+
+#: Template/Profiles/add.ctp:35
+#: Template/Profiles/edit.ctp:131
+#: Template/Profiles/import.ctp:51
+#: Template/Profiles/wadd.ctp:49
+#: Template/Profiles/wedit.ctp:147
+#: Template/ProfilesRouting/add.ctp:66
+#: Template/ProfilesRouting/edit.ctp:47
+#: Template/ProfilesRouting/index.ctp:192
+msgid "(Select a connection type)"
+msgstr "（选择连接类型）"
+
+#: Template/Profiles/add.ctp:47
+#: Template/Profiles/edit.ctp:147
+#: Template/Profiles/import.ctp:71
+#: Template/Profiles/wadd.ctp:61
+#: Template/Profiles/wedit.ctp:163
+#: Template/ProfilesIpfilters/add.ctp:223
+#: Template/ProfilesIpfilters/edit.ctp:243
+msgid "Accept"
+msgstr "接受"
+
+#: Template/Profiles/add.ctp:47
+#: Template/Profiles/edit.ctp:147
+#: Template/Profiles/import.ctp:71
+#: Template/Profiles/wadd.ctp:61
+#: Template/Profiles/wedit.ctp:163
+#: Template/ProfilesIpfilters/add.ctp:223
+#: Template/ProfilesIpfilters/edit.ctp:243
+msgid "Drop"
+msgstr "放弃"
+
+#: Template/Profiles/add.ctp:49
+#: Template/Profiles/edit.ctp:148
+#: Template/Profiles/wadd.ctp:63
+#: Template/Profiles/wedit.ctp:164
+msgid "(Select a rule)"
+msgstr "（选择规则）"
+
+#: Template/Profiles/edit.ctp:3
+#: Template/Profiles/wedit.ctp:1
+msgid "Edit profile: {0}"
+msgstr "编辑配置文件：{0}"
+
+#: Template/Profiles/edit.ctp:55
+#: Template/Profiles/wedit.ctp:71
+msgid "Filtering"
+msgstr "筛选"
+
+#: Template/Profiles/edit.ctp:61
+#: Template/Profiles/import.ctp:149
+#: Template/Profiles/wedit.ctp:8;77
+msgid "Search engine options"
+msgstr "搜索引擎选项"
+
+#: Template/Profiles/edit.ctp:90
+#: Template/Profiles/import.ctp:206
+#: Template/Profiles/wedit.ctp:9;106
+msgid "Domain categories to filter"
+msgstr "要筛选的域名类别"
+
+#: Template/Profiles/edit.ctp:92
+#: Template/Profiles/import.ctp:208
+#: Template/Profiles/wedit.ctp:108
+msgid "Select categories"
+msgstr "选择类别"
+
+#: Template/Profiles/edit.ctp:119
+#: Template/Profiles/import.ctp:225
+#: Template/Profiles/wedit.ctp:135
+msgid "Firewall and routing"
+msgstr "防火墙与路由"
+
+#: Template/Profiles/edit.ctp:168
+#: Template/Profiles/index.ctp:116
+#: Template/Profiles/wedit.ctp:185
+msgid "Manage domains routing"
+msgstr "管理域名路由"
+
+#: Template/Profiles/edit.ctp:178
+#: Template/Profiles/wedit.ctp:195
+msgid "Manage Firewall"
+msgstr "管理防火墙"
+
+#: Template/Profiles/edit.ctp:209
+#: Template/Profiles/import.ctp:287
+#: Template/Profiles/wedit.ctp:227
+msgid "Mon."
+msgstr "星期一"
+
+#: Template/Profiles/edit.ctp:210
+#: Template/Profiles/import.ctp:288
+#: Template/Profiles/wedit.ctp:228
+msgid "Tue."
+msgstr "星期二"
+
+#: Template/Profiles/edit.ctp:211
+#: Template/Profiles/import.ctp:289
+#: Template/Profiles/wedit.ctp:229
+msgid "Wed."
+msgstr "星期三"
+
+#: Template/Profiles/edit.ctp:212
+#: Template/Profiles/import.ctp:290
+#: Template/Profiles/wedit.ctp:230
+msgid "Thu."
+msgstr "星期四"
+
+#: Template/Profiles/edit.ctp:213
+#: Template/Profiles/import.ctp:291
+#: Template/Profiles/wedit.ctp:231
+msgid "Fri."
+msgstr "星期五"
+
+#: Template/Profiles/edit.ctp:214
+#: Template/Profiles/import.ctp:292
+#: Template/Profiles/wedit.ctp:232
+msgid "Sat."
+msgstr "星期六"
+
+#: Template/Profiles/edit.ctp:215
+#: Template/Profiles/import.ctp:293
+#: Template/Profiles/wedit.ctp:233
+msgid "Sun."
+msgstr "星期天"
+
+#: Template/Profiles/edit.ctp:216
+#: Template/Profiles/import.ctp:294
+#: Template/Profiles/wedit.ctp:234
+msgid "Start time"
+msgstr "开始时间"
+
+#: Template/Profiles/edit.ctp:217
+#: Template/Profiles/import.ctp:295
+#: Template/Profiles/wedit.ctp:235
+msgid "End time"
+msgstr "结束时间"
+
+#: Template/Profiles/edit.ctp:274
+#: Template/Profiles/wedit.ctp:292
+msgid "Are you sure you want to delete?"
+msgstr "您确定要删除？"
+
+#: Template/Profiles/edit.ctp:325;338
+#: Template/Profiles/wedit.ctp:343;356
+msgid "Add schedule"
+msgstr "添加计划"
+
+#: Template/Profiles/edit.ctp:342;349
+#: Template/Profiles/wedit.ctp:360;367
+msgid "Remove last schedule"
+msgstr "删除最后一个计划"
+
+#: Template/Profiles/edit.ctp:444
+#: Template/Profiles/wedit.ctp:454
+msgid "None selected"
+msgstr "未选择"
+
+#: Template/Profiles/edit.ctp:445
+#: Template/Profiles/wedit.ctp:455
+msgid "selected"
+msgstr "已选择"
+
+#: Template/Profiles/edit.ctp:446
+#: Template/Profiles/wedit.ctp:456
+msgid " Select all"
+msgstr "全选"
+
+#: Template/Profiles/export.ctp:8
+#: Template/Profiles/index.ctp:148
+msgid "Export the profile"
+msgstr "导出配置文件"
+
+#: Template/Profiles/export.ctp:20
+msgid "Export settings"
+msgstr "导出设置"
+
+#: Template/Profiles/export.ctp:30
+msgid "Export connection schedules"
+msgstr "导出连接计划"
+
+#: Template/Profiles/export.ctp:40
+msgid "Export Blacklist categories"
+msgstr "导出黑名单类别"
+
+#: Template/Profiles/export.ctp:50
+#: Template/ProfilesRouting/index.ctp:22
+msgid "Export domain routing"
+msgstr "导出域名路由"
+
+#: Template/Profiles/export.ctp:60
+msgid "Export firewall rules"
+msgstr "导出防火墙规则"
+
+#: Template/Profiles/export.ctp:83;84
+msgid "Export"
+msgstr "导出"
+
+#: Template/Profiles/import.ctp:8
+#: Template/Profiles/index.ctp:22
+#: Template/Profiles/upload_import.ctp:8
+msgid "Import a profile"
+msgstr "导入配置文件"
+
+#: Template/Profiles/import.ctp:59;73
+#: Template/Profiles/index.ctp:47
+msgid "Default firewall rule"
+msgstr "默认防火墙规则"
+
+#: Template/Profiles/import.ctp:119
+msgid "Import to profile"
+msgstr "导入配置文件"
+
+#: Template/Profiles/import.ctp:229
+msgid "domain(s)"
+msgstr "域名"
+
+#: Template/Profiles/import.ctp:231;250;282
+msgid "Nothing to import"
+msgstr "没有要导入的内容"
+
+#: Template/Profiles/import.ctp:238
+#: Template/ProfilesRouting/index.ctp:32
+msgid "Import domain routing"
+msgstr "导入域名路由"
+
+#: Template/Profiles/import.ctp:248
+msgid "rule(s)"
+msgstr "规则"
+
+#: Template/Profiles/import.ctp:257
+msgid "Import firewall rules"
+msgstr "导入防火墙规则"
+
+#: Template/Profiles/import.ctp:272
+msgid "Import connection schedules"
+msgstr "导入连接计划"
+
+#: Template/Profiles/import.ctp:280
+msgid "The following schedules will be imported:"
+msgstr "以下计划将被导入："
+
+#: Template/Profiles/index.ctp:12
+msgid "Add a profile"
+msgstr "添加配置文件"
+
+#: Template/Profiles/index.ctp:49
+msgid "DNS to TOR"
+msgstr "DNS到TOR"
+
+#: Template/Profiles/index.ctp:127
+msgid "Manage firewall"
+msgstr "管理防火墙"
+
+#: Template/Profiles/index.ctp:138
+msgid "Reload the profile"
+msgstr "重新加载配置文件"
+
+#: Template/Profiles/index.ctp:141
+msgid "Reload the profile?"
+msgstr "重新加载配置文件？"
+
+#: Template/Profiles/index.ctp:163
+msgid "Users and devices attached to this profile will be assigned to the default profile. Do you confirm the deletion of the profile {0}?"
+msgstr "附加到此配置文件的用户和设备将分配给默认配置文件。是否确认删除配置文件{0}？"
+
+#: Template/Profiles/upload_import.ctp:45;46
+msgid "Upload"
+msgstr "上传"
+
+#: Template/Profiles/wadd.ctp:6
+msgid "Profiles are used to define connection settings such as access times, domain categories to block, type of connection. Profiles will be assigned to users or your devices. Here you can create profiles."
+msgstr "配置文件用于定义连接设置，如访问时间、要阻止的域名类别和连接类型。配置文件将分配给用户或您的设备。您可以在此处创建配置文件。"
+
+#: Template/Profiles/wadd.ctp:8
+msgid "Set the name of the profile."
+msgstr "设置配置文件名称。"
+
+#: Template/Profiles/wadd.ctp:9
+#: Template/Profiles/wedit.ctp:10
+msgid "Use anonymous connection (Tor) or not (Direct)."
+msgstr "使用匿名连接（Tor）或不使用匿名连接（直接）。"
+
+#: Template/Profiles/wadd.ctp:10
+#: Template/Profiles/wedit.ctp:11
+msgid "Drop or allow connections to the Internet by default."
+msgstr "默认情况下，断开或允许连接到互联网。"
+
+#: Template/Profiles/wadd.ctp:12
+msgid "Click {0} if you want to create profiles later or you do not have other profiles to create."
+msgstr "如果以后要创建配置文件或没有其他配置文件要创建，请点击{0}。"
+
+#: Template/Profiles/wedit.ctp:5
+msgid "You can now adjust the profile settings."
+msgstr "现在您可以调整配置文件设置。"
+
+#: Template/Profiles/wedit.ctp:7
+msgid "This option enables logging and permits connection statistics."
+msgstr "该选项启用日志记录并允许连接统计信息。"
+
+#: Template/Profiles/wedit.ctp:8
+msgid "These options enable filtering in search engines."
+msgstr "这些选项可以在搜索引擎中进行筛选。"
+
+#: Template/Profiles/wedit.ctp:9
+msgid "Enable Blacklist categories to use for blocking domains."
+msgstr "启用黑名单类别，以用于屏蔽域名。"
+
+#: Template/Profiles/wedit.ctp:12
+msgid "This option allows you to redirect DNS queries to the Tor network for more anonymity."
+msgstr "选项可以让您将DNS查询重定向到Tor网络，以获得更高匿名性。"
+
+#: Template/Profiles/wedit.ctp:13
+msgid "Add Internet connection schedules."
+msgstr "添加互联网连接计划。"
+
+#: Template/ProfilesIpfilters/add.ctp:8
+#: Template/ProfilesIpfilters/edit.ctp:8
+msgid "Add a firewall rule"
+msgstr "添加防火墙规则"
+
+#: Template/ProfilesIpfilters/add.ctp:19;42
+#: Template/ProfilesIpfilters/edit.ctp:19;42
+msgid "Source profile"
+msgstr "源配置文件"
+
+#: Template/ProfilesIpfilters/add.ctp:58
+#: Template/ProfilesIpfilters/edit.ctp:58
+msgid "Destination type"
+msgstr "目的类型"
+
+#: Template/ProfilesIpfilters/add.ctp:62
+#: Template/ProfilesIpfilters/edit.ctp:62
+msgid "Network or single IP"
+msgstr "网络或单个IP"
+
+#: Template/ProfilesIpfilters/add.ctp:62
+#: Template/ProfilesIpfilters/edit.ctp:62
+msgid "IP range"
+msgstr "IP范围"
+
+#: Template/ProfilesIpfilters/add.ctp:73
+#: Template/ProfilesIpfilters/edit.ctp:73
+msgid "Destination IP / MASK"
+msgstr "目的IP/掩码"
+
+#: Template/ProfilesIpfilters/add.ctp:101
+#: Template/ProfilesIpfilters/edit.ctp:101
+msgid "Destination IP Range"
+msgstr "目的IP范围"
+
+#: Template/ProfilesIpfilters/add.ctp:128
+#: Template/ProfilesIpfilters/edit.ctp:128
+msgid "Destination port range"
+msgstr "目的端口范围"
+
+#: Template/ProfilesIpfilters/add.ctp:137
+msgid "ANY"
+msgstr "任何"
+
+#: Template/ProfilesIpfilters/add.ctp:138;167
+#: Template/ProfilesIpfilters/edit.ctp:140;186
+msgid "port"
+msgstr "端口"
+
+#: Template/ProfilesIpfilters/add.ctp:149;191
+#: Template/ProfilesIpfilters/edit.ctp:169;211
+msgid "Add ports"
+msgstr "添加端口"
+
+#: Template/ProfilesIpfilters/add.ctp:150
+msgid "Set ports"
+msgstr "设置端口"
+
+#: Template/ProfilesIpfilters/add.ctp:178
+#: Template/ProfilesIpfilters/edit.ctp:151;196
+msgid "last port"
+msgstr "最后一个端口"
+
+#: Template/ProfilesIpfilters/add.ctp:188;195
+#: Template/ProfilesIpfilters/edit.ctp:207;214
+msgid "Remove"
+msgstr "删除"
+
+#: Template/ProfilesIpfilters/add.ctp:209
+#: Template/ProfilesIpfilters/edit.ctp:229
+msgid "TCP and UDP"
+msgstr "TCP和UDP"
+
+#: Template/ProfilesIpfilters/add.ctp:219
+#: Template/ProfilesIpfilters/edit.ctp:239
+msgid "Action"
+msgstr "操作"
+
+#: Template/ProfilesIpfilters/add.ctp:236
+#: Template/ProfilesIpfilters/edit.ctp:256
+msgid "Rule enabled"
+msgstr "已启用的规则"
+
+#: Template/ProfilesIpfilters/edit.ctp:157;207;214
+msgid "Remove the port range"
+msgstr "删除端口范围"
+
+#: Template/ProfilesIpfilters/index.ctp:3
+msgid "Manage firewall rules for the profile: {0}"
+msgstr "管理配置文件的防火墙规则：{0}"
+
+#: Template/ProfilesIpfilters/index.ctp:11
+msgid "Add rule on top"
+msgstr "在顶部添加规则"
+
+#: Template/ProfilesIpfilters/index.ctp:22
+msgid "export rules"
+msgstr "导出规则"
+
+#: Template/ProfilesIpfilters/index.ctp:32
+msgid "import rules"
+msgstr "导入规则"
+
+#: Template/ProfilesIpfilters/index.ctp:44
+#: Template/ProfilesRouting/index.ctp:43
+msgid "Reload profile rules"
+msgstr "重新加载配置文件规则"
+
+#: Template/ProfilesIpfilters/index.ctp:47
+#: Template/ProfilesRouting/index.ctp:46
+msgid "Reload rules for this profile?"
+msgstr "重新加载此配置文件的规则？"
+
+#: Template/ProfilesIpfilters/index.ctp:67
+msgid "Source Profile"
+msgstr "源配置文件"
+
+#: Template/ProfilesIpfilters/index.ctp:131
+msgid "Insert rule after this one"
+msgstr "在此之后插入规则"
+
+#: Template/ProfilesIpfilters/index.ctp:154
+msgid "Are you sure to delete the rule {0}?"
+msgstr "确定要删除规则{0}？"
+
+#: Template/ProfilesIpfilters/index.ctp:175
+msgid "Move before position"
+msgstr "前移"
+
+#: Template/ProfilesIpfilters/index.ctp:176
+msgid "Move after position"
+msgstr "后移"
+
+#: Template/ProfilesIpfilters/index.ctp:177
+#: Template/ProfilesRouting/index.ctp:155
+msgid "Copy to a profile"
+msgstr "复制到配置文件"
+
+#: Template/ProfilesIpfilters/index.ctp:206;219
+msgid "(chose a position)"
+msgstr "（选择位置）"
+
+#: Template/ProfilesRouting/add.ctp:18
+#: Template/ProfilesRouting/index.ctp:11
+msgid "Add domain routing"
+msgstr "添加域名路由"
+
+#: Template/ProfilesRouting/add.ctp:26
+msgid "Insert multiple domains line per line or separated by a space"
+msgstr "插入多行域名，逐行插入或用空格隔开"
+
+#: Template/ProfilesRouting/add.ctp:43
+msgid "Overwrite already existing addresses"
+msgstr "覆盖已经存在的地址"
+
+#: Template/ProfilesRouting/add.ctp:52
+#: Template/ProfilesRouting/edit.ctp:34
+msgid "Enable routing"
+msgstr "启用路由"
+
+#: Template/ProfilesRouting/edit.ctp:8
+msgid "Edit routing"
+msgstr "编辑路由"
+
+#: Template/ProfilesRouting/edit.ctp:77
+msgid "Category (Optional)"
+msgstr "类别（可选）"
+
+#: Template/ProfilesRouting/index.ctp:3
+msgid "Domain routing for profile: {0}"
+msgstr "配置文件的域名路由：{0}"
+
+#: Template/ProfilesRouting/index.ctp:111
+msgid "no"
+msgstr "否"
+
+#: Template/ProfilesRouting/index.ctp:157
+msgid "Change connection type"
+msgstr "更改连接类型"
+
+#: Template/Statistics/index.ctp:8
+#: Template/Statistics/logs.ctp:3
+#: Template/Statistics/most_active_clients.ctp:3
+#: Template/Statistics/most_queried.ctp:3
+msgid "Search filters"
+msgstr "搜索筛选器"
+
+#: Template/Statistics/index.ctp:32;84
+msgid "Accepted and blocked domains"
+msgstr "已接受或已屏蔽的域名"
+
+#: Template/Statistics/index.ctp:50;101
+msgid "Top {0} queried domains"
+msgstr "查询最多的{0}个域名"
+
+#: Template/Statistics/index.ctp:67;118
+msgid "Top {0} active users and devices"
+msgstr "前{0}个活跃用户和设备"
+
+#: Template/Statistics/index.ctp:157
+msgid "Total accepted domains"
+msgstr "已接受的域名总数"
+
+#: Template/Statistics/index.ctp:158
+msgid "Total blocked domains"
+msgstr "已屏蔽的域名总数"
+
+#: Template/Statistics/index.ctp:272
+msgid "Accepted domains"
+msgstr "已接受的域名"
+
+#: Template/Statistics/index.ctp:291
+msgid "Blocked domains"
+msgstr "已屏蔽的域名"
+
+#: Template/Statistics/logs.ctp:23
+msgid "Access log"
+msgstr "访问日志"
+
+#: Template/Statistics/logs.ctp:42
+#: Template/Statistics/most_active_clients.ctp:31
+msgid "Client IP"
+msgstr "客户端IP"
+
+#: Template/Statistics/logs.ctp:61
+msgid "Blocked by {0} category"
+msgstr "已被{0}类别屏蔽"
+
+#: Template/Statistics/logs.ctp:85
+msgid "View related connection"
+msgstr "查看相关连接"
+
+#: Template/Statistics/logs.ctp:109;110
+#: Template/Statistics/most_queried.ctp:67;68
+msgid "Add selected domains to blacklist"
+msgstr "添加已选域名到黑名单中"
+
+#: Template/Statistics/most_active_clients.ctp:32
+#: Template/Statistics/most_queried.ctp:39
+msgid "Number of queries"
+msgstr "查询数量"
+
+#: Template/Tools/domain_issue.ctp:8
+msgid "Check blocked domain"
+msgstr "检查已屏蔽的域名"
+
+#: Template/Tools/domain_issue.ctp:12
+msgid "In some cases a domain can be filtered while it is not in the blacklist. In most cases, it comes from a target CNAME record which is in the Blacklist. This form allows you to check the domains causing the blocking."
+msgstr "在某些情况下，不在黑名单中的域名可以进行筛选。在大多数情况下，它来自黑名单中的目标CNAME记录。您可以使用此表单检查导致屏蔽的域名。"
+
+#: Template/Tools/domain_issue.ctp:39;40
+msgid "Check"
+msgstr "检查"
+
+#: Template/Tools/domain_issue.ctp:57
+msgid "The domains listed below could block the domain {0}. You can delete them or change their category to fix the issue."
+msgstr "下面列出的域名可能会屏蔽域名{0}。您可以删除它们或更改所在类别来解决问题。"
+
+#: Template/Tools/domain_issue.ctp:85
+msgid "No domain in the blacklist should block {0}."
+msgstr "黑名单中的域名不应屏蔽{0}。"
+
+#: Template/Tools/iptables_status.ctp:8
+msgid "Iptables filter status"
+msgstr "Iptables筛选器状态"
+
+#: Template/Tools/iptables_status.ctp:26
+msgid "Iptables NAT status"
+msgstr "Iptables NAT状态"
+
+#: Template/Tools/services.ctp:8
+msgid "Services and power management"
+msgstr "服务和电源管理"
+
+#: Template/Tools/services.ctp:14
+msgid "Power management"
+msgstr "电源管理"
+
+#: Template/Tools/services.ctp:18
+msgid "Are you sure you want to power off?"
+msgstr "您确定要关机吗？"
+
+#: Template/Tools/services.ctp:27;28
+msgid "Power off"
+msgstr "关闭电源"
+
+#: Template/Tools/services.ctp:36
+msgid "Are you sure you want to reboot?"
+msgstr "是否确定要重新启动？"
+
+#: Template/Tools/services.ctp:46;47
+msgid "Reboot"
+msgstr "重新启动"
+
+#: Template/Tools/services.ctp:63
+msgid "Services"
+msgstr "服务"
+
+#: Template/Tools/services.ctp:68
+msgid "Service"
+msgstr "服务"
+
+#: Template/Tools/services.ctp:69
+msgid "Description"
+msgstr "描述"
+
+#: Template/Tools/services.ctp:83
+msgid "started"
+msgstr "已开始"
+
+#: Template/Tools/services.ctp:85
+msgid "stopped"
+msgstr "已停止"
+
+#: Template/Tools/services.ctp:92;137
+msgid "Reload"
+msgstr "重新加载"
+
+#: Template/Tools/services.ctp:95
+msgid "Reload {0}?"
+msgstr "重新加载{0}？"
+
+#: Template/Tools/services.ctp:102;138
+msgid "Stop"
+msgstr "停止"
+
+#: Template/Tools/services.ctp:105
+msgid "Stop {0}?"
+msgstr "停止{0}?"
+
+#: Template/Tools/services.ctp:115
+msgid "Start {0}?"
+msgstr "开始{0}"
+
+#: Template/Tools/system_state.ctp:9
+msgid "Memory"
+msgstr "内存"
+
+#: Template/Tools/system_state.ctp:27
+msgid "Swap"
+msgstr "交换"
+
+#: Template/Tools/system_state.ctp:44
+msgid "Load average"
+msgstr "平均负载"
+
+#: Template/Tools/system_state.ctp:61
+msgid "Disk usage"
+msgstr "磁盘使用率"
+
+#: Template/Users/add.ctp:8
+#: Template/Users/index.ctp:13
+#: Template/Users/wadd.ctp:2
+msgid "Add a new user"
+msgstr "添加新用户"
+
+#: Template/Users/add.ctp:15;20
+#: Template/Users/edit.ctp:15;20
+#: Template/Users/index.ctp:55
+#: Template/Users/wadd.ctp:23;28
+msgid "Display name"
+msgstr "显示姓名"
+
+#: Template/Users/add.ctp:25
+#: Template/Users/edit.ctp:25
+#: Template/Users/index.ctp:56
+#: Template/Users/wadd.ctp:33
+msgid "Login"
+msgstr "登录"
+
+#: Template/Users/add.ctp:35;41
+#: Template/Users/edit.ctp:35;41
+#: Template/Users/wadd.ctp:43;49
+msgid "Password"
+msgstr "密码"
+
+#: Template/Users/add.ctp:46;52
+#: Template/Users/edit.ctp:52
+#: Template/Users/wadd.ctp:54;60
+msgid "Confirm password"
+msgstr "确认密码"
+
+#: Template/Users/adminlogin.ctp:3
+msgid "Manage KeexyBox"
+msgstr "管理KeexyBox"
+
+#: Template/Users/adminlogin.ctp:12
+#: Template/Users/login.ctp:12
+msgid "username"
+msgstr "用户名"
+
+#: Template/Users/adminlogin.ctp:23
+#: Template/Users/login.ctp:23
+msgid "password"
+msgstr "密码"
+
+#: Template/Users/edit.ctp:8
+msgid "Edit the user: "
+msgstr "编辑用户： "
+
+#: Template/Users/edit.ctp:46
+msgid "Confirm Password"
+msgstr "确认密码"
+
+#: Template/Users/import.ctp:8
+msgid "Import users"
+msgstr "导入用户"
+
+#: Template/Users/index.ctp:22
+msgid "Export users to CSV"
+msgstr "将用户导出到CSV文件中"
+
+#: Template/Users/index.ctp:31
+msgid "Import users from CSV"
+msgstr "从CSV导入用户"
+
+#: Template/Users/login.ctp:3
+msgid "Connect to the Internet"
+msgstr "已连接到互联网"
+
+#: Template/Users/login.ctp:33
+msgid "Connection duration"
+msgstr "连接时长"
+
+#: Template/Users/wadd.ctp:6
+msgid "To connect to the Internet, users or members of your family will need to authenticate on KeexyBox’s captive portal. Here you can create accounts for your users. Complete the form below by assigning a profile and click {0}. Renew the operation as many times as you want to create users."
+msgstr "如需连接到互联网，您的用户或家庭成员将会需要在KeexyBox强制认证门户网站上进行身份验证。在这里您可以创建用户账户。通过指定配置文件完成下面的表单，然后点击{0}。您需要创建用户时更新操作。"
+
+#: Template/Users/wadd.ctp:7
+msgid "If you do not want to create them now, or you do not need to create any more, click {0}."
+msgstr "如果现在不想创建它们，或者不需要再创建，请点击{0}。"
+

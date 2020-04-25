@@ -1,0 +1,141 @@
+#!/bin/bash
+
+PATH=/sbin:/bin:/usr/sbin:/usr/bin
+BIND_ROOT_DIR="/opt/keexybox/bind"
+NAMED_BIN="${BIND_ROOT_DIR}/sbin/named"
+RNDC_BIN="${BIND_ROOT_DIR}/sbin/rndc"
+BIND_USER="keexybox"
+BIND_GROUP="keexybox"
+
+# for a chrooted server: "-u bind -t /var/lib/named"
+# Don't modify this line, change or create /etc/default/bind9.
+OPTIONS=""
+RESOLVCONF=no
+
+#check_network() {
+#    if [ -x /usr/bin/uname ] && [ "X$(/usr/bin/uname -o)" = XSolaris ]; then
+#    IFCONFIG_OPTS="-au"
+#   else
+#    IFCONFIG_OPTS=""
+#    fi
+#    if [ -z "$(/sbin/ifconfig $IFCONFIG_OPTS)" ]; then
+#       #log_action_msg "No networks configured."
+#       return 1
+#    fi
+#    return 0
+#}
+
+case "$1" in
+    start)
+    echo "Starting domain name keexybox services..." "bind9"
+
+    # dirs under /var/run can go away on reboots.
+    mkdir -p ${BIND_ROOT_DIR}/var/run/named
+    chmod 775 ${BIND_ROOT_DIR}/var/run/named
+    chown ${BIND_USER}:${BIND_GROUP} ${BIND_ROOT_DIR}/var/run/named >/dev/null 2>&1 || true
+
+    if [ ! -x ${NAMED_BIN} ]; then
+        echo "${NAMED_BIN} binary missing - not starting"
+        exit 1
+    fi
+
+    #if ! check_network; then
+    #    echo "no networks configured"
+    #    exit 1
+    #fi
+
+    rc=0
+
+    for named in named named_nolog named_tor named_tor_nolog named_portal; do
+        start-stop-daemon --start --oknodo --quiet --exec ${NAMED_BIN} --pidfile ${BIND_ROOT_DIR}/var/run/named/${named}.pid -- -c ${BIND_ROOT_DIR}/etc/${named}.conf -n 1 -u ${BIND_USER}
+        rc=$(expr $rc + $?)
+    done
+
+    exit $rc
+    ;;
+
+    stop)
+    echo "Stopping domain name keexybox services..." "bind9"
+    #if ! check_network; then
+    #    echo "no networks configured"
+    #    exit 1
+    #fi
+
+    if [ "X$RESOLVCONF" != "Xno" ] && [ -x /sbin/resolvconf ] ; then
+        /sbin/resolvconf -d lo.named
+    fi
+    for named in named named_nolog named_tor named_tor_nolog named_portal; do
+        pid=$(pgrep -f ^${NAMED_BIN}) || true
+        start-stop-daemon --stop --oknodo --quiet --exec ${NAMED_BIN} --pidfile ${BIND_ROOT_DIR}/var/run/named/${named}.pid
+        if [ -n "$pid" ]; then
+            sig=0
+            n=1
+            while kill -$sig $pid 2>/dev/null; do
+            if [ $n -eq 1 ]; then
+                echo "waiting for pid $pid to die"
+            fi
+            if [ $n -eq 11 ]; then
+                echo "giving up on pid $pid with kill -0; trying -9"
+                sig=9
+            fi
+            if [ $n -gt 20 ]; then
+                echo "giving up on pid $pid"
+                break
+            fi
+            n=$(($n+1))
+            sleep 1
+            done
+        fi
+    done
+    exit 0
+    ;;
+
+    reload|force-reload)
+    echo "Reloading domain name service..." "bind9"
+    #if ! check_network; then
+    #    echo "no networks configured"
+    #    exit 1
+    #fi
+
+    rc=0
+    #for rndc_port in 9530 9532 9531 9533; do
+    for rndc_port in 9530 9532 9535 9531 9533; do
+        ${RNDC_BIN} -p ${rndc_port} reload >/dev/null 
+        rc=$(expr $rc + $?)
+    done
+    exit $rc
+    ;;
+
+    restart)
+    #if ! check_network; then
+    #    echo "no networks configured"
+    #    exit 1
+    #fi
+
+    $0 stop
+    $0 start
+    ;;
+    
+    status)
+    rc=0
+
+    for named in named named_nolog named_tor named_tor_nolog named_portal; do
+        pid=$(cat ${BIND_ROOT_DIR}/var/run/named/${named}.pid 2>/dev/null)
+        kill -0 $pid > /dev/null 2>&1
+        rc=$(expr $rc + $?)
+    done
+    if [ $rc -eq 0 ]; then
+        echo "running"
+    else
+        echo "stopped"
+    fi
+    exit $rc
+    ;;
+
+    *)
+    echo "Usage: $0 {start|stop|reload|restart|force-reload|status}"
+    exit 1
+    ;;
+esac
+
+exit 0

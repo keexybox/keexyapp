@@ -1,0 +1,3203 @@
+# LANGUAGE translation of CakePHP Application
+# Copyright 2020 Benoit SAGLIETTO <bsaglietto@keexybox.org>
+#
+
+#: Controller/BlacklistController.php:59
+msgid "all"
+msgstr "すべて"
+
+#: Controller/BlacklistController.php:111;450
+#: Controller/ProfilesRoutingController.php:205
+#: Controller/ToolsController.php:184
+msgid "Please define a category"
+msgstr "カテゴリを定義してください"
+
+#: Controller/BlacklistController.php:125
+#: Controller/DevicesController.php:154;251
+#: Controller/ProfilesIpfiltersController.php:310
+#: Controller/ProfilesRoutingController.php:234
+#: Controller/ToolsController.php:70
+#: Controller/UsersController.php:148
+msgid "Nothing was selected."
+msgstr "何も選択されていません。"
+
+#: Controller/BlacklistController.php:256
+msgid "Following domains are invalid and were not added to the Blacklist: "
+msgstr "次のドメインは無効のため、ブラックリストに追加されませんでした："
+
+#: Controller/BlacklistController.php:258
+msgid "Domains added successfully to the Blacklist."
+msgstr "ドメインがブラックリストに正常に追加されました。"
+
+#: Controller/BlacklistController.php:272
+msgid "Domains imported successfully to Blacklist from lists."
+msgstr "ドメインがリストからブラックリストに正常にインポートされました。"
+
+#: Controller/BlacklistController.php:274
+msgid "Some lists were invalid to import domains to the Blacklist."
+msgstr "一部のリストは、ドメインをブラックリストにインポートするのに無効でした。"
+
+#: Controller/BlacklistController.php:328
+msgid "Domain {0} has been deleted."
+msgstr "ドメイン{0}は削除されました。"
+
+#: Controller/BlacklistController.php:330
+msgid "Domain {0} could not be deleted."
+msgstr "ドメイン{0}は削除できませんでした。"
+
+#: Controller/BlacklistController.php:330;352;379
+#: Controller/ConfigController.php:121;1025
+#: Controller/ConnectionsController.php:364
+#: Controller/DevicesController.php:354;456;485;666
+#: Controller/ProfilesController.php:594
+#: Controller/ProfilesIpfiltersController.php:397;485;510;540;566
+#: Controller/ProfilesRoutingController.php:511
+#: Controller/ProfilesTimesController.php:52
+#: Controller/UsersController.php:498;545;592;598
+msgid "Please try again."
+msgstr "もう一度お試しください。"
+
+#: Controller/BlacklistController.php:349
+msgid "Category {0} has been deleted."
+msgstr "カテゴリ{0}が削除されました。"
+
+#: Controller/BlacklistController.php:352
+msgid "Unable to delete category {0}."
+msgstr "カテゴリ{0}を削除できません。"
+
+#: Controller/BlacklistController.php:373
+msgid "Domains imported successfully to the Blacklist."
+msgstr "ドメインがブラックリストに正常にインポートされました。"
+
+#: Controller/BlacklistController.php:375
+msgid "Unable to import domains to the Blacklist, please try with another file."
+msgstr "ドメインをブラックリストにインポートできません。別のファイルで試してください。"
+
+#: Controller/BlacklistController.php:379
+#: Controller/DevicesController.php:666
+#: Controller/ProfilesController.php:594
+#: Controller/UsersController.php:498
+msgid "Unable to upload file."
+msgstr "ファイルをアップロードできません。"
+
+#: Controller/ConfigController.php:90
+msgid "{0} configuration files generated successfully."
+msgstr "{0}の構成ファイルが正常に生成されました。"
+
+#: Controller/ConfigController.php:92;385;613;873;1022
+#: Controller/ProfilesController.php:137;305
+msgid "Unable to write {0} configuration files."
+msgstr "{0}の構成ファイルを書き込めません。"
+
+#: Controller/ConfigController.php:118
+msgid "The value has been changed successfully."
+msgstr "値は正常に変更されました。"
+
+#: Controller/ConfigController.php:121
+msgid "Unable to change the value."
+msgstr "値を変更できません。"
+
+#: Controller/ConfigController.php:250;300;317;540
+#: Model/Table/ActivesConnectionsTable.php:65
+#: Model/Table/ConfigTable.php:61;77
+#: Model/Table/DevicesTable.php:108
+#: Model/Table/ProfilesIpfiltersTable.php:92;119;125
+#: Model/Table/ProfilesRoutingTable.php:67
+msgid "Invalid IP address"
+msgstr "無効なIPアドレス"
+
+#: Controller/ConfigController.php:381
+msgid "Network settings successfully saved. Please adjust the DHCP settings and reboot KeexyBox."
+msgstr "ネットワーク設定が正常に保存されました。DHCP設定を調整してKeexyBoxを再起動してください。"
+
+#: Controller/ConfigController.php:389
+msgid "Internal network IP and ouput IP must be in a different subnets."
+msgstr "内部ネットワークIPと出力IPは異なるサブネットに存在する必要があります。"
+
+#: Controller/ConfigController.php:391
+msgid "Output network IP and gateway are not in the same subnet."
+msgstr "出力ネットワークIPとゲートウェイが同じサブネットにありません。"
+
+#: Controller/ConfigController.php:393
+msgid "Network settings have not been updated."
+msgstr "ネットワーク設定は更新されていません。"
+
+#: Controller/ConfigController.php:604;607;610
+msgid "DHCP settings updated successfully."
+msgstr "DHCP設定が正常に更新されました。"
+
+#: Controller/ConfigController.php:610
+msgid "But DHCP reload failed."
+msgstr "しかし、DHCPのリロードは失敗しました。"
+
+#: Controller/ConfigController.php:617
+msgid "One or more DHCP IP Addresses does not match with subnets."
+msgstr "1つまたは複数のDHCP IPアドレスがサブネットと一致しません。"
+
+#: Controller/ConfigController.php:619
+msgid "One or more DHCP IP Addresses are used by KeexyBox."
+msgstr "1つまたは複数のDHCP IPアドレスがKeexyBoxによって使用されています。"
+
+#: Controller/ConfigController.php:621
+msgid "DHCP settings have not been updated."
+msgstr "DHCP設定は更新されていません。"
+
+#: Controller/ConfigController.php:680
+msgid "Invalid country code"
+msgstr "無効な国コード"
+
+#: Controller/ConfigController.php:699
+#: Model/Table/BlacklistTable.php:44
+#: Model/Table/ConfigTable.php:149
+#: Model/Table/ProfilesRoutingTable.php:78
+msgid "Invalid domain"
+msgstr "無効なドメイン"
+
+#: Controller/ConfigController.php:719
+#: Model/Table/ConfigTable.php:113;129
+msgid "Invalid name"
+msgstr "無効な名前"
+
+#: Controller/ConfigController.php:740
+msgid "Certificate updated successfully. It will be active after next reboot."
+msgstr "証明書が正常に更新されました。次回の再起動後にアクティブになります。"
+
+#: Controller/ConfigController.php:742
+msgid "Unable to generate certificate."
+msgstr "証明書を生成できません。"
+
+#: Controller/ConfigController.php:745
+msgid "Certificate has not been updated."
+msgstr "証明書は更新されませんでした。"
+
+#: Controller/ConfigController.php:834
+msgid "Invalid ntp server"
+msgstr "無効なNTPサーバー"
+
+#: Controller/ConfigController.php:865;867
+msgid "Date and time settings saved successfully."
+msgstr "日付と時刻の設定が正常に保存されました。"
+
+#: Controller/ConfigController.php:867
+msgid "But unable to restart NTP service."
+msgstr "しかし、NTPサービスを再起動できません。"
+
+#: Controller/ConfigController.php:877
+msgid "Date and time settings have not been updated."
+msgstr "日付と時刻の設定は更新されていません。"
+
+#: Controller/ConfigController.php:937
+msgid "Routing cache expiration must be between 1 and 15 days."
+msgstr "ルーティングキャッシュの有効期限は1〜15日である必要があります。"
+
+#: Controller/ConfigController.php:962;978
+msgid "Invalid log retention value"
+msgstr "無効なログ保存値"
+
+#: Controller/ConfigController.php:991
+msgid "Unable to set DNS redirectors"
+msgstr "DNSリダイレクタを設定できません"
+
+#: Controller/ConfigController.php:1017;1019
+msgid "Settings saved successfully."
+msgstr "設定が正常に保存されました。"
+
+#: Controller/ConfigController.php:1019
+#: Controller/ProfilesController.php:301
+msgid "But unable to reload DNS service."
+msgstr "しかし、DNSサービスをリロードできません。"
+
+#: Controller/ConfigController.php:1025
+msgid "Settings could not be saved."
+msgstr "設定を保存できませんでした。"
+
+#: Controller/ConnectionsController.php:241
+msgid "No connection information found for this IP address."
+msgstr "このIPアドレスの接続情報が見つかりません。"
+
+#: Controller/ConnectionsController.php:362
+msgid "The connection history has been deleted."
+msgstr "接続履歴が削除されました。"
+
+#: Controller/ConnectionsController.php:364
+msgid "The connection history could not be deleted."
+msgstr "接続履歴を削除できませんでした。"
+
+#: Controller/DevicesController.php:135
+#: Controller/ProfilesIpfiltersController.php:297
+#: Controller/ProfilesRoutingController.php:185
+#: Controller/UsersController.php:131
+msgid "Please select a profile."
+msgstr "プロファイルを選択してください。"
+
+#: Controller/DevicesController.php:251
+msgid "No devices were added."
+msgstr "デバイスは追加されませんでした。"
+
+#: Controller/DevicesController.php:333;336;339;342;354;427;430;433;436;456
+msgid "The device could not be saved."
+msgstr "デバイスを保存できませんでした。"
+
+#: Controller/DevicesController.php:333;427
+msgid "DHCP IP address does not match with any KeexyBox subnets."
+msgstr "DHCP IPアドレスがKeexyBoxサブネットと一致しません。"
+
+#: Controller/DevicesController.php:336;430
+msgid "DHCP IP address is being used by input interface."
+msgstr "DHCP IPアドレスが入力インターフェースで使用されています。"
+
+#: Controller/DevicesController.php:339;433
+msgid "DHCP IP address is being used by output interface."
+msgstr "DHCP IPアドレスが出力インターフェースで使用されています。"
+
+#: Controller/DevicesController.php:342;436
+msgid "DHCP IP address is being used by the gateway."
+msgstr "DHCP IPアドレスがゲートウェイで使用されています。"
+
+#: Controller/DevicesController.php:348;442
+msgid "The device has been saved."
+msgstr "デバイスが保存されました。"
+
+#: Controller/DevicesController.php:404;406
+msgid "By default IP addresses will be assigned in the subnet {0} if DHCP is enabled."
+msgstr "DHCPが有効な場合、IPアドレスはデフォルトでサブネット{0}に割り当てられます。"
+
+#: Controller/DevicesController.php:404;406
+msgid "Here you can reserve an IP address for this device."
+msgstr "ここで、このデバイスのIPアドレスを予約できます。"
+
+#: Controller/DevicesController.php:404
+msgid "If you want this device to use KeexyBox as DNS only, define an IP address in the {0} subnet."
+msgstr "このデバイスでKeexyBoxをDNSとしてのみ使用する場合は、{0}サブネットでIPアドレスを定義してください。"
+
+#: Controller/DevicesController.php:447
+#: Controller/UsersController.php:267
+msgid "Do you want to reconnect {0} with new profile?"
+msgstr "{0}を新しいプロファイルに再接続しますか？"
+
+#: Controller/DevicesController.php:482
+msgid "The device has been deleted."
+msgstr "デバイスが削除されました。"
+
+#: Controller/DevicesController.php:485
+msgid "The device could not be deleted."
+msgstr "デバイスを削除できませんでした。"
+
+#: Controller/DevicesController.php:618;625;630
+#: Controller/UsersController.php:454;461;466
+msgid "Import error line number {0}."
+msgstr "エラー行番号{0}をインポートします。"
+
+#: Controller/DevicesController.php:641
+msgid "Devices have been imported successfully."
+msgstr "デバイスが正常にインポートされました。"
+
+#: Controller/DevicesController.php:644
+msgid "Devices have been imported with errors."
+msgstr "デバイスがエラーを伴いインポートされました。"
+
+#: Controller/DevicesController.php:654
+msgid "Devices not imported."
+msgstr "デバイスはインポートされませんでした。"
+
+#: Controller/DevicesController.php:654
+#: Controller/UsersController.php:491
+msgid "Bad CSV headers."
+msgstr "不良なCSVヘッダー。"
+
+#: Controller/DevicesController.php:695
+msgid "Device {0} connected successfully."
+msgstr "デバイス{0}が正常に接続されました。"
+
+#: Controller/DevicesController.php:697
+msgid "Unable to connect {0} device. Please check if the device is on the network."
+msgstr "{0}デバイスを接続できません。デバイスがネットワーク上にあるかどうかを確認してください。"
+
+#: Controller/DevicesController.php:745
+msgid "Device {0} has been disconnected."
+msgstr "デバイス{0}は切断されました。"
+
+#: Controller/DevicesController.php:747
+msgid "Unable to disconnect Device {0}."
+msgstr "デバイス{0}を切断できません。"
+
+#: Controller/DevicesController.php:774
+msgid "Device {0} connection has been paused."
+msgstr "デバイス{0}の接続が一時停止されました。"
+
+#: Controller/DevicesController.php:776
+msgid "Unable to pause connection of device {0}."
+msgstr "デバイス{0}の接続を一時停止できません。"
+
+#: Controller/DevicesController.php:802
+msgid "Device {0} connection resumed."
+msgstr "デバイス{0}の接続が再開されました。"
+
+#: Controller/DevicesController.php:804
+msgid "Unable to resume connection of the device {0}."
+msgstr "デバイス{0}の接続を再開できません。"
+
+#: Controller/DevicesController.php:829
+msgid "The device {0} has been reconnected successfully."
+msgstr "デバイス{0}は正常に再接続されました。"
+
+#: Controller/DevicesController.php:831
+msgid "Unable to reconnect the device {0}."
+msgstr "デバイス{0}を再接続できません。"
+
+#: Controller/ProfilesController.php:119
+msgid "Profile added successfully."
+msgstr "プロファイルが正常に追加されました。"
+
+#: Controller/ProfilesController.php:119
+msgid "Please now adjust the profile settings."
+msgstr "今すぐプロファイル設定を調整してください。"
+
+#: Controller/ProfilesController.php:128
+msgid "Unable to reload DNS service."
+msgstr "DNSサービスをリロードできません。"
+
+#: Controller/ProfilesController.php:141
+msgid "Unable to add the profile."
+msgstr "プロファイルを追加できません。"
+
+#: Controller/ProfilesController.php:255;272
+msgid "One or more connection schedules were not saved."
+msgstr "1つまたは複数の接続スケジュールが保存されませんでした。"
+
+#: Controller/ProfilesController.php:255
+msgid "End time was before start time or no day was selected."
+msgstr "終了時間が開始時間より前であるか、日付が選択されていません。"
+
+#: Controller/ProfilesController.php:272
+msgid "End time was before start time."
+msgstr "終了時間が開始時間より前になっていました。"
+
+#: Controller/ProfilesController.php:294;297;301
+msgid "Profile saved successfully."
+msgstr "プロファイルが正常に保存されました。"
+
+#: Controller/ProfilesController.php:310
+msgid "Unable to update profile."
+msgstr "プロファイルを更新できません。"
+
+#: Controller/ProfilesController.php:404
+msgid "All users and devices reconnected successfully."
+msgstr "すべてのユーザーとデバイスが正常に再接続しました。"
+
+#: Controller/ProfilesController.php:406
+msgid "Unable to reconnect all users and devices."
+msgstr "すべてのユーザーとデバイスを再接続できません。"
+
+#: Controller/ProfilesController.php:589
+msgid "File has been uploaded successfully."
+msgstr "ファイルが正常にアップロードされました。"
+
+#: Controller/ProfilesController.php:589
+msgid "Please select below data to import."
+msgstr "インポートするデータを以下から選択してください。"
+
+#: Controller/ProfilesController.php:684
+msgid "Unable to import profile."
+msgstr "プロファイルをインポートできません。"
+
+#: Controller/ProfilesController.php:743
+msgid "Profile imported successfully."
+msgstr "プロファイルが正常にインポートされました。"
+
+#: Controller/ProfilesController.php:748
+msgid "No profile defined to import data."
+msgstr "データをインポートするためのプロファイルが定義されていません。"
+
+#: Controller/ProfilesController.php:761
+msgid "No data to import."
+msgstr "インポートするデータがありません。"
+
+#: Controller/ProfilesController.php:819
+msgid "Profile {0} has been deleted."
+msgstr "プロファイル{0}は削除されました。"
+
+#: Controller/ProfilesController.php:823
+msgid "Deleting profile {0} is forbidden."
+msgstr "プロファイル{0}の削除は禁止されています。"
+
+#: Controller/ProfilesController.php:842
+msgid "Profile ID is not specified."
+msgstr "プロファイルIDが指定されていません。"
+
+#: Controller/ProfilesController.php:846
+msgid "Profile {0} has been reloaded successfully."
+msgstr "プロファイル{0}は正常にリロードされました。"
+
+#: Controller/ProfilesController.php:848
+msgid "Unable to reload profile {0}."
+msgstr "プロファイル{0}をリロードできません。"
+
+#: Controller/ProfilesIpfiltersController.php:215;267
+msgid "Please select rule position."
+msgstr "ルールの位置を選択してください。"
+
+#: Controller/ProfilesIpfiltersController.php:379;513
+msgid "Last IP must be greater than first IP"
+msgstr "最後のIPは最初のIPより大きくなければなりません"
+
+#: Controller/ProfilesIpfiltersController.php:389;477;502;532
+msgid "Firewall rule has been saved."
+msgstr "ファイアウォールルールが保存されました。"
+
+#: Controller/ProfilesIpfiltersController.php:397;400;485;510;540
+msgid "Firewall rule could not be saved."
+msgstr "ファイアウォールルールを保存できませんでした。"
+
+#: Controller/ProfilesIpfiltersController.php:400
+msgid "Following ports are invalid: "
+msgstr "次のポートは無効です："
+
+#: Controller/ProfilesIpfiltersController.php:564
+msgid "Firewall rule has been deleted."
+msgstr "ファイアウォールルールが削除されました。"
+
+#: Controller/ProfilesIpfiltersController.php:566
+msgid "Firewall rule could not be deleted."
+msgstr "ファイアウォールルールを削除できませんでした。"
+
+#: Controller/ProfilesRoutingController.php:180;182
+msgid "Selected domain routings have been copied successfully."
+msgstr "選択したドメインルーティングが正常にコピーされました。"
+
+#: Controller/ProfilesRoutingController.php:180
+msgid "Except for the following addresses which already exist for the profile: {0}"
+msgstr "プロファイルに既に存在する次のアドレスを除きます：{0}"
+
+#: Controller/ProfilesRoutingController.php:221
+msgid "Please select routing target."
+msgstr "ルーティングターゲットを選択してください。"
+
+#: Controller/ProfilesRoutingController.php:380;382;465
+msgid "Domain routings saved successfully."
+msgstr "ドメインルーティングが正常に保存されました。"
+
+#: Controller/ProfilesRoutingController.php:380
+msgid "Except for the following addresses: {0}"
+msgstr "次のアドレスを除きます：{0}"
+
+#: Controller/ProfilesRoutingController.php:472
+msgid "Domain routings have not been saved."
+msgstr "ドメインルーティングは保存されていません。"
+
+#: Controller/ProfilesRoutingController.php:473
+msgid "Invalid address"
+msgstr "無効なアドレス"
+
+#: Controller/ProfilesRoutingController.php:509
+msgid "Domain routing {0} has been deleted."
+msgstr "ドメインルーティング{0}が削除されました。"
+
+#: Controller/ProfilesRoutingController.php:511
+msgid "Domain routing {0} could not be deleted."
+msgstr "ドメインルーティング{0}を削除できませんでした。"
+
+#: Controller/ProfilesTimesController.php:50
+msgid "Connection schedule has been deleted."
+msgstr "接続スケジュールが削除されました。"
+
+#: Controller/ProfilesTimesController.php:52
+msgid "Connection schedule could not be deleted."
+msgstr "接続スケジュールを削除できませんでした。"
+
+#: Controller/ToolsController.php:48
+msgid "DNS Service for domain filtering"
+msgstr "ドメインフィルタリング用のDNSサービス"
+
+#: Controller/ToolsController.php:49
+msgid "Service which assigns automatically an IP address on devices"
+msgstr "デバイスでIPアドレスを自動的に割り当てるサービス"
+
+#: Controller/ToolsController.php:50
+msgid "Service for time synchronization"
+msgstr "時刻同期のサービス"
+
+#: Controller/ToolsController.php:53
+msgid "Service for routing and firewall rules"
+msgstr "ルーティングとファイアウォールルールのサービス"
+
+#: Controller/ToolsController.php:54
+msgid "Anonymization service"
+msgstr "匿名化サービス"
+
+#: Controller/ToolsController.php:97
+msgid "Service {0} {1} successfull."
+msgstr "サービス{0} {1}は成功しました。"
+
+#: Controller/ToolsController.php:99
+msgid "Service {0} {1} failed."
+msgstr "サービス{0} {1}が失敗しました。"
+
+#: Controller/UsersController.php:186
+msgid "The user has been added successfully."
+msgstr "ユーザーが正常に追加されました。"
+
+#: Controller/UsersController.php:201
+msgid "Unable to add the user."
+msgstr "ユーザーを追加できません。"
+
+#: Controller/UsersController.php:265
+msgid "The user has been updated successfully."
+msgstr "ユーザーは正常に更新されました。"
+
+#: Controller/UsersController.php:275
+msgid "Unable to update the user."
+msgstr "ユーザーを更新できません。"
+
+#: Controller/UsersController.php:303
+msgid "The user {0} has been deleted."
+msgstr "ユーザー{0}は削除されました。"
+
+#: Controller/UsersController.php:308
+msgid "Deleting the user {0} is forbidden."
+msgstr "ユーザー{0}の削除は禁止されています。"
+
+#: Controller/UsersController.php:477
+msgid "Users have been imported successfully."
+msgstr "ユーザーが正常にインポートされました。"
+
+#: Controller/UsersController.php:481
+msgid "Users have been imported with errors."
+msgstr "ユーザーがエラーを伴いインポートされました。"
+
+#: Controller/UsersController.php:491
+msgid "Users not imported."
+msgstr "ユーザーはインポートされませんでした。"
+
+#: Controller/UsersController.php:545;592;598
+msgid "Incorrect login or password."
+msgstr "正しくないログインまたはパスワード。"
+
+#: Controller/UsersController.php:594
+msgid "You do not have management permissions."
+msgstr "管理者権限がありません。"
+
+#: Controller/UsersController.php:632
+msgid "You are now connected to the Internet."
+msgstr "これでインターネットに接続されました。"
+
+#: Controller/UsersController.php:634
+msgid "Unable to connect you to the Internet."
+msgstr "インターネットに接続できません。"
+
+#: Controller/UsersController.php:658
+msgid "You are now disconnected from the internet."
+msgstr "インターネットから切断されました。"
+
+#: Controller/UsersController.php:660
+msgid "Unable to disconnect you from the Internet."
+msgstr "インターネットから切断できません。"
+
+#: Controller/UsersController.php:664
+msgid "Your connection is paused."
+msgstr "接続は一時停止されています。"
+
+#: Controller/UsersController.php:664
+msgid "Disconnections are forbidden for paused connections."
+msgstr "一時停止中の接続は切断できません。"
+
+#: Controller/UsersController.php:692
+msgid "The user {0} has been disconnected successfully."
+msgstr "ユーザー{0}は正常に切断されました。"
+
+#: Controller/UsersController.php:694
+msgid "Unable to disconnect the user {0}."
+msgstr "ユーザー{0}を切断できません。"
+
+#: Controller/UsersController.php:720
+msgid "The connection of the user {0} has been paused."
+msgstr "ユーザー{0}の接続は一時停止されました。"
+
+#: Controller/UsersController.php:722
+msgid "Unable to pause the connection of the user {0}."
+msgstr "ユーザー{0}の接続を一時停止できません。"
+
+#: Controller/UsersController.php:748
+msgid "The connection of the user {0} has been resumed."
+msgstr "ユーザー{0}の接続が再開されました。"
+
+#: Controller/UsersController.php:750
+msgid "Unable to resume the connection of the user {0}."
+msgstr "ユーザー{0}の接続を再開できません。"
+
+#: Controller/UsersController.php:776
+msgid "The user {0} has been reconnected successfully."
+msgstr "ユーザー{0}は正常に再接続されました。"
+
+#: Controller/UsersController.php:778
+msgid "Unable to reconnect the user {0}."
+msgstr "ユーザー{0}を再接続できません。"
+
+#: Controller/Component/ConnectionDurationComponent.php:39
+msgid "15 minutes"
+msgstr "15分"
+
+#: Controller/Component/ConnectionDurationComponent.php:40
+msgid "30 minutes"
+msgstr "30分"
+
+#: Controller/Component/ConnectionDurationComponent.php:41
+msgid "1 hour"
+msgstr "1時間"
+
+#: Controller/Component/ConnectionDurationComponent.php:42
+msgid "2 hours"
+msgstr "2時間"
+
+#: Controller/Component/ConnectionDurationComponent.php:43
+msgid "4 hours"
+msgstr "4時間"
+
+#: Controller/Component/ConnectionDurationComponent.php:44
+msgid "8 hours"
+msgstr "8時間"
+
+#: Controller/Component/ConnectionDurationComponent.php:45
+msgid "12 hours"
+msgstr "12時間"
+
+#: Controller/Component/ConnectionDurationComponent.php:46
+msgid "1 day"
+msgstr "1日"
+
+#: Controller/Component/ConnectionDurationComponent.php:47
+msgid "1 week"
+msgstr "1週間"
+
+#: Controller/Component/ConnectionDurationComponent.php:48
+msgid "2 weeks"
+msgstr "2週間"
+
+#: Controller/Component/ConnectionDurationComponent.php:49
+msgid "1 month"
+msgstr "1か月"
+
+#: Model/Table/ActivesConnectionsTable.php:71
+msgid "This IP is already connected"
+msgstr "このIPは既に接続されています"
+
+#: Model/Table/BlacklistTable.php:37
+#: Model/Table/DevicesTable.php:77
+#: Model/Table/UsersNoHashPasswordTable.php:56
+#: Model/Table/UsersTable.php:50
+msgid "The value must be alphanumeric and may contain hyphens (-) and underscores (_)"
+msgstr "値は英数字でなければならず、ハイフン（-）およびアンダースコア（_）を含むことができます。"
+
+#: Model/Table/ConfigTable.php:97
+msgid "The value must be alphanumeric"
+msgstr "値は英数字でなければなりません"
+
+#: Model/Table/ConfigTable.php:165;201
+msgid "The value must be between {0} and {1} days"
+msgstr "値は{0}〜{1}日でなければなりません"
+
+#: Model/Table/DevicesTable.php:68
+msgid "Device name already used"
+msgstr "デバイス名はすでに使用されています"
+
+#: Model/Table/DevicesTable.php:87
+#: Model/Table/ProfilesTable.php:94
+#: Model/Table/UsersNoHashPasswordTable.php:68
+#: Model/Table/UsersTable.php:62
+msgid "This name is already taken"
+msgstr "この名前はすでに使用されています"
+
+#: Model/Table/DevicesTable.php:95
+#: Model/Table/ProfilesRoutingTable.php:53
+msgid "The value should not be empty"
+msgstr "値は空であってはなりません"
+
+#: Model/Table/DevicesTable.php:99
+msgid "Invalid MAC address"
+msgstr "無効なMACアドレス"
+
+#: Model/Table/DevicesTable.php:114
+msgid "This IP address is already reserved"
+msgstr "このIPアドレスは既に予約されています"
+
+#: Model/Table/ProfilesIpfiltersTable.php:83;110;111
+msgid "The IP address is required"
+msgstr "IPアドレスが必要です"
+
+#: Model/Table/ProfilesIpfiltersTable.php:84
+msgid "The netmask is required"
+msgstr "ネットマスクが必要です"
+
+#: Model/Table/ProfilesIpfiltersTable.php:152
+msgid "Invalid Hostname"
+msgstr "無効なホスト名"
+
+#: Model/Table/UsersNoHashPasswordTable.php:77
+msgid "The hashed password must 60 chars"
+msgstr "ハッシュ化されたパスワードは60文字でなければなりません"
+
+#: Model/Table/UsersTable.php:71
+msgid "Passwords do not match"
+msgstr "パスワードが一致しません"
+
+#: Model/Table/UsersTable.php:77
+msgid "Password must contain at least 8 characters"
+msgstr "パスワードには少なくとも8文字が必要です"
+
+#: Shell/ArpShell.php:155
+msgid "Unknown"
+msgstr "不明"
+
+#: Shell/ServiceShell.php:251;259
+msgid "DHCP service is disabled"
+msgstr "DHCPサービスが無効になっています"
+
+#: Template/Blacklist/add.ctp:9
+#: Template/Blacklist/index.ctp:11
+#: Template/Blacklist/query.ctp:11
+#: Template/Blacklist/wadd.ctp:2
+msgid "Add domains to the Blacklist"
+msgstr "ドメインをブラックリストに追加"
+
+#: Template/Blacklist/add.ctp:19
+#: Template/Blacklist/wadd.ctp:27
+msgid "Here you can add domains to the Blacklist line per line or separated by a space"
+msgstr "ここで、ドメインを1行ごとまたはスペースで区切ってブラックリストに追加できます。"
+
+#: Template/Blacklist/add.ctp:36
+#: Template/Blacklist/wadd.ctp:44
+msgid "Overwrite the category of existing domains in the Blacklist"
+msgstr "ブラックリストの既存のドメインカテゴリを上書きします"
+
+#: Template/Blacklist/add.ctp:44
+#: Template/Blacklist/wadd.ctp:52
+msgid "You can here import domains to the Blacklist from lists available on the Internet (one URL per line)"
+msgstr "ここで、インターネット上で利用可能なリストからブラックリストにドメインをインポートできます（1行に1つのURL）"
+
+#: Template/Blacklist/add.ctp:58
+#: Template/Blacklist/index.ctp:52
+#: Template/Blacklist/query.ctp:58;97
+#: Template/Blacklist/wadd.ctp:66
+#: Template/Tools/domain_issue.ctp:64
+msgid "Category"
+msgstr "カテゴリ"
+
+#: Template/Blacklist/add.ctp:64
+#: Template/Blacklist/index.ctp:126
+#: Template/Blacklist/query.ctp:144
+#: Template/Blacklist/wadd.ctp:72
+#: Template/ProfilesRouting/add.ctp:101
+#: Template/ProfilesRouting/edit.ctp:84
+#: Template/ProfilesRouting/index.ctp:172
+#: Template/Tools/domain_issue.ctp:117
+msgid "(Select existing category)"
+msgstr "（既存のカテゴリを選択）"
+
+#: Template/Blacklist/add.ctp:71
+#: Template/Blacklist/wadd.ctp:79
+msgid "Or create new category"
+msgstr "または新しいカテゴリを作成します"
+
+#: Template/Blacklist/add.ctp:77
+#: Template/Blacklist/wadd.ctp:85
+msgid "Category name"
+msgstr "カテゴリ名"
+
+#: Template/Blacklist/add.ctp:94;95
+#: Template/Config/certificate.ctp:109;110
+#: Template/Config/datetime.ctp:78;79
+#: Template/Config/dhcp.ctp:163;164
+#: Template/Config/edit.ctp:31;32
+#: Template/Config/misc.ctp:126;127
+#: Template/Config/network.ctp:275;276
+#: Template/Devices/add.ctp:100;101
+#: Template/Devices/add2.ctp:99;100
+#: Template/Devices/edit.ctp:96;97
+#: Template/Devices/import.ctp:36;37
+#: Template/Profiles/add.ctp:64;65
+#: Template/Profiles/edit.ctp:374;375
+#: Template/Profiles/export.ctp:74;75
+#: Template/Profiles/import.ctp:335;336
+#: Template/Profiles/upload_import.ctp:36;37
+#: Template/ProfilesIpfilters/add.ctp:252;253;264;265
+#: Template/ProfilesIpfilters/edit.ctp:272;273;284;285
+#: Template/ProfilesRouting/add.ctp:125;126
+#: Template/ProfilesRouting/edit.ctp:109;110
+#: Template/Users/add.ctp:105;106
+#: Template/Users/edit.ctp:127;128
+#: Template/Users/import.ctp:36;37
+msgid "Cancel"
+msgstr "キャンセル"
+
+#: Template/Blacklist/add.ctp:104;105
+#: Template/Blacklist/import.ctp:44;45
+#: Template/Blacklist/wadd.ctp:104;105
+#: Template/Config/certificate.ctp:119;120
+#: Template/Config/datetime.ctp:87;88
+#: Template/Config/dhcp.ctp:172;173
+#: Template/Config/edit.ctp:40;41
+#: Template/Config/misc.ctp:135;136
+#: Template/Config/network.ctp:284;285
+#: Template/Config/wpa.ctp:49;50
+#: Template/Devices/add.ctp:109;110
+#: Template/Devices/add2.ctp:108;109
+#: Template/Devices/edit.ctp:105;106
+#: Template/Devices/import.ctp:45;46
+#: Template/Profiles/add.ctp:73;74
+#: Template/Profiles/edit.ctp:383;384
+#: Template/Profiles/wadd.ctp:80;81
+#: Template/Profiles/wedit.ctp:394
+#: Template/ProfilesIpfilters/add.ctp:276;277
+#: Template/ProfilesIpfilters/edit.ctp:296;297
+#: Template/ProfilesRouting/add.ctp:135;136
+#: Template/ProfilesRouting/edit.ctp:119;120
+#: Template/Users/add.ctp:114;115
+#: Template/Users/edit.ctp:136;137
+#: Template/Users/import.ctp:45;46
+#: Template/Users/wadd.ctp:6;115;116
+msgid "Save"
+msgstr "保存"
+
+#: Template/Blacklist/add.ctp:116
+#: Template/Blacklist/wadd.ctp:116
+msgid "Import domains to the Blacklist from a file"
+msgstr "ファイルからブラックリストにドメインをインポートします"
+
+#: Template/Blacklist/add.ctp:120
+#: Template/Blacklist/wadd.ctp:120
+msgid "To import domains from tar.gz file, please click on {0}."
+msgstr "tar.gzファイルからドメインをインポートするには、{0}をクリックしてください。"
+
+#: Template/Blacklist/add.ctp:120;129;130
+#: Template/Blacklist/wadd.ctp:120;131;132
+#: Template/Profiles/import.ctp:344;345
+msgid "Import"
+msgstr "インポート"
+
+#: Template/Blacklist/add.ctp:121
+#: Template/Blacklist/wadd.ctp:121
+msgid "Domains will be automatically categorized."
+msgstr "ドメインは自動的に分類されます。"
+
+#: Template/Blacklist/import.ctp:8
+#: Template/Blacklist/query.ctp:20
+msgid "Import domains to the Blacklist"
+msgstr "ドメインをブラックリストにインポート"
+
+#: Template/Blacklist/import.ctp:16
+#: Template/Profiles/upload_import.ctp:16
+msgid "Select tar.gz file"
+msgstr "tar.gzファイルを選択"
+
+#: Template/Blacklist/import.ctp:35;36
+#: Template/Config/wpa.ctp:39;40
+msgid "Close"
+msgstr "閉じる"
+
+#: Template/Blacklist/index.ctp:3
+msgid "Blacklist categories"
+msgstr "ブラックリストカテゴリ"
+
+#: Template/Blacklist/index.ctp:20
+#: Template/Blacklist/query.ctp:3
+msgid "Query the Blacklist"
+msgstr "ブラックリストのクエリ"
+
+#: Template/Blacklist/index.ctp:30
+msgid "Refresh the Blacklist"
+msgstr "ブラックリストを更新"
+
+#: Template/Blacklist/index.ctp:43
+#: Template/Blacklist/query.ctp:85
+#: Template/Config/advanced.ctp:14
+#: Template/Connections/history.ctp:25
+#: Template/Connections/index.ctp:35
+#: Template/Devices/index.ctp:56
+#: Template/Devices/scan.ctp:26
+#: Template/Devices/wscan.ctp:20
+#: Template/ProfilesIpfilters/index.ctp:58
+#: Template/ProfilesRouting/index.ctp:58
+#: Template/Statistics/logs.ctp:31
+#: Template/Statistics/most_queried.ctp:30
+#: Template/Tools/domain_issue.ctp:50
+#: Template/Tools/services.ctp:59
+#: Template/Users/index.ctp:46
+msgid "Do you confirm the action?"
+msgstr "アクションを確認しますか？"
+
+#: Template/Blacklist/index.ctp:53
+msgid "Domains"
+msgstr "ドメイン"
+
+#: Template/Blacklist/index.ctp:54
+#: Template/Config/advanced.ctp:98
+#: Template/Connections/adminview.ctp:46
+#: Template/Connections/history.ctp:41
+#: Template/Connections/index.ctp:52
+#: Template/Devices/index.ctp:71
+#: Template/Devices/scan.ctp:37
+#: Template/Profiles/edit.ctp:218
+#: Template/Profiles/index.ctp:50
+#: Template/Profiles/wedit.ctp:236
+#: Template/ProfilesIpfilters/index.ctp:73
+#: Template/ProfilesRouting/index.ctp:71
+#: Template/Statistics/logs.ctp:45
+#: Template/Statistics/most_active_clients.ctp:33
+#: Template/Statistics/most_queried.ctp:40
+#: Template/Tools/services.ctp:71
+#: Template/Users/index.ctp:60
+msgid "Actions"
+msgstr "アクション"
+
+#: Template/Blacklist/index.ctp:74
+msgid "Export all domains of this category"
+msgstr "このカテゴリのすべてのドメインをエクスポート"
+
+#: Template/Blacklist/index.ctp:84
+#: Template/Blacklist/query.ctp:129
+#: Template/Connections/history.ctp:141;162
+#: Template/Devices/index.ctp:129;154
+#: Template/Profiles/edit.ctp:271
+#: Template/Profiles/index.ctp:160
+#: Template/Profiles/wedit.ctp:289
+#: Template/ProfilesIpfilters/index.ctp:151;178
+#: Template/ProfilesRouting/index.ctp:130;158
+#: Template/Tools/domain_issue.ctp:102
+#: Template/Users/index.ctp:125;151
+msgid "Delete"
+msgstr "削除"
+
+#: Template/Blacklist/index.ctp:87
+msgid "Are you sure you want to delete the category {0} and all the domains it contains?"
+msgstr "カテゴリ{0}とそのカテゴリに含まれるすべてのドメインを削除してもよろしいですか？"
+
+#: Template/Blacklist/index.ctp:104
+#: Template/Blacklist/query.ctp:128
+#: Template/Tools/domain_issue.ctp:101
+msgid "Change the category"
+msgstr "カテゴリを変更"
+
+#: Template/Blacklist/index.ctp:105
+msgid "Export categories"
+msgstr "カテゴリをエクスポート"
+
+#: Template/Blacklist/index.ctp:106
+msgid "Delete categories"
+msgstr "カテゴリを削除"
+
+#: Template/Blacklist/index.ctp:108
+#: Template/Blacklist/query.ctp:131
+#: Template/Connections/history.ctp:163
+#: Template/Connections/index.ctp:299
+#: Template/Devices/index.ctp:156
+#: Template/ProfilesIpfilters/index.ctp:179
+#: Template/ProfilesRouting/index.ctp:159
+#: Template/Tools/domain_issue.ctp:104
+#: Template/Tools/services.ctp:141
+#: Template/Users/index.ctp:153
+msgid "(select action)"
+msgstr "（アクションを選択）"
+
+#: Template/Blacklist/index.ctp:135
+#: Template/Blacklist/query.ctp:153
+#: Template/ProfilesRouting/add.ctp:112
+#: Template/ProfilesRouting/edit.ctp:91;97
+#: Template/ProfilesRouting/index.ctp:181
+#: Template/Tools/domain_issue.ctp:126
+msgid "Set a new category"
+msgstr "新しいカテゴリを設定"
+
+#: Template/Blacklist/index.ctp:145;146
+#: Template/Blacklist/query.ctp:163;164
+#: Template/Connections/history.ctp:174;175
+#: Template/Connections/index.ctp:310;311
+#: Template/Devices/index.ctp:183;184
+#: Template/ProfilesIpfilters/index.ctp:231;232
+#: Template/ProfilesRouting/index.ctp:215;216
+#: Template/Tools/domain_issue.ctp:136;137
+#: Template/Tools/services.ctp:154;155
+#: Template/Users/index.ctp:178;179
+msgid "Run"
+msgstr "実行"
+
+#: Template/Blacklist/index.ctp:157
+#: Template/Profiles/edit.ctp:103
+#: Template/Profiles/import.ctp:219
+#: Template/Profiles/wedit.ctp:119
+msgid "The Blacklist is empty."
+msgstr "ブラックリストは空です。"
+
+#: Template/Blacklist/index.ctp:159
+msgid "You can download lists on Internet and import them to the Blacklist."
+msgstr "インターネットでリストをダウンロードし、ブラックリストにインポートできます。"
+
+#: Template/Blacklist/query.ctp:30
+msgid "List Blacklist categories"
+msgstr "ブラックリストカテゴリを一覧表示"
+
+#: Template/Blacklist/query.ctp:45
+#: Template/Config/advanced.ctp:67
+#: Template/Element/search_general_form.ctp:8
+#: Template/Element/search_log_form.ctp:65
+msgid "Results/page"
+msgstr "結果/ページ"
+
+#: Template/Blacklist/query.ctp:96
+#: Template/Element/search_log_form.ctp:72
+#: Template/Statistics/logs.ctp:41
+#: Template/Statistics/most_queried.ctp:38
+#: Template/Tools/domain_issue.ctp:16;63
+msgid "Domain"
+msgstr "ドメイン"
+
+#: Template/Blacklist/wadd.ctp:2
+#: Template/Config/wdatetime.ctp:3
+#: Template/Config/wdhcp.ctp:2
+#: Template/Config/wend.ctp:1
+#: Template/Config/wnetwork.ctp:2
+#: Template/Config/wstart.ctp:1
+#: Template/Devices/wscan.ctp:1
+#: Template/Profiles/wadd.ctp:2
+#: Template/Profiles/wedit.ctp:1
+#: Template/Users/wadd.ctp:2
+msgid "KeexyBox’s configuration wizard"
+msgstr "KeexyBox構成ウィザード"
+
+#: Template/Blacklist/wadd.ctp:6
+msgid "The Blacklist is KeexyBox’s internal database containing the domains to block. By default the Blacklist is empty, KeexyBox is not provided with any list of domains. Here you can add domains to block or import lists that you can retrieve from the Internet."
+msgstr "ブラックリストは、KeexyBoxの内部データベースで、ブロックするドメインが含まれています。デフォルトではブラックリストは空で、KeexyBoxにはドメインのリストはありません。ここで、ブロックするドメインを追加したり、インターネットから取得できるリストをインポートしたりできます。"
+
+#: Template/Blacklist/wadd.ctp:7
+msgid "Click {0} if you do not want to do it now."
+msgstr "今すぐ実行したくない場合は{0}をクリックしてください。"
+
+#: Template/Blacklist/wadd.ctp:7;99;126
+#: Template/Devices/wscan.ctp:8;71
+#: Template/Profiles/wadd.ctp:12;75
+#: Template/Profiles/wedit.ctp:388
+#: Template/Users/wadd.ctp:7;110
+msgid "Skip / Next"
+msgstr "スキップ/次へ"
+
+#: Template/Blacklist/wadd.ctp:98;125
+#: Template/Config/wdatetime.ctp:86
+#: Template/Config/wdhcp.ctp:193
+#: Template/Config/wend.ctp:20
+#: Template/Config/wnetwork.ctp:285
+#: Template/Devices/wscan.ctp:70
+#: Template/Profiles/wadd.ctp:74
+#: Template/Users/wadd.ctp:109
+msgid "Back"
+msgstr "戻る"
+
+#: Template/Config/advanced.ctp:8
+msgid "Advanced settings and configuration management"
+msgstr "詳細設定と構成管理"
+
+#: Template/Config/advanced.ctp:18
+msgid "Generate configuration files"
+msgstr "構成ファイルを生成"
+
+#: Template/Config/advanced.ctp:32
+msgid "(select a configuration)"
+msgstr "（構成を選択）"
+
+#: Template/Config/advanced.ctp:44;45
+msgid "Generate"
+msgstr "生成"
+
+#: Template/Config/advanced.ctp:59
+msgid "Advanced settings"
+msgstr "詳細設定"
+
+#: Template/Config/advanced.ctp:76
+#: Template/Element/search_general_form.ctp:17
+#: Template/Profiles/edit.ctp:443
+#: Template/Profiles/wedit.ctp:453
+msgid "Search"
+msgstr "検索"
+
+#: Template/Config/advanced.ctp:113
+#: Template/Config/wpa.ctp:17
+#: Template/Devices/index.ctp:118
+#: Template/Profiles/edit.ctp:167;177
+#: Template/Profiles/index.ctp:105
+#: Template/Profiles/wedit.ctp:184;194
+#: Template/ProfilesIpfilters/index.ctp:141
+#: Template/ProfilesRouting/index.ctp:120
+#: Template/Users/index.ctp:113
+msgid "Edit"
+msgstr "編集"
+
+#: Template/Config/advanced.ctp:130
+#: Template/Element/paginator.ctp:3
+msgid "previous"
+msgstr "前へ"
+
+#: Template/Config/advanced.ctp:132
+#: Template/Element/paginator.ctp:5
+msgid "next"
+msgstr "次へ"
+
+#: Template/Config/certificate.ctp:9
+msgid "Generate SSL certificate"
+msgstr "SSL証明書を生成"
+
+#: Template/Config/certificate.ctp:15
+msgid "Certificate will be replaced. Confirm?"
+msgstr "証明書は置き換えられます。確定しますか？"
+
+#: Template/Config/certificate.ctp:21
+msgid "Common Name"
+msgstr "一般名"
+
+#: Template/Config/certificate.ctp:26
+msgid "(fqdn or hostname)"
+msgstr "（FQDNまたはホスト名）"
+
+#: Template/Config/certificate.ctp:34
+msgid "Country code"
+msgstr "国コード"
+
+#: Template/Config/certificate.ctp:41
+msgid "(2 letter code)"
+msgstr "（2文字のコード）"
+
+#: Template/Config/certificate.ctp:49
+msgid "State or Province Name"
+msgstr "都道府県名"
+
+#: Template/Config/certificate.ctp:54
+msgid "(full name)"
+msgstr "（フルネーム）"
+
+#: Template/Config/certificate.ctp:62
+msgid "Locality Name"
+msgstr "地域名"
+
+#: Template/Config/certificate.ctp:67
+msgid "(e.g. city)"
+msgstr "（例：都市）"
+
+#: Template/Config/certificate.ctp:75
+msgid "Organization Name"
+msgstr "組織名"
+
+#: Template/Config/certificate.ctp:80
+msgid "(e.g. company)"
+msgstr "（例：会社）"
+
+#: Template/Config/certificate.ctp:88
+msgid "Organizational Unit Name"
+msgstr "組織の部署名"
+
+#: Template/Config/certificate.ctp:93
+msgid "(e.g. department)"
+msgstr "（例：部門）"
+
+#: Template/Config/datetime.ctp:9
+#: Template/Config/wdatetime.ctp:3
+msgid "Date and time settings"
+msgstr "日付と時刻の設定"
+
+#: Template/Config/datetime.ctp:17
+#: Template/Config/wdatetime.ctp:29
+msgid "Date"
+msgstr "日付"
+
+#: Template/Config/datetime.ctp:27
+#: Template/Config/wdatetime.ctp:39
+#: Template/Statistics/logs.ctp:44
+msgid "Time"
+msgstr "時刻"
+
+#: Template/Config/datetime.ctp:37
+#: Template/Config/wdatetime.ctp:49
+msgid "Time zone"
+msgstr "タイムゾーン"
+
+#: Template/Config/datetime.ctp:49
+#: Template/Config/wdatetime.ctp:61
+msgid "NTP server 1"
+msgstr "NTPサーバー1"
+
+#: Template/Config/datetime.ctp:60
+#: Template/Config/wdatetime.ctp:72
+msgid "NTP server 2"
+msgstr "NTPサーバー2"
+
+#: Template/Config/dhcp.ctp:9
+#: Template/Config/wdhcp.ctp:2
+msgid "DHCP settings"
+msgstr "DHCP設定"
+
+#: Template/Config/dhcp.ctp:21
+#: Template/Config/wdhcp.ctp:56
+msgid "Enable DHCP"
+msgstr "DHCPを有効にする"
+
+#: Template/Config/dhcp.ctp:33
+#: Template/Config/wdhcp.ctp:68
+msgid "Check this box if you want to use KeexyBox as DNS only and do not want to use it as gateway."
+msgstr "KeexyBoxをDNSとしてのみ使用し、ゲートウェイとして使用しない場合は、このボックスをオンにします。"
+
+#: Template/Config/dhcp.ctp:46;96
+#: Template/Config/wdhcp.ctp:81;131
+msgid "Address range for the network: {0}"
+msgstr "ネットワークのアドレス範囲：{0}"
+
+#: Template/Config/dhcp.ctp:51;111
+#: Template/Config/wdhcp.ctp:86;146
+msgid "DHCP start IP"
+msgstr "DHCP開始IP"
+
+#: Template/Config/dhcp.ctp:71;131
+#: Template/Config/wdhcp.ctp:106;166
+msgid "DHCP end IP"
+msgstr "DHCP終了IP"
+
+#: Template/Config/dhcp.ctp:107
+#: Template/Config/wdhcp.ctp:142
+msgid "DHCP will work on subnet {0} only for devices that have an IP address reserved. However, defining the IP range here is required."
+msgstr "DHCPは、IPアドレスが予約されているデバイスのサブネット{0}でのみ機能します。ただし、ここでIP範囲を定義する必要があります。"
+
+#: Template/Config/edit.ctp:8
+msgid "Edit setting: {0}"
+msgstr "設定を編集：{0}"
+
+#: Template/Config/index.ctp:8
+msgid "System control panel"
+msgstr "システムコントロールパネル"
+
+#: Template/Config/index.ctp:16
+#: Template/Layout/adminlte.ctp:211
+msgid "Network"
+msgstr "ネットワーク"
+
+#: Template/Config/index.ctp:19
+#: Template/Layout/adminlte.ctp:212
+msgid "Date and time"
+msgstr "日付と時刻"
+
+#: Template/Config/index.ctp:22
+#: Template/Layout/adminlte.ctp:213
+msgid "DHCP"
+msgstr "DHCP"
+
+#: Template/Config/index.ctp:25
+msgid "SSL certificate"
+msgstr "SSL証明書"
+
+#: Template/Config/index.ctp:28
+#: Template/Layout/adminlte.ctp:215
+msgid "Miscellaneous"
+msgstr "その他"
+
+#: Template/Config/misc.ctp:8
+msgid "Miscellaneous settings"
+msgstr "その他の設定"
+
+#: Template/Config/misc.ctp:16
+msgid "Domains routing and DNS options"
+msgstr "ドメインルーティングとDNSオプション"
+
+#: Template/Config/misc.ctp:18
+msgid "Clear the domain routing cache"
+msgstr "ドメインルーティングのキャッシュをクリア"
+
+#: Template/Config/misc.ctp:20
+msgid "Clear"
+msgstr "クリア"
+
+#: Template/Config/misc.ctp:22
+msgid "Are you sure to clear the domain routing cache?"
+msgstr "ドメインルーティングのキャッシュをクリアしてもよろしいですか？"
+
+#: Template/Config/misc.ctp:32
+msgid "Domain routing cache expiration (days)"
+msgstr "ドメインルーティングのキャッシュの有効期限（日）"
+
+#: Template/Config/misc.ctp:51
+msgid "Use defined DNS as redirectors"
+msgstr "定義されたDNSをリダイレクタとして使用"
+
+#: Template/Config/misc.ctp:58
+msgid "User and device options"
+msgstr "ユーザーとデバイスのオプション"
+
+#: Template/Config/misc.ctp:60
+msgid "Default user connection time"
+msgstr "デフォルトのユーザー接続時間"
+
+#: Template/Config/misc.ctp:74
+msgid "Default language for users and devices"
+msgstr "ユーザーとデバイスのデフォルト言語"
+
+#: Template/Config/misc.ctp:86
+msgid "Log options"
+msgstr "ログオプション"
+
+#: Template/Config/misc.ctp:88
+msgid "Maximum retention of logs in database (days)"
+msgstr "データベース内のログの最大保存期間（日）"
+
+#: Template/Config/misc.ctp:103
+msgid "Maximum retention of logs on the hard drive (days)"
+msgstr "ハードドライブ上のログの最大保存期間（日）"
+
+#: Template/Config/network.ctp:2
+#: Template/Config/wnetwork.ctp:2
+msgid "Network settings"
+msgstr "ネットワーク設定"
+
+#: Template/Config/network.ctp:11
+#: Template/Config/wnetwork.ctp:6;32
+msgid "Input network"
+msgstr "入力ネットワーク"
+
+#: Template/Config/network.ctp:19
+msgid "The input network is where the users and devices are located."
+msgstr "入力ネットワークは、ユーザーとデバイスが配置されている場所です。"
+
+#: Template/Config/network.ctp:23;116
+#: Template/Config/wnetwork.ctp:39;130
+msgid "Interface"
+msgstr "インターフェース"
+
+#: Template/Config/network.ctp:40;41;133;134
+#: Template/Config/wnetwork.ctp:56;57;147;148
+#: Template/Config/wpa.ctp:9
+msgid "Wi-fi settings"
+msgstr "Wi-Fi設定"
+
+#: Template/Config/network.ctp:50;141
+#: Template/Config/wnetwork.ctp:64;155
+#: Template/Connections/adminview.ctp:21
+#: Template/Connections/history.ctp:35
+#: Template/Connections/index.ctp:46
+#: Template/Connections/view.ctp:21
+#: Template/Devices/scan.ctp:34
+#: Template/Devices/wscan.ctp:28
+msgid "IP address"
+msgstr "IPアドレス"
+
+#: Template/Config/network.ctp:70;161
+#: Template/Config/wnetwork.ctp:84;175
+msgid "Netmask"
+msgstr "ネットマスク"
+
+#: Template/Config/network.ctp:103
+#: Template/Config/wnetwork.ctp:117
+msgid "Output network"
+msgstr "出力ネットワーク"
+
+#: Template/Config/network.ctp:112
+#: Template/Config/wnetwork.ctp:126
+msgid "The output network is where your internet router is located."
+msgstr "出力ネットワークは、インターネットルーターのある場所です。"
+
+#: Template/Config/network.ctp:116
+#: Template/Config/wnetwork.ctp:130
+msgid "(It can be the same as input network)"
+msgstr "（入力ネットワークと同じでも構いません）"
+
+#: Template/Config/network.ctp:194
+msgid "DNS and Gateway"
+msgstr "DNSおよびゲートウェイ"
+
+#: Template/Config/network.ctp:202
+#: Template/Config/wnetwork.ctp:216
+msgid "Gateway"
+msgstr "ゲートウェイ"
+
+#: Template/Config/network.ctp:222
+#: Template/Config/wnetwork.ctp:236
+msgid "DNS 1"
+msgstr "DNS 1"
+
+#: Template/Config/network.ctp:242
+#: Template/Config/wnetwork.ctp:256
+msgid "DNS 2"
+msgstr "DNS 2"
+
+#: Template/Config/wdatetime.ctp:7
+msgid "You need to set the date and time so that the Internet access times are well managed."
+msgstr "インターネットアクセス時間が適切に管理されるように、日付と時刻を設定する必要があります。"
+
+#: Template/Config/wdatetime.ctp:9
+msgid "Adjust the time and date."
+msgstr "時刻と日付を調整します。"
+
+#: Template/Config/wdatetime.ctp:10
+msgid "Set your time zone."
+msgstr "タイムゾーンを設定します。"
+
+#: Template/Config/wdatetime.ctp:87;91
+#: Template/Config/wdhcp.ctp:194;198
+#: Template/Config/wnetwork.ctp:286;290
+#: Template/Profiles/wedit.ctp:393
+msgid "Next"
+msgstr "次へ"
+
+#: Template/Config/wdhcp.ctp:6;18;29
+msgid "The DHCP allows you to dynamically assign an IP address and other network settings to each device on your network."
+msgstr "DHCPを使用すると、ネットワーク上の各デバイスにIPアドレスおよびその他のネットワーク設定を動的に割り当てることができます。"
+
+#: Template/Config/wdhcp.ctp:8;20
+msgid "Disable the DHCP on your Internet router to avoid conflict with KeexyBox DHCP."
+msgstr "KeexyBoxとDHCPの競合を避けるため、インターネットルーターでDHCPを無効にしてください。"
+
+#: Template/Config/wdhcp.ctp:9;21
+msgid "Define a range of IP addresses to use for your devices in the {0} network."
+msgstr "{0}ネットワーク内のデバイスに使用するIPアドレスの範囲を定義します。"
+
+#: Template/Config/wdhcp.ctp:10
+msgid "Define a range of IP addresses in the {0} network."
+msgstr "{0}ネットワークでIPアドレスの範囲を定義します。"
+
+#: Template/Config/wdhcp.ctp:31
+msgid "Log in to the management interface of your Internet router."
+msgstr "インターネットルーターの管理インターフェースにログインします。"
+
+#: Template/Config/wdhcp.ctp:32
+msgid "In the DHCP settings, specify the IP address {0} for the DNS."
+msgstr "DHCP設定で、DNSのIPアドレス{0}を指定します。"
+
+#: Template/Config/wdhcp.ctp:202
+#: Template/Profiles/wedit.ctp:388
+msgid "Skip"
+msgstr "スキップ"
+
+#: Template/Config/wend.ctp:5
+msgid "Your KeexyBox setup is complete!"
+msgstr "KeexyBoxのセットアップが完了しました！"
+
+#: Template/Config/wend.ctp:6
+msgid "You will be able to connect to KeexyBox using one of the URLs below:"
+msgstr "以下のURLのいずれかを使用してKeexyBoxに接続できます："
+
+#: Template/Config/wend.ctp:12
+msgid "Please note the URLs and click {0} to restart the system."
+msgstr "URLを書き留めて、{0}をクリックしてシステムを再起動してください。"
+
+#: Template/Config/wend.ctp:12;21
+msgid "Finish"
+msgstr "終了"
+
+#: Template/Config/wnetwork.ctp:6
+msgid "To use KeexyBox for filtering and anonymous access over the Internet, a second network must be created. This new network called {0} is the one where all your devices will now be located (PCs, tablets, smartphones, connected objects, etc.)."
+msgstr "KeexyBoxを使用してインターネット経由のフィルタリングと匿名アクセスを行うには、2番目のネットワークを作成する必要があります。{0}と呼ばれるこの新しいネットワークは、すべてのデバイス（PC、タブレット、スマートフォン、接続オブジェクトなど）が配置される場所です。"
+
+#: Template/Config/wnetwork.ctp:8
+msgid "Define the interface, IP address, and netmask."
+msgstr "インターフェース、IPアドレス、およびネットマスクを定義します。"
+
+#: Template/Config/wnetwork.ctp:9;19
+msgid "Define the IP addresses of your DNS servers."
+msgstr "DNSサーバーのIPアドレスを定義します。"
+
+#: Template/Config/wnetwork.ctp:17
+msgid "To use KeexyBox as Internet filtering only:"
+msgstr "インターネットフィルタリングとしてのみKeexyBoxを使用するには："
+
+#: Template/Config/wnetwork.ctp:208
+msgid "DNS"
+msgstr "DNS"
+
+#: Template/Config/wstart.ctp:5
+msgid "Congratulations! KeexyBox is installed."
+msgstr "おめでとうございます！KeexyBoxがインストールされました。"
+
+#: Template/Config/wstart.ctp:6
+msgid "We will now assist you in setting up your KeexyBox."
+msgstr "KeexyBoxのセットアップをお手伝いします。"
+
+#: Template/Config/wstart.ctp:7
+msgid "How would you like to use it?"
+msgstr "どのように使用しますか？"
+
+#: Template/Config/wstart.ctp:9
+msgid "For Internet filtering and anonymous access?"
+msgstr "インターネットフィルタリングと匿名アクセスのために使用？"
+
+#: Template/Config/wstart.ctp:12
+msgid "For Internet filtering only and DHCP enabled on KeexyBox?"
+msgstr "インターネットフィルタリングのみに使用、かつKeexyBoxでDHCPは有効？"
+
+#: Template/Config/wstart.ctp:15
+msgid "For Internet filtering only and DHCP disabled on KeexyBox?"
+msgstr "インターネットフィルタリングのみに使用、かつKeexyBoxでDHCPは無効？"
+
+#: Template/Config/wstart.ctp:23
+#: Template/Tools/services.ctp:112;139
+msgid "Start"
+msgstr "開始"
+
+#: Template/Config/wstart.ctp:42
+msgid "You must choose how you want to use KeexyBox."
+msgstr "KeexyBoxの使用方法を選択する必要があります。"
+
+#: Template/Connections/adminview.ctp:2
+#: Template/Connections/history.ctp:105
+#: Template/Connections/view.ctp:2
+msgid "Connection information"
+msgstr "接続情報"
+
+#: Template/Connections/adminview.ctp:9
+#: Template/Connections/view.ctp:9
+#: Template/Profiles/edit.ctp:12
+#: Template/Profiles/import.ctp:14
+#: Template/Profiles/wedit.ctp:28
+msgid "General"
+msgstr "全般"
+
+#: Template/Connections/adminview.ctp:17
+#: Template/Connections/view.ctp:17
+#: Template/Devices/add.ctp:17;22
+#: Template/Devices/add2.ctp:17;22
+#: Template/Devices/edit.ctp:17;22
+#: Template/Devices/index.ctp:66
+#: Template/Devices/scan.ctp:35
+#: Template/Devices/wscan.ctp:29
+#: Template/Profiles/add.ctp:17;22
+#: Template/Profiles/edit.ctp:19;24
+#: Template/Profiles/import.ctp:19;32
+#: Template/Profiles/index.ctp:45
+#: Template/Profiles/wadd.ctp:8;31;36
+#: Template/Profiles/wedit.ctp:35;40
+#: Template/Users/add.ctp:30
+#: Template/Users/edit.ctp:30
+#: Template/Users/wadd.ctp:38
+msgid "Name"
+msgstr "名前"
+
+#: Template/Connections/adminview.ctp:25
+#: Template/Connections/view.ctp:25
+msgid "Connection start time"
+msgstr "接続開始時間"
+
+#: Template/Connections/adminview.ctp:32;173
+#: Template/Connections/view.ctp:32
+msgid "Connection end time"
+msgstr "接続終了時間"
+
+#: Template/Connections/adminview.ctp:34
+#: Template/Connections/index.ctp:116
+#: Template/Connections/view.ctp:34
+msgid "None"
+msgstr "なし"
+
+#: Template/Connections/adminview.ctp:42;183
+#: Template/Connections/view.ctp:42
+msgid "Connection status"
+msgstr "接続ステータス"
+
+#: Template/Connections/adminview.ctp:55;107
+#: Template/Connections/index.ctp:134;213;298
+msgid "Pause the connection"
+msgstr "接続を一時停止"
+
+#: Template/Connections/adminview.ctp:58;110
+#: Template/Connections/index.ctp:137;216
+msgid "Pause the connection of {0}?"
+msgstr "{0}の接続を一時停止しますか？"
+
+#: Template/Connections/adminview.ctp:67;119
+#: Template/Connections/index.ctp:145;224;298
+msgid "Resume the connection"
+msgstr "接続を再開"
+
+#: Template/Connections/adminview.ctp:70;122
+#: Template/Connections/index.ctp:148;227
+msgid "Resume the connection of {0}?"
+msgstr "{0}の接続を再開しますか？"
+
+#: Template/Connections/adminview.ctp:80;132
+#: Template/Connections/index.ctp:156;235;298
+#: Template/Layout/adminlte.ctp:163
+#: Template/Layout/connection_view.ctp:133
+#: Template/Layout/loginlte.ctp:133
+#: Template/Layout/wizard.ctp:158
+msgid "Disconnect"
+msgstr "切断"
+
+#: Template/Connections/adminview.ctp:83;135
+#: Template/Connections/index.ctp:159;238
+msgid "Disconnect {0}?"
+msgstr "{0}を切断しますか？"
+
+#: Template/Connections/adminview.ctp:91;144
+#: Template/Connections/index.ctp:166;245;298
+#: Template/Element/Flash/reconnect_link.ctp:1
+msgid "Reconnect"
+msgstr "再接続"
+
+#: Template/Connections/adminview.ctp:94;147
+#: Template/Connections/index.ctp:169;248
+msgid "Reconnect {0}?"
+msgstr "{0}を再接続しますか？"
+
+#: Template/Connections/adminview.ctp:155
+#: Template/Connections/history.ctp:121
+#: Template/Connections/index.ctp:189;268
+msgid "Visited domains"
+msgstr "訪問済みドメイン"
+
+#: Template/Connections/adminview.ctp:184
+msgid "Ended"
+msgstr "終了"
+
+#: Template/Connections/adminview.ctp:204;209
+#: Template/Connections/history.ctp:36
+#: Template/Connections/index.ctp:48
+#: Template/Connections/view.ctp:63;68
+#: Template/Devices/add.ctp:41
+#: Template/Devices/add2.ctp:41
+#: Template/Devices/edit.ctp:39
+#: Template/Devices/index.ctp:68
+#: Template/ProfilesRouting/add.ctp:74
+#: Template/ProfilesRouting/edit.ctp:56
+#: Template/ProfilesRouting/index.ctp:69
+#: Template/Statistics/logs.ctp:43
+#: Template/Users/add.ctp:57
+#: Template/Users/edit.ctp:57
+#: Template/Users/index.ctp:57
+#: Template/Users/wadd.ctp:65
+msgid "Profile"
+msgstr "プロファイル"
+
+#: Template/Connections/adminview.ctp:213
+#: Template/Connections/view.ctp:72
+#: Template/Profiles/add.ctp:28
+#: Template/Profiles/edit.ctp:126
+#: Template/Profiles/import.ctp:38
+#: Template/Profiles/index.ctp:46
+#: Template/Profiles/wadd.ctp:9;42
+#: Template/Profiles/wedit.ctp:10;142
+msgid "Default connection type"
+msgstr "デフォルトの接続タイプ"
+
+#: Template/Connections/adminview.ctp:216;474
+#: Template/Connections/view.ctp:75;333
+#: Template/Profiles/add.ctp:33
+#: Template/Profiles/edit.ctp:134
+#: Template/Profiles/import.ctp:50
+#: Template/Profiles/index.ctp:63
+#: Template/Profiles/wadd.ctp:47
+#: Template/Profiles/wedit.ctp:150
+#: Template/ProfilesRouting/add.ctp:65
+#: Template/ProfilesRouting/edit.ctp:46
+#: Template/ProfilesRouting/index.ctp:91;191
+msgid "Direct"
+msgstr "直接"
+
+#: Template/Connections/adminview.ctp:218;475
+#: Template/Connections/view.ctp:77;334
+#: Template/Profiles/add.ctp:33
+#: Template/Profiles/edit.ctp:135
+#: Template/Profiles/import.ctp:50
+#: Template/Profiles/index.ctp:64
+#: Template/Profiles/wadd.ctp:47
+#: Template/Profiles/wedit.ctp:151
+#: Template/ProfilesRouting/add.ctp:65
+#: Template/ProfilesRouting/edit.ctp:46
+#: Template/ProfilesRouting/index.ctp:92;191
+msgid "Tor"
+msgstr "Tor（トーア）"
+
+#: Template/Connections/adminview.ctp:224
+#: Template/Connections/view.ctp:83
+#: Template/Profiles/add.ctp:42
+#: Template/Profiles/edit.ctp:142
+#: Template/Profiles/wadd.ctp:10;56
+#: Template/Profiles/wedit.ctp:11;158
+msgid "Default Firewall rule"
+msgstr "デフォルトのファイアウォールルール"
+
+#: Template/Connections/adminview.ctp:228
+#: Template/Connections/view.ctp:87
+#: Template/Profiles/edit.ctp:35
+#: Template/Profiles/import.ctp:84;91
+#: Template/Profiles/wedit.ctp:7;51
+msgid "Statistics enabled"
+msgstr "統計が有効"
+
+#: Template/Connections/adminview.ctp:233;244;271;282;293;306;397;434;458
+#: Template/Connections/view.ctp:92;103;130;141;152;165;256;293;317
+#: Template/Devices/index.ctp:70
+#: Template/ProfilesIpfilters/index.ctp:72
+#: Template/ProfilesRouting/index.ctp:70
+#: Template/Users/index.ctp:58
+msgid "Enabled"
+msgstr "有効"
+
+#: Template/Connections/adminview.ctp:239
+#: Template/Connections/view.ctp:98
+#: Template/Profiles/edit.ctp:158
+#: Template/Profiles/import.ctp:103;110
+#: Template/Profiles/wedit.ctp:12;174
+msgid "Redirect DNS queries to TOR"
+msgstr "DNSクエリをTORにリダイレクトする"
+
+#: Template/Connections/adminview.ctp:261
+#: Template/Connections/view.ctp:120
+#: Template/Profiles/import.ctp:147
+msgid "Search engine options and Blacklist categories"
+msgstr "検索エンジンオプションとブラックリストカテゴリ"
+
+#: Template/Connections/adminview.ctp:266
+#: Template/Connections/view.ctp:125
+#: Template/Profiles/edit.ctp:66
+#: Template/Profiles/import.ctp:161
+#: Template/Profiles/wedit.ctp:82
+msgid "Force Google SafeSearch"
+msgstr "Googleセーフサーチを強制適用する"
+
+#: Template/Connections/adminview.ctp:277
+#: Template/Connections/view.ctp:136
+#: Template/Profiles/edit.ctp:75
+#: Template/Profiles/import.ctp:179
+#: Template/Profiles/wedit.ctp:91
+msgid "Force Bing SafeSearch"
+msgstr "Bingセーフサーチを強制適用する"
+
+#: Template/Connections/adminview.ctp:288
+#: Template/Connections/view.ctp:147
+#: Template/Profiles/edit.ctp:84
+#: Template/Profiles/import.ctp:197
+#: Template/Profiles/wedit.ctp:100
+msgid "Force Youtube SafeSearch"
+msgstr "YouTubeセーフサーチを強制適用する"
+
+#: Template/Connections/adminview.ctp:323
+#: Template/Connections/view.ctp:182
+#: Template/Profiles/edit.ctp:199
+#: Template/Profiles/import.ctp:267
+#: Template/Profiles/wedit.ctp:13;217
+msgid "Connection schedules"
+msgstr "接続スケジュール"
+
+#: Template/Connections/adminview.ctp:337
+#: Template/Connections/view.ctp:196
+msgid "mon. "
+msgstr "月曜"
+
+#: Template/Connections/adminview.ctp:341
+#: Template/Connections/view.ctp:200
+msgid "tues. "
+msgstr "火曜"
+
+#: Template/Connections/adminview.ctp:345
+#: Template/Connections/view.ctp:204
+msgid "wed. "
+msgstr "水曜"
+
+#: Template/Connections/adminview.ctp:349
+#: Template/Connections/view.ctp:208
+msgid "thurs. "
+msgstr "木曜"
+
+#: Template/Connections/adminview.ctp:353
+#: Template/Connections/view.ctp:212
+msgid "fri. "
+msgstr "金曜"
+
+#: Template/Connections/adminview.ctp:357
+#: Template/Connections/view.ctp:216
+msgid "sat. "
+msgstr "土曜"
+
+#: Template/Connections/adminview.ctp:361
+#: Template/Connections/view.ctp:220
+msgid "sun. "
+msgstr "日曜"
+
+#: Template/Connections/adminview.ctp:387
+#: Template/Connections/view.ctp:246
+msgid "Firewall rules"
+msgstr "ファイアウォールルール"
+
+#: Template/Connections/adminview.ctp:392
+#: Template/Connections/view.ctp:251
+#: Template/ProfilesIpfilters/index.ctp:66
+msgid "Position"
+msgstr "位置"
+
+#: Template/Connections/adminview.ctp:393
+#: Template/Connections/view.ctp:252
+#: Template/ProfilesIpfilters/index.ctp:68
+msgid "Destination IP"
+msgstr "宛先IP"
+
+#: Template/Connections/adminview.ctp:394
+#: Template/Connections/view.ctp:253
+#: Template/ProfilesIpfilters/add.ctp:205
+#: Template/ProfilesIpfilters/edit.ctp:225
+#: Template/ProfilesIpfilters/index.ctp:69
+msgid "Protocol"
+msgstr "プロトコル"
+
+#: Template/Connections/adminview.ctp:395
+#: Template/Connections/view.ctp:254
+#: Template/ProfilesIpfilters/index.ctp:70
+msgid "Ports"
+msgstr "ポート"
+
+#: Template/Connections/adminview.ctp:396
+#: Template/Connections/view.ctp:255
+#: Template/ProfilesIpfilters/index.ctp:71
+msgid "Target"
+msgstr "ターゲット"
+
+#: Template/Connections/adminview.ctp:450
+#: Template/Connections/view.ctp:309
+msgid "Domains routing"
+msgstr "ドメインルーティング"
+
+#: Template/Connections/adminview.ctp:456
+#: Template/Connections/view.ctp:315
+#: Template/ProfilesRouting/edit.ctp:17
+#: Template/ProfilesRouting/index.ctp:67
+msgid "Address"
+msgstr "アドレス"
+
+#: Template/Connections/adminview.ctp:457
+#: Template/Connections/view.ctp:316
+#: Template/ProfilesRouting/add.ctp:60
+#: Template/ProfilesRouting/edit.ctp:41
+#: Template/ProfilesRouting/index.ctp:68
+msgid "Connection type"
+msgstr "接続タイプ"
+
+#: Template/Connections/adminview.ctp:485
+#: Template/Connections/view.ctp:344
+#: Template/ProfilesRouting/index.ctp:105
+msgid "yes"
+msgstr "はい"
+
+#: Template/Connections/history.ctp:3
+#: Template/Connections/index.ctp:12
+msgid "Ended connections"
+msgstr "終了した接続"
+
+#: Template/Connections/history.ctp:13
+#: Template/Connections/index.ctp:3
+msgid "Current connections"
+msgstr "現在の接続"
+
+#: Template/Connections/history.ctp:33
+#: Template/Connections/index.ctp:44
+msgid "Connection name"
+msgstr "接続名"
+
+#: Template/Connections/history.ctp:34
+#: Template/Connections/index.ctp:45
+msgid "Device/User"
+msgstr "デバイス/ユーザー"
+
+#: Template/Connections/history.ctp:37
+#: Template/Connections/index.ctp:49
+msgid "Type"
+msgstr "タイプ"
+
+#: Template/Connections/history.ctp:38
+msgid "Duration"
+msgstr "期間"
+
+#: Template/Connections/history.ctp:39
+#: Template/Connections/index.ctp:50
+msgid "Start Time"
+msgstr "開始時間"
+
+#: Template/Connections/history.ctp:40
+#: Template/Connections/index.ctp:51
+msgid "End Time"
+msgstr "終了時間"
+
+#: Template/Connections/history.ctp:82
+#: Template/Connections/index.ctp:114
+msgid "Device"
+msgstr "デバイス"
+
+#: Template/Connections/history.ctp:86
+#: Template/Connections/index.ctp:120
+msgid "User"
+msgstr "ユーザー"
+
+#: Template/Connections/history.ctp:144
+msgid "Confirm?"
+msgstr "確定しますか？"
+
+#: Template/Connections/index.ctp:22
+msgid "Connect a device to the Internet"
+msgstr "デバイスをインターネットに接続"
+
+#: Template/Connections/index.ctp:47
+#: Template/Tools/services.ctp:70
+msgid "Status"
+msgstr "ステータス"
+
+#: Template/Connections/index.ctp:93
+msgid "Connected"
+msgstr "接続済み"
+
+#: Template/Connections/index.ctp:102
+#: Template/Layout/adminlte.ctp:135
+#: Template/Layout/connection_view.ctp:105
+#: Template/Layout/loginlte.ctp:105
+#: Template/Layout/wizard.ctp:130
+msgid "Paused"
+msgstr "一時停止"
+
+#: Template/Connections/index.ctp:176;255
+msgid "View the connection details"
+msgstr "接続の詳細を表示"
+
+#: Template/Devices/add.ctp:8
+#: Template/Devices/add2.ctp:8
+#: Template/Devices/index.ctp:13
+msgid "Add a device"
+msgstr "デバイスを追加"
+
+#: Template/Devices/add.ctp:29
+#: Template/Devices/add2.ctp:29
+#: Template/Devices/edit.ctp:28
+#: Template/Devices/index.ctp:67
+#: Template/Devices/scan.ctp:36
+#: Template/Devices/wscan.ctp:30
+msgid "MAC address"
+msgstr "MACアドレス"
+
+#: Template/Devices/add.ctp:46
+#: Template/Devices/add2.ctp:46
+#: Template/Devices/edit.ctp:44
+#: Template/Devices/index.ctp:170
+#: Template/Devices/scan.ctp:83
+#: Template/Devices/wscan.ctp:62
+#: Template/Profiles/import.ctp:126;137
+#: Template/ProfilesIpfilters/add.ctp:47
+#: Template/ProfilesIpfilters/edit.ctp:47
+#: Template/ProfilesIpfilters/index.ctp:193
+#: Template/ProfilesRouting/index.ctp:204
+#: Template/Users/add.ctp:62
+#: Template/Users/edit.ctp:62
+#: Template/Users/index.ctp:166
+#: Template/Users/wadd.ctp:70
+msgid "(select a profile)"
+msgstr "（プロファイルを選択）"
+
+#: Template/Devices/add.ctp:54
+#: Template/Devices/add2.ctp:54
+#: Template/Devices/edit.ctp:52
+#: Template/Users/add.ctp:69
+#: Template/Users/edit.ctp:69
+#: Template/Users/wadd.ctp:77
+msgid "Language"
+msgstr "言語"
+
+#: Template/Devices/add.ctp:67
+#: Template/Devices/add2.ctp:66
+#: Template/Devices/edit.ctp:64
+#: Template/Devices/index.ctp:69
+msgid "DHCP reservation IP address"
+msgstr "DHCP予約IPアドレス"
+
+#: Template/Devices/add.ctp:67
+#: Template/Devices/add2.ctp:66
+#: Template/Devices/edit.ctp:64
+msgid "(optional)"
+msgstr "（オプション）"
+
+#: Template/Devices/add.ctp:86
+#: Template/Devices/add2.ctp:85
+#: Template/Devices/edit.ctp:82
+#: Template/Devices/index.ctp:152
+#: Template/ProfilesIpfilters/index.ctp:174
+#: Template/ProfilesRouting/index.ctp:154
+#: Template/Users/add.ctp:83
+#: Template/Users/edit.ctp:85;106
+#: Template/Users/index.ctp:149
+#: Template/Users/wadd.ctp:91
+msgid "Enable"
+msgstr "有効にする"
+
+#: Template/Devices/edit.ctp:8
+msgid "Edit device: {0}"
+msgstr "デバイスの編集：{0}"
+
+#: Template/Devices/import.ctp:8
+msgid "Import devices"
+msgstr "デバイスのインポート"
+
+#: Template/Devices/import.ctp:16
+#: Template/Users/import.ctp:16
+msgid "Select csv file"
+msgstr "CSVファイルを選択"
+
+#: Template/Devices/index.ctp:4
+#: Template/Devices/wscan.ctp:7
+#: Template/Layout/adminlte.ctp:198
+msgid "Devices"
+msgstr "デバイス"
+
+#: Template/Devices/index.ctp:22
+msgid "Export devices to CSV"
+msgstr "デバイスをCSVにエクスポート"
+
+#: Template/Devices/index.ctp:32
+msgid "Import devices from CSV"
+msgstr "CSVからデバイスをインポート"
+
+#: Template/Devices/index.ctp:42
+#: Template/Devices/scan.ctp:3
+#: Template/Devices/wscan.ctp:1
+msgid "Scan and add devices"
+msgstr "デバイスをスキャンして追加"
+
+#: Template/Devices/index.ctp:92
+#: Template/Profiles/index.ctp:77;91
+#: Template/ProfilesIpfilters/index.ctp:115
+#: Template/Users/index.ctp:84;99
+msgid "Yes"
+msgstr "はい"
+
+#: Template/Devices/index.ctp:97
+#: Template/Profiles/index.ctp:82;96
+#: Template/ProfilesIpfilters/index.ctp:120
+#: Template/Users/index.ctp:89;104
+msgid "No"
+msgstr "いいえ"
+
+#: Template/Devices/index.ctp:107
+msgid "Connect the device to the Internet"
+msgstr "デバイスをインターネットに接続"
+
+#: Template/Devices/index.ctp:110
+msgid "Connect the device {0}?"
+msgstr "デバイス{0}を接続しますか？"
+
+#: Template/Devices/index.ctp:132
+#: Template/ProfilesRouting/index.ctp:133
+#: Template/Users/index.ctp:128
+msgid "Are you sure you want to delete {0}?"
+msgstr "{0}を削除してもよろしいですか？"
+
+#: Template/Devices/index.ctp:150
+#: Template/Layout/adminlte.ctp:167
+#: Template/Layout/connection_view.ctp:137
+#: Template/Layout/loginlte.ctp:137
+#: Template/Layout/wizard.ctp:162
+#: Template/Users/login.ctp:42
+msgid "Connect"
+msgstr "接続"
+
+#: Template/Devices/index.ctp:151
+#: Template/ProfilesIpfilters/index.ctp:173
+#: Template/ProfilesRouting/index.ctp:153
+#: Template/Users/index.ctp:148
+msgid "Disable"
+msgstr "無効にする"
+
+#: Template/Devices/index.ctp:153
+#: Template/Users/index.ctp:150
+msgid "Change the profile"
+msgstr "プロファイルを変更"
+
+#: Template/Devices/scan.ctp:14
+msgid "List devices"
+msgstr "デバイスの一覧表示"
+
+#: Template/Devices/scan.ctp:61
+msgid "Add this device"
+msgstr "このデバイスを追加"
+
+#: Template/Devices/scan.ctp:95;96
+msgid "Add devices"
+msgstr "デバイスを追加"
+
+#: Template/Devices/wscan.ctp:5
+msgid "By default a device can be connected to the Internet only if its user has authenticated on KeexyBox’s captive portal. However, if you have to connect devices such as a voice assistant or IP camera, you will need to connect them to the Internet without using the captive portal."
+msgstr "デフォルトでは、ユーザーがKeexyBoxのキャプティブポータルで認証されている場合にのみ、デバイスをインターネットに接続できます。ただし、音声アシスタントやIPカメラなどのデバイスを接続する必要がある場合は、キャプティブポータルを使用せずにインターネットに接続する必要があります。"
+
+#: Template/Devices/wscan.ctp:6
+msgid "The devices listed below have been detected on your network. You can declare them to KeexyBox by assigning a profile. If you do not see them all, turn them on and click {0}."
+msgstr "以下のデバイスがネットワーク上で検出されました。プロファイルを割り当てることでKeexyBoxにそれらを宣言できます。すべてが表示されない場合は、それらをオンにして{0}をクリックしてください。"
+
+#: Template/Devices/wscan.ctp:6;80
+msgid "Rescan"
+msgstr "再スキャン"
+
+#: Template/Devices/wscan.ctp:7
+msgid "When KeexyBox is set up, remember to connect the devices you have declared to the Internet. To do this, you will have to go to {0}."
+msgstr "KeexyBoxがセットアップされたら、宣言したデバイスをインターネットに接続することを忘れないでください。これを行うには、{0}に移動する必要があります。"
+
+#: Template/Devices/wscan.ctp:7
+msgid "Connection Settings"
+msgstr "接続設定"
+
+#: Template/Devices/wscan.ctp:8
+msgid "If you do not want to declare them now, or you do not need to declare any more, click {0}."
+msgstr "今すぐ宣言しない場合、またはこれ以上宣言する必要がない場合は、{0}をクリックしてください。"
+
+#: Template/Devices/wscan.ctp:72;76
+#: Template/ProfilesIpfilters/add.ctp:192
+#: Template/ProfilesIpfilters/edit.ctp:211
+msgid "Add"
+msgstr "追加"
+
+#: Template/Element/search_log_form.ctp:6
+msgid "Start date"
+msgstr "開始日"
+
+#: Template/Element/search_log_form.ctp:24
+msgid "End date"
+msgstr "終了日"
+
+#: Template/Element/search_log_form.ctp:41
+msgid "View"
+msgstr "表示"
+
+#: Template/Element/search_log_form.ctp:47
+msgid "View type"
+msgstr "表示タイプ"
+
+#: Template/Element/search_log_form.ctp:49
+msgid "Charts"
+msgstr "チャート"
+
+#: Template/Element/search_log_form.ctp:50
+msgid "Log"
+msgstr "ログ"
+
+#: Template/Element/search_log_form.ctp:51
+#: Template/Statistics/most_queried.ctp:23
+msgid "Most queried domains"
+msgstr "最もクエリされたドメイン"
+
+#: Template/Element/search_log_form.ctp:52
+#: Template/Statistics/most_active_clients.ctp:23
+msgid "Most active users and devices"
+msgstr "最もアクティブなユーザーとデバイス"
+
+#: Template/Element/search_log_form.ctp:59
+msgid "Results/page / Max top values"
+msgstr "結果/ページ/最大値の上限"
+
+#: Template/Element/search_log_form.ctp:89
+msgid "Connected User/Device"
+msgstr "接続されたユーザー/デバイス"
+
+#: Template/Element/search_log_form.ctp:98
+msgid "(Select a user/device)"
+msgstr "（ユーザー/デバイスを選択）"
+
+#: Template/Element/search_log_form.ctp:108
+msgid "User/Device IP"
+msgstr "ユーザー/デバイスのIP"
+
+#: Template/Element/search_log_form.ctp:125;131
+#: Template/Statistics/logs.ctp:40
+msgid "Filter status"
+msgstr "ステータスをフィルタリング"
+
+#: Template/Element/search_log_form.ctp:133
+msgid "All"
+msgstr "すべて"
+
+#: Template/Element/search_log_form.ctp:134
+msgid "Blocked"
+msgstr "ブロックされました"
+
+#: Template/Element/search_log_form.ctp:135
+#: Template/Statistics/logs.ctp:66
+msgid "Accepted"
+msgstr "承認済み"
+
+#: Template/Element/search_log_form.ctp:146;147
+msgid "Filter"
+msgstr "フィルター"
+
+#: Template/Element/Flash/reboot_link.ctp:6
+msgid "You need to reboot KeexyBox. Reboot now?"
+msgstr "KeexyBoxを再起動する必要があります。今すぐ再起動しますか？"
+
+#: Template/Element/Flash/reload_link.ctp:6
+msgid "Clic here to reload"
+msgstr "リロードするにはここをクリックしてください"
+
+#: Template/Element/Flash/restart_link.ctp:6
+msgid "Clic here to restart"
+msgstr "再起動するにはここをクリックしてください"
+
+#: Template/Help/licenses.ctp:1
+#: Template/Help/wlicenses.ctp:1
+#: Template/Layout/adminlte.ctp:242
+msgid "Licenses"
+msgstr "ライセンス"
+
+#: Template/Help/licenses.ctp:5
+#: Template/Help/wlicenses.ctp:5
+msgid "KeexyBox license"
+msgstr "KeexyBoxのライセンス"
+
+#: Template/Help/licenses.ctp:6
+#: Template/Help/wlicenses.ctp:6
+msgid "This software is distributed under the {0} license, the source codes of which are in the following directories:"
+msgstr "このソフトウェアは{0}のライセンスの下に供給されており、そのソースコードは次のディレクトリにあります："
+
+#: Template/Help/licenses.ctp:51
+#: Template/Help/wlicenses.ctp:51
+msgid "Extra software packages and licenses"
+msgstr "追加のソフトウェアパッケージとライセンス"
+
+#: Template/Help/licenses.ctp:52
+#: Template/Help/wlicenses.ctp:52
+msgid "KeexyBox software comes with extra software packages."
+msgstr "KeexyBoxソフトウェアには、追加のソフトウェアパッケージが付属しています。"
+
+#: Template/Help/wlicenses.ctp:107
+msgid "I decline"
+msgstr "拒否します"
+
+#: Template/Help/wlicenses.ctp:108
+msgid "I accept"
+msgstr "同意します"
+
+#: Template/Layout/adminlte-nh.ctp:10
+#: Template/Layout/adminlte.ctp:10;272
+#: Template/Layout/connection_view.ctp:6;161
+#: Template/Layout/error.ctp:6;48
+#: Template/Layout/loginlte.ctp:6;161
+#: Template/Layout/wizard.ctp:10;193
+msgid "The box to keep the Internet under your control"
+msgstr "インターネットを管理下に置くためのボックス"
+
+#: Template/Layout/adminlte.ctp:100
+#: Template/Layout/connection_view.ctp:65
+#: Template/Layout/loginlte.ctp:65
+#: Template/Layout/wizard.ctp:95
+#: Template/Users/add.ctp:91
+#: Template/Users/edit.ctp:94;113
+#: Template/Users/index.ctp:59
+#: Template/Users/wadd.ctp:99
+msgid "Admin"
+msgstr "管理者"
+
+#: Template/Layout/adminlte.ctp:106
+#: Template/Layout/connection_view.ctp:71
+#: Template/Layout/loginlte.ctp:71
+#: Template/Layout/wizard.ctp:101
+msgid "Authenticated to manage KeexyBox"
+msgstr "KeexyBoxを管理するために認証されました"
+
+#: Template/Layout/adminlte.ctp:107
+#: Template/Layout/connection_view.ctp:72
+#: Template/Layout/loginlte.ctp:72
+#: Template/Layout/wizard.ctp:102
+msgid "Login: {0}"
+msgstr "ログイン：{0}"
+
+#: Template/Layout/adminlte.ctp:108;149
+#: Template/Layout/connection_view.ctp:73;119
+#: Template/Layout/loginlte.ctp:73;119
+#: Template/Layout/wizard.ctp:103;144
+msgid "Name: {0}"
+msgstr "名前：{0}"
+
+#: Template/Layout/adminlte.ctp:110
+#: Template/Layout/connection_view.ctp:75
+#: Template/Layout/loginlte.ctp:75
+#: Template/Layout/wizard.ctp:105
+msgid "Not authenticated to manage KeexyBox"
+msgstr "KeexyBoxを管理するために認証されていません"
+
+#: Template/Layout/adminlte.ctp:117
+#: Template/Layout/connection_view.ctp:82
+#: Template/Layout/loginlte.ctp:82
+#: Template/Layout/wizard.ctp:112
+msgid "Quit"
+msgstr "終了"
+
+#: Template/Layout/adminlte.ctp:119
+#: Template/Layout/wizard.ctp:114
+#: Template/Users/adminlogin.ctp:32
+msgid "Sign in"
+msgstr "サインイン"
+
+#: Template/Layout/adminlte.ctp:133
+#: Template/Layout/connection_view.ctp:103
+#: Template/Layout/loginlte.ctp:103
+#: Template/Layout/wizard.ctp:128
+msgid "Online"
+msgstr "オンライン"
+
+#: Template/Layout/adminlte.ctp:137
+#: Template/Layout/connection_view.ctp:107
+#: Template/Layout/loginlte.ctp:107
+#: Template/Layout/wizard.ctp:132
+msgid "Offline"
+msgstr "オフライン"
+
+#: Template/Layout/adminlte.ctp:148
+#: Template/Layout/connection_view.ctp:118
+#: Template/Layout/loginlte.ctp:118
+#: Template/Layout/wizard.ctp:143
+msgid "Connected to the Internet"
+msgstr "インターネットに接続されました"
+
+#: Template/Layout/adminlte.ctp:150
+#: Template/Layout/connection_view.ctp:120
+#: Template/Layout/loginlte.ctp:120
+#: Template/Layout/wizard.ctp:145
+msgid "IP Address: {0}"
+msgstr "IPアドレス：{0}"
+
+#: Template/Layout/adminlte.ctp:151
+#: Template/Layout/connection_view.ctp:121
+#: Template/Layout/loginlte.ctp:121
+#: Template/Layout/wizard.ctp:146
+msgid "Profile: {0}"
+msgstr "プロファイル：{0}"
+
+#: Template/Layout/adminlte.ctp:153
+#: Template/Layout/connection_view.ctp:123
+#: Template/Layout/loginlte.ctp:123
+#: Template/Layout/wizard.ctp:148
+msgid "Disconnected from the Internet"
+msgstr "インターネットから切断されました"
+
+#: Template/Layout/adminlte.ctp:160
+#: Template/Layout/connection_view.ctp:130
+#: Template/Layout/loginlte.ctp:130
+#: Template/Layout/wizard.ctp:155
+msgid "Info"
+msgstr "情報"
+
+#: Template/Layout/adminlte.ctp:186
+#: Template/Profiles/index.ctp:48
+msgid "Statistics"
+msgstr "統計"
+
+#: Template/Layout/adminlte.ctp:188
+msgid "Connections"
+msgstr "接続"
+
+#: Template/Layout/adminlte.ctp:191
+msgid "Connection settings"
+msgstr "接続設定"
+
+#: Template/Layout/adminlte.ctp:197
+#: Template/Users/index.ctp:4
+msgid "Users"
+msgstr "ユーザー"
+
+#: Template/Layout/adminlte.ctp:199
+#: Template/Profiles/index.ctp:4
+msgid "Profiles"
+msgstr "プロファイル"
+
+#: Template/Layout/adminlte.ctp:200
+msgid "Blacklist"
+msgstr "ブラックリスト"
+
+#: Template/Layout/adminlte.ctp:205
+msgid "System settings"
+msgstr "システム設定"
+
+#: Template/Layout/adminlte.ctp:214
+msgid "SSL Certificate"
+msgstr "SSL証明書"
+
+#: Template/Layout/adminlte.ctp:220
+msgid "Tools & diagnostics"
+msgstr "ツールと診断"
+
+#: Template/Layout/adminlte.ctp:226
+msgid "Services and power"
+msgstr "サービスとパワー"
+
+#: Template/Layout/adminlte.ctp:227
+msgid "Domain check"
+msgstr "ドメインチェック"
+
+#: Template/Layout/adminlte.ctp:228
+msgid "Iptables status"
+msgstr "iptablesステータス"
+
+#: Template/Layout/adminlte.ctp:229
+msgid "System state"
+msgstr "システム状態"
+
+#: Template/Layout/adminlte.ctp:234
+msgid "Help"
+msgstr "ヘルプ"
+
+#: Template/Layout/adminlte.ctp:240
+msgid "Website"
+msgstr "ウェブサイト"
+
+#: Template/Layout/adminlte.ctp:241
+msgid "Documentation"
+msgstr "ドキュメンテーション"
+
+#: Template/Layout/adminlte.ctp:242
+msgid "Donate"
+msgstr "寄付する"
+
+#: Template/Layout/connection_view.ctp:85;89
+#: Template/Layout/loginlte.ctp:85;89
+msgid "Manage"
+msgstr "管理"
+
+#: Template/Profiles/add.ctp:8
+#: Template/Profiles/wadd.ctp:2;22
+msgid "Add a new profile"
+msgstr "新しいプロファイルを追加"
+
+#: Template/Profiles/add.ctp:35
+#: Template/Profiles/edit.ctp:131
+#: Template/Profiles/import.ctp:51
+#: Template/Profiles/wadd.ctp:49
+#: Template/Profiles/wedit.ctp:147
+#: Template/ProfilesRouting/add.ctp:66
+#: Template/ProfilesRouting/edit.ctp:47
+#: Template/ProfilesRouting/index.ctp:192
+msgid "(Select a connection type)"
+msgstr "（接続タイプを選択）"
+
+#: Template/Profiles/add.ctp:47
+#: Template/Profiles/edit.ctp:147
+#: Template/Profiles/import.ctp:71
+#: Template/Profiles/wadd.ctp:61
+#: Template/Profiles/wedit.ctp:163
+#: Template/ProfilesIpfilters/add.ctp:223
+#: Template/ProfilesIpfilters/edit.ctp:243
+msgid "Accept"
+msgstr "同意する"
+
+#: Template/Profiles/add.ctp:47
+#: Template/Profiles/edit.ctp:147
+#: Template/Profiles/import.ctp:71
+#: Template/Profiles/wadd.ctp:61
+#: Template/Profiles/wedit.ctp:163
+#: Template/ProfilesIpfilters/add.ctp:223
+#: Template/ProfilesIpfilters/edit.ctp:243
+msgid "Drop"
+msgstr "ドロップ"
+
+#: Template/Profiles/add.ctp:49
+#: Template/Profiles/edit.ctp:148
+#: Template/Profiles/wadd.ctp:63
+#: Template/Profiles/wedit.ctp:164
+msgid "(Select a rule)"
+msgstr "（ルールを選択）"
+
+#: Template/Profiles/edit.ctp:3
+#: Template/Profiles/wedit.ctp:1
+msgid "Edit profile: {0}"
+msgstr "次のプロファイルを編集：{0}"
+
+#: Template/Profiles/edit.ctp:55
+#: Template/Profiles/wedit.ctp:71
+msgid "Filtering"
+msgstr "フィルタリング"
+
+#: Template/Profiles/edit.ctp:61
+#: Template/Profiles/import.ctp:149
+#: Template/Profiles/wedit.ctp:8;77
+msgid "Search engine options"
+msgstr "検索エンジンオプション"
+
+#: Template/Profiles/edit.ctp:90
+#: Template/Profiles/import.ctp:206
+#: Template/Profiles/wedit.ctp:9;106
+msgid "Domain categories to filter"
+msgstr "フィルタリングするドメインカテゴリ"
+
+#: Template/Profiles/edit.ctp:92
+#: Template/Profiles/import.ctp:208
+#: Template/Profiles/wedit.ctp:108
+msgid "Select categories"
+msgstr "カテゴリを選択"
+
+#: Template/Profiles/edit.ctp:119
+#: Template/Profiles/import.ctp:225
+#: Template/Profiles/wedit.ctp:135
+msgid "Firewall and routing"
+msgstr "ファイアウォールとルーティング"
+
+#: Template/Profiles/edit.ctp:168
+#: Template/Profiles/index.ctp:116
+#: Template/Profiles/wedit.ctp:185
+msgid "Manage domains routing"
+msgstr "ドメインルーティングの管理"
+
+#: Template/Profiles/edit.ctp:178
+#: Template/Profiles/wedit.ctp:195
+msgid "Manage Firewall"
+msgstr "ファイアウォールの管理"
+
+#: Template/Profiles/edit.ctp:209
+#: Template/Profiles/import.ctp:287
+#: Template/Profiles/wedit.ctp:227
+msgid "Mon."
+msgstr "月曜"
+
+#: Template/Profiles/edit.ctp:210
+#: Template/Profiles/import.ctp:288
+#: Template/Profiles/wedit.ctp:228
+msgid "Tue."
+msgstr "火曜"
+
+#: Template/Profiles/edit.ctp:211
+#: Template/Profiles/import.ctp:289
+#: Template/Profiles/wedit.ctp:229
+msgid "Wed."
+msgstr "水曜"
+
+#: Template/Profiles/edit.ctp:212
+#: Template/Profiles/import.ctp:290
+#: Template/Profiles/wedit.ctp:230
+msgid "Thu."
+msgstr "木曜"
+
+#: Template/Profiles/edit.ctp:213
+#: Template/Profiles/import.ctp:291
+#: Template/Profiles/wedit.ctp:231
+msgid "Fri."
+msgstr "金曜"
+
+#: Template/Profiles/edit.ctp:214
+#: Template/Profiles/import.ctp:292
+#: Template/Profiles/wedit.ctp:232
+msgid "Sat."
+msgstr "土曜"
+
+#: Template/Profiles/edit.ctp:215
+#: Template/Profiles/import.ctp:293
+#: Template/Profiles/wedit.ctp:233
+msgid "Sun."
+msgstr "日曜"
+
+#: Template/Profiles/edit.ctp:216
+#: Template/Profiles/import.ctp:294
+#: Template/Profiles/wedit.ctp:234
+msgid "Start time"
+msgstr "開始時刻"
+
+#: Template/Profiles/edit.ctp:217
+#: Template/Profiles/import.ctp:295
+#: Template/Profiles/wedit.ctp:235
+msgid "End time"
+msgstr "終了時間"
+
+#: Template/Profiles/edit.ctp:274
+#: Template/Profiles/wedit.ctp:292
+msgid "Are you sure you want to delete?"
+msgstr "削除してもよろしいですか？"
+
+#: Template/Profiles/edit.ctp:325;338
+#: Template/Profiles/wedit.ctp:343;356
+msgid "Add schedule"
+msgstr "スケジュールを追加"
+
+#: Template/Profiles/edit.ctp:342;349
+#: Template/Profiles/wedit.ctp:360;367
+msgid "Remove last schedule"
+msgstr "最後のスケジュールを削除"
+
+#: Template/Profiles/edit.ctp:444
+#: Template/Profiles/wedit.ctp:454
+msgid "None selected"
+msgstr "選択されていません"
+
+#: Template/Profiles/edit.ctp:445
+#: Template/Profiles/wedit.ctp:455
+msgid "selected"
+msgstr "選択済み"
+
+#: Template/Profiles/edit.ctp:446
+#: Template/Profiles/wedit.ctp:456
+msgid " Select all"
+msgstr "すべて選択"
+
+#: Template/Profiles/export.ctp:8
+#: Template/Profiles/index.ctp:148
+msgid "Export the profile"
+msgstr "プロファイルをエクスポート"
+
+#: Template/Profiles/export.ctp:20
+msgid "Export settings"
+msgstr "設定をエクスポート"
+
+#: Template/Profiles/export.ctp:30
+msgid "Export connection schedules"
+msgstr "接続スケジュールをエクスポート"
+
+#: Template/Profiles/export.ctp:40
+msgid "Export Blacklist categories"
+msgstr "ブラックリストカテゴリをエクスポート"
+
+#: Template/Profiles/export.ctp:50
+#: Template/ProfilesRouting/index.ctp:22
+msgid "Export domain routing"
+msgstr "ドメインルーティングをエクスポート"
+
+#: Template/Profiles/export.ctp:60
+msgid "Export firewall rules"
+msgstr "ファイアウォールルールをエクスポート"
+
+#: Template/Profiles/export.ctp:83;84
+msgid "Export"
+msgstr "エクスポート"
+
+#: Template/Profiles/import.ctp:8
+#: Template/Profiles/index.ctp:22
+#: Template/Profiles/upload_import.ctp:8
+msgid "Import a profile"
+msgstr "プロファイルをインポート"
+
+#: Template/Profiles/import.ctp:59;73
+#: Template/Profiles/index.ctp:47
+msgid "Default firewall rule"
+msgstr "デフォルトのファイアウォールルール"
+
+#: Template/Profiles/import.ctp:119
+msgid "Import to profile"
+msgstr "プロファイルにインポート"
+
+#: Template/Profiles/import.ctp:229
+msgid "domain(s)"
+msgstr "ドメイン"
+
+#: Template/Profiles/import.ctp:231;250;282
+msgid "Nothing to import"
+msgstr "インポートするものがありません"
+
+#: Template/Profiles/import.ctp:238
+#: Template/ProfilesRouting/index.ctp:32
+msgid "Import domain routing"
+msgstr "ドメインルーティングをインポート"
+
+#: Template/Profiles/import.ctp:248
+msgid "rule(s)"
+msgstr "ルール"
+
+#: Template/Profiles/import.ctp:257
+msgid "Import firewall rules"
+msgstr "ファイアウォールルールをインポート"
+
+#: Template/Profiles/import.ctp:272
+msgid "Import connection schedules"
+msgstr "接続スケジュールをインポート"
+
+#: Template/Profiles/import.ctp:280
+msgid "The following schedules will be imported:"
+msgstr "次のスケジュールがインポートされます："
+
+#: Template/Profiles/index.ctp:12
+msgid "Add a profile"
+msgstr "プロファイルを追加"
+
+#: Template/Profiles/index.ctp:49
+msgid "DNS to TOR"
+msgstr "DNSからTOR"
+
+#: Template/Profiles/index.ctp:127
+msgid "Manage firewall"
+msgstr "ファイアウォールを管理"
+
+#: Template/Profiles/index.ctp:138
+msgid "Reload the profile"
+msgstr "プロファイルをリロード"
+
+#: Template/Profiles/index.ctp:141
+msgid "Reload the profile?"
+msgstr "プロファイルをリロードしますか？"
+
+#: Template/Profiles/index.ctp:163
+msgid "Users and devices attached to this profile will be assigned to the default profile. Do you confirm the deletion of the profile {0}?"
+msgstr "このプロファイルに接続されているユーザーとデバイスは、デフォルトのプロファイルに割り当てられます。プロファイル{0}の削除を確定しますか？"
+
+#: Template/Profiles/upload_import.ctp:45;46
+msgid "Upload"
+msgstr "アップロード"
+
+#: Template/Profiles/wadd.ctp:6
+msgid "Profiles are used to define connection settings such as access times, domain categories to block, type of connection. Profiles will be assigned to users or your devices. Here you can create profiles."
+msgstr "プロファイルは、アクセス時間、ブロックするドメインカテゴリ、接続タイプなどの接続設定を定義するために使用されます。プロファイルは、ユーザーまたはデバイスに割り当てられます。ここでプロファイルを作成することができます。"
+
+#: Template/Profiles/wadd.ctp:8
+msgid "Set the name of the profile."
+msgstr "プロファイル名を設定します。"
+
+#: Template/Profiles/wadd.ctp:9
+#: Template/Profiles/wedit.ctp:10
+msgid "Use anonymous connection (Tor) or not (Direct)."
+msgstr "匿名接続を使用する（Tor）または使用しない（直接）。"
+
+#: Template/Profiles/wadd.ctp:10
+#: Template/Profiles/wedit.ctp:11
+msgid "Drop or allow connections to the Internet by default."
+msgstr "デフォルトでインターネットへの接続をドロップまたは許可します。"
+
+#: Template/Profiles/wadd.ctp:12
+msgid "Click {0} if you want to create profiles later or you do not have other profiles to create."
+msgstr "後でプロファイルを作成する場合、または他に作成するプロファイルがない場合は、{0}をクリックします。"
+
+#: Template/Profiles/wedit.ctp:5
+msgid "You can now adjust the profile settings."
+msgstr "プロファイル設定を調整できるようになりました。"
+
+#: Template/Profiles/wedit.ctp:7
+msgid "This option enables logging and permits connection statistics."
+msgstr "このオプションはロギングを有効にし、接続統計を許可します。"
+
+#: Template/Profiles/wedit.ctp:8
+msgid "These options enable filtering in search engines."
+msgstr "これらのオプションにより、検索エンジンでのフィルタリングが可能になります。"
+
+#: Template/Profiles/wedit.ctp:9
+msgid "Enable Blacklist categories to use for blocking domains."
+msgstr "ドメインをブロックするのに使用するブラックリストカテゴリを有効にします。"
+
+#: Template/Profiles/wedit.ctp:12
+msgid "This option allows you to redirect DNS queries to the Tor network for more anonymity."
+msgstr "このオプションにより、DNSクエリをTorネットワークにリダイレクトして、匿名性を高めることができます。"
+
+#: Template/Profiles/wedit.ctp:13
+msgid "Add Internet connection schedules."
+msgstr "インターネット接続スケジュールを追加します。"
+
+#: Template/ProfilesIpfilters/add.ctp:8
+#: Template/ProfilesIpfilters/edit.ctp:8
+msgid "Add a firewall rule"
+msgstr "ファイアウォールルールを追加"
+
+#: Template/ProfilesIpfilters/add.ctp:19;42
+#: Template/ProfilesIpfilters/edit.ctp:19;42
+msgid "Source profile"
+msgstr "ソースプロファイル"
+
+#: Template/ProfilesIpfilters/add.ctp:58
+#: Template/ProfilesIpfilters/edit.ctp:58
+msgid "Destination type"
+msgstr "宛先タイプ"
+
+#: Template/ProfilesIpfilters/add.ctp:62
+#: Template/ProfilesIpfilters/edit.ctp:62
+msgid "Network or single IP"
+msgstr "ネットワークまたは単一のIP"
+
+#: Template/ProfilesIpfilters/add.ctp:62
+#: Template/ProfilesIpfilters/edit.ctp:62
+msgid "IP range"
+msgstr "IP範囲"
+
+#: Template/ProfilesIpfilters/add.ctp:73
+#: Template/ProfilesIpfilters/edit.ctp:73
+msgid "Destination IP / MASK"
+msgstr "宛先IP /マスク"
+
+#: Template/ProfilesIpfilters/add.ctp:101
+#: Template/ProfilesIpfilters/edit.ctp:101
+msgid "Destination IP Range"
+msgstr "宛先IP範囲"
+
+#: Template/ProfilesIpfilters/add.ctp:128
+#: Template/ProfilesIpfilters/edit.ctp:128
+msgid "Destination port range"
+msgstr "宛先ポート範囲"
+
+#: Template/ProfilesIpfilters/add.ctp:137
+msgid "ANY"
+msgstr "どれでも"
+
+#: Template/ProfilesIpfilters/add.ctp:138;167
+#: Template/ProfilesIpfilters/edit.ctp:140;186
+msgid "port"
+msgstr "ポート"
+
+#: Template/ProfilesIpfilters/add.ctp:149;191
+#: Template/ProfilesIpfilters/edit.ctp:169;211
+msgid "Add ports"
+msgstr "ポートを追加"
+
+#: Template/ProfilesIpfilters/add.ctp:150
+msgid "Set ports"
+msgstr "ポートを設定"
+
+#: Template/ProfilesIpfilters/add.ctp:178
+#: Template/ProfilesIpfilters/edit.ctp:151;196
+msgid "last port"
+msgstr "最後のポート"
+
+#: Template/ProfilesIpfilters/add.ctp:188;195
+#: Template/ProfilesIpfilters/edit.ctp:207;214
+msgid "Remove"
+msgstr "削除"
+
+#: Template/ProfilesIpfilters/add.ctp:209
+#: Template/ProfilesIpfilters/edit.ctp:229
+msgid "TCP and UDP"
+msgstr "TCPおよびUDP"
+
+#: Template/ProfilesIpfilters/add.ctp:219
+#: Template/ProfilesIpfilters/edit.ctp:239
+msgid "Action"
+msgstr "アクション"
+
+#: Template/ProfilesIpfilters/add.ctp:236
+#: Template/ProfilesIpfilters/edit.ctp:256
+msgid "Rule enabled"
+msgstr "ルールが有効"
+
+#: Template/ProfilesIpfilters/edit.ctp:157;207;214
+msgid "Remove the port range"
+msgstr "ポート範囲を削除します"
+
+#: Template/ProfilesIpfilters/index.ctp:3
+msgid "Manage firewall rules for the profile: {0}"
+msgstr "次のプロファイルのファイアウォールルールを管理：{0}"
+
+#: Template/ProfilesIpfilters/index.ctp:11
+msgid "Add rule on top"
+msgstr "上にルールを追加"
+
+#: Template/ProfilesIpfilters/index.ctp:22
+msgid "export rules"
+msgstr "ルールをエクスポート"
+
+#: Template/ProfilesIpfilters/index.ctp:32
+msgid "import rules"
+msgstr "ルールをインポート"
+
+#: Template/ProfilesIpfilters/index.ctp:44
+#: Template/ProfilesRouting/index.ctp:43
+msgid "Reload profile rules"
+msgstr "プロファイルルールをリロード"
+
+#: Template/ProfilesIpfilters/index.ctp:47
+#: Template/ProfilesRouting/index.ctp:46
+msgid "Reload rules for this profile?"
+msgstr "このプロファイルのルールをリロードしますか？"
+
+#: Template/ProfilesIpfilters/index.ctp:67
+msgid "Source Profile"
+msgstr "ソースプロファイル"
+
+#: Template/ProfilesIpfilters/index.ctp:131
+msgid "Insert rule after this one"
+msgstr "これの後にルールを挿入"
+
+#: Template/ProfilesIpfilters/index.ctp:154
+msgid "Are you sure to delete the rule {0}?"
+msgstr "ルール{0}を削除してもよろしいですか？"
+
+#: Template/ProfilesIpfilters/index.ctp:175
+msgid "Move before position"
+msgstr "前の位置を移動"
+
+#: Template/ProfilesIpfilters/index.ctp:176
+msgid "Move after position"
+msgstr "後の位置を移動"
+
+#: Template/ProfilesIpfilters/index.ctp:177
+#: Template/ProfilesRouting/index.ctp:155
+msgid "Copy to a profile"
+msgstr "プロファイルにコピー"
+
+#: Template/ProfilesIpfilters/index.ctp:206;219
+msgid "(chose a position)"
+msgstr "（位置を選択）"
+
+#: Template/ProfilesRouting/add.ctp:18
+#: Template/ProfilesRouting/index.ctp:11
+msgid "Add domain routing"
+msgstr "ドメインルーティングを追加"
+
+#: Template/ProfilesRouting/add.ctp:26
+msgid "Insert multiple domains line per line or separated by a space"
+msgstr "複数のドメインを1行ごとに挿入するか、スペースで区切ってください"
+
+#: Template/ProfilesRouting/add.ctp:43
+msgid "Overwrite already existing addresses"
+msgstr "既存のアドレスに上書き"
+
+#: Template/ProfilesRouting/add.ctp:52
+#: Template/ProfilesRouting/edit.ctp:34
+msgid "Enable routing"
+msgstr "ルーティングを有効にする"
+
+#: Template/ProfilesRouting/edit.ctp:8
+msgid "Edit routing"
+msgstr "ルーティングを編集"
+
+#: Template/ProfilesRouting/edit.ctp:77
+msgid "Category (Optional)"
+msgstr "カテゴリ（オプション）"
+
+#: Template/ProfilesRouting/index.ctp:3
+msgid "Domain routing for profile: {0}"
+msgstr "次のプロファイルのドメインルーティング：{0}"
+
+#: Template/ProfilesRouting/index.ctp:111
+msgid "no"
+msgstr "いいえ"
+
+#: Template/ProfilesRouting/index.ctp:157
+msgid "Change connection type"
+msgstr "接続タイプを変更"
+
+#: Template/Statistics/index.ctp:8
+#: Template/Statistics/logs.ctp:3
+#: Template/Statistics/most_active_clients.ctp:3
+#: Template/Statistics/most_queried.ctp:3
+msgid "Search filters"
+msgstr "検索フィルター"
+
+#: Template/Statistics/index.ctp:32;84
+msgid "Accepted and blocked domains"
+msgstr "承認済みドメインとブロックされたドメイン"
+
+#: Template/Statistics/index.ctp:50;101
+msgid "Top {0} queried domains"
+msgstr "上位{0}のクエリ対象ドメイン"
+
+#: Template/Statistics/index.ctp:67;118
+msgid "Top {0} active users and devices"
+msgstr "上位{0}のアクティブユーザーとデバイス"
+
+#: Template/Statistics/index.ctp:157
+msgid "Total accepted domains"
+msgstr "承認済みドメイン総数"
+
+#: Template/Statistics/index.ctp:158
+msgid "Total blocked domains"
+msgstr "ブロックされたドメイン総数"
+
+#: Template/Statistics/index.ctp:272
+msgid "Accepted domains"
+msgstr "承認済みドメイン"
+
+#: Template/Statistics/index.ctp:291
+msgid "Blocked domains"
+msgstr "ブロックされたドメイン"
+
+#: Template/Statistics/logs.ctp:23
+msgid "Access log"
+msgstr "アクセスログ"
+
+#: Template/Statistics/logs.ctp:42
+#: Template/Statistics/most_active_clients.ctp:31
+msgid "Client IP"
+msgstr "クライアントIP"
+
+#: Template/Statistics/logs.ctp:61
+msgid "Blocked by {0} category"
+msgstr "{0}カテゴリによってブロック"
+
+#: Template/Statistics/logs.ctp:85
+msgid "View related connection"
+msgstr "関連する接続を表示"
+
+#: Template/Statistics/logs.ctp:109;110
+#: Template/Statistics/most_queried.ctp:67;68
+msgid "Add selected domains to blacklist"
+msgstr "選択したドメインをブラックリストに追加"
+
+#: Template/Statistics/most_active_clients.ctp:32
+#: Template/Statistics/most_queried.ctp:39
+msgid "Number of queries"
+msgstr "クエリ数"
+
+#: Template/Tools/domain_issue.ctp:8
+msgid "Check blocked domain"
+msgstr "ブロックされたドメインを確認"
+
+#: Template/Tools/domain_issue.ctp:12
+msgid "In some cases a domain can be filtered while it is not in the blacklist. In most cases, it comes from a target CNAME record which is in the Blacklist. This form allows you to check the domains causing the blocking."
+msgstr "ブラックリストにないドメインがフィルタリングされることもありますが、ほとんどの場合、ドメインはブラックリストにあるターゲットCNAMEレコードからフィルタリングされます。このフォームを使用すると、ブロックしているドメインを確認できます。"
+
+#: Template/Tools/domain_issue.ctp:39;40
+msgid "Check"
+msgstr "確認"
+
+#: Template/Tools/domain_issue.ctp:57
+msgid "The domains listed below could block the domain {0}. You can delete them or change their category to fix the issue."
+msgstr "以下にリストされたドメインは、ドメイン{0}をブロックする可能性があります。問題を解決するには、それらを削除するか、カテゴリを変更します。"
+
+#: Template/Tools/domain_issue.ctp:85
+msgid "No domain in the blacklist should block {0}."
+msgstr "{0}をブロックするドメインはブラックリストにありません。"
+
+#: Template/Tools/iptables_status.ctp:8
+msgid "Iptables filter status"
+msgstr "iptablesフィルターのステータス"
+
+#: Template/Tools/iptables_status.ctp:26
+msgid "Iptables NAT status"
+msgstr "iptables NATステータス"
+
+#: Template/Tools/services.ctp:8
+msgid "Services and power management"
+msgstr "サービスと電源管理"
+
+#: Template/Tools/services.ctp:14
+msgid "Power management"
+msgstr "電源管理"
+
+#: Template/Tools/services.ctp:18
+msgid "Are you sure you want to power off?"
+msgstr "電源をオフにしてもよろしいですか？"
+
+#: Template/Tools/services.ctp:27;28
+msgid "Power off"
+msgstr "電源オフ"
+
+#: Template/Tools/services.ctp:36
+msgid "Are you sure you want to reboot?"
+msgstr "再起動してもよろしいですか？"
+
+#: Template/Tools/services.ctp:46;47
+msgid "Reboot"
+msgstr "再起動"
+
+#: Template/Tools/services.ctp:63
+msgid "Services"
+msgstr "サービス"
+
+#: Template/Tools/services.ctp:68
+msgid "Service"
+msgstr "サービス"
+
+#: Template/Tools/services.ctp:69
+msgid "Description"
+msgstr "説明"
+
+#: Template/Tools/services.ctp:83
+msgid "started"
+msgstr "開始"
+
+#: Template/Tools/services.ctp:85
+msgid "stopped"
+msgstr "停止"
+
+#: Template/Tools/services.ctp:92;137
+msgid "Reload"
+msgstr "リロード"
+
+#: Template/Tools/services.ctp:95
+msgid "Reload {0}?"
+msgstr "{0}をリロードしますか？"
+
+#: Template/Tools/services.ctp:102;138
+msgid "Stop"
+msgstr "停止"
+
+#: Template/Tools/services.ctp:105
+msgid "Stop {0}?"
+msgstr "{0}を停止しますか？"
+
+#: Template/Tools/services.ctp:115
+msgid "Start {0}?"
+msgstr "{0}を開始しますか？"
+
+#: Template/Tools/system_state.ctp:9
+msgid "Memory"
+msgstr "メモリ"
+
+#: Template/Tools/system_state.ctp:27
+msgid "Swap"
+msgstr "スワップ"
+
+#: Template/Tools/system_state.ctp:44
+msgid "Load average"
+msgstr "負荷平均"
+
+#: Template/Tools/system_state.ctp:61
+msgid "Disk usage"
+msgstr "ディスク使用量"
+
+#: Template/Users/add.ctp:8
+#: Template/Users/index.ctp:13
+#: Template/Users/wadd.ctp:2
+msgid "Add a new user"
+msgstr "新しいユーザーを追加"
+
+#: Template/Users/add.ctp:15;20
+#: Template/Users/edit.ctp:15;20
+#: Template/Users/index.ctp:55
+#: Template/Users/wadd.ctp:23;28
+msgid "Display name"
+msgstr "表示名"
+
+#: Template/Users/add.ctp:25
+#: Template/Users/edit.ctp:25
+#: Template/Users/index.ctp:56
+#: Template/Users/wadd.ctp:33
+msgid "Login"
+msgstr "ログイン"
+
+#: Template/Users/add.ctp:35;41
+#: Template/Users/edit.ctp:35;41
+#: Template/Users/wadd.ctp:43;49
+msgid "Password"
+msgstr "パスワード"
+
+#: Template/Users/add.ctp:46;52
+#: Template/Users/edit.ctp:52
+#: Template/Users/wadd.ctp:54;60
+msgid "Confirm password"
+msgstr "パスワードを確認"
+
+#: Template/Users/adminlogin.ctp:3
+msgid "Manage KeexyBox"
+msgstr "KeexyBoxを管理"
+
+#: Template/Users/adminlogin.ctp:12
+#: Template/Users/login.ctp:12
+msgid "username"
+msgstr "ユーザー名"
+
+#: Template/Users/adminlogin.ctp:23
+#: Template/Users/login.ctp:23
+msgid "password"
+msgstr "パスワード"
+
+#: Template/Users/edit.ctp:8
+msgid "Edit the user: "
+msgstr "ユーザーを編集："
+
+#: Template/Users/edit.ctp:46
+msgid "Confirm Password"
+msgstr "パスワードを確認"
+
+#: Template/Users/import.ctp:8
+msgid "Import users"
+msgstr "ユーザーをインポート"
+
+#: Template/Users/index.ctp:22
+msgid "Export users to CSV"
+msgstr "ユーザーをCSVにエクスポート"
+
+#: Template/Users/index.ctp:31
+msgid "Import users from CSV"
+msgstr "CSVからユーザーをインポート"
+
+#: Template/Users/login.ctp:3
+msgid "Connect to the Internet"
+msgstr "インターネットに接続"
+
+#: Template/Users/login.ctp:33
+msgid "Connection duration"
+msgstr "接続時間"
+
+#: Template/Users/wadd.ctp:6
+msgid "To connect to the Internet, users or members of your family will need to authenticate on KeexyBox’s captive portal. Here you can create accounts for your users. Complete the form below by assigning a profile and click {0}. Renew the operation as many times as you want to create users."
+msgstr "インターネットに接続するには、ユーザーまたは家族がKeexyBoxのキャプティブポータルで認証する必要があります。ここで、ユーザーのアカウントを作成できます。プロファイルを割り当てて以下のフォームに入力し、{0}をクリックします。ユーザーを作成したい回数だけ操作を繰り返します。"
+
+#: Template/Users/wadd.ctp:7
+msgid "If you do not want to create them now, or you do not need to create any more, click {0}."
+msgstr "今すぐ作成しない場合、またはこれ以上作成する必要がない場合は、{0}をクリックしてください。"
+

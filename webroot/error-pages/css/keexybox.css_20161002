@@ -1,0 +1,127 @@
+body {
+      padding-top: 10px;
+        background-color: #15848F
+}
+
+div.input {
+      text-align: left;
+        color: white;
+}
+
+div.adminlogin a:link {
+        color: #00b3b3;
+		font-weight: bold;
+}
+
+div.adminlogin a:visited{
+        color: #00b3b3;
+		font-weight: bold;
+}
+
+div.adminlogin a:hover {
+        color: #00e6e6;
+	font-weight: bold;
+	text-decoration: none;
+}
+
+div.adminlogin {
+        text-align: right;
+}
+
+
+a.footer:link {
+        color: #00b3b3;
+		font-weight: bold;
+}
+
+a.footer:visited{
+        color: #00b3b3;
+		font-weight: bold;
+}
+
+a.footer:hover {
+        color: #00e6e6;
+	font-weight: bold;
+	text-decoration: none;
+}
+
+small{
+        color: #00b3b3;
+}
+
+.form-signin
+{
+        max-width: 330px;
+	    padding: 15px;
+	        margin: 0 auto;
+}
+.form-signin .form-signin-heading, .form-signin .checkbox
+{
+        margin-bottom: 10px;
+}
+.form-signin .checkbox
+{
+        font-weight: normal;
+}
+.form-signin .form-control
+{
+        position: relative;
+	    font-size: 16px;
+	        height: auto;
+		    padding: 10px;
+		        -webkit-box-sizing: border-box;
+			    -moz-box-sizing: border-box;
+			        box-sizing: border-box;
+}
+.form-signin .form-control:focus
+{
+        z-index: 2;
+}
+.form-signin input[type="text"]
+{
+        margin-bottom: -1px;
+	    border-bottom-left-radius: 0;
+	        border-bottom-right-radius: 0;
+}
+.form-signin input[type="password"]
+{
+        margin-bottom: 10px;
+	    border-top-left-radius: 0;
+	        border-top-right-radius: 0;
+}
+
+[class*="col-"], footer {
+      /*background-color: lightgreen;*/
+        /*border: 2px solid black;*/
+	  border-radius: 6px;
+	    line-height: 40px;
+	      text-align: center;
+	        
+}
+
+.container {
+      padding-right: 15px;
+        padding-left: 15px;
+	  margin-right: auto;
+	    margin-left: auto;
+}
+
+
+/*
+@media (min-width: 768px) {
+      .container {
+	      width: 750px;
+	        }
+}
+
+@media (min-width: 992px) {
+      .container {
+	      width: 970px;
+	        }
+}
+
+@media (min-width: 1200px) {
+      .container {
+	      width: 1170px;
+	        }
+}*/

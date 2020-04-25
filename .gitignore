@@ -1,0 +1,10 @@
+# Excluding file containing MySQL password
+/config/app.php
+
+# Excluding cakePHP tmp and log files
+/tmp/*
+/logs/*
+
+# Excluding config file that contains password for python scripts 
+/src/Shell/scripts/config.py
+

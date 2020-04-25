@@ -1,0 +1,178 @@
+<fieldset>
+<div class="row">
+	<div class="col-sm-12">
+	<legend><?= __('Edit user : '.h($user->displayname))?></legend>
+	</div>
+</div>
+
+<div class="row">
+	<div class="col-sm-12">
+		<?= $this->Form->create($user, [ 'class' => 'form-horizontal'] ) ?>
+	</div>
+</div>
+
+<div class="row bottom-buffer">
+	<div class="form-group form-horizontal">
+		<label for="inputDUser" class="col-sm-2 control-label"><?= __('Display Name') ?></label>
+		<div class="col-sm-4">
+			<?= $this->Form->input('displayname', [
+					'label' => false,
+					'class' => "form-control input-lg",
+					'id' => "inputDUser",
+					'placeholder' => __("Display Name"),
+				]);
+			?>
+		</div>
+		<div class="col-sm-6"></div>
+	</div>
+</div>
+
+<div class="row bottom-buffer">
+	<div class="form-group form-horizontal">
+		<label for="inputUser" class="col-sm-2 control-label"><?= __('Login') ?></label>
+		<div class="col-sm-4">
+			<?= $this->Form->input('username', [
+					'label' => false,
+					'class' => "form-control input-lg",
+					'id' => "inputUser",
+					'placeholder' => __("Name"),
+				]);
+			?>
+		</div>
+		<div class="col-sm-6"></div>
+	</div>
+</div>
+
+<div class="row bottom-buffer">
+	<div class="form-group form-horizontal">
+		<label for="inputProfile" class="col-sm-2 control-label"><?= __('Profile') ?></label>
+		<div class="col-sm-4">
+			<?= $this->Form->input('profile_id', [
+					'type' => 'select',
+					'label' => false,
+					'options' => $profiles,
+					'empty' => __('(please map a profile)'),
+					'id' => "inputProfile",
+					'class' => "form-control input-lg",
+				]);
+			?>
+		</div>
+		<div class="col-sm-6"></div>
+	</div>
+</div>
+
+<div class="row bottom-buffer">
+	<div class="form-group form-horizontal">
+		<label for="inputLang" class="col-sm-2 control-label"><?= __('Language') ?></label>
+		<div class="col-sm-4">
+			<?= $this->Form->input('lang', [
+					'type' => 'select',
+					'label' => false,
+					'options' => $langs,
+					'id' => "inputProfile",
+					'class' => "form-control input-lg",
+				]);
+			?>
+		</div>
+		<div class="col-sm-6"></div>
+	</div>
+</div>
+
+<div class="row bottom-buffer">
+	<div class="form-group form-horizontal">
+		<label for="inputPassword" class="col-sm-2 control-label"><?= __('Password') ?></label>
+		<div class="col-sm-4">
+			<?= $this->Form->input('new_password', [
+					'class' => "form-control input-lg",
+					'type' => 'password',
+					'label' => false,
+					'id' => "inputPassword",
+					'placeholder' => __("Password"),
+				])
+			?>
+			<?= $this->Form->input('new_confirm_password', [
+					'type' => 'password',
+					'label' => false,
+					'class' => "form-control input-lg",
+					'placeholder' => __("Confirm password"),
+				])
+			?>
+		</div>
+		<div class="col-sm-6"></div>
+	</div>
+</div>
+
+<div class="row">
+	<div class="form-inline">
+		<div class="col-sm-2"></div>
+
+		<?php if($user->id == 1): ?>
+		<div class="col-sm-2">
+			<?= $this->Form->input('enabled', [
+					'type' => 'checkbox',
+					'label' => __("Enable"),
+					'onclick' => 'return false',
+					'disabled' => 'disabled',
+				])
+			?>
+		</div>
+		<div class="col-sm-2">
+			<?= $this->Form->input('admin', [
+					'type' => 'checkbox',
+					'label' => __("Admin"),
+					'onclick' => 'return false',
+					'disabled' => 'disabled',
+				])
+			?>
+		</div>
+
+		<?php else: ?>
+			<div class="col-sm-2">
+				<?= $this->Form->input('enabled', [
+						'type' => 'checkbox',
+						'label' => __("Enable"),
+					])
+				?>
+			</div>
+			<div class="col-sm-2">
+				<?= $this->Form->input('admin', [
+						'type' => 'checkbox',
+						'label' => __("Admin"),
+					])
+				?>
+			</div>
+		<?php endif; ?>
+		<div class="col-sm-6"></div>
+	</div>
+</div>
+	
+<div class="row">
+	<div class="col-sm-2"></div>
+	<div class="col-sm-4">
+		<?= $this->Html->link(
+				$this->Html->tag('span', '', [
+					'class' => "glyphicon glyphicon-remove-sign",
+					'aria-hidden' => "true",
+					'title' => __("Cancel"),
+					])."&nbsp".__('Cancel'),
+				['controller' => 'users', 'action' => 'index'], 
+				[ 'class' => "btn btn-default", 'escape' => false]) 
+		?>
+		<?= $this->Form->button(
+				$this->Html->tag('span', '', [
+					'class' => "glyphicon glyphicon-save",
+					'aria-hidden' => "true",
+					'title' => __("Save"),
+					])."&nbsp".__('Save'),
+				[ 'class' => "btn btn-info pull-right float-vertical-align", 'escape' => false]) 
+		?>
+	</div>
+	<div class="col-sm-6"></div>
+</div>
+
+<div class="row">
+	<div class="col-sm-12">
+		<?= $this->Form->end() ?>
+	</div>
+</div>
+</fieldset>

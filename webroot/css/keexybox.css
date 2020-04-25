@@ -1,0 +1,316 @@
+body {
+      padding-top: 10px;
+      background-color: white;
+      text-align: left;
+}
+
+
+#loginpage { /* body login page*/
+      padding-top: 10px;
+      background-color: #15848F;
+      text-align: center;
+      color: white;
+}
+
+div.input {
+      text-align: left;
+      color: black;
+}
+
+div.adminlogin a:link {
+        color: #00b3b3;
+		font-weight: bold;
+}
+
+div.adminlogin a:visited{
+        color: #00b3b3;
+		font-weight: bold;
+}
+
+div.adminlogin a:hover {
+        color: #00e6e6;
+	font-weight: bold;
+	text-decoration: none;
+}
+
+div.adminlogin {
+        text-align: right;
+}
+
+
+a.footer:link {
+        color: #00b3b3;
+	font-weight: bold;
+}
+
+a.footer:visited{
+        color: #00b3b3;
+	font-weight: bold;
+}
+
+a.footer:hover {
+        color: #00e6e6;
+	font-weight: bold;
+	text-decoration: none;
+}
+
+small{
+        color: #00b3b3;
+}
+
+.headeradmin {
+      padding-top: 10px;
+      padding-bottom: 10px;
+      /*padding-left: 10px;*/
+      /*padding-right: 10px;*/
+      background-color: #15848F;
+      border-radius: 6px;
+}
+
+.menuadmin {
+      padding-top: 10px;
+      padding-bottom: 10px;
+      /*padding-right: 10px;*/
+      /*padding-left: 10px;*/
+}
+
+/* style for login form */
+.form-signin
+{
+      max-width: 330px;
+      padding: 15px;
+      margin: 0 auto;
+}
+
+.form-signin .form-signin-heading, .form-signin .checkbox
+{
+        margin-bottom: 10px;
+}
+
+.form-signin .checkbox
+{
+        font-weight: normal;
+}
+
+.form-signin .form-control
+{
+        position: relative;
+        font-size: 16px;
+        height: auto;
+        padding: 10px;
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
+}
+.form-signin .form-control:focus
+{
+        z-index: 2;
+}
+.form-signin input[type="text"]
+{
+        margin-bottom: -1px;
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 0;
+}
+.form-signin input[type="password"]
+{
+        margin-bottom: 10px;
+        border-top-left-radius: 0;
+        border-top-right-radius: 0;
+}
+/* end style for login form */
+
+.sidenav 
+{
+    /*background-color: #e6edea;*/
+    border-radius: 6px;
+    padding-top: 40px;
+    padding-bottom: 10px;
+    padding-left: -15px;
+    padding-right: 5px;
+
+}
+
+[class*="col-"] {
+    /*background-color: lightgreen;*/
+    /*border: 2px solid black;*/
+    border-radius: 6px;
+    line-height: 40px;
+    text-align: left;
+    /*for bootstrap debug*/
+    /*border: 2px solid grey;*/
+	        
+}
+/* for bootstrap debug*/
+/*
+[class*="row"] {
+    border-radius: 6px;
+    border: 2px solid black;
+}
+*/
+
+.container {
+      padding-right: 15px;
+      padding-left: 15px;
+      /*margin-right: auto;*/
+      /*margin-left: auto;*/
+}
+
+.bottom-buffer {
+    padding-bottom: 10px;
+}
+
+/* For Jquery sortable */
+.ui-sortable-helper {
+    display: table;
+}
+
+/* For Save bottom pull-right */
+.float-vertical-align {
+        position: absolute;
+	top: 53%;
+	right: 15px;
+	transform: translateY(-50%);
+}
+
+/* style for search */
+.stylish-input-group .input-group-addon{
+        background: white !important; 
+}
+.stylish-input-group .form-control{
+    	border-right:0; 
+	box-shadow:0 0 0; 
+	border-color:#ccc;
+}
+.stylish-input-group button{
+        border:0;
+        background:transparent;
+}
+/* end style for search */
+
+@font-face {
+        font-family: 'Glyphicons Halflings';
+        src: url('/fonts/glyphicons-halflings-regular.eot');
+        src: url('/fonts/glyphicons-halflings-regular.eot?#iefix') format('embedded-opentype'), url('/fonts/glyphicons-halflings-regular.woff') format('woff'), url('/fonts/glyphicons-halflings-regular.ttf') format('truetype'), url('/fonts/glyphicons-halflings-regular.svg#glyphicons-halflingsregular') format('svg');
+}
+
+/* Date picker */
+.ui-datepicker {
+	background-color: #fff;
+	border: 1px solid #66AFE9;
+	border-radius: 4px;
+	box-shadow: 0 0 8px rgba(102,175,233,.6);
+	display: none;
+	margin-top: 4px;
+	padding: 10px;
+	width: 240px;
+}
+.ui-datepicker a,
+.ui-datepicker a:hover {
+	text-decoration: none;
+}
+.ui-datepicker a:hover,
+.ui-datepicker td:hover a {
+	color: #2A6496;
+	-webkit-transition: color 0.1s ease-in-out;
+	   -moz-transition: color 0.1s ease-in-out;
+	     -o-transition: color 0.1s ease-in-out;
+	        transition: color 0.1s ease-in-out;
+}
+.ui-datepicker .ui-datepicker-header {
+	margin-bottom: 4px;
+	text-align: center;
+}
+.ui-datepicker .ui-datepicker-title {
+	font-weight: 700;
+}
+.ui-datepicker .ui-datepicker-prev,
+.ui-datepicker .ui-datepicker-next {
+	cursor: default;
+	font-family: 'Glyphicons Halflings';
+	-webkit-font-smoothing: antialiased;
+	font-style: normal;
+	font-weight: normal;
+	height: 20px;
+	line-height: 1;
+	margin-top: 2px;
+	width: 30px;
+}
+.ui-datepicker .ui-datepicker-prev {
+	float: left;
+	text-align: left;
+}
+.ui-datepicker .ui-datepicker-next {
+	float: right;
+	text-align: right;
+}
+.ui-datepicker .ui-datepicker-prev:before {
+	content: "\e079";
+}
+.ui-datepicker .ui-datepicker-next:before {
+	content: "\e080";
+}
+.ui-datepicker .ui-icon {
+	display: none;
+}
+.ui-datepicker .ui-datepicker-calendar {
+  table-layout: fixed;
+	width: 100%;
+}
+.ui-datepicker .ui-datepicker-calendar th,
+.ui-datepicker .ui-datepicker-calendar td {
+	text-align: center;
+	padding: 4px 0;
+}
+.ui-datepicker .ui-datepicker-calendar td {
+	border-radius: 4px;
+	-webkit-transition: background-color 0.1s ease-in-out, color 0.1s ease-in-out;
+	   -moz-transition: background-color 0.1s ease-in-out, color 0.1s ease-in-out;
+	     -o-transition: background-color 0.1s ease-in-out, color 0.1s ease-in-out;
+	        transition: background-color 0.1s ease-in-out, color 0.1s ease-in-out;
+}
+.ui-datepicker .ui-datepicker-calendar td:hover {
+	background-color: #eee;
+	cursor: pointer;
+}
+.ui-datepicker .ui-datepicker-calendar td a {
+	text-decoration: none;
+}
+.ui-datepicker .ui-datepicker-current-day {
+	background-color: #4289cc;
+}
+.ui-datepicker .ui-datepicker-current-day a {
+	color: #fff
+}
+.ui-datepicker .ui-datepicker-calendar .ui-datepicker-unselectable:hover {
+	background-color: #fff;
+	cursor: default;
+}
+/* END Date picker */
+
+/*
+@media (min-width: 768px) {
+      .container {
+	      width: 750px;
+	        }
+}
+
+@media (min-width: 992px) {
+      .container {
+	      width: 970px;
+	        }
+}
+
+@media (min-width: 1200px) {
+      .container {
+	      width: 1170px;
+	        }
+}*/
+
+.red-status-color {
+   color: red;
+}
+
+.green-status-color {
+   color: green;
+}

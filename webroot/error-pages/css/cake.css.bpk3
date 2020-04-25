@@ -1,0 +1,37 @@
+/*On définit les marges haute et basse à 10px et les marges droite et gauche à 0. On met le padding à 0 pour éviter le padding par défaut pour le body. On utilise text-align: center ; pour les anciennes versions d'Internet Explorer afin de centrer les éléments de type block avec ce navigateur.*/
+body
+{
+      margin: 10px 0 ;
+      padding: 0 ;
+      text-align: center ;
+
+      font: 0.8em "Trebuchet MS", helvetica, sans-serif ;
+      background: #dea ;
+}
+
+/*On définit la largeur de la division qui contient l'ensemble de la page à 770 pixels. La marge automatique permet de centrer le bloc. Il faut rétablir l'alignement à gauche que nous avons changé plus haut pour le centrage de l'élément.*/
+div#container
+{
+      width: 770px ;
+      margin: 0 auto ;
+      text-align: left ;
+
+      border: 2px solid #ab4 ;
+      background: #fff ;
+}
+/*En passant on définit l'overflow de la balise pre à auto pour permettre 
+d'afficher des barres de défilement si le texte contenu dans cette balise est trop grand*/
+pre
+{
+      overflow: auto ;
+}
+
+/*On doit donner une largeur à ce dernier élément à cause d'Internet Explorer, on ne va donc l'appliquer qu'à Internet Explorer en utilisant le commentaire conditionnel suivant, à placer dans la partie HTML, et plus précisément dans l'élément <head> :*/
+<!--[if IE]>
+<style type="text/css">
+html pre
+{
+      width: 636px ;
+}
+</style>
+<![endif]-->

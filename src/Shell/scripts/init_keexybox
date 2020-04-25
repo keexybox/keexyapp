@@ -1,0 +1,69 @@
+#! /bin/bash
+
+### BEGIN INIT INFO
+# Provides:          keexybox
+# Required-Start:    $remote_fs $syslog $mysql $postfix
+# Required-Stop:     $remote_fs $syslog $mysql $postfix
+# Should-Start:      
+# Should-Stop:       
+# Default-Start:     2 3 4 5
+# Default-Stop:      0 1 6
+# Short-Description: Starts Keexybox daemon processes
+# Description:       Start Keexybox daemon : /home/keexybox/KeexyBox/keexyapp/src/Shell/scripts/keexybox.pl
+### END INIT INFO
+
+PERLBIN=/usr/bin/perl
+KXYBPATH=/opt/keexybox
+KXYBSCRIPTS="${KXYBPATH}/keexyapp/src/Shell/scripts"
+KXYBBIN=${KXYBSCRIPTS}/keexybox.pl
+NAME=keexybox
+DESC="keexybox daemon"
+KXYBLOGDIR=${KXYBPATH}/logs
+KXYBPIDDIR=/var/run/keexybox
+KXYBPID=$KXYBPIDDIR/keexybox.pid
+
+#-------- CHECK IF THIS SCRIPT IS RUNNING AS ROOT
+if [ $(id -u) -ne 0 ]; then
+        echo "This script must be run as root!"
+        exit 1
+fi
+
+# Create KEEXYBOX PID DIR IF NOT EXISTS
+if [ ! -d $KXYBPIDDIR ]; then
+  mkdir -p $KXYBPIDDIR
+fi
+
+# Create KEEXYBOX LOGS DIR IF NOT EXISTS
+if [ ! -d $KXYBLOGDIR ]; then
+  mkdir -p $KXYBLOGDIR
+fi
+
+case "$1" in
+  start)
+    if [ -f /etc/init.d/mysql ]; then
+        /etc/init.d/mysql status > /dev/null 2>&1
+        rc=$?
+        if [ $rc -ne 0 ]; then
+            /etc/init.d/mysql start
+        fi
+    else
+        echo "/etc/init.d/mysql does not exist, keexybox will not start."
+        exit 1
+    fi
+
+    chmod u+x ${KXYBSCRIPTS}/pre-startup-keexybox.sh
+    ${KXYBSCRIPTS}/pre-startup-keexybox.sh
+    echo "Starting keexybox services: "    
+    $PERLBIN $KXYBBIN start
+    start-stop-daemon --start --background --quiet --exec $PERLBIN $KXYBBIN daemon
+    ${KXYBSCRIPTS}/post-startup-keexybox.sh
+  ;;
+  stop)
+    echo "stopping keexybox services:"    
+    $PERLBIN $KXYBBIN stop
+    start-stop-daemon --stop --quiet --remove-pidfile --pidfile $KXYBPID
+  ;;
+  restart)
+  $0 stop
+  $0 start
+esac

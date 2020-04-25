@@ -1,0 +1,487 @@
+<?= $this->Flash->render('reload_profile') ?>
+<fieldset>
+	<div class="row">
+		<div class="col-sm-12">
+			<legend><?= __('Edit profile : '.h($profile->profilename))?></legend>
+			<?= $this->Flash->render('reconnect') ?>
+		</div>
+	</div>
+</fieldset>
+
+<div class="row">
+	<div class="col-sm-12">
+		<?= $this->Form->create($profile, [ 'class' => 'form-horizontal'] ) ?>
+	</div>
+</div>
+
+<fieldset>
+	<legend><?= __('General') ?></legend>
+	<div class="row bottom-buffer">
+		<div class="form-group form-horizontal">
+			<label for="inputProfilename" class="col-sm-3 control-label"><?= __('Name')?></label>
+			<div class="col-sm-4">
+				<?= $this->Form->input('profilename', [
+						'label' => false,
+						'class' => "form-control input-lg",
+						'id' => "inputProfilename",
+						'placeholder' => __("Name"),
+					]);
+				?>
+			</div>
+			<div class="col-sm-5"></div>
+		</div>
+	</div>
+	
+
+	<div class="row bottom-buffer">
+		<div class="form-group form-horizontal">
+			<label for="inputWebsiteAccess" class="col-sm-3 control-label"><?= __('Default connection type')?></label>
+			<div class="col-sm-4">
+				<?= $this->Form->input('default_forwarder', [
+						'type' => 'select',
+						'label' => false,
+						'class' => "form-control input-lg",
+						'empty' => __('(select connection type)'),
+						'id' => "inputWebsiteAccess",
+						'options' => [
+							'bypass' => __('Direct'), 
+							'anonymous' => __('Tor'), 
+						],
+					]);
+				?>
+			</div>
+			<div class="col-sm-5"></div>
+		</div>
+	</div>
+	
+	<div class="row bottom-buffer">
+		<div class="form-group form-horizontal">
+			<label for="inputFirewallRule" class="col-sm-3 control-label"><?= __('Default Firewall rule')?></label>
+			<div class="col-sm-4">
+				<?= $this->Form->input('default_ipfilter', [
+						'type' => 'select',
+						'label' => false,
+						'class' => "form-control input-lg",
+						'options' => ['ACCEPT' => __('Accept'), 'DROP' => __('Drop')],
+						'empty' => __('(select rule)'),
+						'id' => "inputFirewallRule",
+					]);
+				?>
+			</div>
+			<div class="col-sm-5"></div>
+		</div>
+	</div>
+	
+
+	<div class="row bottom-buffer">
+		<div class="form-group form-horizontal">
+			<div class="col-sm-3"></div>
+			<div class="col-sm-4">
+				<?= $this->Form->input('log_enabled', [
+					'type' => 'checkbox',
+					'label' => __('Logging enabled'),
+				]);
+			?>
+			</div>
+			<div class="col-sm-5"></div>
+		</div>
+	</div>
+
+	<div class="row bottom-buffer">
+		<div class="form-group form-horizontal">
+			<div class="col-sm-3"></div>
+			<div class="col-sm-4">
+				<?= $this->Form->input('use_ttdnsd', [
+						'type' => 'checkbox',
+						'label' => __('DNS over TOR'),
+					]);
+				?>
+			</div>
+			<div class="col-sm-5"></div>
+		</div>
+	</div>
+</fieldset>
+
+<fieldset>
+	<legend><?= __('Blacklist and Search engines options')?></legend>
+	<div class="row bottom-buffer">
+		<div class="form-group form-horizontal">
+			<div class="col-sm-3"></div>
+			<div class="col-sm-4">
+				<?= $this->Form->input('safesearch_google', [
+					'type' => 'checkbox',
+					'label' => __('Enable Google safe search'),
+				]);
+			?>
+			</div>
+			<div class="col-sm-5"></div>
+		</div>
+	</div>
+	<div class="row bottom-buffer">
+		<div class="form-group form-horizontal">
+			<div class="col-sm-3"></div>
+			<div class="col-sm-4">
+				<?= $this->Form->input('safesearch_bing', [
+					'type' => 'checkbox',
+					'label' => __('Enable Bing safe search'),
+				]);
+			?>
+			</div>
+			<div class="col-sm-5"></div>
+		</div>
+	</div>
+	<div class="row bottom-buffer">
+		<div class="form-group form-horizontal">
+			<div class="col-sm-3"></div>
+			<div class="col-sm-4">
+				<?= $this->Form->input('safesearch_youtube', [
+					'type' => 'checkbox',
+					'label' => __('Enable Youtube safe search'),
+				]);
+			?>
+			</div>
+			<div class="col-sm-5"></div>
+		</div>
+	</div>
+	<div class="row bottom-buffer">
+		<div class="form-group form-horizontal">
+			<label for="bl-select" class="col-sm-3 control-label"><?= __('Categories to filter')?></label>
+			<div class="col-sm-4">
+				<?php if (isset($categories) and is_array($categories)): ?>
+					<select name="categories[]" id="bl-select" multiple="multiple">
+					<?php foreach ($categories as $category): ?>
+						<?php if($category['enabled'] == 1): ?>
+							<option value="<?= $category['category']?>" selected><?= $category['category']?></option>
+						<?php else: ?>
+							<option value="<?= $category['category']?>"><?= $category['category']?></option>
+						<?php endif ?>
+					<?php endforeach ?>
+					</select>
+				<?php else: ?>
+					<div class="alert alert-info">
+						<?= __('Blacklist is emty.') ?>
+					</div>
+				<?php endif ?>
+			</div>
+			<div class="col-sm-5"></div>
+		</div>
+	</div>
+</fieldset>
+
+<fieldset>
+	<legend><?= __('Internet Access') ?></legend>
+	<div class="row bottom-buffer">
+		<div class="col-sm-8">
+			<?= $this->Html->link(
+					$this->Html->tag('span', '', [
+						'class' => "glyphicon glyphicon-filter",
+						'aria-hidden' => "true",
+						'title' => __("Edit"),
+						])."&nbsp".__('Manage domains routing'),
+					//['controller' => 'ProfilesRouting', 'action' => 'index', $profile->id], 
+					'#',
+					[ 'class' => "btn btn-lg btn-info", 'escape' => false, 'onclick' => "open_window_f('/profiles-routing/index/$profile->id')"]) 
+			?>
+			<?= $this->Html->link(
+					$this->Html->tag('span', '', [
+						'class' => "glyphicon glyphicon-fire",
+						'aria-hidden' => "true",
+						'title' => __("Edit"),
+						])."&nbsp".__('Manage Firewall'),
+					//['controller' => 'ProfilesIpfilters', 'action' => 'index', $profile->id], 
+					'#',
+					[ 'class' => "btn btn-lg btn-warning", 'escape' => false, 'onclick' => "open_window_f('/profiles-ipfilters/index/$profile->id')"]) 
+			?>
+		</div>
+		<div class="col-sm-4"></div>
+	</div>
+</fieldset>
+
+<fieldset>
+	<legend><?= __('Connection schedules') ?></legend>
+	<div class="row bottom-buffer">
+		<div class="col-sm-8">
+			<table class="table table-striped">
+				<tr>
+					<th><?= __('Mon.') ?></th>
+					<th><?= __('Tue.') ?></th>
+					<th><?= __('Wed.') ?></th>
+					<th><?= __('Thu.') ?></th>
+					<th><?= __('Fri.') ?></th>
+					<th><?= __('Sat.') ?></th>
+					<th><?= __('Sun.') ?></th>
+					<th><?= __('Start time') ?></th>
+					<th></th>
+					<th></th>
+					<th><?= __('End time') ?></th>
+					<th></th>
+					<th><?= __('Actions') ?></th>
+				</tr>
+
+				<?php foreach ($profile->profiles_times as $profilesTime): ?>
+					<?php
+					$daysofweek = str_split($profilesTime->daysofweek);
+					$daysofweek = array_fill_keys($daysofweek, 1);
+					$timerange = explode('-', $profilesTime->timerange);
+					$starttime = explode(':', $timerange[0]);
+					$endtime = explode(':', $timerange[1]);
+					settype($starttime[0], 'integer');
+					settype($starttime[1], 'integer');
+					settype($endtime[0], 'integer');
+					settype($endtime[1], 'integer');
+					?>
+
+				<tr>
+
+					<?php foreach(['M', 'T', 'W', 'H', 'F', 'A', 'S'] as $day) : ?>
+					<td>
+						<?php 
+							if(isset($daysofweek[$day])) {
+								echo "<input type=\"checkbox\" name=\"times[".$profilesTime['id']."][".$day."]\" value=\"".$day."\" checked=\"checked\">";
+							} else {
+								echo "<input type=\"checkbox\" name=\"times[".$profilesTime['id']."][".$day."]\" value=\"".$day."\">";
+							}
+						?>
+					</td>
+					<?php endforeach ?>
+
+					<td>
+					<?= $this->Form->input("times[".$profilesTime['id']."][starttime][hour]", [
+							'div' => false,
+							'type' => 'select', 
+							'label' => false,
+							'options' => $hour_opt,
+							'default' => $starttime[0],
+						]);
+					?>
+					</td>
+
+					<td>
+					<?= $this->Form->input("times[".$profilesTime['id']."][starttime][minute]", [
+							'div' => false,
+							'type' => 'select', 
+							'label' => false,
+							'options' => $min_opt,
+							'default' => $starttime[1],
+						]);
+					?>
+					</td>
+
+					<td><span class="glyphicon glyphicon-arrow-right"></span></td>
+
+					<td>
+					<?= $this->Form->input("times[".$profilesTime['id']."][endtime][hour]", [
+							'div' => false,
+							'type' => 'select', 
+							'label' => false,
+							'options' => $hour_opt,
+							'default' => $endtime[0],
+						]);
+					?>
+					</td>
+
+					<td>
+					<?= $this->Form->input("times[".$profilesTime['id']."][endtime][minute]", [
+							'div' => false,
+							'type' => 'select', 
+							'label' => false,
+							'options' => $min_opt,
+							'default' => $endtime[1],
+						]);
+					?>
+					</td>
+
+					<td class="actions">
+					<?= $this->Form->postLink(
+							$this->Html->tag('span', "", [
+								'class' => "glyphicon glyphicon-trash",
+								'aria-hidden' => "true",
+								'title' => __("Delete"),
+							]),
+							['controller' => 'profiles_times', 'action' => 'delete', $profilesTime->id],
+							['escape' => false, 'block' => true, 'confirm' => __('Are you sure you want to delete ?')]
+						)
+					?>
+					</td>
+				</tr>
+				<?php endforeach; ?>
+				<?php while ($count_times <= $max_times) : ?>
+				<tr id="time<?= $count_times ?>" style="display:none">
+					<?php 
+					foreach(['M', 'T', 'W', 'H', 'F', 'A', 'S'] as $day) {
+						echo "<td>";
+						echo "<input type=\"checkbox\" id=\"val_".$count_times."_".$day."\" name=\"newtimes[".$count_times."][".$day."]\" value=\"".$day."\">";
+						echo "</td>";
+					}
+					?>
+
+					<td>
+					<?= $this->Form->input("newtimes[".$count_times."][starttime][hour]", [
+							'div' => false,
+							'type' => 'select', 
+							'label' => false,
+							'id' => "new_start_hour_$count_times",
+							'options' => $hour_opt,
+						]);
+					?>
+					</td>
+
+					<td>
+					<?= $this->Form->input("newtimes[".$count_times."][starttime][minute]", [
+							'div' => false,
+							'type' => 'select', 
+							'label' => false,
+							'options' => $min_opt,
+							'id' => "new_start_min_$count_times",
+						]);
+					?>
+					</td>
+
+					<td><span class="glyphicon glyphicon-arrow-right"></span></td>
+
+					<td>
+					<?= $this->Form->input("newtimes[".$count_times."][endtime][hour]", [
+							'div' => false,
+							'type' => 'select', 
+							'label' => false,
+							'options' => $hour_opt,
+							'id' => "new_end_hour_$count_times",
+						]);
+					?>
+					</td>
+
+					<td>
+					<?= $this->Form->input("newtimes[".$count_times."][endtime][minute]", [
+							'div' => false,
+							'type' => 'select', 
+							'label' => false,
+							'options' => $min_opt,
+							'id' => "new_end_min_$count_times",
+						]);
+					?>
+					</td>
+					<td></td>
+					<?php $count_times++; ?>
+				</tr>
+				<?php endwhile ?>
+			</table>
+
+			<div class="row" id="new_links_div_0">
+				<button class="btn btn-default btn-link" onclick="add_new_field(1); return false;">
+					<span class="glyphicon glyphicon-plus"></span>
+					<?= __('Add more schedules') ?>
+				</button>
+			</div>
+
+			<?php
+			$count_times = 1;
+			while ($count_times <= $max_times) : ?>
+			<div class="row" id="new_links_div_<?= $count_times ?>" style="display:none">
+				<?php if($count_times != $max_times) : ?>
+					<button class="btn btn-default btn-link" onclick="add_new_field(<?=$count_times + 1 ?>); return false;">
+						<span class="glyphicon glyphicon-plus"></span>
+						<?= __('Add schedule') ?>
+					</button>
+					<button class="btn btn-default btn-link" onclick="remove_new_field(<?= $count_times ?>); return false;">
+						<span class="glyphicon glyphicon-remove"></span>
+						<?= __('Remove last schedule') ?>
+					</button>
+				<?php else : ?>
+					<button class="btn btn-default btn-link" onclick="remove_new_field(<?= $count_times ?>); return false;">
+						<span class="glyphicon glyphicon-remove"></span>
+						<?= __('Remove last schedule') ?>
+					</button>
+				<?php endif ?>
+				<?php $count_times++; ?>
+			</div>
+			<?php endwhile ?>
+		</div>
+
+		<div class="col-sm-4"></div>
+	</div>
+</fieldset>
+
+<div class="row">
+	<div class="col-sm-6">
+		<?= $this->Html->link(
+				$this->Html->tag('span', '', [
+					'class' => "glyphicon glyphicon-remove-sign",
+					'aria-hidden' => "true",
+					'title' => __("Cancel"),
+					])."&nbsp".__('Cancel'),
+				['controller' => 'profiles', 'action' => 'index'], 
+				[ 'class' => "btn btn-default", 'escape' => false]) 
+		?>
+		<?= $this->Form->button(
+				$this->Html->tag('span', '', [
+					'class' => "glyphicon glyphicon-save",
+					'aria-hidden' => "true",
+					'title' => __("Save"),
+					])."&nbsp".__('Save'),
+				[ 'class' => "btn btn-info pull-right float-vertical-align", 'escape' => false]) 
+		?>
+	</div>
+</div>
+
+<div class="row">
+	<div class="col-sm-12">
+		<?= $this->Form->end() ?>
+	</div>
+</div>
+
+<?= $this->fetch('postLink') // fetch delete operation outside the main form?>
+
+<script>
+function add_new_field(field) {
+	var scroll = $(window).scrollTop();
+	$(document).ready(function() {
+		$('#time' + field).show();
+		$('#new_links_div_' + field).show();
+		$('#new_links_div_' + (field - 1)).hide();
+		return false;	
+	});
+	$("html").scrollTop(scroll);
+}
+
+function remove_new_field(field) {
+	var scroll = $(window).scrollTop();
+	$(document).ready(function() {
+		$('#time' + field).hide();
+		$('#val_' + field + '_M').attr('checked', false);
+		$('#val_' + field + '_T').attr('checked', false);
+		$('#val_' + field + '_W').attr('checked', false);
+		$('#val_' + field + '_H').attr('checked', false);
+		$('#val_' + field + '_F').attr('checked', false);
+		$('#val_' + field + '_A').attr('checked', false);
+		$('#val_' + field + '_S').attr('checked', false);
+		$('#new_start_hour_' + field).val(0);
+		$('#new_start_min_' + field).val(0);
+		$('#new_end_hour_' + field).val(0);
+		$('#new_end_min_' + field).val(0);
+		$('#new_links_div_' + field).hide();
+		$('#new_links_div_' + (field - 1)).show();
+		return false;
+	});
+	$("html").scrollTop(scroll);
+}
+</script>
+<script>
+	$('#bl-select').multiselect({
+		includeSelectAllOption: true,
+		enableFiltering: true,
+		buttonClass: 'btn-default btn-lg',
+		buttonWidth: 'auto',
+		numberDisplayed: 100,
+		filterPlaceholder: '<?= __('Search')?>',
+		nonSelectedText: '<?= __('None selected')?>',
+		nSelectedText: '<?= __('selected')?>',
+		selectAllText: '<?= __(' Select all')?>',
+		maxHeight: 400
+	});
+</script>
+
+<script>
+function open_window_f() {
+	    window.open(arguments[0], "_blank", "location=no,status=no,menubar=no,toolbar=no,scrollbars=yes,resizable=yes,top=500,left=500,width=600,height=600");
+}
+</script>

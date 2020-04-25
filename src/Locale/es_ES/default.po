@@ -1,0 +1,3203 @@
+# LANGUAGE translation of CakePHP Application
+# Copyright 2020 Benoit SAGLIETTO <bsaglietto@keexybox.org>
+#
+
+#: Controller/BlacklistController.php:59
+msgid "all"
+msgstr "todas"
+
+#: Controller/BlacklistController.php:111;450
+#: Controller/ProfilesRoutingController.php:205
+#: Controller/ToolsController.php:184
+msgid "Please define a category"
+msgstr "Por favor, define una categoría"
+
+#: Controller/BlacklistController.php:125
+#: Controller/DevicesController.php:154;251
+#: Controller/ProfilesIpfiltersController.php:310
+#: Controller/ProfilesRoutingController.php:234
+#: Controller/ToolsController.php:70
+#: Controller/UsersController.php:148
+msgid "Nothing was selected."
+msgstr "No se seleccionó nada."
+
+#: Controller/BlacklistController.php:256
+msgid "Following domains are invalid and were not added to the Blacklist: "
+msgstr "Los siguientes dominios no son válidos y no se añadieron a la Blacklist: "
+
+#: Controller/BlacklistController.php:258
+msgid "Domains added successfully to the Blacklist."
+msgstr "Dominios añadidos correctamente a la Blacklist."
+
+#: Controller/BlacklistController.php:272
+msgid "Domains imported successfully to Blacklist from lists."
+msgstr "Dominios importados correctamente a la Blacklist desde listas."
+
+#: Controller/BlacklistController.php:274
+msgid "Some lists were invalid to import domains to the Blacklist."
+msgstr "Algunas listas no eran válidas para importar dominios a la Blacklist."
+
+#: Controller/BlacklistController.php:328
+msgid "Domain {0} has been deleted."
+msgstr "Se ha eliminado el dominio {0}."
+
+#: Controller/BlacklistController.php:330
+msgid "Domain {0} could not be deleted."
+msgstr "No pudo eliminarse el dominio {0}."
+
+#: Controller/BlacklistController.php:330;352;379
+#: Controller/ConfigController.php:121;1025
+#: Controller/ConnectionsController.php:364
+#: Controller/DevicesController.php:354;456;485;666
+#: Controller/ProfilesController.php:594
+#: Controller/ProfilesIpfiltersController.php:397;485;510;540;566
+#: Controller/ProfilesRoutingController.php:511
+#: Controller/ProfilesTimesController.php:52
+#: Controller/UsersController.php:498;545;592;598
+msgid "Please try again."
+msgstr "Por favor, vuelve a intentarlo."
+
+#: Controller/BlacklistController.php:349
+msgid "Category {0} has been deleted."
+msgstr "Se ha eliminado la categoría {0}."
+
+#: Controller/BlacklistController.php:352
+msgid "Unable to delete category {0}."
+msgstr "No se pudo eliminar la categoría {0}."
+
+#: Controller/BlacklistController.php:373
+msgid "Domains imported successfully to the Blacklist."
+msgstr "Los dominios se han importado correctamente a la Blacklist."
+
+#: Controller/BlacklistController.php:375
+msgid "Unable to import domains to the Blacklist, please try with another file."
+msgstr "No se pudieron importar los dominios a la Blacklist, por favor, inténtalo con otro archivo."
+
+#: Controller/BlacklistController.php:379
+#: Controller/DevicesController.php:666
+#: Controller/ProfilesController.php:594
+#: Controller/UsersController.php:498
+msgid "Unable to upload file."
+msgstr "No se pudo subir el archivo."
+
+#: Controller/ConfigController.php:90
+msgid "{0} configuration files generated successfully."
+msgstr "{0} archivos de configuración generados correctamente."
+
+#: Controller/ConfigController.php:92;385;613;873;1022
+#: Controller/ProfilesController.php:137;305
+msgid "Unable to write {0} configuration files."
+msgstr "No se pudieron crear {0} archivos de configuración."
+
+#: Controller/ConfigController.php:118
+msgid "The value has been changed successfully."
+msgstr "El valor se ha modificado correctamente."
+
+#: Controller/ConfigController.php:121
+msgid "Unable to change the value."
+msgstr "No se pudo modificar el valor."
+
+#: Controller/ConfigController.php:250;300;317;540
+#: Model/Table/ActivesConnectionsTable.php:65
+#: Model/Table/ConfigTable.php:61;77
+#: Model/Table/DevicesTable.php:108
+#: Model/Table/ProfilesIpfiltersTable.php:92;119;125
+#: Model/Table/ProfilesRoutingTable.php:67
+msgid "Invalid IP address"
+msgstr "La dirección IP no es válida"
+
+#: Controller/ConfigController.php:381
+msgid "Network settings successfully saved. Please adjust the DHCP settings and reboot KeexyBox."
+msgstr "La configuración de red se ha guardado correctamente. Por favor, ajusta la configuración DHCP y reinicia KeexyBox."
+
+#: Controller/ConfigController.php:389
+msgid "Internal network IP and ouput IP must be in a different subnets."
+msgstr "La IP de la red interna y la IP de salida deben estar en subredes diferentes."
+
+#: Controller/ConfigController.php:391
+msgid "Output network IP and gateway are not in the same subnet."
+msgstr "La IP de la red de salida y la puerta de enlace no están en la misma subred."
+
+#: Controller/ConfigController.php:393
+msgid "Network settings have not been updated."
+msgstr "La configuración de red no se ha actualizado."
+
+#: Controller/ConfigController.php:604;607;610
+msgid "DHCP settings updated successfully."
+msgstr "La configuración DHCP se ha actualizado correctamente."
+
+#: Controller/ConfigController.php:610
+msgid "But DHCP reload failed."
+msgstr "Pero la recarga DHCP falló."
+
+#: Controller/ConfigController.php:617
+msgid "One or more DHCP IP Addresses does not match with subnets."
+msgstr "Una o más direcciones IP DHCP no coinciden con las subredes."
+
+#: Controller/ConfigController.php:619
+msgid "One or more DHCP IP Addresses are used by KeexyBox."
+msgstr "KeexyBox usa una o más direcciones IP DHCP."
+
+#: Controller/ConfigController.php:621
+msgid "DHCP settings have not been updated."
+msgstr "No se ha actualizado la configuración DHCP."
+
+#: Controller/ConfigController.php:680
+msgid "Invalid country code"
+msgstr "El prefijo no es válido"
+
+#: Controller/ConfigController.php:699
+#: Model/Table/BlacklistTable.php:44
+#: Model/Table/ConfigTable.php:149
+#: Model/Table/ProfilesRoutingTable.php:78
+msgid "Invalid domain"
+msgstr "El dominio no es válido"
+
+#: Controller/ConfigController.php:719
+#: Model/Table/ConfigTable.php:113;129
+msgid "Invalid name"
+msgstr "El nombre no es válido"
+
+#: Controller/ConfigController.php:740
+msgid "Certificate updated successfully. It will be active after next reboot."
+msgstr "El certificado se actualizó correctamente. Estará activo después del próximo reinicio."
+
+#: Controller/ConfigController.php:742
+msgid "Unable to generate certificate."
+msgstr "No se pudo generar el certificado."
+
+#: Controller/ConfigController.php:745
+msgid "Certificate has not been updated."
+msgstr "El certificado no ha sido actualizado."
+
+#: Controller/ConfigController.php:834
+msgid "Invalid ntp server"
+msgstr "El servidor ntp no es válido"
+
+#: Controller/ConfigController.php:865;867
+msgid "Date and time settings saved successfully."
+msgstr "La configuración de la fecha y la hora se guardó correctamente."
+
+#: Controller/ConfigController.php:867
+msgid "But unable to restart NTP service."
+msgstr "Pero no es posible reiniciar el servicio NTP."
+
+#: Controller/ConfigController.php:877
+msgid "Date and time settings have not been updated."
+msgstr "La configuración de la fecha y la hora no se ha actualizado."
+
+#: Controller/ConfigController.php:937
+msgid "Routing cache expiration must be between 1 and 15 days."
+msgstr "La expiración de la caché de enrutamiento debe estar entre 1 y 15 días."
+
+#: Controller/ConfigController.php:962;978
+msgid "Invalid log retention value"
+msgstr "Valor de retención de registro no válido"
+
+#: Controller/ConfigController.php:991
+msgid "Unable to set DNS redirectors"
+msgstr "No se pudieron establecer redireccionadores DNS"
+
+#: Controller/ConfigController.php:1017;1019
+msgid "Settings saved successfully."
+msgstr "La configuración se ha guardado correctamente."
+
+#: Controller/ConfigController.php:1019
+#: Controller/ProfilesController.php:301
+msgid "But unable to reload DNS service."
+msgstr "Pero no se pudo volver a cargar el servicio DNS."
+
+#: Controller/ConfigController.php:1025
+msgid "Settings could not be saved."
+msgstr "No se pudo guardar la configuración."
+
+#: Controller/ConnectionsController.php:241
+msgid "No connection information found for this IP address."
+msgstr "No se encontró información de conexión para esta dirección IP."
+
+#: Controller/ConnectionsController.php:362
+msgid "The connection history has been deleted."
+msgstr "El historial de conexión se eliminó."
+
+#: Controller/ConnectionsController.php:364
+msgid "The connection history could not be deleted."
+msgstr "No pudo eliminarse el historial de conexión."
+
+#: Controller/DevicesController.php:135
+#: Controller/ProfilesIpfiltersController.php:297
+#: Controller/ProfilesRoutingController.php:185
+#: Controller/UsersController.php:131
+msgid "Please select a profile."
+msgstr "Por favor, selecciona un perfil."
+
+#: Controller/DevicesController.php:251
+msgid "No devices were added."
+msgstr "No se añadieron dispositivos."
+
+#: Controller/DevicesController.php:333;336;339;342;354;427;430;433;436;456
+msgid "The device could not be saved."
+msgstr "No pudo guardarse el dispositivo."
+
+#: Controller/DevicesController.php:333;427
+msgid "DHCP IP address does not match with any KeexyBox subnets."
+msgstr "La dirección IP DHCP no coincide con ninguna de las subredes KeexyBox."
+
+#: Controller/DevicesController.php:336;430
+msgid "DHCP IP address is being used by input interface."
+msgstr "La interfaz de entrada está usando la dirección IP DHCP."
+
+#: Controller/DevicesController.php:339;433
+msgid "DHCP IP address is being used by output interface."
+msgstr "La interfaz de salida está usando la dirección IP DHCP."
+
+#: Controller/DevicesController.php:342;436
+msgid "DHCP IP address is being used by the gateway."
+msgstr "La puerta de enlace está utilizando la dirección IP DHCP."
+
+#: Controller/DevicesController.php:348;442
+msgid "The device has been saved."
+msgstr "Se ha guardado el dispositivo."
+
+#: Controller/DevicesController.php:404;406
+msgid "By default IP addresses will be assigned in the subnet {0} if DHCP is enabled."
+msgstr "Por defecto, las direcciones IP se asignarán en la subred {0} si DHCP está activado."
+
+#: Controller/DevicesController.php:404;406
+msgid "Here you can reserve an IP address for this device."
+msgstr "Aquí puedes reservar una dirección IP para este dispositivo."
+
+#: Controller/DevicesController.php:404
+msgid "If you want this device to use KeexyBox as DNS only, define an IP address in the {0} subnet."
+msgstr "Si deseas que este dispositivo use KeexyBox solo como DNS, define una dirección IP en la subred {0}."
+
+#: Controller/DevicesController.php:447
+#: Controller/UsersController.php:267
+msgid "Do you want to reconnect {0} with new profile?"
+msgstr "¿Deseas volver a conectar {0} con un nuevo perfil?"
+
+#: Controller/DevicesController.php:482
+msgid "The device has been deleted."
+msgstr "El dispositivo se ha eliminado."
+
+#: Controller/DevicesController.php:485
+msgid "The device could not be deleted."
+msgstr "No se pudo eliminar el dispositivo."
+
+#: Controller/DevicesController.php:618;625;630
+#: Controller/UsersController.php:454;461;466
+msgid "Import error line number {0}."
+msgstr "Importar línea de error número {0}."
+
+#: Controller/DevicesController.php:641
+msgid "Devices have been imported successfully."
+msgstr "Los dispositivos se han importado correctamente."
+
+#: Controller/DevicesController.php:644
+msgid "Devices have been imported with errors."
+msgstr "Los dispositivos se han importado con errores."
+
+#: Controller/DevicesController.php:654
+msgid "Devices not imported."
+msgstr "Los dispositivos no se han importado."
+
+#: Controller/DevicesController.php:654
+#: Controller/UsersController.php:491
+msgid "Bad CSV headers."
+msgstr "Encabezados CSV incorrectos."
+
+#: Controller/DevicesController.php:695
+msgid "Device {0} connected successfully."
+msgstr "El dispositivo {0} se conectó correctamente."
+
+#: Controller/DevicesController.php:697
+msgid "Unable to connect {0} device. Please check if the device is on the network."
+msgstr "No se pudo conectar el dispositivo {0}. Por favor, comprueba que el dispositivo esté en la red."
+
+#: Controller/DevicesController.php:745
+msgid "Device {0} has been disconnected."
+msgstr "El dispositivo {0} ha sido desconectado."
+
+#: Controller/DevicesController.php:747
+msgid "Unable to disconnect Device {0}."
+msgstr "No se pudo desconectar el dispositivo {0}."
+
+#: Controller/DevicesController.php:774
+msgid "Device {0} connection has been paused."
+msgstr "La conexión del dispositivo {0} se ha pausado."
+
+#: Controller/DevicesController.php:776
+msgid "Unable to pause connection of device {0}."
+msgstr "No se pudo pausar la conexión del dispositivo {0}."
+
+#: Controller/DevicesController.php:802
+msgid "Device {0} connection resumed."
+msgstr "Se ha reanudado la conexión del dispositivo {0}."
+
+#: Controller/DevicesController.php:804
+msgid "Unable to resume connection of the device {0}."
+msgstr "No se pudo reanudar la conexión del dispositivo {0}."
+
+#: Controller/DevicesController.php:829
+msgid "The device {0} has been reconnected successfully."
+msgstr "El dispositivo {0} se ha reconectado correctamente."
+
+#: Controller/DevicesController.php:831
+msgid "Unable to reconnect the device {0}."
+msgstr "No se pudo reconectar el dispositivo {0}."
+
+#: Controller/ProfilesController.php:119
+msgid "Profile added successfully."
+msgstr "El perfil se añadió correctamente."
+
+#: Controller/ProfilesController.php:119
+msgid "Please now adjust the profile settings."
+msgstr "Por favor, ahora ajusta la configuración de perfil."
+
+#: Controller/ProfilesController.php:128
+msgid "Unable to reload DNS service."
+msgstr "No se pudo volver a cargar el servicio DNS."
+
+#: Controller/ProfilesController.php:141
+msgid "Unable to add the profile."
+msgstr "No se pudo añadir el perfil."
+
+#: Controller/ProfilesController.php:255;272
+msgid "One or more connection schedules were not saved."
+msgstr "No se guardaron uno o más horarios de conexión."
+
+#: Controller/ProfilesController.php:255
+msgid "End time was before start time or no day was selected."
+msgstr "La hora de finalización era anterior a la hora de inicio o no se seleccionó ningún día."
+
+#: Controller/ProfilesController.php:272
+msgid "End time was before start time."
+msgstr "La hora de finalización era anterior a la hora de inicio."
+
+#: Controller/ProfilesController.php:294;297;301
+msgid "Profile saved successfully."
+msgstr "El perfil se guardó correctamente."
+
+#: Controller/ProfilesController.php:310
+msgid "Unable to update profile."
+msgstr "No se pudo actualizar el perfil."
+
+#: Controller/ProfilesController.php:404
+msgid "All users and devices reconnected successfully."
+msgstr "Todos los usuarios y dispositivos se reconectaron correctamente."
+
+#: Controller/ProfilesController.php:406
+msgid "Unable to reconnect all users and devices."
+msgstr "No se pudieron reconectar todos los usuarios y dispositivos."
+
+#: Controller/ProfilesController.php:589
+msgid "File has been uploaded successfully."
+msgstr "El archivo se ha subido correctamente."
+
+#: Controller/ProfilesController.php:589
+msgid "Please select below data to import."
+msgstr "Por favor, seleccione debajo una fecha para importar."
+
+#: Controller/ProfilesController.php:684
+msgid "Unable to import profile."
+msgstr "No se pudo importar el perfil."
+
+#: Controller/ProfilesController.php:743
+msgid "Profile imported successfully."
+msgstr "El perfil se importó correctamente."
+
+#: Controller/ProfilesController.php:748
+msgid "No profile defined to import data."
+msgstr "No se definió ningún perfil para importar datos."
+
+#: Controller/ProfilesController.php:761
+msgid "No data to import."
+msgstr "No hay datos para importar."
+
+#: Controller/ProfilesController.php:819
+msgid "Profile {0} has been deleted."
+msgstr "Se ha eliminado el perfil {0}."
+
+#: Controller/ProfilesController.php:823
+msgid "Deleting profile {0} is forbidden."
+msgstr "Está prohibido eliminar el perfil {0}."
+
+#: Controller/ProfilesController.php:842
+msgid "Profile ID is not specified."
+msgstr "No se ha especificado el ID del perfil."
+
+#: Controller/ProfilesController.php:846
+msgid "Profile {0} has been reloaded successfully."
+msgstr "El perfil {0} se ha vuelto a cargar correctamente."
+
+#: Controller/ProfilesController.php:848
+msgid "Unable to reload profile {0}."
+msgstr "No se pudo volver a cargar el perfil {0}."
+
+#: Controller/ProfilesIpfiltersController.php:215;267
+msgid "Please select rule position."
+msgstr "Por favor, seleccione la posición de la regla."
+
+#: Controller/ProfilesIpfiltersController.php:379;513
+msgid "Last IP must be greater than first IP"
+msgstr "La última IP debe ser mayor que la primera IP"
+
+#: Controller/ProfilesIpfiltersController.php:389;477;502;532
+msgid "Firewall rule has been saved."
+msgstr "Se ha guardado la regla de firewall."
+
+#: Controller/ProfilesIpfiltersController.php:397;400;485;510;540
+msgid "Firewall rule could not be saved."
+msgstr "No se pudo gruardar la regla de firewall."
+
+#: Controller/ProfilesIpfiltersController.php:400
+msgid "Following ports are invalid: "
+msgstr "Los siguientes puertos no son válidos: "
+
+#: Controller/ProfilesIpfiltersController.php:564
+msgid "Firewall rule has been deleted."
+msgstr "Se ha eliminado la regla de firewall."
+
+#: Controller/ProfilesIpfiltersController.php:566
+msgid "Firewall rule could not be deleted."
+msgstr "No se pudo eliminar la regla de firewall."
+
+#: Controller/ProfilesRoutingController.php:180;182
+msgid "Selected domain routings have been copied successfully."
+msgstr "Los enrutamentos de dominio seleccionados se han copiado correctamente."
+
+#: Controller/ProfilesRoutingController.php:180
+msgid "Except for the following addresses which already exist for the profile: {0}"
+msgstr "Excepto para las siguientes direcciones que ya existen para el perfil: {0}"
+
+#: Controller/ProfilesRoutingController.php:221
+msgid "Please select routing target."
+msgstr "Por favor, selecciona el destino de enrutamiento."
+
+#: Controller/ProfilesRoutingController.php:380;382;465
+msgid "Domain routings saved successfully."
+msgstr "Los enrutamientos de dominio se han guardado correctamente."
+
+#: Controller/ProfilesRoutingController.php:380
+msgid "Except for the following addresses: {0}"
+msgstr "Excepto para las siguientes direcciones: {0}"
+
+#: Controller/ProfilesRoutingController.php:472
+msgid "Domain routings have not been saved."
+msgstr "No se han guardado los enrutamientos de dominio."
+
+#: Controller/ProfilesRoutingController.php:473
+msgid "Invalid address"
+msgstr "La dirección no es válida"
+
+#: Controller/ProfilesRoutingController.php:509
+msgid "Domain routing {0} has been deleted."
+msgstr "Se ha eliminado el enrutamiento de dominio {0}."
+
+#: Controller/ProfilesRoutingController.php:511
+msgid "Domain routing {0} could not be deleted."
+msgstr "No se pudo eliminar el enrutamiento de dominio {0}."
+
+#: Controller/ProfilesTimesController.php:50
+msgid "Connection schedule has been deleted."
+msgstr "Se ha eliminado el horario de conexión."
+
+#: Controller/ProfilesTimesController.php:52
+msgid "Connection schedule could not be deleted."
+msgstr "No se pudo borrar el horario de conexión."
+
+#: Controller/ToolsController.php:48
+msgid "DNS Service for domain filtering"
+msgstr "Servicio DNS para filtrado de dominio"
+
+#: Controller/ToolsController.php:49
+msgid "Service which assigns automatically an IP address on devices"
+msgstr "Servicio que asigna automáticamente una dirección IP en los dispositivos"
+
+#: Controller/ToolsController.php:50
+msgid "Service for time synchronization"
+msgstr "Servicio para sincronización del tiempo"
+
+#: Controller/ToolsController.php:53
+msgid "Service for routing and firewall rules"
+msgstr "Servicio para reglas de enrutamiento y firewall"
+
+#: Controller/ToolsController.php:54
+msgid "Anonymization service"
+msgstr "Servicio de anonimización"
+
+#: Controller/ToolsController.php:97
+msgid "Service {0} {1} successfull."
+msgstr "Servicio {0} {1} correcto."
+
+#: Controller/ToolsController.php:99
+msgid "Service {0} {1} failed."
+msgstr "Servicio {0} {1} incorrecto."
+
+#: Controller/UsersController.php:186
+msgid "The user has been added successfully."
+msgstr "Se ha añadido al usuario correctamente."
+
+#: Controller/UsersController.php:201
+msgid "Unable to add the user."
+msgstr "No se pudo añadir al usuario."
+
+#: Controller/UsersController.php:265
+msgid "The user has been updated successfully."
+msgstr "El usuario se ha actualizado correctamente."
+
+#: Controller/UsersController.php:275
+msgid "Unable to update the user."
+msgstr "No se pudo actualizar el usuario."
+
+#: Controller/UsersController.php:303
+msgid "The user {0} has been deleted."
+msgstr "Se ha eliminado el usuario {0}."
+
+#: Controller/UsersController.php:308
+msgid "Deleting the user {0} is forbidden."
+msgstr "Está prohibido eliminar al usuario {0}."
+
+#: Controller/UsersController.php:477
+msgid "Users have been imported successfully."
+msgstr "Los usuarios se han importado correctamente."
+
+#: Controller/UsersController.php:481
+msgid "Users have been imported with errors."
+msgstr "Los usuarios se han importado con errores."
+
+#: Controller/UsersController.php:491
+msgid "Users not imported."
+msgstr "Usuarios no importados."
+
+#: Controller/UsersController.php:545;592;598
+msgid "Incorrect login or password."
+msgstr "Usuario o contraseña incorrectos."
+
+#: Controller/UsersController.php:594
+msgid "You do not have management permissions."
+msgstr "No tienes permisos de gestión."
+
+#: Controller/UsersController.php:632
+msgid "You are now connected to the Internet."
+msgstr "Ahora estás conectado a Internet."
+
+#: Controller/UsersController.php:634
+msgid "Unable to connect you to the Internet."
+msgstr "No se te pudo conectar a Internet."
+
+#: Controller/UsersController.php:658
+msgid "You are now disconnected from the internet."
+msgstr "Ahora estás desconectado de Internet."
+
+#: Controller/UsersController.php:660
+msgid "Unable to disconnect you from the Internet."
+msgstr "No se te pudo desconectar de Internet."
+
+#: Controller/UsersController.php:664
+msgid "Your connection is paused."
+msgstr "Tu conexión está pausada."
+
+#: Controller/UsersController.php:664
+msgid "Disconnections are forbidden for paused connections."
+msgstr "Las desconexiones están prohibidas para las conexiones pausadas."
+
+#: Controller/UsersController.php:692
+msgid "The user {0} has been disconnected successfully."
+msgstr "Se ha desconectado correctamente al usuario {0}."
+
+#: Controller/UsersController.php:694
+msgid "Unable to disconnect the user {0}."
+msgstr "No se pudo desconectar al usuario {0}."
+
+#: Controller/UsersController.php:720
+msgid "The connection of the user {0} has been paused."
+msgstr "Se ha pausado la desconexión del usuario {0}."
+
+#: Controller/UsersController.php:722
+msgid "Unable to pause the connection of the user {0}."
+msgstr "No se pudo pausar la conexión del usuario {0}."
+
+#: Controller/UsersController.php:748
+msgid "The connection of the user {0} has been resumed."
+msgstr "Se ha reanudado la conexión del usuario {0}."
+
+#: Controller/UsersController.php:750
+msgid "Unable to resume the connection of the user {0}."
+msgstr "No se pudo reanudar la conexión del usuario {0}."
+
+#: Controller/UsersController.php:776
+msgid "The user {0} has been reconnected successfully."
+msgstr "Se ha reconectado correctamente al usuario {0}."
+
+#: Controller/UsersController.php:778
+msgid "Unable to reconnect the user {0}."
+msgstr "No se pudo reconectar al usuario {0}."
+
+#: Controller/Component/ConnectionDurationComponent.php:39
+msgid "15 minutes"
+msgstr "15 minutos"
+
+#: Controller/Component/ConnectionDurationComponent.php:40
+msgid "30 minutes"
+msgstr "30 minutos"
+
+#: Controller/Component/ConnectionDurationComponent.php:41
+msgid "1 hour"
+msgstr "1 hora"
+
+#: Controller/Component/ConnectionDurationComponent.php:42
+msgid "2 hours"
+msgstr "2 horas"
+
+#: Controller/Component/ConnectionDurationComponent.php:43
+msgid "4 hours"
+msgstr "4 horas"
+
+#: Controller/Component/ConnectionDurationComponent.php:44
+msgid "8 hours"
+msgstr "8 horas"
+
+#: Controller/Component/ConnectionDurationComponent.php:45
+msgid "12 hours"
+msgstr "12 horas"
+
+#: Controller/Component/ConnectionDurationComponent.php:46
+msgid "1 day"
+msgstr "1 día"
+
+#: Controller/Component/ConnectionDurationComponent.php:47
+msgid "1 week"
+msgstr "1 semana"
+
+#: Controller/Component/ConnectionDurationComponent.php:48
+msgid "2 weeks"
+msgstr "2 semanas"
+
+#: Controller/Component/ConnectionDurationComponent.php:49
+msgid "1 month"
+msgstr "1 mes"
+
+#: Model/Table/ActivesConnectionsTable.php:71
+msgid "This IP is already connected"
+msgstr "Esta IP ya está conectada"
+
+#: Model/Table/BlacklistTable.php:37
+#: Model/Table/DevicesTable.php:77
+#: Model/Table/UsersNoHashPasswordTable.php:56
+#: Model/Table/UsersTable.php:50
+msgid "The value must be alphanumeric and may contain hyphens (-) and underscores (_)"
+msgstr "El valor debe ser alfanumérico y contener guiones (-) y guiones bajos (_)"
+
+#: Model/Table/ConfigTable.php:97
+msgid "The value must be alphanumeric"
+msgstr "El valor debe ser alfanumérico"
+
+#: Model/Table/ConfigTable.php:165;201
+msgid "The value must be between {0} and {1} days"
+msgstr "El valor debe establecerse entre {0} y {1} días"
+
+#: Model/Table/DevicesTable.php:68
+msgid "Device name already used"
+msgstr "El nombre del dispositivo ya se ha utilizado"
+
+#: Model/Table/DevicesTable.php:87
+#: Model/Table/ProfilesTable.php:94
+#: Model/Table/UsersNoHashPasswordTable.php:68
+#: Model/Table/UsersTable.php:62
+msgid "This name is already taken"
+msgstr "Este nombre ya está siendo utilizado"
+
+#: Model/Table/DevicesTable.php:95
+#: Model/Table/ProfilesRoutingTable.php:53
+msgid "The value should not be empty"
+msgstr "El valor no debería estar vacío"
+
+#: Model/Table/DevicesTable.php:99
+msgid "Invalid MAC address"
+msgstr "La dirección de MAC no es válida"
+
+#: Model/Table/DevicesTable.php:114
+msgid "This IP address is already reserved"
+msgstr "La dirección IP ya está reservada"
+
+#: Model/Table/ProfilesIpfiltersTable.php:83;110;111
+msgid "The IP address is required"
+msgstr "Se requiere la dirección IP"
+
+#: Model/Table/ProfilesIpfiltersTable.php:84
+msgid "The netmask is required"
+msgstr "Se requiere la máscara de red"
+
+#: Model/Table/ProfilesIpfiltersTable.php:152
+msgid "Invalid Hostname"
+msgstr "El nombre de equipo no es válido"
+
+#: Model/Table/UsersNoHashPasswordTable.php:77
+msgid "The hashed password must 60 chars"
+msgstr "La contraseña cifrada debe tener 60 caracteres"
+
+#: Model/Table/UsersTable.php:71
+msgid "Passwords do not match"
+msgstr "Las contraseñas no coinciden"
+
+#: Model/Table/UsersTable.php:77
+msgid "Password must contain at least 8 characters"
+msgstr "La contraseña debe contener al menos 8 caracteres"
+
+#: Shell/ArpShell.php:155
+msgid "Unknown"
+msgstr "Desconocido"
+
+#: Shell/ServiceShell.php:251;259
+msgid "DHCP service is disabled"
+msgstr "El servicio DHCP está desactivado"
+
+#: Template/Blacklist/add.ctp:9
+#: Template/Blacklist/index.ctp:11
+#: Template/Blacklist/query.ctp:11
+#: Template/Blacklist/wadd.ctp:2
+msgid "Add domains to the Blacklist"
+msgstr "Añadir dominios a la Blacklist"
+
+#: Template/Blacklist/add.ctp:19
+#: Template/Blacklist/wadd.ctp:27
+msgid "Here you can add domains to the Blacklist line per line or separated by a space"
+msgstr "Aquí puedes añadir dominios a la Blacklist línea a línea o separados por un espacio"
+
+#: Template/Blacklist/add.ctp:36
+#: Template/Blacklist/wadd.ctp:44
+msgid "Overwrite the category of existing domains in the Blacklist"
+msgstr "Sobrescribir la categoría de dominios existentes en la Blacklist"
+
+#: Template/Blacklist/add.ctp:44
+#: Template/Blacklist/wadd.ctp:52
+msgid "You can here import domains to the Blacklist from lists available on the Internet (one URL per line)"
+msgstr "Aquí puedes añadir dominios a la Blacklist línea a línea o separados por un espacio"
+
+#: Template/Blacklist/add.ctp:58
+#: Template/Blacklist/index.ctp:52
+#: Template/Blacklist/query.ctp:58;97
+#: Template/Blacklist/wadd.ctp:66
+#: Template/Tools/domain_issue.ctp:64
+msgid "Category"
+msgstr "Categoría"
+
+#: Template/Blacklist/add.ctp:64
+#: Template/Blacklist/index.ctp:126
+#: Template/Blacklist/query.ctp:144
+#: Template/Blacklist/wadd.ctp:72
+#: Template/ProfilesRouting/add.ctp:101
+#: Template/ProfilesRouting/edit.ctp:84
+#: Template/ProfilesRouting/index.ctp:172
+#: Template/Tools/domain_issue.ctp:117
+msgid "(Select existing category)"
+msgstr "(Seleccionar categoría existente)"
+
+#: Template/Blacklist/add.ctp:71
+#: Template/Blacklist/wadd.ctp:79
+msgid "Or create new category"
+msgstr "O crear nueva categoría"
+
+#: Template/Blacklist/add.ctp:77
+#: Template/Blacklist/wadd.ctp:85
+msgid "Category name"
+msgstr "Nombre de categoría"
+
+#: Template/Blacklist/add.ctp:94;95
+#: Template/Config/certificate.ctp:109;110
+#: Template/Config/datetime.ctp:78;79
+#: Template/Config/dhcp.ctp:163;164
+#: Template/Config/edit.ctp:31;32
+#: Template/Config/misc.ctp:126;127
+#: Template/Config/network.ctp:275;276
+#: Template/Devices/add.ctp:100;101
+#: Template/Devices/add2.ctp:99;100
+#: Template/Devices/edit.ctp:96;97
+#: Template/Devices/import.ctp:36;37
+#: Template/Profiles/add.ctp:64;65
+#: Template/Profiles/edit.ctp:374;375
+#: Template/Profiles/export.ctp:74;75
+#: Template/Profiles/import.ctp:335;336
+#: Template/Profiles/upload_import.ctp:36;37
+#: Template/ProfilesIpfilters/add.ctp:252;253;264;265
+#: Template/ProfilesIpfilters/edit.ctp:272;273;284;285
+#: Template/ProfilesRouting/add.ctp:125;126
+#: Template/ProfilesRouting/edit.ctp:109;110
+#: Template/Users/add.ctp:105;106
+#: Template/Users/edit.ctp:127;128
+#: Template/Users/import.ctp:36;37
+msgid "Cancel"
+msgstr "Cancelar"
+
+#: Template/Blacklist/add.ctp:104;105
+#: Template/Blacklist/import.ctp:44;45
+#: Template/Blacklist/wadd.ctp:104;105
+#: Template/Config/certificate.ctp:119;120
+#: Template/Config/datetime.ctp:87;88
+#: Template/Config/dhcp.ctp:172;173
+#: Template/Config/edit.ctp:40;41
+#: Template/Config/misc.ctp:135;136
+#: Template/Config/network.ctp:284;285
+#: Template/Config/wpa.ctp:49;50
+#: Template/Devices/add.ctp:109;110
+#: Template/Devices/add2.ctp:108;109
+#: Template/Devices/edit.ctp:105;106
+#: Template/Devices/import.ctp:45;46
+#: Template/Profiles/add.ctp:73;74
+#: Template/Profiles/edit.ctp:383;384
+#: Template/Profiles/wadd.ctp:80;81
+#: Template/Profiles/wedit.ctp:394
+#: Template/ProfilesIpfilters/add.ctp:276;277
+#: Template/ProfilesIpfilters/edit.ctp:296;297
+#: Template/ProfilesRouting/add.ctp:135;136
+#: Template/ProfilesRouting/edit.ctp:119;120
+#: Template/Users/add.ctp:114;115
+#: Template/Users/edit.ctp:136;137
+#: Template/Users/import.ctp:45;46
+#: Template/Users/wadd.ctp:6;115;116
+msgid "Save"
+msgstr "Guardar"
+
+#: Template/Blacklist/add.ctp:116
+#: Template/Blacklist/wadd.ctp:116
+msgid "Import domains to the Blacklist from a file"
+msgstr "Importar dominios a la Blacklist desde un archivo"
+
+#: Template/Blacklist/add.ctp:120
+#: Template/Blacklist/wadd.ctp:120
+msgid "To import domains from tar.gz file, please click on {0}."
+msgstr "Para importar dominios desde el archivo tar.gz, por favor haz clic en {0}."
+
+#: Template/Blacklist/add.ctp:120;129;130
+#: Template/Blacklist/wadd.ctp:120;131;132
+#: Template/Profiles/import.ctp:344;345
+msgid "Import"
+msgstr "Importar"
+
+#: Template/Blacklist/add.ctp:121
+#: Template/Blacklist/wadd.ctp:121
+msgid "Domains will be automatically categorized."
+msgstr "Los dominios se categorizarán de forma automática."
+
+#: Template/Blacklist/import.ctp:8
+#: Template/Blacklist/query.ctp:20
+msgid "Import domains to the Blacklist"
+msgstr "Importar dominios a la Blacklist"
+
+#: Template/Blacklist/import.ctp:16
+#: Template/Profiles/upload_import.ctp:16
+msgid "Select tar.gz file"
+msgstr "Seleccionar archivo tar.gz"
+
+#: Template/Blacklist/import.ctp:35;36
+#: Template/Config/wpa.ctp:39;40
+msgid "Close"
+msgstr "Cerrar"
+
+#: Template/Blacklist/index.ctp:3
+msgid "Blacklist categories"
+msgstr "Categorias de Blacklist"
+
+#: Template/Blacklist/index.ctp:20
+#: Template/Blacklist/query.ctp:3
+msgid "Query the Blacklist"
+msgstr "Consultar la Blacklist"
+
+#: Template/Blacklist/index.ctp:30
+msgid "Refresh the Blacklist"
+msgstr "Actualizar la Blacklist"
+
+#: Template/Blacklist/index.ctp:43
+#: Template/Blacklist/query.ctp:85
+#: Template/Config/advanced.ctp:14
+#: Template/Connections/history.ctp:25
+#: Template/Connections/index.ctp:35
+#: Template/Devices/index.ctp:56
+#: Template/Devices/scan.ctp:26
+#: Template/Devices/wscan.ctp:20
+#: Template/ProfilesIpfilters/index.ctp:58
+#: Template/ProfilesRouting/index.ctp:58
+#: Template/Statistics/logs.ctp:31
+#: Template/Statistics/most_queried.ctp:30
+#: Template/Tools/domain_issue.ctp:50
+#: Template/Tools/services.ctp:59
+#: Template/Users/index.ctp:46
+msgid "Do you confirm the action?"
+msgstr "¿Confirmas esta acción?"
+
+#: Template/Blacklist/index.ctp:53
+msgid "Domains"
+msgstr "Dominios"
+
+#: Template/Blacklist/index.ctp:54
+#: Template/Config/advanced.ctp:98
+#: Template/Connections/adminview.ctp:46
+#: Template/Connections/history.ctp:41
+#: Template/Connections/index.ctp:52
+#: Template/Devices/index.ctp:71
+#: Template/Devices/scan.ctp:37
+#: Template/Profiles/edit.ctp:218
+#: Template/Profiles/index.ctp:50
+#: Template/Profiles/wedit.ctp:236
+#: Template/ProfilesIpfilters/index.ctp:73
+#: Template/ProfilesRouting/index.ctp:71
+#: Template/Statistics/logs.ctp:45
+#: Template/Statistics/most_active_clients.ctp:33
+#: Template/Statistics/most_queried.ctp:40
+#: Template/Tools/services.ctp:71
+#: Template/Users/index.ctp:60
+msgid "Actions"
+msgstr "Acciones"
+
+#: Template/Blacklist/index.ctp:74
+msgid "Export all domains of this category"
+msgstr "Exportar todos los dominios de esta categoría"
+
+#: Template/Blacklist/index.ctp:84
+#: Template/Blacklist/query.ctp:129
+#: Template/Connections/history.ctp:141;162
+#: Template/Devices/index.ctp:129;154
+#: Template/Profiles/edit.ctp:271
+#: Template/Profiles/index.ctp:160
+#: Template/Profiles/wedit.ctp:289
+#: Template/ProfilesIpfilters/index.ctp:151;178
+#: Template/ProfilesRouting/index.ctp:130;158
+#: Template/Tools/domain_issue.ctp:102
+#: Template/Users/index.ctp:125;151
+msgid "Delete"
+msgstr "Eliminar"
+
+#: Template/Blacklist/index.ctp:87
+msgid "Are you sure you want to delete the category {0} and all the domains it contains?"
+msgstr "¿Estás seguro de querer eliminar la categoría {0} y todos los dominios que contiene?"
+
+#: Template/Blacklist/index.ctp:104
+#: Template/Blacklist/query.ctp:128
+#: Template/Tools/domain_issue.ctp:101
+msgid "Change the category"
+msgstr "Cambiar la categoría"
+
+#: Template/Blacklist/index.ctp:105
+msgid "Export categories"
+msgstr "Exportar categorías"
+
+#: Template/Blacklist/index.ctp:106
+msgid "Delete categories"
+msgstr "Eliminar categorías"
+
+#: Template/Blacklist/index.ctp:108
+#: Template/Blacklist/query.ctp:131
+#: Template/Connections/history.ctp:163
+#: Template/Connections/index.ctp:299
+#: Template/Devices/index.ctp:156
+#: Template/ProfilesIpfilters/index.ctp:179
+#: Template/ProfilesRouting/index.ctp:159
+#: Template/Tools/domain_issue.ctp:104
+#: Template/Tools/services.ctp:141
+#: Template/Users/index.ctp:153
+msgid "(select action)"
+msgstr "(seleccionar acción)"
+
+#: Template/Blacklist/index.ctp:135
+#: Template/Blacklist/query.ctp:153
+#: Template/ProfilesRouting/add.ctp:112
+#: Template/ProfilesRouting/edit.ctp:91;97
+#: Template/ProfilesRouting/index.ctp:181
+#: Template/Tools/domain_issue.ctp:126
+msgid "Set a new category"
+msgstr "Establecer una nueva categoría"
+
+#: Template/Blacklist/index.ctp:145;146
+#: Template/Blacklist/query.ctp:163;164
+#: Template/Connections/history.ctp:174;175
+#: Template/Connections/index.ctp:310;311
+#: Template/Devices/index.ctp:183;184
+#: Template/ProfilesIpfilters/index.ctp:231;232
+#: Template/ProfilesRouting/index.ctp:215;216
+#: Template/Tools/domain_issue.ctp:136;137
+#: Template/Tools/services.ctp:154;155
+#: Template/Users/index.ctp:178;179
+msgid "Run"
+msgstr "Ejecutar"
+
+#: Template/Blacklist/index.ctp:157
+#: Template/Profiles/edit.ctp:103
+#: Template/Profiles/import.ctp:219
+#: Template/Profiles/wedit.ctp:119
+msgid "The Blacklist is empty."
+msgstr "La Blacklist está vacía."
+
+#: Template/Blacklist/index.ctp:159
+msgid "You can download lists on Internet and import them to the Blacklist."
+msgstr "Puedes descargar listas de Internet e importarlas en la Blacklist."
+
+#: Template/Blacklist/query.ctp:30
+msgid "List Blacklist categories"
+msgstr "Enumerar categorías de Blacklist"
+
+#: Template/Blacklist/query.ctp:45
+#: Template/Config/advanced.ctp:67
+#: Template/Element/search_general_form.ctp:8
+#: Template/Element/search_log_form.ctp:65
+msgid "Results/page"
+msgstr "Resultados/página"
+
+#: Template/Blacklist/query.ctp:96
+#: Template/Element/search_log_form.ctp:72
+#: Template/Statistics/logs.ctp:41
+#: Template/Statistics/most_queried.ctp:38
+#: Template/Tools/domain_issue.ctp:16;63
+msgid "Domain"
+msgstr "Dominio"
+
+#: Template/Blacklist/wadd.ctp:2
+#: Template/Config/wdatetime.ctp:3
+#: Template/Config/wdhcp.ctp:2
+#: Template/Config/wend.ctp:1
+#: Template/Config/wnetwork.ctp:2
+#: Template/Config/wstart.ctp:1
+#: Template/Devices/wscan.ctp:1
+#: Template/Profiles/wadd.ctp:2
+#: Template/Profiles/wedit.ctp:1
+#: Template/Users/wadd.ctp:2
+msgid "KeexyBox’s configuration wizard"
+msgstr "Asistente de configuración de KeexyBox"
+
+#: Template/Blacklist/wadd.ctp:6
+msgid "The Blacklist is KeexyBox’s internal database containing the domains to block. By default the Blacklist is empty, KeexyBox is not provided with any list of domains. Here you can add domains to block or import lists that you can retrieve from the Internet."
+msgstr "La Blacklist es la base de datos interna de KeexyBox que contiene los dominios para bloquear. Por defecto, la Blacklist está vacía, KeexyBox no cuenta con ninguna lista de dominios. Aquí puedes añadir los dominios para bloquear o importar listas que puedes rescatar de Internet."
+
+#: Template/Blacklist/wadd.ctp:7
+msgid "Click {0} if you do not want to do it now."
+msgstr "Haz clic en {0} si no deseas hacerlo ahora."
+
+#: Template/Blacklist/wadd.ctp:7;99;126
+#: Template/Devices/wscan.ctp:8;71
+#: Template/Profiles/wadd.ctp:12;75
+#: Template/Profiles/wedit.ctp:388
+#: Template/Users/wadd.ctp:7;110
+msgid "Skip / Next"
+msgstr "Saltar/Siguiente"
+
+#: Template/Blacklist/wadd.ctp:98;125
+#: Template/Config/wdatetime.ctp:86
+#: Template/Config/wdhcp.ctp:193
+#: Template/Config/wend.ctp:20
+#: Template/Config/wnetwork.ctp:285
+#: Template/Devices/wscan.ctp:70
+#: Template/Profiles/wadd.ctp:74
+#: Template/Users/wadd.ctp:109
+msgid "Back"
+msgstr "Atrás"
+
+#: Template/Config/advanced.ctp:8
+msgid "Advanced settings and configuration management"
+msgstr "Configuración avanzada y gestión de la configuración"
+
+#: Template/Config/advanced.ctp:18
+msgid "Generate configuration files"
+msgstr "Generar archivos de configuración"
+
+#: Template/Config/advanced.ctp:32
+msgid "(select a configuration)"
+msgstr "(seleccionar una configuración)"
+
+#: Template/Config/advanced.ctp:44;45
+msgid "Generate"
+msgstr "Generar"
+
+#: Template/Config/advanced.ctp:59
+msgid "Advanced settings"
+msgstr "Configuración avanzada"
+
+#: Template/Config/advanced.ctp:76
+#: Template/Element/search_general_form.ctp:17
+#: Template/Profiles/edit.ctp:443
+#: Template/Profiles/wedit.ctp:453
+msgid "Search"
+msgstr "Buscar"
+
+#: Template/Config/advanced.ctp:113
+#: Template/Config/wpa.ctp:17
+#: Template/Devices/index.ctp:118
+#: Template/Profiles/edit.ctp:167;177
+#: Template/Profiles/index.ctp:105
+#: Template/Profiles/wedit.ctp:184;194
+#: Template/ProfilesIpfilters/index.ctp:141
+#: Template/ProfilesRouting/index.ctp:120
+#: Template/Users/index.ctp:113
+msgid "Edit"
+msgstr "Editar"
+
+#: Template/Config/advanced.ctp:130
+#: Template/Element/paginator.ctp:3
+msgid "previous"
+msgstr "anterior"
+
+#: Template/Config/advanced.ctp:132
+#: Template/Element/paginator.ctp:5
+msgid "next"
+msgstr "siguiente"
+
+#: Template/Config/certificate.ctp:9
+msgid "Generate SSL certificate"
+msgstr "Generar certificado SSL"
+
+#: Template/Config/certificate.ctp:15
+msgid "Certificate will be replaced. Confirm?"
+msgstr "El certificado se reemplazará. ¿Confirmar?"
+
+#: Template/Config/certificate.ctp:21
+msgid "Common Name"
+msgstr "Nombre común"
+
+#: Template/Config/certificate.ctp:26
+msgid "(fqdn or hostname)"
+msgstr "(FQDN o nombre de equipo)"
+
+#: Template/Config/certificate.ctp:34
+msgid "Country code"
+msgstr "Prefijo del país"
+
+#: Template/Config/certificate.ctp:41
+msgid "(2 letter code)"
+msgstr "(código de 2 letras)"
+
+#: Template/Config/certificate.ctp:49
+msgid "State or Province Name"
+msgstr "Nombre del estado o provincia"
+
+#: Template/Config/certificate.ctp:54
+msgid "(full name)"
+msgstr "(nombre completo)"
+
+#: Template/Config/certificate.ctp:62
+msgid "Locality Name"
+msgstr "Nombre de la localidad"
+
+#: Template/Config/certificate.ctp:67
+msgid "(e.g. city)"
+msgstr "(p. ej. ciudad)"
+
+#: Template/Config/certificate.ctp:75
+msgid "Organization Name"
+msgstr "Nombre de la organización"
+
+#: Template/Config/certificate.ctp:80
+msgid "(e.g. company)"
+msgstr "(p. ej. empresa)"
+
+#: Template/Config/certificate.ctp:88
+msgid "Organizational Unit Name"
+msgstr "Nombre de la unidad organizacional"
+
+#: Template/Config/certificate.ctp:93
+msgid "(e.g. department)"
+msgstr "(p. ej. departamento)"
+
+#: Template/Config/datetime.ctp:9
+#: Template/Config/wdatetime.ctp:3
+msgid "Date and time settings"
+msgstr "Configuración de fecha y hora"
+
+#: Template/Config/datetime.ctp:17
+#: Template/Config/wdatetime.ctp:29
+msgid "Date"
+msgstr "Fecha"
+
+#: Template/Config/datetime.ctp:27
+#: Template/Config/wdatetime.ctp:39
+#: Template/Statistics/logs.ctp:44
+msgid "Time"
+msgstr "Hora"
+
+#: Template/Config/datetime.ctp:37
+#: Template/Config/wdatetime.ctp:49
+msgid "Time zone"
+msgstr "Zona horaria"
+
+#: Template/Config/datetime.ctp:49
+#: Template/Config/wdatetime.ctp:61
+msgid "NTP server 1"
+msgstr "Servidor NTP 1"
+
+#: Template/Config/datetime.ctp:60
+#: Template/Config/wdatetime.ctp:72
+msgid "NTP server 2"
+msgstr "Servidor NTP 2"
+
+#: Template/Config/dhcp.ctp:9
+#: Template/Config/wdhcp.ctp:2
+msgid "DHCP settings"
+msgstr "Configuración DHCP"
+
+#: Template/Config/dhcp.ctp:21
+#: Template/Config/wdhcp.ctp:56
+msgid "Enable DHCP"
+msgstr "Activar DHCP"
+
+#: Template/Config/dhcp.ctp:33
+#: Template/Config/wdhcp.ctp:68
+msgid "Check this box if you want to use KeexyBox as DNS only and do not want to use it as gateway."
+msgstr "Marca esta casilla si deseas usar KeexyBox solo como DNS y no deseas utilizarla como puerta de enlace."
+
+#: Template/Config/dhcp.ctp:46;96
+#: Template/Config/wdhcp.ctp:81;131
+msgid "Address range for the network: {0}"
+msgstr "Intervalo de direcciones para la red: {0}"
+
+#: Template/Config/dhcp.ctp:51;111
+#: Template/Config/wdhcp.ctp:86;146
+msgid "DHCP start IP"
+msgstr "IP incial DHCP"
+
+#: Template/Config/dhcp.ctp:71;131
+#: Template/Config/wdhcp.ctp:106;166
+msgid "DHCP end IP"
+msgstr "IP final DHCP"
+
+#: Template/Config/dhcp.ctp:107
+#: Template/Config/wdhcp.ctp:142
+msgid "DHCP will work on subnet {0} only for devices that have an IP address reserved. However, defining the IP range here is required."
+msgstr "DHCP trabajará en la subred {0} solo para los dispositivos que tienen una dirección IP reservada. No obstante, aquí es necesario definir un rango de IP."
+
+#: Template/Config/edit.ctp:8
+msgid "Edit setting: {0}"
+msgstr "Editar configuración: {0}"
+
+#: Template/Config/index.ctp:8
+msgid "System control panel"
+msgstr "Panel de control del sistema"
+
+#: Template/Config/index.ctp:16
+#: Template/Layout/adminlte.ctp:211
+msgid "Network"
+msgstr "Red"
+
+#: Template/Config/index.ctp:19
+#: Template/Layout/adminlte.ctp:212
+msgid "Date and time"
+msgstr "Fecha y hora"
+
+#: Template/Config/index.ctp:22
+#: Template/Layout/adminlte.ctp:213
+msgid "DHCP"
+msgstr "DHCP"
+
+#: Template/Config/index.ctp:25
+msgid "SSL certificate"
+msgstr "Certificado SSL"
+
+#: Template/Config/index.ctp:28
+#: Template/Layout/adminlte.ctp:215
+msgid "Miscellaneous"
+msgstr "Miscelánea"
+
+#: Template/Config/misc.ctp:8
+msgid "Miscellaneous settings"
+msgstr "Configuración miscelánea"
+
+#: Template/Config/misc.ctp:16
+msgid "Domains routing and DNS options"
+msgstr "Enrutamiento de dominios y opciones DNS"
+
+#: Template/Config/misc.ctp:18
+msgid "Clear the domain routing cache"
+msgstr "Borrar la caché de enrutamiento de dominios"
+
+#: Template/Config/misc.ctp:20
+msgid "Clear"
+msgstr "Borrar"
+
+#: Template/Config/misc.ctp:22
+msgid "Are you sure to clear the domain routing cache?"
+msgstr "¿Estás seguro de que deseas borrar la caché de enrutamiento de dominios?"
+
+#: Template/Config/misc.ctp:32
+msgid "Domain routing cache expiration (days)"
+msgstr "Expiración de la caché de enrutamiento de dominios (días)"
+
+#: Template/Config/misc.ctp:51
+msgid "Use defined DNS as redirectors"
+msgstr "Usar DNS definidos como redireccionadores"
+
+#: Template/Config/misc.ctp:58
+msgid "User and device options"
+msgstr "Opciones de usuario y dispositivo"
+
+#: Template/Config/misc.ctp:60
+msgid "Default user connection time"
+msgstr "Hora de conexión por defecto del usuario"
+
+#: Template/Config/misc.ctp:74
+msgid "Default language for users and devices"
+msgstr "Idioma por defecto para usuarios y dispositivos"
+
+#: Template/Config/misc.ctp:86
+msgid "Log options"
+msgstr "Opciones de registro"
+
+#: Template/Config/misc.ctp:88
+msgid "Maximum retention of logs in database (days)"
+msgstr "Retención máxima de registros en la base de datos (días)"
+
+#: Template/Config/misc.ctp:103
+msgid "Maximum retention of logs on the hard drive (days)"
+msgstr "Retención máxima de registros en el disco duro (días)"
+
+#: Template/Config/network.ctp:2
+#: Template/Config/wnetwork.ctp:2
+msgid "Network settings"
+msgstr "Configuración de red"
+
+#: Template/Config/network.ctp:11
+#: Template/Config/wnetwork.ctp:6;32
+msgid "Input network"
+msgstr "Red de entrada"
+
+#: Template/Config/network.ctp:19
+msgid "The input network is where the users and devices are located."
+msgstr "La red de entrada es donde se ubican los usuarios y los dispositivos."
+
+#: Template/Config/network.ctp:23;116
+#: Template/Config/wnetwork.ctp:39;130
+msgid "Interface"
+msgstr "Interfaz"
+
+#: Template/Config/network.ctp:40;41;133;134
+#: Template/Config/wnetwork.ctp:56;57;147;148
+#: Template/Config/wpa.ctp:9
+msgid "Wi-fi settings"
+msgstr "Configuración de Wi-Fi"
+
+#: Template/Config/network.ctp:50;141
+#: Template/Config/wnetwork.ctp:64;155
+#: Template/Connections/adminview.ctp:21
+#: Template/Connections/history.ctp:35
+#: Template/Connections/index.ctp:46
+#: Template/Connections/view.ctp:21
+#: Template/Devices/scan.ctp:34
+#: Template/Devices/wscan.ctp:28
+msgid "IP address"
+msgstr "Dirección IP"
+
+#: Template/Config/network.ctp:70;161
+#: Template/Config/wnetwork.ctp:84;175
+msgid "Netmask"
+msgstr "Máscara de red"
+
+#: Template/Config/network.ctp:103
+#: Template/Config/wnetwork.ctp:117
+msgid "Output network"
+msgstr "Red de salida"
+
+#: Template/Config/network.ctp:112
+#: Template/Config/wnetwork.ctp:126
+msgid "The output network is where your internet router is located."
+msgstr "La red de salida es donde se ubica tu router de Internet."
+
+#: Template/Config/network.ctp:116
+#: Template/Config/wnetwork.ctp:130
+msgid "(It can be the same as input network)"
+msgstr "(puede ser la misma que la red de entrada)"
+
+#: Template/Config/network.ctp:194
+msgid "DNS and Gateway"
+msgstr "DNS y puerta de enlace"
+
+#: Template/Config/network.ctp:202
+#: Template/Config/wnetwork.ctp:216
+msgid "Gateway"
+msgstr "Puerta de enlace"
+
+#: Template/Config/network.ctp:222
+#: Template/Config/wnetwork.ctp:236
+msgid "DNS 1"
+msgstr "DNS 1"
+
+#: Template/Config/network.ctp:242
+#: Template/Config/wnetwork.ctp:256
+msgid "DNS 2"
+msgstr "DNS 2"
+
+#: Template/Config/wdatetime.ctp:7
+msgid "You need to set the date and time so that the Internet access times are well managed."
+msgstr "Debes configurar la fecha y la hora para que los tiempos de acceso de Internet estén bien gestionados."
+
+#: Template/Config/wdatetime.ctp:9
+msgid "Adjust the time and date."
+msgstr "Ajustar la fecha y la hora."
+
+#: Template/Config/wdatetime.ctp:10
+msgid "Set your time zone."
+msgstr "Configura tu zona horaria."
+
+#: Template/Config/wdatetime.ctp:87;91
+#: Template/Config/wdhcp.ctp:194;198
+#: Template/Config/wnetwork.ctp:286;290
+#: Template/Profiles/wedit.ctp:393
+msgid "Next"
+msgstr "Siguiente"
+
+#: Template/Config/wdhcp.ctp:6;18;29
+msgid "The DHCP allows you to dynamically assign an IP address and other network settings to each device on your network."
+msgstr "El DHCP te permite asignar de forma dinámica una dirección IP y otras configuraciones de red a cada dispositivo de tu red."
+
+#: Template/Config/wdhcp.ctp:8;20
+msgid "Disable the DHCP on your Internet router to avoid conflict with KeexyBox DHCP."
+msgstr "Desactiva el DHCP en tu router de Internet para evitar conflictos con el DHCP de KeexyBox."
+
+#: Template/Config/wdhcp.ctp:9;21
+msgid "Define a range of IP addresses to use for your devices in the {0} network."
+msgstr "Define un intervalo de direcciones IP para usar tus dispositivos en la red {0}."
+
+#: Template/Config/wdhcp.ctp:10
+msgid "Define a range of IP addresses in the {0} network."
+msgstr "Define un intervalo de direcciones IP en la red {0}."
+
+#: Template/Config/wdhcp.ctp:31
+msgid "Log in to the management interface of your Internet router."
+msgstr "Inicia sesión en la interfaz de gestión de tu router de Internet."
+
+#: Template/Config/wdhcp.ctp:32
+msgid "In the DHCP settings, specify the IP address {0} for the DNS."
+msgstr "En la configuración de DHCP, especifica la dirección IP {0} para el DNS."
+
+#: Template/Config/wdhcp.ctp:202
+#: Template/Profiles/wedit.ctp:388
+msgid "Skip"
+msgstr "Saltar"
+
+#: Template/Config/wend.ctp:5
+msgid "Your KeexyBox setup is complete!"
+msgstr "¡Se ha completado la configuración de tu KeexyBox!"
+
+#: Template/Config/wend.ctp:6
+msgid "You will be able to connect to KeexyBox using one of the URLs below:"
+msgstr "Podrás conectarte a KeexyBox utilizando una de las siguientes URL:"
+
+#: Template/Config/wend.ctp:12
+msgid "Please note the URLs and click {0} to restart the system."
+msgstr "Por favor, toma nota de las URL y haz clic en {0} para reiniciar el sistema."
+
+#: Template/Config/wend.ctp:12;21
+msgid "Finish"
+msgstr "Finalizar"
+
+#: Template/Config/wnetwork.ctp:6
+msgid "To use KeexyBox for filtering and anonymous access over the Internet, a second network must be created. This new network called {0} is the one where all your devices will now be located (PCs, tablets, smartphones, connected objects, etc.)."
+msgstr "Si quieres usar KeexyBox para el filtrado y el acceso anónimo a través de Internet, debe crearse una segunda red. En esta nueva red, llamada {0}, es donde se ubicarán ahora todos tus dispositivos (PC, tablets, smartphones, objetos conectados, etc.)."
+
+#: Template/Config/wnetwork.ctp:8
+msgid "Define the interface, IP address, and netmask."
+msgstr "Definir la interfaz, la dirección IP y la máscara de red."
+
+#: Template/Config/wnetwork.ctp:9;19
+msgid "Define the IP addresses of your DNS servers."
+msgstr "Define las direcciones IP de tus servidores DNS."
+
+#: Template/Config/wnetwork.ctp:17
+msgid "To use KeexyBox as Internet filtering only:"
+msgstr "Usar KeexyBox solo como filtro de Internet:"
+
+#: Template/Config/wnetwork.ctp:208
+msgid "DNS"
+msgstr "DNS"
+
+#: Template/Config/wstart.ctp:5
+msgid "Congratulations! KeexyBox is installed."
+msgstr "¡Enhorabuena! KeexyBox está instalada."
+
+#: Template/Config/wstart.ctp:6
+msgid "We will now assist you in setting up your KeexyBox."
+msgstr "Ahora te ayudaremos a configurar tu KeexyBox."
+
+#: Template/Config/wstart.ctp:7
+msgid "How would you like to use it?"
+msgstr "¿Cómo te gustaría usarla?"
+
+#: Template/Config/wstart.ctp:9
+msgid "For Internet filtering and anonymous access?"
+msgstr "¿Para filtrado en Internet y acceso anónimo?"
+
+#: Template/Config/wstart.ctp:12
+msgid "For Internet filtering only and DHCP enabled on KeexyBox?"
+msgstr "¿Solo para filtrado en Internet y con DHCP activado en KeexyBox?"
+
+#: Template/Config/wstart.ctp:15
+msgid "For Internet filtering only and DHCP disabled on KeexyBox?"
+msgstr "¿Solo para filtrado en Internet y con DHCP desactivado en KeexyBox?"
+
+#: Template/Config/wstart.ctp:23
+#: Template/Tools/services.ctp:112;139
+msgid "Start"
+msgstr "Iniciar"
+
+#: Template/Config/wstart.ctp:42
+msgid "You must choose how you want to use KeexyBox."
+msgstr "Debes elegir cómo quieres usar KeexyBox."
+
+#: Template/Connections/adminview.ctp:2
+#: Template/Connections/history.ctp:105
+#: Template/Connections/view.ctp:2
+msgid "Connection information"
+msgstr "Información de conexión"
+
+#: Template/Connections/adminview.ctp:9
+#: Template/Connections/view.ctp:9
+#: Template/Profiles/edit.ctp:12
+#: Template/Profiles/import.ctp:14
+#: Template/Profiles/wedit.ctp:28
+msgid "General"
+msgstr "General"
+
+#: Template/Connections/adminview.ctp:17
+#: Template/Connections/view.ctp:17
+#: Template/Devices/add.ctp:17;22
+#: Template/Devices/add2.ctp:17;22
+#: Template/Devices/edit.ctp:17;22
+#: Template/Devices/index.ctp:66
+#: Template/Devices/scan.ctp:35
+#: Template/Devices/wscan.ctp:29
+#: Template/Profiles/add.ctp:17;22
+#: Template/Profiles/edit.ctp:19;24
+#: Template/Profiles/import.ctp:19;32
+#: Template/Profiles/index.ctp:45
+#: Template/Profiles/wadd.ctp:8;31;36
+#: Template/Profiles/wedit.ctp:35;40
+#: Template/Users/add.ctp:30
+#: Template/Users/edit.ctp:30
+#: Template/Users/wadd.ctp:38
+msgid "Name"
+msgstr "Nombre"
+
+#: Template/Connections/adminview.ctp:25
+#: Template/Connections/view.ctp:25
+msgid "Connection start time"
+msgstr "Hora de inicio de conexión"
+
+#: Template/Connections/adminview.ctp:32;173
+#: Template/Connections/view.ctp:32
+msgid "Connection end time"
+msgstr "Hora de fin de conexión"
+
+#: Template/Connections/adminview.ctp:34
+#: Template/Connections/index.ctp:116
+#: Template/Connections/view.ctp:34
+msgid "None"
+msgstr "Ninguna"
+
+#: Template/Connections/adminview.ctp:42;183
+#: Template/Connections/view.ctp:42
+msgid "Connection status"
+msgstr "Estado de conexión"
+
+#: Template/Connections/adminview.ctp:55;107
+#: Template/Connections/index.ctp:134;213;298
+msgid "Pause the connection"
+msgstr "Pausar la conexión"
+
+#: Template/Connections/adminview.ctp:58;110
+#: Template/Connections/index.ctp:137;216
+msgid "Pause the connection of {0}?"
+msgstr "¿Pausar la conexión de {0}?"
+
+#: Template/Connections/adminview.ctp:67;119
+#: Template/Connections/index.ctp:145;224;298
+msgid "Resume the connection"
+msgstr "Reanudar la conexión"
+
+#: Template/Connections/adminview.ctp:70;122
+#: Template/Connections/index.ctp:148;227
+msgid "Resume the connection of {0}?"
+msgstr "¿Reanudar la conexión de {0}?"
+
+#: Template/Connections/adminview.ctp:80;132
+#: Template/Connections/index.ctp:156;235;298
+#: Template/Layout/adminlte.ctp:163
+#: Template/Layout/connection_view.ctp:133
+#: Template/Layout/loginlte.ctp:133
+#: Template/Layout/wizard.ctp:158
+msgid "Disconnect"
+msgstr "Desconectar"
+
+#: Template/Connections/adminview.ctp:83;135
+#: Template/Connections/index.ctp:159;238
+msgid "Disconnect {0}?"
+msgstr "¿Desconectar {0}?"
+
+#: Template/Connections/adminview.ctp:91;144
+#: Template/Connections/index.ctp:166;245;298
+#: Template/Element/Flash/reconnect_link.ctp:1
+msgid "Reconnect"
+msgstr "Reconectar"
+
+#: Template/Connections/adminview.ctp:94;147
+#: Template/Connections/index.ctp:169;248
+msgid "Reconnect {0}?"
+msgstr "¿Reconectar {0}?"
+
+#: Template/Connections/adminview.ctp:155
+#: Template/Connections/history.ctp:121
+#: Template/Connections/index.ctp:189;268
+msgid "Visited domains"
+msgstr "Dominios visitados"
+
+#: Template/Connections/adminview.ctp:184
+msgid "Ended"
+msgstr "Finalizado"
+
+#: Template/Connections/adminview.ctp:204;209
+#: Template/Connections/history.ctp:36
+#: Template/Connections/index.ctp:48
+#: Template/Connections/view.ctp:63;68
+#: Template/Devices/add.ctp:41
+#: Template/Devices/add2.ctp:41
+#: Template/Devices/edit.ctp:39
+#: Template/Devices/index.ctp:68
+#: Template/ProfilesRouting/add.ctp:74
+#: Template/ProfilesRouting/edit.ctp:56
+#: Template/ProfilesRouting/index.ctp:69
+#: Template/Statistics/logs.ctp:43
+#: Template/Users/add.ctp:57
+#: Template/Users/edit.ctp:57
+#: Template/Users/index.ctp:57
+#: Template/Users/wadd.ctp:65
+msgid "Profile"
+msgstr "Perfil"
+
+#: Template/Connections/adminview.ctp:213
+#: Template/Connections/view.ctp:72
+#: Template/Profiles/add.ctp:28
+#: Template/Profiles/edit.ctp:126
+#: Template/Profiles/import.ctp:38
+#: Template/Profiles/index.ctp:46
+#: Template/Profiles/wadd.ctp:9;42
+#: Template/Profiles/wedit.ctp:10;142
+msgid "Default connection type"
+msgstr "Tipo de conexión por defecto"
+
+#: Template/Connections/adminview.ctp:216;474
+#: Template/Connections/view.ctp:75;333
+#: Template/Profiles/add.ctp:33
+#: Template/Profiles/edit.ctp:134
+#: Template/Profiles/import.ctp:50
+#: Template/Profiles/index.ctp:63
+#: Template/Profiles/wadd.ctp:47
+#: Template/Profiles/wedit.ctp:150
+#: Template/ProfilesRouting/add.ctp:65
+#: Template/ProfilesRouting/edit.ctp:46
+#: Template/ProfilesRouting/index.ctp:91;191
+msgid "Direct"
+msgstr "Directa"
+
+#: Template/Connections/adminview.ctp:218;475
+#: Template/Connections/view.ctp:77;334
+#: Template/Profiles/add.ctp:33
+#: Template/Profiles/edit.ctp:135
+#: Template/Profiles/import.ctp:50
+#: Template/Profiles/index.ctp:64
+#: Template/Profiles/wadd.ctp:47
+#: Template/Profiles/wedit.ctp:151
+#: Template/ProfilesRouting/add.ctp:65
+#: Template/ProfilesRouting/edit.ctp:46
+#: Template/ProfilesRouting/index.ctp:92;191
+msgid "Tor"
+msgstr "Tor"
+
+#: Template/Connections/adminview.ctp:224
+#: Template/Connections/view.ctp:83
+#: Template/Profiles/add.ctp:42
+#: Template/Profiles/edit.ctp:142
+#: Template/Profiles/wadd.ctp:10;56
+#: Template/Profiles/wedit.ctp:11;158
+msgid "Default Firewall rule"
+msgstr "Regla de firewall por defecto"
+
+#: Template/Connections/adminview.ctp:228
+#: Template/Connections/view.ctp:87
+#: Template/Profiles/edit.ctp:35
+#: Template/Profiles/import.ctp:84;91
+#: Template/Profiles/wedit.ctp:7;51
+msgid "Statistics enabled"
+msgstr "Estadísticas activadas"
+
+#: Template/Connections/adminview.ctp:233;244;271;282;293;306;397;434;458
+#: Template/Connections/view.ctp:92;103;130;141;152;165;256;293;317
+#: Template/Devices/index.ctp:70
+#: Template/ProfilesIpfilters/index.ctp:72
+#: Template/ProfilesRouting/index.ctp:70
+#: Template/Users/index.ctp:58
+msgid "Enabled"
+msgstr "Activadas"
+
+#: Template/Connections/adminview.ctp:239
+#: Template/Connections/view.ctp:98
+#: Template/Profiles/edit.ctp:158
+#: Template/Profiles/import.ctp:103;110
+#: Template/Profiles/wedit.ctp:12;174
+msgid "Redirect DNS queries to TOR"
+msgstr "Redirigir consultas DNS a TOR"
+
+#: Template/Connections/adminview.ctp:261
+#: Template/Connections/view.ctp:120
+#: Template/Profiles/import.ctp:147
+msgid "Search engine options and Blacklist categories"
+msgstr "Opciones de motor de búsqueda y categorías de Blacklist"
+
+#: Template/Connections/adminview.ctp:266
+#: Template/Connections/view.ctp:125
+#: Template/Profiles/edit.ctp:66
+#: Template/Profiles/import.ctp:161
+#: Template/Profiles/wedit.ctp:82
+msgid "Force Google SafeSearch"
+msgstr "Forzar SafeSearch de Google"
+
+#: Template/Connections/adminview.ctp:277
+#: Template/Connections/view.ctp:136
+#: Template/Profiles/edit.ctp:75
+#: Template/Profiles/import.ctp:179
+#: Template/Profiles/wedit.ctp:91
+msgid "Force Bing SafeSearch"
+msgstr "Forzar SafeSearch de Bing"
+
+#: Template/Connections/adminview.ctp:288
+#: Template/Connections/view.ctp:147
+#: Template/Profiles/edit.ctp:84
+#: Template/Profiles/import.ctp:197
+#: Template/Profiles/wedit.ctp:100
+msgid "Force Youtube SafeSearch"
+msgstr "Forzar SafeSearch de Youtube"
+
+#: Template/Connections/adminview.ctp:323
+#: Template/Connections/view.ctp:182
+#: Template/Profiles/edit.ctp:199
+#: Template/Profiles/import.ctp:267
+#: Template/Profiles/wedit.ctp:13;217
+msgid "Connection schedules"
+msgstr "Horarios de conexión"
+
+#: Template/Connections/adminview.ctp:337
+#: Template/Connections/view.ctp:196
+msgid "mon. "
+msgstr "lun. "
+
+#: Template/Connections/adminview.ctp:341
+#: Template/Connections/view.ctp:200
+msgid "tues. "
+msgstr "mar. "
+
+#: Template/Connections/adminview.ctp:345
+#: Template/Connections/view.ctp:204
+msgid "wed. "
+msgstr "mier. "
+
+#: Template/Connections/adminview.ctp:349
+#: Template/Connections/view.ctp:208
+msgid "thurs. "
+msgstr "jue. "
+
+#: Template/Connections/adminview.ctp:353
+#: Template/Connections/view.ctp:212
+msgid "fri. "
+msgstr "vier. "
+
+#: Template/Connections/adminview.ctp:357
+#: Template/Connections/view.ctp:216
+msgid "sat. "
+msgstr "sab. "
+
+#: Template/Connections/adminview.ctp:361
+#: Template/Connections/view.ctp:220
+msgid "sun. "
+msgstr "dom. "
+
+#: Template/Connections/adminview.ctp:387
+#: Template/Connections/view.ctp:246
+msgid "Firewall rules"
+msgstr "Reglas de firewall"
+
+#: Template/Connections/adminview.ctp:392
+#: Template/Connections/view.ctp:251
+#: Template/ProfilesIpfilters/index.ctp:66
+msgid "Position"
+msgstr "Posición"
+
+#: Template/Connections/adminview.ctp:393
+#: Template/Connections/view.ctp:252
+#: Template/ProfilesIpfilters/index.ctp:68
+msgid "Destination IP"
+msgstr "IP de destino"
+
+#: Template/Connections/adminview.ctp:394
+#: Template/Connections/view.ctp:253
+#: Template/ProfilesIpfilters/add.ctp:205
+#: Template/ProfilesIpfilters/edit.ctp:225
+#: Template/ProfilesIpfilters/index.ctp:69
+msgid "Protocol"
+msgstr "Protocolo"
+
+#: Template/Connections/adminview.ctp:395
+#: Template/Connections/view.ctp:254
+#: Template/ProfilesIpfilters/index.ctp:70
+msgid "Ports"
+msgstr "Puertos"
+
+#: Template/Connections/adminview.ctp:396
+#: Template/Connections/view.ctp:255
+#: Template/ProfilesIpfilters/index.ctp:71
+msgid "Target"
+msgstr "Destino"
+
+#: Template/Connections/adminview.ctp:450
+#: Template/Connections/view.ctp:309
+msgid "Domains routing"
+msgstr "Enrutamiento de dominios"
+
+#: Template/Connections/adminview.ctp:456
+#: Template/Connections/view.ctp:315
+#: Template/ProfilesRouting/edit.ctp:17
+#: Template/ProfilesRouting/index.ctp:67
+msgid "Address"
+msgstr "Dirección"
+
+#: Template/Connections/adminview.ctp:457
+#: Template/Connections/view.ctp:316
+#: Template/ProfilesRouting/add.ctp:60
+#: Template/ProfilesRouting/edit.ctp:41
+#: Template/ProfilesRouting/index.ctp:68
+msgid "Connection type"
+msgstr "Tipo de conexión"
+
+#: Template/Connections/adminview.ctp:485
+#: Template/Connections/view.ctp:344
+#: Template/ProfilesRouting/index.ctp:105
+msgid "yes"
+msgstr "sí"
+
+#: Template/Connections/history.ctp:3
+#: Template/Connections/index.ctp:12
+msgid "Ended connections"
+msgstr "Conexiones finalizadas"
+
+#: Template/Connections/history.ctp:13
+#: Template/Connections/index.ctp:3
+msgid "Current connections"
+msgstr "Conexiones actuales"
+
+#: Template/Connections/history.ctp:33
+#: Template/Connections/index.ctp:44
+msgid "Connection name"
+msgstr "Nombre de conexión"
+
+#: Template/Connections/history.ctp:34
+#: Template/Connections/index.ctp:45
+msgid "Device/User"
+msgstr "Dispositivo/Usuario"
+
+#: Template/Connections/history.ctp:37
+#: Template/Connections/index.ctp:49
+msgid "Type"
+msgstr "Tipo"
+
+#: Template/Connections/history.ctp:38
+msgid "Duration"
+msgstr "Duración"
+
+#: Template/Connections/history.ctp:39
+#: Template/Connections/index.ctp:50
+msgid "Start Time"
+msgstr "Hora de inicio"
+
+#: Template/Connections/history.ctp:40
+#: Template/Connections/index.ctp:51
+msgid "End Time"
+msgstr "Hora de fin"
+
+#: Template/Connections/history.ctp:82
+#: Template/Connections/index.ctp:114
+msgid "Device"
+msgstr "Dispositivo"
+
+#: Template/Connections/history.ctp:86
+#: Template/Connections/index.ctp:120
+msgid "User"
+msgstr "Usuario"
+
+#: Template/Connections/history.ctp:144
+msgid "Confirm?"
+msgstr "¿Confirmar?"
+
+#: Template/Connections/index.ctp:22
+msgid "Connect a device to the Internet"
+msgstr "Conectar un dispositivo a Internet"
+
+#: Template/Connections/index.ctp:47
+#: Template/Tools/services.ctp:70
+msgid "Status"
+msgstr "Estado"
+
+#: Template/Connections/index.ctp:93
+msgid "Connected"
+msgstr "Conectado"
+
+#: Template/Connections/index.ctp:102
+#: Template/Layout/adminlte.ctp:135
+#: Template/Layout/connection_view.ctp:105
+#: Template/Layout/loginlte.ctp:105
+#: Template/Layout/wizard.ctp:130
+msgid "Paused"
+msgstr "Pausado"
+
+#: Template/Connections/index.ctp:176;255
+msgid "View the connection details"
+msgstr "Ver los detalles de conexión"
+
+#: Template/Devices/add.ctp:8
+#: Template/Devices/add2.ctp:8
+#: Template/Devices/index.ctp:13
+msgid "Add a device"
+msgstr "Añadir un dispositivo"
+
+#: Template/Devices/add.ctp:29
+#: Template/Devices/add2.ctp:29
+#: Template/Devices/edit.ctp:28
+#: Template/Devices/index.ctp:67
+#: Template/Devices/scan.ctp:36
+#: Template/Devices/wscan.ctp:30
+msgid "MAC address"
+msgstr "Dirección MAC"
+
+#: Template/Devices/add.ctp:46
+#: Template/Devices/add2.ctp:46
+#: Template/Devices/edit.ctp:44
+#: Template/Devices/index.ctp:170
+#: Template/Devices/scan.ctp:83
+#: Template/Devices/wscan.ctp:62
+#: Template/Profiles/import.ctp:126;137
+#: Template/ProfilesIpfilters/add.ctp:47
+#: Template/ProfilesIpfilters/edit.ctp:47
+#: Template/ProfilesIpfilters/index.ctp:193
+#: Template/ProfilesRouting/index.ctp:204
+#: Template/Users/add.ctp:62
+#: Template/Users/edit.ctp:62
+#: Template/Users/index.ctp:166
+#: Template/Users/wadd.ctp:70
+msgid "(select a profile)"
+msgstr "(seleccionar un perfil)"
+
+#: Template/Devices/add.ctp:54
+#: Template/Devices/add2.ctp:54
+#: Template/Devices/edit.ctp:52
+#: Template/Users/add.ctp:69
+#: Template/Users/edit.ctp:69
+#: Template/Users/wadd.ctp:77
+msgid "Language"
+msgstr "Idioma"
+
+#: Template/Devices/add.ctp:67
+#: Template/Devices/add2.ctp:66
+#: Template/Devices/edit.ctp:64
+#: Template/Devices/index.ctp:69
+msgid "DHCP reservation IP address"
+msgstr "Reserva de IP de DHCP"
+
+#: Template/Devices/add.ctp:67
+#: Template/Devices/add2.ctp:66
+#: Template/Devices/edit.ctp:64
+msgid "(optional)"
+msgstr "(opcional)"
+
+#: Template/Devices/add.ctp:86
+#: Template/Devices/add2.ctp:85
+#: Template/Devices/edit.ctp:82
+#: Template/Devices/index.ctp:152
+#: Template/ProfilesIpfilters/index.ctp:174
+#: Template/ProfilesRouting/index.ctp:154
+#: Template/Users/add.ctp:83
+#: Template/Users/edit.ctp:85;106
+#: Template/Users/index.ctp:149
+#: Template/Users/wadd.ctp:91
+msgid "Enable"
+msgstr "Activar"
+
+#: Template/Devices/edit.ctp:8
+msgid "Edit device: {0}"
+msgstr "Editar dispositivo: {0}"
+
+#: Template/Devices/import.ctp:8
+msgid "Import devices"
+msgstr "Importar dispositivos"
+
+#: Template/Devices/import.ctp:16
+#: Template/Users/import.ctp:16
+msgid "Select csv file"
+msgstr "Seleccionar archivo csv"
+
+#: Template/Devices/index.ctp:4
+#: Template/Devices/wscan.ctp:7
+#: Template/Layout/adminlte.ctp:198
+msgid "Devices"
+msgstr "Dispositivos"
+
+#: Template/Devices/index.ctp:22
+msgid "Export devices to CSV"
+msgstr "Exportar dispositivos a CSV"
+
+#: Template/Devices/index.ctp:32
+msgid "Import devices from CSV"
+msgstr "Importar dispositivos desde CSV"
+
+#: Template/Devices/index.ctp:42
+#: Template/Devices/scan.ctp:3
+#: Template/Devices/wscan.ctp:1
+msgid "Scan and add devices"
+msgstr "Escanear y añadir dispositivos"
+
+#: Template/Devices/index.ctp:92
+#: Template/Profiles/index.ctp:77;91
+#: Template/ProfilesIpfilters/index.ctp:115
+#: Template/Users/index.ctp:84;99
+msgid "Yes"
+msgstr "Sí"
+
+#: Template/Devices/index.ctp:97
+#: Template/Profiles/index.ctp:82;96
+#: Template/ProfilesIpfilters/index.ctp:120
+#: Template/Users/index.ctp:89;104
+msgid "No"
+msgstr "No"
+
+#: Template/Devices/index.ctp:107
+msgid "Connect the device to the Internet"
+msgstr "Conectar el dispositivo a Internet"
+
+#: Template/Devices/index.ctp:110
+msgid "Connect the device {0}?"
+msgstr "¿Conectar el dispositivo {0}?"
+
+#: Template/Devices/index.ctp:132
+#: Template/ProfilesRouting/index.ctp:133
+#: Template/Users/index.ctp:128
+msgid "Are you sure you want to delete {0}?"
+msgstr "¿Estás seguro de que quieres eliminar {0}?"
+
+#: Template/Devices/index.ctp:150
+#: Template/Layout/adminlte.ctp:167
+#: Template/Layout/connection_view.ctp:137
+#: Template/Layout/loginlte.ctp:137
+#: Template/Layout/wizard.ctp:162
+#: Template/Users/login.ctp:42
+msgid "Connect"
+msgstr "Conectar"
+
+#: Template/Devices/index.ctp:151
+#: Template/ProfilesIpfilters/index.ctp:173
+#: Template/ProfilesRouting/index.ctp:153
+#: Template/Users/index.ctp:148
+msgid "Disable"
+msgstr "Desactivar"
+
+#: Template/Devices/index.ctp:153
+#: Template/Users/index.ctp:150
+msgid "Change the profile"
+msgstr "Cambiar el perfil"
+
+#: Template/Devices/scan.ctp:14
+msgid "List devices"
+msgstr "Enumerar dispositivos"
+
+#: Template/Devices/scan.ctp:61
+msgid "Add this device"
+msgstr "Añadir este dispositivo"
+
+#: Template/Devices/scan.ctp:95;96
+msgid "Add devices"
+msgstr "Añadir dispositivos"
+
+#: Template/Devices/wscan.ctp:5
+msgid "By default a device can be connected to the Internet only if its user has authenticated on KeexyBox’s captive portal. However, if you have to connect devices such as a voice assistant or IP camera, you will need to connect them to the Internet without using the captive portal."
+msgstr "Por defecto, un dispositivo puede conectarse a Internet solo si su usuario se ha autenticado en el portal cautivo de KeexyBox. Sin embargo, si tienes que conectar dispositivos como un asistente de voz o una cámara IP, deberás conectarlos a Internet sin usar el portal cautivo."
+
+#: Template/Devices/wscan.ctp:6
+msgid "The devices listed below have been detected on your network. You can declare them to KeexyBox by assigning a profile. If you do not see them all, turn them on and click {0}."
+msgstr "Los dispositivos enumerados a continuación han sido detectados en tu red. Puedes declararlos a KeexyBox asignándoles un perfil. Si no puedes verlos todos, enciéndelos y haz clic en {0}."
+
+#: Template/Devices/wscan.ctp:6;80
+msgid "Rescan"
+msgstr "Volver a escanear"
+
+#: Template/Devices/wscan.ctp:7
+msgid "When KeexyBox is set up, remember to connect the devices you have declared to the Internet. To do this, you will have to go to {0}."
+msgstr "Cuando KeexyBox esté configurada, recuerda conectar a Internet los dispositivos que has declarado. Para ello, debes dirigirte a {0}."
+
+#: Template/Devices/wscan.ctp:7
+msgid "Connection Settings"
+msgstr "Configuracion de conexión"
+
+#: Template/Devices/wscan.ctp:8
+msgid "If you do not want to declare them now, or you do not need to declare any more, click {0}."
+msgstr "Si no deseas declararlos ahora, o no necesitas volver a declararlos, haz clic en {0}."
+
+#: Template/Devices/wscan.ctp:72;76
+#: Template/ProfilesIpfilters/add.ctp:192
+#: Template/ProfilesIpfilters/edit.ctp:211
+msgid "Add"
+msgstr "Añadir"
+
+#: Template/Element/search_log_form.ctp:6
+msgid "Start date"
+msgstr "Fecha de inicio"
+
+#: Template/Element/search_log_form.ctp:24
+msgid "End date"
+msgstr "Fecha de fin"
+
+#: Template/Element/search_log_form.ctp:41
+msgid "View"
+msgstr "Ver"
+
+#: Template/Element/search_log_form.ctp:47
+msgid "View type"
+msgstr "Tipo de vista"
+
+#: Template/Element/search_log_form.ctp:49
+msgid "Charts"
+msgstr "Gráficas"
+
+#: Template/Element/search_log_form.ctp:50
+msgid "Log"
+msgstr "Registro"
+
+#: Template/Element/search_log_form.ctp:51
+#: Template/Statistics/most_queried.ctp:23
+msgid "Most queried domains"
+msgstr "Dominios más consultados"
+
+#: Template/Element/search_log_form.ctp:52
+#: Template/Statistics/most_active_clients.ctp:23
+msgid "Most active users and devices"
+msgstr "Usuarios y dispositivos más activos"
+
+#: Template/Element/search_log_form.ctp:59
+msgid "Results/page / Max top values"
+msgstr "Resultados/página/valores máximos"
+
+#: Template/Element/search_log_form.ctp:89
+msgid "Connected User/Device"
+msgstr "Usuario/Dispositivo conectado"
+
+#: Template/Element/search_log_form.ctp:98
+msgid "(Select a user/device)"
+msgstr "(Seleccionar un usuario/dispositivo)"
+
+#: Template/Element/search_log_form.ctp:108
+msgid "User/Device IP"
+msgstr "Usuario/Dispositivo IP"
+
+#: Template/Element/search_log_form.ctp:125;131
+#: Template/Statistics/logs.ctp:40
+msgid "Filter status"
+msgstr "Estado de filtro"
+
+#: Template/Element/search_log_form.ctp:133
+msgid "All"
+msgstr "Todos"
+
+#: Template/Element/search_log_form.ctp:134
+msgid "Blocked"
+msgstr "Bloqueado"
+
+#: Template/Element/search_log_form.ctp:135
+#: Template/Statistics/logs.ctp:66
+msgid "Accepted"
+msgstr "Aceptado"
+
+#: Template/Element/search_log_form.ctp:146;147
+msgid "Filter"
+msgstr "Filtrar"
+
+#: Template/Element/Flash/reboot_link.ctp:6
+msgid "You need to reboot KeexyBox. Reboot now?"
+msgstr "Debes reiniciar KeexyBox. ¿Reiniciar ahora?"
+
+#: Template/Element/Flash/reload_link.ctp:6
+msgid "Clic here to reload"
+msgstr "Haz clic aquí para volver a cargar"
+
+#: Template/Element/Flash/restart_link.ctp:6
+msgid "Clic here to restart"
+msgstr "Haz clic aquí para reiniciar"
+
+#: Template/Help/licenses.ctp:1
+#: Template/Help/wlicenses.ctp:1
+#: Template/Layout/adminlte.ctp:242
+msgid "Licenses"
+msgstr "Licencias"
+
+#: Template/Help/licenses.ctp:5
+#: Template/Help/wlicenses.ctp:5
+msgid "KeexyBox license"
+msgstr "Licencia KeexyBox"
+
+#: Template/Help/licenses.ctp:6
+#: Template/Help/wlicenses.ctp:6
+msgid "This software is distributed under the {0} license, the source codes of which are in the following directories:"
+msgstr "Este software se distribuye bajo la licencia {0}, cuyos códigos fuente están en los siguientes directorios:"
+
+#: Template/Help/licenses.ctp:51
+#: Template/Help/wlicenses.ctp:51
+msgid "Extra software packages and licenses"
+msgstr "Paquetes y licencias de software adicionales"
+
+#: Template/Help/licenses.ctp:52
+#: Template/Help/wlicenses.ctp:52
+msgid "KeexyBox software comes with extra software packages."
+msgstr "El software de KeexyBox viene con paquetes de software adicionales."
+
+#: Template/Help/wlicenses.ctp:107
+msgid "I decline"
+msgstr "Rechazo"
+
+#: Template/Help/wlicenses.ctp:108
+msgid "I accept"
+msgstr "Acepto"
+
+#: Template/Layout/adminlte-nh.ctp:10
+#: Template/Layout/adminlte.ctp:10;272
+#: Template/Layout/connection_view.ctp:6;161
+#: Template/Layout/error.ctp:6;48
+#: Template/Layout/loginlte.ctp:6;161
+#: Template/Layout/wizard.ctp:10;193
+msgid "The box to keep the Internet under your control"
+msgstr "Lo que necesitas para mantener Internet bajo tu control"
+
+#: Template/Layout/adminlte.ctp:100
+#: Template/Layout/connection_view.ctp:65
+#: Template/Layout/loginlte.ctp:65
+#: Template/Layout/wizard.ctp:95
+#: Template/Users/add.ctp:91
+#: Template/Users/edit.ctp:94;113
+#: Template/Users/index.ctp:59
+#: Template/Users/wadd.ctp:99
+msgid "Admin"
+msgstr "Admin"
+
+#: Template/Layout/adminlte.ctp:106
+#: Template/Layout/connection_view.ctp:71
+#: Template/Layout/loginlte.ctp:71
+#: Template/Layout/wizard.ctp:101
+msgid "Authenticated to manage KeexyBox"
+msgstr "Autenticado para gestionar KeexyBox"
+
+#: Template/Layout/adminlte.ctp:107
+#: Template/Layout/connection_view.ctp:72
+#: Template/Layout/loginlte.ctp:72
+#: Template/Layout/wizard.ctp:102
+msgid "Login: {0}"
+msgstr "Acceso: {0}"
+
+#: Template/Layout/adminlte.ctp:108;149
+#: Template/Layout/connection_view.ctp:73;119
+#: Template/Layout/loginlte.ctp:73;119
+#: Template/Layout/wizard.ctp:103;144
+msgid "Name: {0}"
+msgstr "Nombre: {0}"
+
+#: Template/Layout/adminlte.ctp:110
+#: Template/Layout/connection_view.ctp:75
+#: Template/Layout/loginlte.ctp:75
+#: Template/Layout/wizard.ctp:105
+msgid "Not authenticated to manage KeexyBox"
+msgstr "No autenticado para gestionar KeexyBox"
+
+#: Template/Layout/adminlte.ctp:117
+#: Template/Layout/connection_view.ctp:82
+#: Template/Layout/loginlte.ctp:82
+#: Template/Layout/wizard.ctp:112
+msgid "Quit"
+msgstr "Salir"
+
+#: Template/Layout/adminlte.ctp:119
+#: Template/Layout/wizard.ctp:114
+#: Template/Users/adminlogin.ctp:32
+msgid "Sign in"
+msgstr "Registrarse"
+
+#: Template/Layout/adminlte.ctp:133
+#: Template/Layout/connection_view.ctp:103
+#: Template/Layout/loginlte.ctp:103
+#: Template/Layout/wizard.ctp:128
+msgid "Online"
+msgstr "Conectado"
+
+#: Template/Layout/adminlte.ctp:137
+#: Template/Layout/connection_view.ctp:107
+#: Template/Layout/loginlte.ctp:107
+#: Template/Layout/wizard.ctp:132
+msgid "Offline"
+msgstr "Desconectado"
+
+#: Template/Layout/adminlte.ctp:148
+#: Template/Layout/connection_view.ctp:118
+#: Template/Layout/loginlte.ctp:118
+#: Template/Layout/wizard.ctp:143
+msgid "Connected to the Internet"
+msgstr "Conectado a Internet"
+
+#: Template/Layout/adminlte.ctp:150
+#: Template/Layout/connection_view.ctp:120
+#: Template/Layout/loginlte.ctp:120
+#: Template/Layout/wizard.ctp:145
+msgid "IP Address: {0}"
+msgstr "Dirección IP: {0}"
+
+#: Template/Layout/adminlte.ctp:151
+#: Template/Layout/connection_view.ctp:121
+#: Template/Layout/loginlte.ctp:121
+#: Template/Layout/wizard.ctp:146
+msgid "Profile: {0}"
+msgstr "Perfil: {0}"
+
+#: Template/Layout/adminlte.ctp:153
+#: Template/Layout/connection_view.ctp:123
+#: Template/Layout/loginlte.ctp:123
+#: Template/Layout/wizard.ctp:148
+msgid "Disconnected from the Internet"
+msgstr "Desconectado de Internet"
+
+#: Template/Layout/adminlte.ctp:160
+#: Template/Layout/connection_view.ctp:130
+#: Template/Layout/loginlte.ctp:130
+#: Template/Layout/wizard.ctp:155
+msgid "Info"
+msgstr "Info"
+
+#: Template/Layout/adminlte.ctp:186
+#: Template/Profiles/index.ctp:48
+msgid "Statistics"
+msgstr "Estadísticas"
+
+#: Template/Layout/adminlte.ctp:188
+msgid "Connections"
+msgstr "Conexiones"
+
+#: Template/Layout/adminlte.ctp:191
+msgid "Connection settings"
+msgstr "Configuración de conexión"
+
+#: Template/Layout/adminlte.ctp:197
+#: Template/Users/index.ctp:4
+msgid "Users"
+msgstr "Usuarios"
+
+#: Template/Layout/adminlte.ctp:199
+#: Template/Profiles/index.ctp:4
+msgid "Profiles"
+msgstr "Perfiles"
+
+#: Template/Layout/adminlte.ctp:200
+msgid "Blacklist"
+msgstr "Blacklist"
+
+#: Template/Layout/adminlte.ctp:205
+msgid "System settings"
+msgstr "Configuración del sistema"
+
+#: Template/Layout/adminlte.ctp:214
+msgid "SSL Certificate"
+msgstr "Certificado SSL"
+
+#: Template/Layout/adminlte.ctp:220
+msgid "Tools & diagnostics"
+msgstr "Herramientas y diagnósticos"
+
+#: Template/Layout/adminlte.ctp:226
+msgid "Services and power"
+msgstr "Servicios y energía"
+
+#: Template/Layout/adminlte.ctp:227
+msgid "Domain check"
+msgstr "Comprobación de dominio"
+
+#: Template/Layout/adminlte.ctp:228
+msgid "Iptables status"
+msgstr "Estado de iptables"
+
+#: Template/Layout/adminlte.ctp:229
+msgid "System state"
+msgstr "Estado del sistema"
+
+#: Template/Layout/adminlte.ctp:234
+msgid "Help"
+msgstr "Ayuda"
+
+#: Template/Layout/adminlte.ctp:240
+msgid "Website"
+msgstr "Sitio web"
+
+#: Template/Layout/adminlte.ctp:241
+msgid "Documentation"
+msgstr "Documentación"
+
+#: Template/Layout/adminlte.ctp:242
+msgid "Donate"
+msgstr "Donar"
+
+#: Template/Layout/connection_view.ctp:85;89
+#: Template/Layout/loginlte.ctp:85;89
+msgid "Manage"
+msgstr "Gestionar"
+
+#: Template/Profiles/add.ctp:8
+#: Template/Profiles/wadd.ctp:2;22
+msgid "Add a new profile"
+msgstr "Añadir un nuevo perfil"
+
+#: Template/Profiles/add.ctp:35
+#: Template/Profiles/edit.ctp:131
+#: Template/Profiles/import.ctp:51
+#: Template/Profiles/wadd.ctp:49
+#: Template/Profiles/wedit.ctp:147
+#: Template/ProfilesRouting/add.ctp:66
+#: Template/ProfilesRouting/edit.ctp:47
+#: Template/ProfilesRouting/index.ctp:192
+msgid "(Select a connection type)"
+msgstr "(Seleccionar un tipo de conexión)"
+
+#: Template/Profiles/add.ctp:47
+#: Template/Profiles/edit.ctp:147
+#: Template/Profiles/import.ctp:71
+#: Template/Profiles/wadd.ctp:61
+#: Template/Profiles/wedit.ctp:163
+#: Template/ProfilesIpfilters/add.ctp:223
+#: Template/ProfilesIpfilters/edit.ctp:243
+msgid "Accept"
+msgstr "Aceptar"
+
+#: Template/Profiles/add.ctp:47
+#: Template/Profiles/edit.ctp:147
+#: Template/Profiles/import.ctp:71
+#: Template/Profiles/wadd.ctp:61
+#: Template/Profiles/wedit.ctp:163
+#: Template/ProfilesIpfilters/add.ctp:223
+#: Template/ProfilesIpfilters/edit.ctp:243
+msgid "Drop"
+msgstr "Rechazar"
+
+#: Template/Profiles/add.ctp:49
+#: Template/Profiles/edit.ctp:148
+#: Template/Profiles/wadd.ctp:63
+#: Template/Profiles/wedit.ctp:164
+msgid "(Select a rule)"
+msgstr "(Seleccionar una regla)"
+
+#: Template/Profiles/edit.ctp:3
+#: Template/Profiles/wedit.ctp:1
+msgid "Edit profile: {0}"
+msgstr "Editar perfil: {0}"
+
+#: Template/Profiles/edit.ctp:55
+#: Template/Profiles/wedit.ctp:71
+msgid "Filtering"
+msgstr "Filtrado"
+
+#: Template/Profiles/edit.ctp:61
+#: Template/Profiles/import.ctp:149
+#: Template/Profiles/wedit.ctp:8;77
+msgid "Search engine options"
+msgstr "Opciones de motor de búsqueda"
+
+#: Template/Profiles/edit.ctp:90
+#: Template/Profiles/import.ctp:206
+#: Template/Profiles/wedit.ctp:9;106
+msgid "Domain categories to filter"
+msgstr "Categorías de dominio para filtrar"
+
+#: Template/Profiles/edit.ctp:92
+#: Template/Profiles/import.ctp:208
+#: Template/Profiles/wedit.ctp:108
+msgid "Select categories"
+msgstr "Seleccionar categorías"
+
+#: Template/Profiles/edit.ctp:119
+#: Template/Profiles/import.ctp:225
+#: Template/Profiles/wedit.ctp:135
+msgid "Firewall and routing"
+msgstr "Firewall y enrutamiento"
+
+#: Template/Profiles/edit.ctp:168
+#: Template/Profiles/index.ctp:116
+#: Template/Profiles/wedit.ctp:185
+msgid "Manage domains routing"
+msgstr "Gestionar enrutamiento de dominios"
+
+#: Template/Profiles/edit.ctp:178
+#: Template/Profiles/wedit.ctp:195
+msgid "Manage Firewall"
+msgstr "Gestionar firewall"
+
+#: Template/Profiles/edit.ctp:209
+#: Template/Profiles/import.ctp:287
+#: Template/Profiles/wedit.ctp:227
+msgid "Mon."
+msgstr "Lun."
+
+#: Template/Profiles/edit.ctp:210
+#: Template/Profiles/import.ctp:288
+#: Template/Profiles/wedit.ctp:228
+msgid "Tue."
+msgstr "Mar."
+
+#: Template/Profiles/edit.ctp:211
+#: Template/Profiles/import.ctp:289
+#: Template/Profiles/wedit.ctp:229
+msgid "Wed."
+msgstr "Mier."
+
+#: Template/Profiles/edit.ctp:212
+#: Template/Profiles/import.ctp:290
+#: Template/Profiles/wedit.ctp:230
+msgid "Thu."
+msgstr "Jue."
+
+#: Template/Profiles/edit.ctp:213
+#: Template/Profiles/import.ctp:291
+#: Template/Profiles/wedit.ctp:231
+msgid "Fri."
+msgstr "Vier."
+
+#: Template/Profiles/edit.ctp:214
+#: Template/Profiles/import.ctp:292
+#: Template/Profiles/wedit.ctp:232
+msgid "Sat."
+msgstr "Sab."
+
+#: Template/Profiles/edit.ctp:215
+#: Template/Profiles/import.ctp:293
+#: Template/Profiles/wedit.ctp:233
+msgid "Sun."
+msgstr "Dom."
+
+#: Template/Profiles/edit.ctp:216
+#: Template/Profiles/import.ctp:294
+#: Template/Profiles/wedit.ctp:234
+msgid "Start time"
+msgstr "Hora de inicio"
+
+#: Template/Profiles/edit.ctp:217
+#: Template/Profiles/import.ctp:295
+#: Template/Profiles/wedit.ctp:235
+msgid "End time"
+msgstr "Hora de fin"
+
+#: Template/Profiles/edit.ctp:274
+#: Template/Profiles/wedit.ctp:292
+msgid "Are you sure you want to delete?"
+msgstr "¿Estás seguro de que deseas eliminarlo?"
+
+#: Template/Profiles/edit.ctp:325;338
+#: Template/Profiles/wedit.ctp:343;356
+msgid "Add schedule"
+msgstr "Añadir horario"
+
+#: Template/Profiles/edit.ctp:342;349
+#: Template/Profiles/wedit.ctp:360;367
+msgid "Remove last schedule"
+msgstr "Eliminar el último horario"
+
+#: Template/Profiles/edit.ctp:444
+#: Template/Profiles/wedit.ctp:454
+msgid "None selected"
+msgstr "Ninguno seleccionado"
+
+#: Template/Profiles/edit.ctp:445
+#: Template/Profiles/wedit.ctp:455
+msgid "selected"
+msgstr "seleccionado"
+
+#: Template/Profiles/edit.ctp:446
+#: Template/Profiles/wedit.ctp:456
+msgid " Select all"
+msgstr " Seleccionar todos"
+
+#: Template/Profiles/export.ctp:8
+#: Template/Profiles/index.ctp:148
+msgid "Export the profile"
+msgstr "Exportar el perfil"
+
+#: Template/Profiles/export.ctp:20
+msgid "Export settings"
+msgstr "Exportar configuraciones"
+
+#: Template/Profiles/export.ctp:30
+msgid "Export connection schedules"
+msgstr "Exportar horarios de conexión"
+
+#: Template/Profiles/export.ctp:40
+msgid "Export Blacklist categories"
+msgstr "Exportar categorías de Blacklist"
+
+#: Template/Profiles/export.ctp:50
+#: Template/ProfilesRouting/index.ctp:22
+msgid "Export domain routing"
+msgstr "Exportar enrutamiento de dominios"
+
+#: Template/Profiles/export.ctp:60
+msgid "Export firewall rules"
+msgstr "Exportar reglas de firewall"
+
+#: Template/Profiles/export.ctp:83;84
+msgid "Export"
+msgstr "Exportar"
+
+#: Template/Profiles/import.ctp:8
+#: Template/Profiles/index.ctp:22
+#: Template/Profiles/upload_import.ctp:8
+msgid "Import a profile"
+msgstr "Importar un perfil"
+
+#: Template/Profiles/import.ctp:59;73
+#: Template/Profiles/index.ctp:47
+msgid "Default firewall rule"
+msgstr "Regla de firewall por defecto"
+
+#: Template/Profiles/import.ctp:119
+msgid "Import to profile"
+msgstr "Importar al perfil"
+
+#: Template/Profiles/import.ctp:229
+msgid "domain(s)"
+msgstr "dominio(s)"
+
+#: Template/Profiles/import.ctp:231;250;282
+msgid "Nothing to import"
+msgstr "Nada que importar"
+
+#: Template/Profiles/import.ctp:238
+#: Template/ProfilesRouting/index.ctp:32
+msgid "Import domain routing"
+msgstr "Importar enrutamiento de dominios"
+
+#: Template/Profiles/import.ctp:248
+msgid "rule(s)"
+msgstr "regla(s)"
+
+#: Template/Profiles/import.ctp:257
+msgid "Import firewall rules"
+msgstr "Importar reglas de firewall"
+
+#: Template/Profiles/import.ctp:272
+msgid "Import connection schedules"
+msgstr "Importar horarios de conexión"
+
+#: Template/Profiles/import.ctp:280
+msgid "The following schedules will be imported:"
+msgstr "Se importarán los siguientes horarios:"
+
+#: Template/Profiles/index.ctp:12
+msgid "Add a profile"
+msgstr "Añadir un perfil"
+
+#: Template/Profiles/index.ctp:49
+msgid "DNS to TOR"
+msgstr "DNS a TOR"
+
+#: Template/Profiles/index.ctp:127
+msgid "Manage firewall"
+msgstr "Gestionar firewall"
+
+#: Template/Profiles/index.ctp:138
+msgid "Reload the profile"
+msgstr "Volver a cargar el perfil"
+
+#: Template/Profiles/index.ctp:141
+msgid "Reload the profile?"
+msgstr "¿Volver a cargar el perfil?"
+
+#: Template/Profiles/index.ctp:163
+msgid "Users and devices attached to this profile will be assigned to the default profile. Do you confirm the deletion of the profile {0}?"
+msgstr "Los usuarios y los dispositivos vinculados a este perfil se asignarán al perfil por defecto. ¿Confirmas la eliminación del perfil {0}?"
+
+#: Template/Profiles/upload_import.ctp:45;46
+msgid "Upload"
+msgstr "Subir"
+
+#: Template/Profiles/wadd.ctp:6
+msgid "Profiles are used to define connection settings such as access times, domain categories to block, type of connection. Profiles will be assigned to users or your devices. Here you can create profiles."
+msgstr "Los perfiles se utilizan para definir la configuración de la conexión, como las horas de acceso, las categorías de dominios a bloquear o el tipo de conexión. Los perfiles se asignarán a usuarios o a tus dispositivos. Aquí puedes crear perfiles."
+
+#: Template/Profiles/wadd.ctp:8
+msgid "Set the name of the profile."
+msgstr "Configurar el nombre del perfil."
+
+#: Template/Profiles/wadd.ctp:9
+#: Template/Profiles/wedit.ctp:10
+msgid "Use anonymous connection (Tor) or not (Direct)."
+msgstr "Usar conexión anónima (Tor) o no (Directa)."
+
+#: Template/Profiles/wadd.ctp:10
+#: Template/Profiles/wedit.ctp:11
+msgid "Drop or allow connections to the Internet by default."
+msgstr "Rechazar o permitir conexiones a Internet por defecto."
+
+#: Template/Profiles/wadd.ctp:12
+msgid "Click {0} if you want to create profiles later or you do not have other profiles to create."
+msgstr "Haz clic en {0} si deseas crear perfiles más tarde o no tienes otros perfiles para crear."
+
+#: Template/Profiles/wedit.ctp:5
+msgid "You can now adjust the profile settings."
+msgstr "Ahora puedes ajustar la configuración del perfil."
+
+#: Template/Profiles/wedit.ctp:7
+msgid "This option enables logging and permits connection statistics."
+msgstr "Esta opción activa el registro y permite las estadísticas de conexión."
+
+#: Template/Profiles/wedit.ctp:8
+msgid "These options enable filtering in search engines."
+msgstr "Estas opciones activan el filtrado en los motores de búsqueda."
+
+#: Template/Profiles/wedit.ctp:9
+msgid "Enable Blacklist categories to use for blocking domains."
+msgstr "Activar categorías de Blacklist para usar en el bloqueo de dominios."
+
+#: Template/Profiles/wedit.ctp:12
+msgid "This option allows you to redirect DNS queries to the Tor network for more anonymity."
+msgstr "Esta opción te permite redirigir consultas DNS a la red Tor para mayor anonimato."
+
+#: Template/Profiles/wedit.ctp:13
+msgid "Add Internet connection schedules."
+msgstr "Añadir horarios de conexión a Internet."
+
+#: Template/ProfilesIpfilters/add.ctp:8
+#: Template/ProfilesIpfilters/edit.ctp:8
+msgid "Add a firewall rule"
+msgstr "Añadir una regla de firewall"
+
+#: Template/ProfilesIpfilters/add.ctp:19;42
+#: Template/ProfilesIpfilters/edit.ctp:19;42
+msgid "Source profile"
+msgstr "Perfil fuente"
+
+#: Template/ProfilesIpfilters/add.ctp:58
+#: Template/ProfilesIpfilters/edit.ctp:58
+msgid "Destination type"
+msgstr "Tipo de destino"
+
+#: Template/ProfilesIpfilters/add.ctp:62
+#: Template/ProfilesIpfilters/edit.ctp:62
+msgid "Network or single IP"
+msgstr "Red o IP única"
+
+#: Template/ProfilesIpfilters/add.ctp:62
+#: Template/ProfilesIpfilters/edit.ctp:62
+msgid "IP range"
+msgstr "Intervalo IP"
+
+#: Template/ProfilesIpfilters/add.ctp:73
+#: Template/ProfilesIpfilters/edit.ctp:73
+msgid "Destination IP / MASK"
+msgstr "IP destino/MASK"
+
+#: Template/ProfilesIpfilters/add.ctp:101
+#: Template/ProfilesIpfilters/edit.ctp:101
+msgid "Destination IP Range"
+msgstr "Intervalo IP destino"
+
+#: Template/ProfilesIpfilters/add.ctp:128
+#: Template/ProfilesIpfilters/edit.ctp:128
+msgid "Destination port range"
+msgstr "Intervalo puerto destino"
+
+#: Template/ProfilesIpfilters/add.ctp:137
+msgid "ANY"
+msgstr "NINGUNO"
+
+#: Template/ProfilesIpfilters/add.ctp:138;167
+#: Template/ProfilesIpfilters/edit.ctp:140;186
+msgid "port"
+msgstr "puerto"
+
+#: Template/ProfilesIpfilters/add.ctp:149;191
+#: Template/ProfilesIpfilters/edit.ctp:169;211
+msgid "Add ports"
+msgstr "Añadir puertos"
+
+#: Template/ProfilesIpfilters/add.ctp:150
+msgid "Set ports"
+msgstr "Configurar puertos"
+
+#: Template/ProfilesIpfilters/add.ctp:178
+#: Template/ProfilesIpfilters/edit.ctp:151;196
+msgid "last port"
+msgstr "último puerto"
+
+#: Template/ProfilesIpfilters/add.ctp:188;195
+#: Template/ProfilesIpfilters/edit.ctp:207;214
+msgid "Remove"
+msgstr "Eliminar"
+
+#: Template/ProfilesIpfilters/add.ctp:209
+#: Template/ProfilesIpfilters/edit.ctp:229
+msgid "TCP and UDP"
+msgstr "TCP y UDP"
+
+#: Template/ProfilesIpfilters/add.ctp:219
+#: Template/ProfilesIpfilters/edit.ctp:239
+msgid "Action"
+msgstr "Acción"
+
+#: Template/ProfilesIpfilters/add.ctp:236
+#: Template/ProfilesIpfilters/edit.ctp:256
+msgid "Rule enabled"
+msgstr "Regla activada"
+
+#: Template/ProfilesIpfilters/edit.ctp:157;207;214
+msgid "Remove the port range"
+msgstr "Eliminar el intervalo de puertos"
+
+#: Template/ProfilesIpfilters/index.ctp:3
+msgid "Manage firewall rules for the profile: {0}"
+msgstr "Gestionar reglas de firewall para el perfil: {0}"
+
+#: Template/ProfilesIpfilters/index.ctp:11
+msgid "Add rule on top"
+msgstr "Añadir regla en la parte superior"
+
+#: Template/ProfilesIpfilters/index.ctp:22
+msgid "export rules"
+msgstr "exportar reglas"
+
+#: Template/ProfilesIpfilters/index.ctp:32
+msgid "import rules"
+msgstr "importar reglas"
+
+#: Template/ProfilesIpfilters/index.ctp:44
+#: Template/ProfilesRouting/index.ctp:43
+msgid "Reload profile rules"
+msgstr "Volver a cargar reglas del perfil"
+
+#: Template/ProfilesIpfilters/index.ctp:47
+#: Template/ProfilesRouting/index.ctp:46
+msgid "Reload rules for this profile?"
+msgstr "¿Volver a cargar reglas para este perfil?"
+
+#: Template/ProfilesIpfilters/index.ctp:67
+msgid "Source Profile"
+msgstr "Perfil fuente"
+
+#: Template/ProfilesIpfilters/index.ctp:131
+msgid "Insert rule after this one"
+msgstr "Insertar relga después de esta"
+
+#: Template/ProfilesIpfilters/index.ctp:154
+msgid "Are you sure to delete the rule {0}?"
+msgstr "¿Estás seguro de querer borrar la regla {0}?"
+
+#: Template/ProfilesIpfilters/index.ctp:175
+msgid "Move before position"
+msgstr "Mover posición anterior"
+
+#: Template/ProfilesIpfilters/index.ctp:176
+msgid "Move after position"
+msgstr "Mover posición posterior"
+
+#: Template/ProfilesIpfilters/index.ctp:177
+#: Template/ProfilesRouting/index.ctp:155
+msgid "Copy to a profile"
+msgstr "Copiar a un perfil"
+
+#: Template/ProfilesIpfilters/index.ctp:206;219
+msgid "(chose a position)"
+msgstr "(elige una posición)"
+
+#: Template/ProfilesRouting/add.ctp:18
+#: Template/ProfilesRouting/index.ctp:11
+msgid "Add domain routing"
+msgstr "Añadir enrutamiento de dominios"
+
+#: Template/ProfilesRouting/add.ctp:26
+msgid "Insert multiple domains line per line or separated by a space"
+msgstr "Introducir múltiples dominios línea a línea o separados por un espacio"
+
+#: Template/ProfilesRouting/add.ctp:43
+msgid "Overwrite already existing addresses"
+msgstr "Sobrescribir direcciones ya existentes"
+
+#: Template/ProfilesRouting/add.ctp:52
+#: Template/ProfilesRouting/edit.ctp:34
+msgid "Enable routing"
+msgstr "Activar enrutamiento"
+
+#: Template/ProfilesRouting/edit.ctp:8
+msgid "Edit routing"
+msgstr "Editar enrutamiento"
+
+#: Template/ProfilesRouting/edit.ctp:77
+msgid "Category (Optional)"
+msgstr "Categoría (Opcional)"
+
+#: Template/ProfilesRouting/index.ctp:3
+msgid "Domain routing for profile: {0}"
+msgstr "Enrutamiento de dominios para perfil: {0}"
+
+#: Template/ProfilesRouting/index.ctp:111
+msgid "no"
+msgstr "no"
+
+#: Template/ProfilesRouting/index.ctp:157
+msgid "Change connection type"
+msgstr "Cambiar tipo de conexión"
+
+#: Template/Statistics/index.ctp:8
+#: Template/Statistics/logs.ctp:3
+#: Template/Statistics/most_active_clients.ctp:3
+#: Template/Statistics/most_queried.ctp:3
+msgid "Search filters"
+msgstr "Filtros de búsqueda"
+
+#: Template/Statistics/index.ctp:32;84
+msgid "Accepted and blocked domains"
+msgstr "Dominios aceptados y bloqueados"
+
+#: Template/Statistics/index.ctp:50;101
+msgid "Top {0} queried domains"
+msgstr "Los {0} dominios más consultados"
+
+#: Template/Statistics/index.ctp:67;118
+msgid "Top {0} active users and devices"
+msgstr "Los {0} usuarios y dispositivos más activos"
+
+#: Template/Statistics/index.ctp:157
+msgid "Total accepted domains"
+msgstr "Total de dominios aceptados"
+
+#: Template/Statistics/index.ctp:158
+msgid "Total blocked domains"
+msgstr "Total de dominios bloqueados"
+
+#: Template/Statistics/index.ctp:272
+msgid "Accepted domains"
+msgstr "Dominios aceptados"
+
+#: Template/Statistics/index.ctp:291
+msgid "Blocked domains"
+msgstr "Dominios bloqueados"
+
+#: Template/Statistics/logs.ctp:23
+msgid "Access log"
+msgstr "Registro de acceso"
+
+#: Template/Statistics/logs.ctp:42
+#: Template/Statistics/most_active_clients.ctp:31
+msgid "Client IP"
+msgstr "IP cliente"
+
+#: Template/Statistics/logs.ctp:61
+msgid "Blocked by {0} category"
+msgstr "Bloqueado por {0} categoría"
+
+#: Template/Statistics/logs.ctp:85
+msgid "View related connection"
+msgstr "Ver conexión asociada"
+
+#: Template/Statistics/logs.ctp:109;110
+#: Template/Statistics/most_queried.ctp:67;68
+msgid "Add selected domains to blacklist"
+msgstr "Añadir dominios seleccionados a Blacklist"
+
+#: Template/Statistics/most_active_clients.ctp:32
+#: Template/Statistics/most_queried.ctp:39
+msgid "Number of queries"
+msgstr "Número de consultas"
+
+#: Template/Tools/domain_issue.ctp:8
+msgid "Check blocked domain"
+msgstr "Comprobar dominio bloqueado"
+
+#: Template/Tools/domain_issue.ctp:12
+msgid "In some cases a domain can be filtered while it is not in the blacklist. In most cases, it comes from a target CNAME record which is in the Blacklist. This form allows you to check the domains causing the blocking."
+msgstr "En algunos casos un dominio puede filtrarse aunque no esté en la Blacklist. En la mayoría de los casos, viene de un registro CNAME de destino que está en la Blacklist. Este formulario te permite comprobar los dominios que causan el bloqueo."
+
+#: Template/Tools/domain_issue.ctp:39;40
+msgid "Check"
+msgstr "Comprobar"
+
+#: Template/Tools/domain_issue.ctp:57
+msgid "The domains listed below could block the domain {0}. You can delete them or change their category to fix the issue."
+msgstr "Los dominios enumerados a continuación podrían bloquear el dominio {0}. Puedes eliminarlos o cambiar su categoría para solucionar el problema."
+
+#: Template/Tools/domain_issue.ctp:85
+msgid "No domain in the blacklist should block {0}."
+msgstr "Ningún dominio de la Blacklist debería bloquear {0}."
+
+#: Template/Tools/iptables_status.ctp:8
+msgid "Iptables filter status"
+msgstr "Estado filtro Iptables"
+
+#: Template/Tools/iptables_status.ctp:26
+msgid "Iptables NAT status"
+msgstr "Estado Iptables NAT"
+
+#: Template/Tools/services.ctp:8
+msgid "Services and power management"
+msgstr "Gestión de servicios y energía"
+
+#: Template/Tools/services.ctp:14
+msgid "Power management"
+msgstr "Gestión de energía"
+
+#: Template/Tools/services.ctp:18
+msgid "Are you sure you want to power off?"
+msgstr "¿Estás seguro de que deseas apagarlo?"
+
+#: Template/Tools/services.ctp:27;28
+msgid "Power off"
+msgstr "Apagar"
+
+#: Template/Tools/services.ctp:36
+msgid "Are you sure you want to reboot?"
+msgstr "¿Estás seguro de que deseas reiniciar?"
+
+#: Template/Tools/services.ctp:46;47
+msgid "Reboot"
+msgstr "Reiniciar"
+
+#: Template/Tools/services.ctp:63
+msgid "Services"
+msgstr "Servicios"
+
+#: Template/Tools/services.ctp:68
+msgid "Service"
+msgstr "Servicio"
+
+#: Template/Tools/services.ctp:69
+msgid "Description"
+msgstr "Descripción"
+
+#: Template/Tools/services.ctp:83
+msgid "started"
+msgstr "iniciado"
+
+#: Template/Tools/services.ctp:85
+msgid "stopped"
+msgstr "detenido"
+
+#: Template/Tools/services.ctp:92;137
+msgid "Reload"
+msgstr "Volver a cargar"
+
+#: Template/Tools/services.ctp:95
+msgid "Reload {0}?"
+msgstr "¿Volver a cargar {0}?"
+
+#: Template/Tools/services.ctp:102;138
+msgid "Stop"
+msgstr "Detener"
+
+#: Template/Tools/services.ctp:105
+msgid "Stop {0}?"
+msgstr "¿Detener {0}?"
+
+#: Template/Tools/services.ctp:115
+msgid "Start {0}?"
+msgstr "¿Iniciar {0}?"
+
+#: Template/Tools/system_state.ctp:9
+msgid "Memory"
+msgstr "Memoria"
+
+#: Template/Tools/system_state.ctp:27
+msgid "Swap"
+msgstr "Intercambiar"
+
+#: Template/Tools/system_state.ctp:44
+msgid "Load average"
+msgstr "Load average"
+
+#: Template/Tools/system_state.ctp:61
+msgid "Disk usage"
+msgstr "Uso del disco"
+
+#: Template/Users/add.ctp:8
+#: Template/Users/index.ctp:13
+#: Template/Users/wadd.ctp:2
+msgid "Add a new user"
+msgstr "Añadir un nuevo usuario"
+
+#: Template/Users/add.ctp:15;20
+#: Template/Users/edit.ctp:15;20
+#: Template/Users/index.ctp:55
+#: Template/Users/wadd.ctp:23;28
+msgid "Display name"
+msgstr "Mostrar nombre"
+
+#: Template/Users/add.ctp:25
+#: Template/Users/edit.ctp:25
+#: Template/Users/index.ctp:56
+#: Template/Users/wadd.ctp:33
+msgid "Login"
+msgstr "Nombre de usuario"
+
+#: Template/Users/add.ctp:35;41
+#: Template/Users/edit.ctp:35;41
+#: Template/Users/wadd.ctp:43;49
+msgid "Password"
+msgstr "Contraseña"
+
+#: Template/Users/add.ctp:46;52
+#: Template/Users/edit.ctp:52
+#: Template/Users/wadd.ctp:54;60
+msgid "Confirm password"
+msgstr "Confirmar contraseña"
+
+#: Template/Users/adminlogin.ctp:3
+msgid "Manage KeexyBox"
+msgstr "Gestionar KeexyBox"
+
+#: Template/Users/adminlogin.ctp:12
+#: Template/Users/login.ctp:12
+msgid "username"
+msgstr "nombre de usuario"
+
+#: Template/Users/adminlogin.ctp:23
+#: Template/Users/login.ctp:23
+msgid "password"
+msgstr "contraseña"
+
+#: Template/Users/edit.ctp:8
+msgid "Edit the user: "
+msgstr "Editar el usuario: "
+
+#: Template/Users/edit.ctp:46
+msgid "Confirm Password"
+msgstr "Confirmar contraseña"
+
+#: Template/Users/import.ctp:8
+msgid "Import users"
+msgstr "Importar usuarios"
+
+#: Template/Users/index.ctp:22
+msgid "Export users to CSV"
+msgstr "Exportar usuarios a CSV"
+
+#: Template/Users/index.ctp:31
+msgid "Import users from CSV"
+msgstr "Importar usuarios de CSV"
+
+#: Template/Users/login.ctp:3
+msgid "Connect to the Internet"
+msgstr "Conectar a Internet"
+
+#: Template/Users/login.ctp:33
+msgid "Connection duration"
+msgstr "Duración de la conexión"
+
+#: Template/Users/wadd.ctp:6
+msgid "To connect to the Internet, users or members of your family will need to authenticate on KeexyBox’s captive portal. Here you can create accounts for your users. Complete the form below by assigning a profile and click {0}. Renew the operation as many times as you want to create users."
+msgstr "Para conectarse a Internet, los usuarios o miembros de tu familia deberán autenticarse en el portal cautivo de KeexyBox. Aquí puedes crear cuentas para tus usuarios. Completa el siguiente formulario asignando un perfil y haz clic en {0}. Repite la operación tantas veces como usuarios desees crear."
+
+#: Template/Users/wadd.ctp:7
+msgid "If you do not want to create them now, or you do not need to create any more, click {0}."
+msgstr "Si no deseas crearlos ahora, o no necesitas crear otros, haz clic en {0}."
+
