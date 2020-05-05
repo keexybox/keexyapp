@@ -560,7 +560,10 @@ class ConfigShell extends BoxShell
 
                 $this->ResetConf($this->bind_root_dir."/etc/zones/catchall.zone", ';;');
                 $rc2 = $this->AddConf("bind_catchall_zone_conf.php", $this->bind_root_dir."/etc/zones/catchall.zone");
-                $rc = $rc1 + $rc2;
+
+                $this->ResetConf($this->bind_root_dir."/etc/zones/doh.zone", ';;');
+                $rc3 = $this->AddConf("bind_doh_zone_conf.php", $this->bind_root_dir."/etc/zones/doh.zone");
+                $rc = $rc1 + $rc2 + $rc3;
             }
             if($part == 'set_safesearch') {
 

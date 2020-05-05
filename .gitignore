@@ -8,3 +8,4 @@
 # Excluding config file that contains password for python scripts 
 /src/Shell/scripts/config.py
 
+/keexyapp/webroot.bak/*

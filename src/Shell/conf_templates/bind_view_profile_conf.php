@@ -26,7 +26,7 @@ $conf_data = "
 include \"$this->bind_root_dir/etc/conf.d/acl_profile_".$params['profile_id'].".conf\";
 
 view view_profile_".$params['profile_id']." {
-	include \"$this->bind_root_dir/etc/named.conf.default-zones\";
+    include \"$this->bind_root_dir/etc/named.conf.default-zones\";
 
     match-clients { acl_profile_".$params['profile_id']."; };
 
@@ -36,18 +36,25 @@ view view_profile_".$params['profile_id']." {
     attach-cache \"shared_cache\";
     max-cache-size 64M;
 
-	zone \"keexybox\"{type master;file \"keexybox.zone\";};
+    // Zone for blocked domains
+    zone \"keexybox\"{type master;file \"keexybox.zone\";};
 
-	".$params['safesearch']."
+    // Disable DNS over HTTPS
+	zone \"doh.rpz\"{type master;file \"doh.zone\";};
+    response-policy {
+       zone \"doh.rpz\" policy nxdomain;
+    };
 
-	dlz \"blacklist zones\" {
-		database \"mysql
-			{host=".$this->blacklist_db_config['host']." dbname=".$this->blacklist_db_config['database']." user=".$this->blacklist_db_config['username']." pass=".$this->blacklist_db_config['password']."}
-			{SELECT zone FROM blacklist WHERE zone = '\$zone\$'".$params['category_search_string']."}
-			{SELECT NULL as ttl, 'CNAME' as type, NULL as mx_priority, 'keexybox.' as data FROM blacklist WHERE zone = '\$zone\$' AND host LIKE '%\$record\$%'}
-			{SELECT 86400 as ttl, 'SOA' as type, 'localhost.' as data, 'root.localhost.' as resp_person, 1 as serial, 3600 as refresh, 200 as retry, 3600000 as expire, 3600 as minimum FROM `blacklist` WHERE zone = '\$zone\$' UNION SELECT NULL as ttl, 'NS' as type, 'localhost.' as data, NULL as resp_person, NULL as serial, NULL as refresh, NULL as retry, NULL as expire, NULL as minimum FROM `blacklist` WHERE zone = '\$zone\$'} 
-		\";
-	};
+    ".$params['safesearch']."
+
+    dlz \"blacklist zones\" {
+        database \"mysql
+            {host=".$this->blacklist_db_config['host']." dbname=".$this->blacklist_db_config['database']." user=".$this->blacklist_db_config['username']." pass=".$this->blacklist_db_config['password']."}
+            {SELECT zone FROM blacklist WHERE zone = '\$zone\$'".$params['category_search_string']."}
+            {SELECT NULL as ttl, 'CNAME' as type, NULL as mx_priority, 'keexybox.' as data FROM blacklist WHERE zone = '\$zone\$' AND host LIKE '%\$record\$%'}
+            {SELECT 86400 as ttl, 'SOA' as type, 'localhost.' as data, 'root.localhost.' as resp_person, 1 as serial, 3600 as refresh, 200 as retry, 3600000 as expire, 3600 as minimum FROM `blacklist` WHERE zone = '\$zone\$' UNION SELECT NULL as ttl, 'NS' as type, 'localhost.' as data, NULL as resp_person, NULL as serial, NULL as refresh, NULL as retry, NULL as expire, NULL as minimum FROM `blacklist` WHERE zone = '\$zone\$'} 
+        \";
+    };
 };
 "
 ?>

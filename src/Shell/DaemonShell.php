@@ -138,40 +138,60 @@ class DaemonShell extends BoxShell
         foreach ($registred_devices as $registred_device) 
         {
             $arps = $arp->GetMacIps($registred_device['mac']);
-            
+
             if(is_array($arps)) {
-                foreach($arps as $a) 
-                {
-                    $ip = $a[0];
-    
-                    // Check if registred IP still the same and update if not
-                    if($ip != $registred_device['ip']) {
-                        $need_to_update_bind_acl = true;
-                        $device_session = $this->ActivesConnections->get($registred_device['ip']);
-                        // Keep everything and change IP
-                        $session_data = [
-                                'ip' => $ip,
-                                'name' => $device_session->name,
-                                'user_id' => $device_session->user_id,
-                                'device_id' => $device_session->device_id,
-                                'profile_id' => $device_session->profile_id,
-                                'name_id' => $device_session->name_id,
-                                'type' => $device_session->type,
-                                'status' => $device_session->status,
-                                'mac' => $device_session->mac,
-                                'start_time' => $device_session->start_time,
-                                'end_time' => $device_session->end_time,
-                                'display_start_time' => $device_session->display_start_time,
-                                'display_end_time' => $device_session->display_end_time,
-                        ];
-                        
-                        $new_device_session = $this->ActivesConnections->newEntity();
-                        $new_device_session = $this->ActivesConnections->patchEntity($new_device_session, $session_data);
-                        if(!$new_device_session->errors()) {
-                            if($this->ActivesConnections->save($new_device_session)) {
-                                $this->out($registred_device['ip']." replaced by $ip for device ".$registred_device['name']." with MAC ".$registred_device['mac']);
-                                $this->ActivesConnections->delete($device_session);
-                            }
+
+                // In case of multiple IP mapped to a single MAC
+                $num_of_ip_for_mac = count($arps);
+
+                $new_ip_address = null;
+
+                $i = 0;
+                // Check if one of IP addresses match with registred_device IP and set the first found IP address
+                while ($i < $num_of_ip_for_mac) {
+                    if ($registred_device['ip'] == $arps[$i][0]) {
+                        $new_ip_address = null;
+                        break;
+                    } else {
+                        //Check if the IP is registred for another device
+                        $ip_is_registred = $this->ActivesConnections->findByIp($arps[$i][0])->first();
+                        if($ip_is_registred == null and $new_ip_address == null) {
+                            $new_ip_address = $arps[$i][0];
+                        }
+                        //reset variable
+                        $ip_is_registred == null;
+
+                    }
+                    $i++;
+                }
+
+                // Check if registred IP still the same and update if not
+                if($new_ip_address != null) {
+                    $need_to_update_bind_acl = true;
+                    $device_session = $this->ActivesConnections->get($registred_device['ip']);
+                    // Keep everything and change IP
+                    $session_data = [
+                            'ip' => $new_ip_address,
+                            'name' => $device_session->name,
+                            'user_id' => $device_session->user_id,
+                            'device_id' => $device_session->device_id,
+                            'profile_id' => $device_session->profile_id,
+                            'name_id' => $device_session->name_id,
+                            'type' => $device_session->type,
+                            'status' => $device_session->status,
+                            'mac' => $device_session->mac,
+                            'start_time' => $device_session->start_time,
+                            'end_time' => $device_session->end_time,
+                            'display_start_time' => $device_session->display_start_time,
+                            'display_end_time' => $device_session->display_end_time,
+                    ];
+
+                    $new_device_session = $this->ActivesConnections->newEntity();
+                    $new_device_session = $this->ActivesConnections->patchEntity($new_device_session, $session_data);
+                    if(!$new_device_session->getErrors()) {
+                        if($this->ActivesConnections->save($new_device_session)) {
+                            $this->out($registred_device['ip']." replaced by $new_ip_address for device ".$registred_device['name']." with MAC ".$registred_device['mac']);
+                            $this->ActivesConnections->delete($device_session);
                         }
                     }
                 }

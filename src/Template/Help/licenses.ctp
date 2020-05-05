@@ -1,3 +1,4 @@
+<p><?= __('KeexyBox version').": ".$version ?></p>
 <legend><?= __('Licenses') ?></legend>
 <div class="row">
   <div class="col-md-6">

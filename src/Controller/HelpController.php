@@ -58,6 +58,8 @@ class HelpController extends AppController
 
         $this->set('kxb_src_code_dirs', $kxb_src_code_dirs);
 
+        $this->set('version', $this->Config->get('version')->value);
+
         $this->viewBuilder()->setLayout('adminlte');
     }
 

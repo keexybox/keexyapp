@@ -34,7 +34,7 @@ Contribution are always **welcome and recommended**! Here is how:
 
 ### Contribution Prerequisites:
 
-You will have to compile extra softwares like [ISC Bind](https://www.isc.org/bind/), [ISC DHCP](https://www.isc.org/dhcp/) and [Tor](https://www.torproject.org/) that are used by KeexyBox ([here is the guide](https://wiki.keexybox.org/packaging_extras/)).
+You will have to compile extra softwares like [ISC Bind](https://www.isc.org/bind/), [ISC DHCP](https://www.isc.org/dhcp/) and [Tor](https://www.torproject.org/) that are used by KeexyBox ([here is the guide](https://wiki.keexybox.org/doku.php/manual_installation)).
 
 ### Contribution Requirements:
 
