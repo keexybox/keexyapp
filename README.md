@@ -49,6 +49,12 @@ KeexyBox is an open source project by [KeexyBox.org](https://keexybox.org) that 
 ## Change log
 **For the most recent change log, visit the [releases page](https://github.com/keexybox/keexyapp/releases) or the [changelog file](https://github.com/keexybox/keexyapp/blob/master/CHANGELOG.md).** We will add detailed release notes to each new release. 
 
+## Getting in touch with KeexyBox's project
+- ([Facebook](https://www.facebook.com/keexybox))
+- ([Twitter](https://twitter.com/keexybox))
+- ([KeexyBox's wiki](https://wiki.keexybox.org))
+- ([KeexyBox's forum](https://forum.keexybox.org))
+
 ## Donations
 Donations are **greatly appreciated!**
 
