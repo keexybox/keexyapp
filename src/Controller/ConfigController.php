@@ -439,6 +439,20 @@ class ConfigController extends AppController
     }
 
     /**
+     * Edit Wifi Access Point settings
+     *
+     * @return void Redirects on successful edit, renders view otherwise.
+     */
+    public function wifiap()
+    {
+        $hostapd_settings = $this->Config->find('all', [ 'conditions' => [ 'param LIKE' => 'hostapd_%' ]]);
+        //debug($hostapd_settings);
+        foreach($hostapd_settings as $hostapd_setting) {
+            debug($hostapd_setting);
+        }
+    }
+
+    /**
      * Edit DHCP settings
      *
      * @return void Redirects on successful edit, renders view otherwise.
