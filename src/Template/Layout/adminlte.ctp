@@ -196,10 +196,10 @@ desired effect
               </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="/blacklist"><?= __('Blacklist') ?></a></li>
-            <li><a href="/profiles"><?= __('Profiles') ?></a></li>
-            <li><a href="/users"><?= __('Users') ?></a></li>
-            <li><a href="/devices"><?= __('Devices') ?></a></li>
+            <li><a href="/blacklist"><i class="fa fa-minus-circle"></i><?= __('Blacklist') ?></a></li>
+            <li><a href="/profiles"><i class="fa fa-sliders"></i><?= __('Profiles') ?></a></li>
+            <li><a href="/users"><i class="fa fa-user"></i><?= __('Users') ?></a></li>
+            <li><a href="/devices"><i class="fa fa-mobile"></i><?= __('Devices') ?></a></li>
           </ul>
         </li>
 
@@ -210,11 +210,12 @@ desired effect
               </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="/config/network"><?= __('Network') ?></a></li>
-            <li><a href="/config/datetime"><?= __('Date and time') ?></a></li>
-            <li><a href="/config/dhcp"><?= __('DHCP') ?></a></li>
-            <li><a href="/config/certificate"><?= __('SSL Certificate') ?></a></li>
-            <li><a href="/config/misc"><?= __('Miscellaneous') ?></a></li>
+            <li><a href="/config/network"><i class="fa fa-laptop"></i><?= __('Network') ?></a></li>
+            <li><a href="/config/datetime"><i class="fa fa-clock-o"></i><?= __('Date and time') ?></a></li>
+            <li><a href="/config/dhcp"><i class="fa fa-server"></i><?= __('DHCP') ?></a></li>
+            <li><a href="/config/wifiap"><i class="fa fa-wifi"></i><?= __('Access Point') ?></a></li>
+            <li><a href="/config/certificate"><i class="fa fa-certificate"></i><?= __('SSL Certificate') ?></a></li>
+            <li><a href="/config/misc"><i class="fa fa-circle-o"></i><?= __('Miscellaneous') ?></a></li>
           </ul>
         </li>
 
@@ -225,9 +226,9 @@ desired effect
               </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="/tools/services"><?= __('Services and power') ?></a></li>
-            <li><a href="/tools/domain-issue"><?= __('Domain check') ?></a></li>
-            <li><a href="/tools/system-state"><?= __('System state') ?></a></li>
+            <li><a href="/tools/services"><i class="fa fa-power-off"></i><?= __('Services and power') ?></a></li>
+            <li><a href="/tools/domain-issue"><i class="fa fa-check-circle-o"></i><?= __('Domain check') ?></a></li>
+            <li><a href="/tools/system-state"><i class="fa fa-heartbeat"></i><?= __('System state') ?></a></li>
           </ul>
         </li>
 
@@ -238,10 +239,10 @@ desired effect
               </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="http://keexybox.org" target="_blank"><?= __('Website') ?></a></li>
-            <li><a href="http://wiki.keexybox.org" target="_blank"><?= __('Documentation') ?></a></li>
-            <li><a href="http://keexybox.org/donate" target="_blank"><?= __('Donate') ?></a></li>
-            <li><a href="/help/licenses"><?= __('Licenses') ?></a></li>
+            <li><a href="http://keexybox.org" target="_blank"><i class="fa fa-external-link"></i><?= __('Website') ?></a></li>
+            <li><a href="http://wiki.keexybox.org" target="_blank"><i class="fa fa-book"></i><?= __('Documentation') ?></a></li>
+            <li><a href="http://keexybox.org/donate" target="_blank"><i class="fa fa-star"></i><?= __('Donate') ?></a></li>
+            <li><a href="/help/licenses"><i class="fa fa-file-text-o"></i><?= __('Licenses') ?></a></li>
           </ul>
         </li>
 
