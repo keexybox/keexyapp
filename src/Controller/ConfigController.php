@@ -446,10 +446,32 @@ class ConfigController extends AppController
     public function wifiap()
     {
         $hostapd_settings = $this->Config->find('all', [ 'conditions' => [ 'param LIKE' => 'hostapd_%' ]]);
-        //debug($hostapd_settings);
         foreach($hostapd_settings as $hostapd_setting) {
-            debug($hostapd_setting);
+            $param = $hostapd_setting->param;
+            $$param = $hostapd_setting->value;
         }
+
+
+        if ($this->request->is(['patch', 'post', 'put'])) {
+            debug($this->request->getData());
+        }
+
+        $this->loadComponent('WifiAp');
+
+        // Build lists for select forms 
+        $country_list = $this->WifiAp->CountryList();
+        $this->set('country_list', $country_list);
+
+        $channel_list = $this->WifiAp->ChannelList();
+        $this->set('channel_list', $channel_list);
+
+        $hw_mode_list = $this->WifiAp->HwModeList();
+        $this->set('hw_mode_list', $hw_mode_list);
+
+        foreach($hostapd_settings as $hostapd_setting) {
+            $this->set($hostapd_setting->param, $hostapd_setting->value);
+        }
+        $this->viewBuilder()->setLayout('adminlte');
     }
 
     /**
