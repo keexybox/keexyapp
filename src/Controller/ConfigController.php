@@ -445,20 +445,72 @@ class ConfigController extends AppController
      */
     public function wifiap()
     {
+        /** Extract hostapd_% params from database **/
+
         $hostapd_settings = $this->Config->find('all', [ 'conditions' => [ 'param LIKE' => 'hostapd_%' ]]);
         foreach($hostapd_settings as $hostapd_setting) {
             $param = $hostapd_setting->param;
             $$param = $hostapd_setting->value;
         }
 
+        /** Check and Save POST request data **/
 
         if ($this->request->is(['patch', 'post', 'put'])) {
-            debug($this->request->getData());
+            //debug($this->request->getData());
+
+            // Retrieve requested data from Database
+            $request_data = $this->request->getData();
+            foreach($request_data as $param => $value) {
+                $$param = $this->Config->get($param);
+            }
+
+            // Set and validate each request data
+            $validation_errors = 0;
+            foreach($request_data as $param => $value) {
+                //debug($param);
+                // Prepare data to commit
+                $data = ['value' => $value];
+                // Check data
+                if ( $param == 'hostapd_ssid' ) {
+                    $$param = $this->Config->patchEntity($$param, $data, ['validate' => 'ssid']);
+                } else {
+                    $$param = $this->Config->patchEntity($$param, $data);
+                }
+                // Count error
+                if($$param->errors()) {
+                    $this->Flash->set(__($$param->errors()['value']['hostapd']), [
+                        'key' => 'error_'.$param,
+                        'element' => 'custom_error' ]);
+                    $validation_errors++;
+                }
+            }
+
+            // If no error, save each data
+            if($validation_errors == 0) {
+                foreach($request_data as $param => $value) {
+                    $$param = $this->Config->save($$param);
+                }
+            }
+        }
+
+        /** Build lists for select controls **/
+
+        // Getting network interface path
+        $nic_path = $this->Config->get('nic_path');
+
+        // List directory that contain network interface
+        $nic_files = scandir($nic_path->value);
+        $wifi_interfaces = null;
+        foreach($nic_files as $nic_file) {
+            if(is_dir($nic_path->value."/".$nic_file."/wireless")) {
+                $wifi_interfaces[$nic_file] = $nic_file;
+            }
         }
 
         $this->loadComponent('WifiAp');
 
-        // Build lists for select forms 
+        $this->set('wifi_interfaces', $wifi_interfaces);
+
         $country_list = $this->WifiAp->CountryList();
         $this->set('country_list', $country_list);
 
@@ -471,6 +523,8 @@ class ConfigController extends AppController
         foreach($hostapd_settings as $hostapd_setting) {
             $this->set($hostapd_setting->param, $hostapd_setting->value);
         }
+
+        /** View Layout **/
         $this->viewBuilder()->setLayout('adminlte');
     }
 

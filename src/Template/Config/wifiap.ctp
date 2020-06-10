@@ -5,7 +5,7 @@
     <!-- general form elements -->
     <div class="box box-info">
       <div class="box-header with-border">
-        <h3 class="box-title"><?= __('Wifi Access Point settings')?></h3>
+        <h3 class="box-title"><?= __('Wi-Fi Access Point settings')?></h3>
       </div>
       <!-- /.box-header -->
 
@@ -13,8 +13,6 @@
       <?= $this->Form->create('config') ?>
       <div class="box-body">
 	    
-        <legend><?= __('General')?></legend>
-
         <div class="checkbox">
           <label>
             <?= $this->Form->control('hostapd_enabled', [
@@ -25,6 +23,8 @@
             ?>
           </label>
         </div>
+
+        <legend><?= __('General')?></legend>
 
         <div class="form-group">
           <label for="input_hostapd_ssid"><?= __('SSID') ?></label>
@@ -42,8 +42,10 @@
         <div class="form-group">
           <label for="input_hostapd_interface"><?= __('Interface') ?></label>
           <?= $this->Form->control('hostapd_interface',[
+              'type' => 'select',
               'label' => false,
               'default' => $hostapd_interface,
+              'options' => $wifi_interfaces,
               'id' => "input_hostapd_interface",
               'class' => "form-control",
             ])
@@ -136,47 +138,20 @@
         </div>
 
         <div class="form-group">
-          <label for="input_hostapd_wpa"><?= __('WPA') ?></label>
-          <?= $this->Form->control('hostapd_wpa',[
-              'label' => false,
-              'default' => $hostapd_wpa,
-              'id' => "input_hostapd_wpa",
-              'class' => "form-control",
-            ])
-          ?>
-		</div>
-
-        <div class="form-group">
-          <label for="input_hostapd_wpa_key_mgmt"><?= __('WPA Key Management') ?></label>
-          <?= $this->Form->control('hostapd_wpa_key_mgmt',[
-              'label' => false,
-              'default' => $hostapd_wpa_key_mgmt,
-              'id' => "input_hostapd_wpa_key_mgmt",
-              'class' => "form-control",
-            ])
-          ?>
-		</div>
-
-        <div class="form-group">
-          <label for="input_hostapd_wpa_pairwise"><?= __('WPA Pair Wise') ?></label>
-          <?= $this->Form->control('hostapd_wpa_pairwise',[
-              'label' => false,
-              'default' => $hostapd_wpa_pairwise,
-              'id' => "input_hostapd_wpa_pairwise",
-              'class' => "form-control",
-            ])
-          ?>
-		</div>
-
-        <div class="form-group">
           <label for="input_hostapd_wpa_passphrase"><?= __('Passphrase') ?></label>
-          <?= $this->Form->control('hostapd_wpa_passphrase',[
-              'label' => false,
-              'default' => $hostapd_wpa_passphrase,
-              'id' => "input_hostapd_wpa_passphrase",
-              'class' => "form-control",
-            ])
-          ?>
+          <div class="input-group" id="show_hide_password">
+            <?= $this->Form->control('hostapd_wpa_passphrase',[
+                'type' => 'password',
+                'label' => false,
+                'default' => $hostapd_wpa_passphrase,
+                'id' => "input_hostapd_wpa_passphrase",
+                'class' => "form-control",
+              ])
+            ?>
+            <div class="input-group-addon">
+              <a href=""><i class="fa fa-eye-slash" aria-hidden="true"></i></a>
+            </div>
+          </div>
 		</div>
 
       </div>
@@ -213,4 +188,20 @@
 		      //Initialize Select2 Elements
 		      $('.select2').select2()
   })
+</script>
+<script>
+$(document).ready(function() {
+    $("#show_hide_password a").on('click', function(event) {
+        event.preventDefault();
+        if($('#show_hide_password input').attr("type") == "text"){
+            $('#show_hide_password input').attr('type', 'password');
+            $('#show_hide_password i').addClass( "fa-eye-slash" );
+            $('#show_hide_password i').removeClass( "fa-eye" );
+        }else if($('#show_hide_password input').attr("type") == "password"){
+            $('#show_hide_password input').attr('type', 'text');
+            $('#show_hide_password i').removeClass( "fa-eye-slash" );
+            $('#show_hide_password i').addClass( "fa-eye" );
+        }
+    });
+});
 </script>

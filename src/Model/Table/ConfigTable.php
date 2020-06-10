@@ -116,6 +116,22 @@ class ConfigTable extends Table
     }
 
     /**
+     * Custom Wifi Access Point SSID validation rule.
+     *
+     * @param \Cake\Validation\Validator $validator Validator instance.
+     * @return \Cake\Validation\Validator
+     */
+    public function validationSsid(Validator $validator)
+    {
+        $validator
+			->add('value', 'hostapd', [
+				'rule' => ['custom', "/(?=^[a-zA-Z0-9_\-]*$)/i"],
+				'message' => __('The value must be alphanumeric and may contain hyphens (-) and underscores (_)')
+        ]);
+        return $validator;
+    }
+
+    /**
      * Alpha only validation rule.
      *
      * @param \Cake\Validation\Validator $validator Validator instance.
