@@ -575,9 +575,11 @@ class ConfigController extends AppController
             $count_cmd_rc = 0;
 
             // Running commands
-            foreach($config_cmds as $config_cmd) {
-                exec($this->kxycmd("$config_cmd"), $o, $cmd_rc);
-                $count_cmd_rc = $count_cmd_rc + $cmd_rc;
+            if (isset($config_cmds)) {
+                foreach($config_cmds as $config_cmd) {
+                    exec($this->kxycmd("$config_cmd"), $o, $cmd_rc);
+                    $count_cmd_rc = $count_cmd_rc + $cmd_rc;
+                }
             }
 
             if($count_cmd_rc == 0) {

@@ -215,7 +215,7 @@ desired effect
             <li><a href="/config/dhcp"><i class="fa fa-server"></i><?= __('DHCP') ?></a></li>
             <li><a href="/config/wifiap"><i class="fa fa-wifi"></i><?= __('Access Point') ?></a></li>
             <li><a href="/config/certificate"><i class="fa fa-certificate"></i><?= __('SSL Certificate') ?></a></li>
-            <li><a href="/config/misc"><i class="fa fa-circle-o"></i><?= __('Miscellaneous') ?></a></li>
+            <li><a href="/config/misc"><i class="fa fa-cog"></i><?= __('Miscellaneous') ?></a></li>
           </ul>
         </li>
 
