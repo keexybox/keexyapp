@@ -39,18 +39,6 @@
 		  <?= $this->Flash->render('error_hostapd_ssid')?>
 		</div>
 
-        <div class="form-group">
-          <label for="input_hostapd_interface"><?= __('Interface') ?></label>
-          <?= $this->Form->control('hostapd_interface',[
-              'type' => 'select',
-              'label' => false,
-              'default' => $hostapd_interface,
-              'options' => $wifi_interfaces,
-              'id' => "input_hostapd_interface",
-              'class' => "form-control",
-            ])
-          ?>
-		</div>
 
         <div class="form-group">
           <label for="input_hostapd_country_code"><?= __('Country') ?></label>
@@ -101,6 +89,33 @@
             ?>
           </label>
         </div>
+
+        <legend><?= __('Bridge') ?></legend>
+        <div class="form-group">
+          <label for="input_hostapd_interface"><?= __('Wi-Fi Interface') ?></label>
+          <?= $this->Form->control('hostapd_interface',[
+              'type' => 'select',
+              'label' => false,
+              'default' => $hostapd_interface,
+              'options' => $wifi_interfaces,
+              'id' => "input_hostapd_interface",
+              'class' => "form-control",
+            ])
+          ?>
+		</div>
+
+        <div class="form-group">
+          <label for="input_hostapd_bridge_ports"><?= __('Wired Interface') ?></label>
+          <?= $this->Form->control('hostapd_bridge_ports',[
+              'type' => 'select',
+              'label' => false,
+              'default' => $hostapd_bridge_ports,
+              'options' => $wired_interfaces,
+              'id' => "input_hostapd_bridge_ports",
+              'class' => "form-control",
+            ])
+          ?>
+		</div>
 
         <legend><?= __('Security')?></legend>
 

@@ -27,17 +27,12 @@ $conf_data =
 # and how to activate them. For more information, see interfaces(5).
 
 # Auto load interfaces
-auto lo $this->host_interface_input $this->host_interface_output
+auto lo $this->host_interface_output $this->host_interface_input
 iface lo inet loopback
 
 # Hotplug interfaces
-allow-hotplug $this->host_interface_input $this->host_interface_output
+allow-hotplug $this->host_interface_output $this->host_interface_input
 
-# Internal network configuration
-iface $this->host_interface_input inet static
-    address $this->host_ip_input
-    netmask $this->host_netmask_input
-    ".$params['wpa_config_in']."
 
 # Output network configuration
 iface $this->host_interface_output inet static
@@ -46,5 +41,15 @@ iface $this->host_interface_output inet static
     gateway $this->host_gateway
     dns-nameservers $this->host_dns1 $this->host_dns2
     ".$params['wpa_config_out']."
+    ".$params['bridge_ports']."
+    ".$params['bridge_stp']."
+    ".$params['bridge_waitport']."
+    ".$params['bridge_waitport']."
+
+# Internal network configuration
+iface $this->host_interface_input inet static
+    address $this->host_ip_input
+    netmask $this->host_netmask_input
+    ".$params['wpa_config_in']."
 ";
 ?>

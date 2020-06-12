@@ -352,12 +352,25 @@ class ConfigShell extends BoxShell
 
                 // Detect wireless devices and set param
                 $params['wpa_config_in'] = null;
-                $params['wpa_config_out'] = null;
                 if(is_dir($this->nic_path."/".$this->host_interface_input."/wireless")) {
                     $params['wpa_config_in'] = "wpa-conf $this->wpa_config_file";
                 }
+
+                $params['wpa_config_out'] = null;
                 if(is_dir($this->nic_path."/".$this->host_interface_output."/wireless")) {
                     $params['wpa_config_out'] = "wpa-conf $this->wpa_config_file";
+                }
+
+                // Additionnal setting if hostapd is enabled
+                $params['bridge_ports'] = null;
+                $params['bridge_stp'] = null;
+                $params['bridge_waitport'] = null;
+                $params['bridge_waitport'] = null;
+                if($this->hostapd_enabled == 1) {
+                    $params['bridge_ports'] = "bridge_ports $this->hostapd_bridge_ports";
+                    $params['bridge_stp'] = "bridge_stp off";
+                    $params['bridge_waitport'] = "bridge_waitport 0";
+                    $params['bridge_fd'] = "bridge_fd 0";
                 }
 
                 $rc = $rc + $this->AddConf("network_conf.php", $this->network_conffile, $params);
@@ -381,6 +394,26 @@ class ConfigShell extends BoxShell
             if($part == 'main' or $part == 'all') {
                 $this->ResetConf($this->tor_conffile);
                 $rc = $this->AddConf("tor_conf.php", $this->tor_conffile);
+            }
+            exit($rc);
+        }
+    }
+
+    /**
+     * This function generate configuration file for hostapd
+     *
+     * @param $part: Part of configuration file to generate
+     *  - main/all: generate main tor configuration file
+     *
+     * @exit number: 0 for success else it is an error
+     * 
+     */
+    public function hostapd($part)
+    {
+        if(isset($part)) {
+            if($part == 'main' or $part == 'all') {
+                $this->ResetConf($this->hostapd_conf_file);
+                $rc = $this->AddConf("hostapd_conf.php", $this->hostapd_conf_file);
             }
             exit($rc);
         }
