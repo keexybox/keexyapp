@@ -21,7 +21,8 @@ items="
 pidfiles="
 ${KEEXYBOX_HOME}/dhcpd/dhcpcd.pid
 ${KEEXYBOX_HOME}/bind/var/run/named/*.pid
-${KEEXYBOX_HOME}/opt/keexybox/tor/var/run/tor.pid
+${KEEXYBOX_HOME}/tor/var/run/tor.pid
+${KEEXYBOX_HOME}/hostapd/var/run/hostapd.pid
 /var/run/keexybox/keexybox.pid
 /var/run/apache2/apache2.pid
 "
