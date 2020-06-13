@@ -23,6 +23,6 @@
  */
 
 $conf_data =  
-"keexybox       ALL = NOPASSWD: $this->bin_ping, $this->bin_echo, $this->bin_arp, $this->bin_arpscan, $this->bin_grep, $this->bin_iptables, $this->bin_openssl, $this->bin_iptables_save, $this->bin_date, $this->bin_hwclock, $this->tor_init, $this->ntp_init, $this->bind9_init, $this->bin_reboot, $this->bin_halt, $this->dhcp_init, $this->bin_sysctl -w net.ipv4.ip_forward=1, /bin/chmod 664 $this->logrotate_conf_file, /bin/chmod 644 $this->logrotate_conf_file
+"keexybox       ALL = NOPASSWD: $this->bin_ping, $this->bin_echo, $this->bin_arp, $this->bin_arpscan, $this->bin_grep, $this->bin_iptables, $this->bin_openssl, $this->bin_iptables_save, $this->bin_date, $this->bin_hwclock, $this->tor_init, $this->ntp_init, $this->bind9_init, $this->bin_reboot, $this->bin_halt, $this->dhcp_init, $this->hostapd_init, $this->bin_sysctl -w net.ipv4.ip_forward=1, /bin/chmod 664 $this->logrotate_conf_file, /bin/chmod 644 $this->logrotate_conf_file
 "
 ?>

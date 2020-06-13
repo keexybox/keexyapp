@@ -223,6 +223,40 @@ class ServiceShell extends BoxShell
     }
 
     /**
+     * This function start, stop hostapd service
+     *  The start action will only work if Wi-Fi Access Point is enabled
+     *
+     * @param $action : Action of service to execute. It can be every actions implemented by the init script
+     * @param $exit : if is set, this function will exit instead of return
+     *
+     * @return void, but run service_exit() to exit or return the command status
+     */
+    public function hostapd($action, $exit = null)
+    {
+        parent::initialize();
+        if($this->hostapd_enabled == false and $action == 'start') {
+            $this->service_begin(__FUNCTION__, $action);
+            $return = [
+                'output' => [__('hostapd service is disabled')],
+                'rc' => 1,
+                ];
+            $this->service_exit($return, $exit);
+        } elseif($this->hostapd_enabled == false and $action == 'restart') {
+            $this->service_begin(__FUNCTION__, $action);
+            $this->RunCmd("$this->bin_sudo $this->hostapd_init stop", 'service');
+            $return = [
+                'output' => [__('hostapd service is disabled')],
+                'rc' => 1,
+                ];
+            $this->service_exit($return, $exit);
+        } else {
+            $this->service_begin(__FUNCTION__, $action);
+            $return = $this->RunCmd("$this->bin_sudo $this->hostapd_init $action", 'service');
+            $this->service_exit($return, $exit);
+        }
+    }
+
+    /**
      * This function start, stop ntp service
      *  NTP is used to synchronize time on Internet
      *
