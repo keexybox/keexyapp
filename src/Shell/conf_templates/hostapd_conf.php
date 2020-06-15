@@ -35,11 +35,12 @@ macaddr_acl=".$this->hostapd_macaddr_acl."
 
 # Security
 ignore_broadcast_ssid=".$this->hostapd_ignore_broadcast_ssid."
-auth_algs=".$this->hostapd_auth_algs."
-wpa=".$this->hostapd_wpa."
-wpa_key_mgmt=".$this->hostapd_wpa_key_mgmt."
-wpa_pairwise=".$this->hostapd_wpa_pairwise."
-rsn_pairwise=".$this->hostapd_rsn_pairwise."
-wpa_passphrase=".$this->hostapd_wpa_passphrase."
+".$params['hostapd_auth_algs']."
+".$params['auth_algs']."
+".$params['wpa']."
+".$params['wpa_key_mgmt']."
+".$params['wpa_pairwise']."
+".$params['rsn_pairwise']."
+".$params['wpa_passphrase']."
 "
 ?>

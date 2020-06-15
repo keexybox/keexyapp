@@ -412,8 +412,22 @@ class ConfigShell extends BoxShell
     {
         if(isset($part)) {
             if($part == 'main' or $part == 'all') {
+                $params['auth_algs'] = null;
+                $params['wpa'] = null;
+                $params['wpa_key_mgmt'] = null;
+                $params['wpa_pairwise'] = null;
+                $params['rsn_pairwise'] = null;
+                $params['wpa_passphrase'] = null;
+                if ($this->hostapd_auth_algs == 1) {
+                    $params['auth_algs'] = "auth_algs=".$this->hostapd_auth_algs;
+                    $params['wpa'] = "wpa=".$this->hostapd_wpa;
+                    $params['wpa_key_mgmt'] = "wpa_key_mgmt=".$this->hostapd_wpa_key_mgmt;
+                    $params['wpa_pairwise'] = "wpa_pairwise=".$this->hostapd_wpa_pairwise;
+                    $params['rsn_pairwise'] = "rsn_pairwise=".$this->hostapd_rsn_pairwise;
+                    $params['wpa_passphrase'] = "wpa_passphrase=".$this->hostapd_wpa_passphrase;
+                }
                 $this->ResetConf($this->hostapd_conf_file);
-                $rc = $this->AddConf("hostapd_conf.php", $this->hostapd_conf_file);
+                $rc = $this->AddConf("hostapd_conf.php", $this->hostapd_conf_file, $params);
             }
             exit($rc);
         }
