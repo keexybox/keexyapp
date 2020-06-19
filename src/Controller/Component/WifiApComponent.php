@@ -151,6 +151,7 @@ class WifiApComponent extends Component
     public function ChannelList()
     {
         $channel_list = [
+            //0 => __('automatic'),
             1 => '1',
             2 => '2',
             3 => '3',
@@ -170,10 +171,12 @@ class WifiApComponent extends Component
 
     public function WpaKeyMgmtList()
     {
+        return null;
     }
 
     public function WpaPairwiseList()
     {
+        return null;
     }
 }
 
