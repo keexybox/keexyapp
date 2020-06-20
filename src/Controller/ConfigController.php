@@ -138,6 +138,9 @@ class ConfigController extends AppController
         
         // Check if Wi-Fi Access point is enabled
         $hostapd_enabled = $this->Config->get('hostapd_enabled')->value;
+        $hostapd_interface = $this->Config->get('hostapd_interface')->value;
+        $hostapd_bridge_ports = $this->Config->get('hostapd_bridge_ports')->value;
+        $hostapd_bridge = $this->Config->get('hostapd_bridge')->value;
 
         // Getting network input interface path
         $host_interface_input = $this->Config->get('host_interface_input');
@@ -157,11 +160,21 @@ class ConfigController extends AppController
 
         // Cleaning list and remove loopback interface
         $wifi_class = null;
+        $nic_devices = null;
         foreach($nic_files as $nic_file) {
             if( $nic_file != "." AND $nic_file != ".." AND $nic_file != "lo" ) {
-                $nic_devices[$nic_file] = $nic_file;
-                if(is_dir($nic_path->value."/".$nic_file."/wireless")) {
-                    $wifi_class .= $nic_file." ";
+                if ($hostapd_enabled == 0) {
+                    $nic_devices[$nic_file] = $nic_file;
+                    if(is_dir($nic_path->value."/".$nic_file."/wireless")) {
+                        $wifi_class .= $nic_file." ";
+                    }
+                } else {
+                    if ($nic_file != $hostapd_bridge_ports AND $nic_file != $hostapd_interface) { 
+                        $nic_devices[$nic_file] = $nic_file;
+                        if(is_dir($nic_path->value."/".$nic_file."/wireless")) {
+                            $wifi_class .= $nic_file." ";
+                        }
+                    }
                 }
             }
         }
@@ -187,6 +200,7 @@ class ConfigController extends AppController
         $host_dns2 = $this->Config->get('host_dns2');
 
         if ($this->request->is(['patch', 'post', 'put'])) {
+            debug($this->request->getData());
 
             // return code used know if config can be saved
             // $rc = 1 : one on more field were not validated
