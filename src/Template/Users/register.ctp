@@ -5,7 +5,7 @@
     <!-- general form elements -->
     <div class="box box-info">
       <div class="box-header with-border">
-        <h3 class="box-title"><?= __('Add a new user')?></h3>
+        <h3 class="box-title"><?= __('Register to access point')?></h3>
       </div>
       <!-- /.box-header -->
       <!-- form start -->
@@ -20,6 +20,16 @@
               'placeholder' => __("Display name"),
               ]);
            ?>
+        </div>
+        <div class="form-group">
+          <label for="inputUser"><?= __('Email') ?></label>
+          <?= $this->Form->control('usermail', [
+              'label' => false,
+              'class' => "form-control",
+              'id' => "inputUser",
+              'placeholder' => __("Email"),
+              ]);
+          ?>
         </div>
         <div class="form-group">
           <label for="inputUser"><?= __('Login') ?></label>
@@ -60,6 +70,15 @@
              'label' => false,
              'options' => $langs,
              'id' => "inputProfile",
+             'class' => "form-control",
+          ]);
+          ?>
+        </div>
+        <div class="form-group">
+          <label for="inputRegCode"><?= __('Registration Code') ?></label>
+          <?= $this->Form->control('registration_code', [
+             'label' => false,
+             'id' => "inputRegCode",
              'class' => "form-control",
           ]);
           ?>

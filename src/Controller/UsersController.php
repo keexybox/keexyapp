@@ -51,8 +51,8 @@ class UsersController extends AppController
 
         $this->loadModel('Config');
         // Allow user to access register page
-        $cportal_allow_register = $this->Config->get('cportal_allow_register')->value;
-        if ($cportal_allow_register == 1) {
+        $cportal_register_allowed = $this->Config->get('cportal_register_allowed')->value;
+        if ($cportal_register_allowed == 1) {
             array_push($allowed_pages, 'register');
         }
 
@@ -599,7 +599,7 @@ class UsersController extends AppController
         $this->loadModel('Config');
         $connection_default_time = $this->Config->get('connection_default_time');
         $connection_max_time = $this->Config->get('connection_max_time');
-        $cportal_allow_register = $this->Config->get('cportal_allow_register')->value;
+        $cportal_register_allowed = $this->Config->get('cportal_register_allowed')->value;
 
         $this->loadComponent('ConnectionDuration');
         $duration_list = $this->ConnectionDuration->GetDurationList();
@@ -626,7 +626,7 @@ class UsersController extends AppController
         $this->set('connection_default_time', $connection_default_time);
         $this->set('connection_max_time', $connection_max_time);
         $this->set('duration_list', $duration_list);
-        $this->set('cportal_allow_register', $cportal_allow_register);
+        $this->set('cportal_register_allowed', $cportal_register_allowed);
         $this->viewBuilder()->setLayout('loginlte');
     }
 

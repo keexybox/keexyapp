@@ -44,7 +44,7 @@
 		      ])
 	      ?>
       </div>
-      <?php if ($cportal_allow_register == 1): ?>
+      <?php if ($cportal_register_allowed == 1): ?>
       <div class="col-xs-6 col-sm-8">
 	      <?= $this->Html->link(
                 __('Register'),
