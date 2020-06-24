@@ -21,3 +21,10 @@ INSERT INTO `config` VALUES ('hostapd_wpa','2','setting','WPA setting for Access
 INSERT INTO `config` VALUES ('hostapd_wpa_key_mgmt','WPA-PSK','setting','Accepted key management algorithms for Access Point');
 INSERT INTO `config` VALUES ('hostapd_wpa_pairwise','TKIP','setting','Accepted cipher suites for Access Point');
 INSERT INTO `config` VALUES ('hostapd_wpa_passphrase','KeexyBox974','setting','WPA passphrase of Access Point');
+ALTER TABLE users ADD COLUMN email VARCHAR(255) AFTER displayname;
+ALTER TABLE users ADD COLUMN expiration datetime AFTER admin;
+INSERT INTO config (param, value, type, description) VALUES ('cportal_default_profile_id', 1, 'setting', 'Profile to use for registred user or fast login');
+INSERT INTO config (param, value, type, description) VALUES ('cportal_fast_login', 0, 'setting', 'Allow user to access the Internet without entering credentials');
+INSERT INTO config (param, value, type, description) VALUES ('cportal_register_code', 'ABCD123', 'setting', 'Code to allow user to register himself on Captive Portal');
+INSERT INTO config (param, value, type, description) VALUES ('cportal_register_allowed', 1, 'setting', 'Allows the user to register himself on Captive Portal');
+INSERT INTO config (param, value, type, description) VALUES ('cportal_register_expiration', 7, 'setting', 'Number of days until account expires when register');
