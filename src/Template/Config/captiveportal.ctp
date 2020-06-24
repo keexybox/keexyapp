@@ -20,7 +20,7 @@
           <?= $this->Form->control('connection_default_time', [
                 'label' => false,
                 'type' => 'select', 
-                'value' => $connection_default_time['value'] / 60,
+                'value' => $connection_default_time / 60,
                 'id' => "input_connection_default_time",
                 'class' => "form-control",
                 'options' => $avail_durations,
@@ -37,56 +37,51 @@
                 'options' => $avail_languages,
                 'id' => "input_locale",
                 'class' => "form-control",
-                'default' => $locale->value,
+                'default' => $locale,
                 ])
           ?>
-        
         </div>
 
-        <div class="checkbox">
-          <label>
-            <?= $this->Form->control('cportal_fast_login', [
-                  'type' => 'checkbox',
-                  'label' => __('Allow users to connect to the Internet just by accepting the terms of use. No registration required.'),
-                  'default' => $cportal_fast_login->value,
-                ])
-            ?>
-          </label>
-        </div>
 
-        <legend><?= __('Registration options') ?></legend>
-        <div class="checkbox">
-          <label>
-            <?= $this->Form->control('cportal_register_allowed', [
-                  'type' => 'checkbox',
-                  'label' => __('Allow users to register'),
-                  'default' => $cportal_register_allowed
+        <legend><?= __('Registration') ?></legend>
+        <div class="form-group">
+          <label for="input_locale"><?= __('Allow registration') ?></label>
+          <?= $this->Form->control('cportal_register_allowed', [
+                'label' => false,
+                'type' => 'select',
+                'options' => [ 
+                    0 => __('Disable'), 
+                    1 => __('Enable'),
+                    2 => __('Internet access without registration'),
+                    ],
+                'class' => "form-control",
+                //'label' => __('Allow users to register'),
+                'default' => $cportal_register_allowed
                 ])
-            ?>
-          </label>
+          ?>
         </div>
 
         <div class="form-group">
-          <label for="input_connection_default_time"><?= __('Duration of registration') ?></label>
-              <?= $this->Form->control('log_db_retention', [
+          <label for="input_cportal_register_expiration"><?= __('Duration of registration (days)') ?></label>
+              <?= $this->Form->control('cportal_register_expiration', [
                   'label' => false,
                   'type' => 'number', 
                   'min' => 1, 
                   //'max' => 8760,
-                  //'value' => $log_db_retention['value'],
-                  'id' => "input_connection_default_time",
+                  'value' => $cportal_register_expiration,
+                  'id' => "input_cportal_register_expiration",
                   'class' => "form-control",
                   //'style' => "width: 5em",
                 ])
               ?>
-          <?= $this->Flash->render('error_connection_default_time')?>
+          <?= $this->Flash->render('error_cportal_register_expiration')?>
 		</div>
 
         <div class="form-group">
           <label for="input_cportal_register_code"><?= __('Registration Code') ?></label>
           <?= $this->Form->control('cportal_register_code',[
               'label' => false,
-              'default' => $cportal_register_code->value,
+              'default' => $cportal_register_code,
               'id' => "cportal_register_code",
               'class' => "form-control",
             ])
@@ -94,6 +89,19 @@
 		  <?= $this->Flash->render('error_cportal_register_code')?>
 		</div>
 
+        <div class="form-group">
+          <label for="inputProfile"><?= __('Default profile for new users') ?></label>
+          <?= $this->Form->control('cportal_default_profile_id', [
+              'type' => 'select',
+              'label' => false,
+              'options' => $profiles,
+              'value' => $cportal_default_profile_id,
+              'empty' => __('(select a profile)'),
+              'id' => "inputProfile",
+              'class' => "form-control input",
+               ]);
+          ?>
+        </div>
       </div>
       <!-- /.box-body -->
 

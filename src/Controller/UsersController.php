@@ -56,12 +56,6 @@ class UsersController extends AppController
             array_push($allowed_pages, 'register');
         }
 
-        // Allow user to access fast login page
-        $cportal_fast_login = $this->Config->get('cportal_fast_login')->value;
-        if ($cportal_fast_login == 1) {
-            array_push($allowed_pages, 'fastlogin');
-        }
-
         //No login required for following pages
         $this->Auth->allow($allowed_pages);
     }

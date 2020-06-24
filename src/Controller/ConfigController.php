@@ -1122,11 +1122,14 @@ class ConfigController extends AppController
     {
         // List of params to load
         //$params = array('dns_expiration_delay', 'connection_default_time', 'connection_max_time', 'log_db_retention', 'log_retention', 'bind_use_redirectors', 'locale');
-        $params = array('connection_default_time', 'bind_use_redirectors', 'locale', 'cportal_fast_login', 'cportal_register_allowed', 'cportal_register_code', 'cportal_register_expiration', 'cportal_default_profile_id');
+        $params = array('connection_default_time', 'locale', 'cportal_register_allowed', 'cportal_register_code', 'cportal_register_expiration', 'cportal_default_profile_id');
 
         // Load params
-        foreach($params as $param) {
-            $$param = $this->Config->get($param, ['contain' => []]);
+        foreach($params as $setting) {
+            //$$param = $this->Config->get($setting);
+            //debug($$param);
+            $param = $this->Config->get($setting)->param;
+            $$param = $this->Config->get($setting)->value;
         }
 
         // Set list of available languages
@@ -1137,115 +1140,59 @@ class ConfigController extends AppController
         $this->loadComponent('ConnectionDuration');
         $this->set('avail_durations', $this->ConnectionDuration->GetDurationList());
 
+        // Set list of profiles
+        $this->loadModel('Profiles');
+        $profiles = $this->Profiles->find('list');
+
+
         if($this->request->is('post')) {
-            // Return code to know if all field are validated
-            $rc = 0;
 
-            // Set and validate new value for dns_expiration_delay
-            $data_dns_expiration_delay = ['value' => $this->request->data['dns_expiration_delay'] * 86400];
+            $request_data = $this->request->getData();
+            foreach ($request_data as $param => $value) {
+                $$param = $this->Config->get($param);
+            }
 
-            $dns_expiration_delay = $this->Config->patchEntity(
-                    $dns_expiration_delay, $data_dns_expiration_delay,
-                    ['validate' => 'dns_expiration_delay']
-                    );
-
-            if($dns_expiration_delay->errors()) {
-                $this->Flash->set(__('Routing cache expiration must be between 1 and 15 days.'), [ 
-                        'key' => 'error_dns_expiration_delay',
-                        'element' => 'custom_error' ]
-                    );
-                $rc = 1;
-            } 
-            
-            // Set and validate new value for connection_default_time
-            $data_connection_default_time = ['value' => $this->request->data['connection_default_time'] * 60];
-
-            $connection_default_time = $this->Config->patchEntity($connection_default_time, $data_connection_default_time);
-
-            // Set default language
-            $data_locale = ['value' => $this->request->data['locale']];
-            $data_locale = $this->Config->patchEntity($locale, $data_locale);
-
-            // Set and validate new value for log_db_retention
-            $data_log_db_retention = ['value' => $this->request->data['log_db_retention']];
-
-            $data_log_db_retention = $this->Config->patchEntity(
-                    $log_db_retention, $data_log_db_retention,
-                    ['validate' => 'logs_retention']
-                    );
-
-            if($connection_default_time->errors()) {
-                $this->Flash->set(__('Invalid log retention value'), [ 
-                        'key' => 'error_connection_default_time',
-                        'element' => 'custom_error' ]
-                    );
-                $rc = 1;
-            } 
-
-            // Set and validate new value for log_retention
-            $data_log_retention = ['value' => $this->request->data['log_retention']];
-
-            $data_log_retention = $this->Config->patchEntity(
-                    $log_retention, $data_log_retention,
-                    ['validate' => 'logs_retention']
-                    );
-
-            if($connection_default_time->errors()) {
-                $this->Flash->set(__('Invalid log retention value'), [ 
-                        'key' => 'error_connection_default_time',
-                        'element' => 'custom_error' ]
-                    );
-                $rc = 1;
-            } 
-
-            // Set and validate new value for bind_use_redirectors
-            $data_bind_use_redirectors = ['value' => $this->request->data['bind_use_redirectors']];
-
-            $data_bind_use_redirectors = $this->Config->patchEntity($bind_use_redirectors, $data_bind_use_redirectors);
-
-            if($data_bind_use_redirectors->errors()) {
-                $this->Flash->set(__('Unable to set DNS redirectors'), [ 
-                        'key' => 'error_connection_default_time',
-                        'element' => 'custom_error' ]
-                    );
-                $rc = 1;
-            } 
-
-
-            if ($rc == 0)
-            {
-                foreach ($params as $param)
-                {
-                    $this->Config->save($$param);
+            // Set and validate each request data
+            $validation_errors = 0;
+            foreach ($request_data as $param => $value) {
+                //debug($param);
+                // Prepare data to commit
+                $data = ['value' => $value];
+                // Check data
+                if ( $param == 'connection_default_time' ) {
+                    $data = ['value' => $value * 60];
                 }
-                // Update bind config
+                //debug($data);
+                $$param = $this->Config->patchEntity($$param, $data);
 
-                $count_cmd_rc = 0;
-                exec($this->kxycmd("config bind named"), $o, $cmd_rc);
-                $count_cmd_rc = $count_cmd_rc + $cmd_rc;
-                exec($this->kxycmd("config logrotate main"), $o, $cmd_rc);
-                $count_cmd_rc = $count_cmd_rc + $cmd_rc;
-
-                // Reload bind
-                if($count_cmd_rc == 0) {
-                    exec($this->kxycmd("service bind reload"), $o, $cmd_rc);
-                    if($cmd_rc == 0) {
-                        $this->Flash->success(__('Settings saved successfully.'));
-                    } else {
-                        $this->Flash->warning(__('Settings saved successfully.')." ".__('But unable to reload DNS service.'));
-                    }
-                } else {
-                    $this->Flash->error(__('Unable to write {0} configuration files.', null));
+                // Count error
+                if($$param->errors()) {
+                    /*
+                    $this->Flash->set(__($$param->errors()['value']['hostapd']), [
+                        'key' => 'error_'.$param,
+                        'element' => 'custom_error' ]);
+                    */
+                    $validation_errors++;
                 }
+            }
+
+            // If no error, save each data
+            if ($validation_errors == 0) {
+                foreach($request_data as $param => $value) {
+                    $$param = $this->Config->save($$param);
+                }
+                $this->Flash->success(__('Settings saved successfully.'));
             } else {
                 $this->Flash->error(__('Settings could not be saved.')." ".__('Please try again.'));
-            }
+	    }
         }
 
         // Set to view
-        foreach ($params as $param) {
-            $this->set($param, $$param);
+        foreach($params as $setting) {
+            $this->set($this->Config->get($setting)->param, $this->Config->get($setting)->value);
         }
+
+        $this->set('profiles', $profiles);
 
         $this->viewBuilder()->setLayout('adminlte');
     }
