@@ -46,8 +46,24 @@ class UsersController extends AppController
     {
         parent::beforeFilter($event);
 
+        // Allowed page as user
+        $allowed_pages = ['login', 'logout', 'adminlogin', 'disconnect'];
+
+        $this->loadModel('Config');
+        // Allow user to access register page
+        $cportal_allow_register = $this->Config->get('cportal_allow_register')->value;
+        if ($cportal_allow_register == 1) {
+            array_push($allowed_pages, 'register');
+        }
+
+        // Allow user to access fast login page
+        $cportal_fast_login = $this->Config->get('cportal_fast_login')->value;
+        if ($cportal_fast_login == 1) {
+            array_push($allowed_pages, 'fastlogin');
+        }
+
         //No login required for following pages
-        $this->Auth->allow(['login', 'logout', 'adminlogin', 'disconnect', 'testadminlte']);
+        $this->Auth->allow($allowed_pages);
     }
 
     /**
@@ -214,6 +230,60 @@ class UsersController extends AppController
     public function wadd()
     {
         $this->add();
+        $this->viewBuilder()->setLayout('wizard');
+    }
+
+    /**
+     * Register - allows user to register himself
+     *
+     * @return void Redirects on successful add, renders view otherwise.
+     */
+    public function register()
+    {
+        // Get available profiles
+        $this->loadModel('Profiles');
+        $profiles = $this->Profiles->find('list');
+
+        // Set list of availables languages
+        $this->loadComponent('Lang');
+        $this->set('langs', $this->Lang->ListLanguages());
+
+        // Get default language to sugest if as default language
+        $this->loadModel('Config');
+        $locale = $this->Config->get('locale')->value;
+        // Create new user object
+        $user = $this->Users->newEntity();
+        // preset language
+        $user->lang = $locale;
+
+        if ($this->request->is('post')) {
+            $user_data = $this->request->getData();
+            debug($user_data);
+
+            $user = $this->Users->patchEntity($user, $this->request->data);
+            /*
+            if ($this->Users->save($user)) {
+                $this->Flash->success(__('The user has been added successfully.'));
+
+                // Only use for wizard config
+                $run_wizard = $this->Config->get('run_wizard');
+                $install_type = null;
+                if (null !== $this->request->getQuery('install_type')) {
+                    $install_type = $this->request->getQuery('install_type');
+                }
+
+                if ($run_wizard->value == 1) {
+                    return $this->redirect(['action' => 'wadd', 'install_type' => $install_type]);
+                } else {
+                    return $this->redirect(['action' => 'index']);
+                }
+            }
+            $this->Flash->error(__('Unable to add the user.'));
+            */
+        }
+
+        $this->set('profiles',$profiles);
+        $this->set('user', $user);
         $this->viewBuilder()->setLayout('wizard');
     }
 
@@ -529,6 +599,7 @@ class UsersController extends AppController
         $this->loadModel('Config');
         $connection_default_time = $this->Config->get('connection_default_time');
         $connection_max_time = $this->Config->get('connection_max_time');
+        $cportal_allow_register = $this->Config->get('cportal_allow_register')->value;
 
         $this->loadComponent('ConnectionDuration');
         $duration_list = $this->ConnectionDuration->GetDurationList();
@@ -555,6 +626,7 @@ class UsersController extends AppController
         $this->set('connection_default_time', $connection_default_time);
         $this->set('connection_max_time', $connection_max_time);
         $this->set('duration_list', $duration_list);
+        $this->set('cportal_allow_register', $cportal_allow_register);
         $this->viewBuilder()->setLayout('loginlte');
     }
 

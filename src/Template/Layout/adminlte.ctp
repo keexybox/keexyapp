@@ -199,7 +199,7 @@ desired effect
             <li><a href="/blacklist"><i class="fa fa-minus-circle"></i><?= __('Blacklist') ?></a></li>
             <li><a href="/profiles"><i class="fa fa-sliders"></i><?= __('Profiles') ?></a></li>
             <li><a href="/users"><i class="fa fa-user"></i><?= __('Users') ?></a></li>
-            <li><a href="/devices"><i class="fa fa-mobile"></i><?= __('Devices') ?></a></li>
+            <li><a href="/devices"><i class="fa fa-tablet"></i><?= __('Devices') ?></a></li>
           </ul>
         </li>
 
@@ -214,6 +214,7 @@ desired effect
             <li><a href="/config/datetime"><i class="fa fa-clock-o"></i><?= __('Date and time') ?></a></li>
             <li><a href="/config/dhcp"><i class="fa fa-server"></i><?= __('DHCP') ?></a></li>
             <li><a href="/config/wifiap"><i class="fa fa-wifi"></i><?= __('Access Point') ?></a></li>
+            <li><a href="/config/captiveportal"><i class="fa fa-road"></i><?= __('Captive Portal') ?></a></li>
             <li><a href="/config/certificate"><i class="fa fa-certificate"></i><?= __('SSL Certificate') ?></a></li>
             <li><a href="/config/misc"><i class="fa fa-cog"></i><?= __('Miscellaneous') ?></a></li>
           </ul>
