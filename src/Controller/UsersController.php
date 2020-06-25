@@ -28,6 +28,7 @@ use Cake\Cache\Cache;
 use App\Controller\AppController;
 use Cake\Event\Event;
 use Cake\Network\Exception\NotFoundException;
+use Cake\I18n\Time;
 
 /**
  * This class allows to manage users
@@ -248,6 +249,7 @@ class UsersController extends AppController
 
         $cportal_register_code = $this->Config->get('cportal_register_code')->value;
         $cportal_default_profile_id = $this->Config->get('cportal_default_profile_id')->value;
+        $cportal_register_expiration = $this->Config->get('cportal_register_expiration')->value;
 
         // Create new user object
         $user = $this->Users->newEntity();
@@ -261,7 +263,10 @@ class UsersController extends AppController
             $user_data['enabled'] = 1;
             $user_data['admin'] = 0;
             $user_data['profile_id'] = $cportal_default_profile_id;
+            $datetime = new Time('+7 days');
+            $user_data['expiration'] = $datetime->timezone('GMT')->format('Y-m-d H:i:s');
 
+            // Only save user if entered registration code match with the one set by admin
             if ($cportal_register_code == $user_data['registration_code']) {
                 $user = $this->Users->patchEntity($user, $user_data);
                 if ($this->Users->save($user)) {
