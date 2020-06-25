@@ -84,7 +84,7 @@ CREATE TABLE `connections_history` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `id` (`id`),
   KEY `end_time` (`end_time`)
-) ENGINE=InnoDB AUTO_INCREMENT=78 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=80 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -210,7 +210,7 @@ CREATE TABLE `profiles` (
   `created` datetime DEFAULT NULL,
   `modified` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=38 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=40 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 ALTER DATABASE `keexybox` CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci ;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
@@ -284,7 +284,7 @@ CREATE TABLE `profiles_ipfilters` (
   `target` varchar(6) COLLATE utf8mb4_unicode_ci NOT NULL,
   `enabled` tinyint(1) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -352,15 +352,17 @@ CREATE TABLE `users` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `username` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `displayname` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `email` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `password` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `lang` varchar(5) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'en_US',
   `profile_id` int(11) DEFAULT NULL,
   `enabled` tinyint(1) NOT NULL,
   `admin` tinyint(1) NOT NULL,
+  `expiration` datetime DEFAULT NULL,
   `created` datetime DEFAULT NULL,
   `modified` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=25 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 ALTER DATABASE `keexybox` CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci ;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
@@ -444,4 +446,4 @@ ALTER DATABASE `keexybox` CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci ;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-04-10 10:53:55
+-- Dump completed on 2020-06-25  3:41:53

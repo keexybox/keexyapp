@@ -245,6 +245,10 @@ class UsersController extends AppController
         // Get default language to sugest if as default language
         $this->loadModel('Config');
         $locale = $this->Config->get('locale')->value;
+
+        $cportal_register_code = $this->Config->get('cportal_register_code')->value;
+        $cportal_default_profile_id = $this->Config->get('cportal_default_profile_id')->value;
+
         // Create new user object
         $user = $this->Users->newEntity();
         // preset language
@@ -252,33 +256,27 @@ class UsersController extends AppController
 
         if ($this->request->is('post')) {
             $user_data = $this->request->getData();
-            debug($user_data);
 
-            $user = $this->Users->patchEntity($user, $this->request->data);
-            /*
-            if ($this->Users->save($user)) {
-                $this->Flash->success(__('The user has been added successfully.'));
+            // Add more information to create the user
+            $user_data['enabled'] = 1;
+            $user_data['admin'] = 0;
+            $user_data['profile_id'] = $cportal_default_profile_id;
 
-                // Only use for wizard config
-                $run_wizard = $this->Config->get('run_wizard');
-                $install_type = null;
-                if (null !== $this->request->getQuery('install_type')) {
-                    $install_type = $this->request->getQuery('install_type');
+            if ($cportal_register_code == $user_data['registration_code']) {
+                $user = $this->Users->patchEntity($user, $user_data);
+                if ($this->Users->save($user)) {
+                    $this->Flash->success(__('Registration successfull.'));
+                    return $this->redirect(['action' => 'login']);
                 }
-
-                if ($run_wizard->value == 1) {
-                    return $this->redirect(['action' => 'wadd', 'install_type' => $install_type]);
-                } else {
-                    return $this->redirect(['action' => 'index']);
-                }
+                $this->Flash->error(__('Unable to register.')." ".__('Please try again.'));
+            } else {
+                $this->Flash->error(__('Registration code is wrong.')." ".__('Please try again.'));
             }
-            $this->Flash->error(__('Unable to add the user.'));
-            */
         }
 
         $this->set('profiles',$profiles);
         $this->set('user', $user);
-        $this->viewBuilder()->setLayout('wizard');
+        $this->viewBuilder()->setLayout('connection_view');
     }
 
     /*
