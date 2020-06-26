@@ -160,6 +160,12 @@ class UsersController extends AppController
             }
         }
 
+        // Get timezone
+        $this->loadModel('Config');
+        $timezone = $this->Config->get('host_timezone');
+        $timezone = $timezone['value'];
+        $this->set('timezone', $timezone);
+
         $this->set('users', $this->paginate($users));
         $this->loadModel('Profiles');
         $profiles = $this->Profiles->find('list');
@@ -192,7 +198,15 @@ class UsersController extends AppController
         $user->lang = $locale;
 
         if ($this->request->is('post')) {
-            $user = $this->Users->patchEntity($user, $this->request->data);
+            $user_data = $this->request->getData();
+
+            if (null != $user_data['expiration']) {
+                $datetime = new Time($user_data['expiration']);
+                $user_data['expiration'] = $datetime->timezone('GMT')->format('Y-m-d H:i:s');
+            }
+
+            $user = $this->Users->patchEntity($user, $user_data);
+
             if ($this->Users->save($user)) {
                 $this->Flash->success(__('The user has been added successfully.'));
 
@@ -211,6 +225,12 @@ class UsersController extends AppController
             }
             $this->Flash->error(__('Unable to add the user.'));
         }
+
+        // Set language for datetime picker
+        $lang = $this->request->session()->read('Config.language');
+        $datetime_picker_locale = explode('_', $lang);
+        $datetime_picker_locale = $datetime_picker_locale[0];
+        $this->set('datetime_picker_locale', $datetime_picker_locale);
 
         $this->set('profiles',$profiles);
         $this->set('user', $user);
@@ -263,7 +283,7 @@ class UsersController extends AppController
             $user_data['enabled'] = 1;
             $user_data['admin'] = 0;
             $user_data['profile_id'] = $cportal_default_profile_id;
-            $datetime = new Time('+7 days');
+            $datetime = new Time('+'. $cportal_register_expiration . ' days');
             $user_data['expiration'] = $datetime->timezone('GMT')->format('Y-m-d H:i:s');
 
             // Only save user if entered registration code match with the one set by admin
@@ -307,26 +327,35 @@ class UsersController extends AppController
 
         if ($this->request->is(['post', 'put'])) {
 
+            $user_data = $this->request->getData();
+
+            if (isset($user_data['expiration'])) {
+                if (null != $user_data['expiration']) {
+                    $datetime = new Time($user_data['expiration']);
+                    $user_data['expiration'] = $datetime->timezone('GMT')->format('Y-m-d H:i:s');
+                }
+            }
+
             $old_profile_id = $user['profile_id'];
 
             // Update password if a new one has been entered
-            if($this->request->data['new_password'] != '') {
-                $this->request->data['password'] = $this->request->data['new_password'];
-                $this->request->data['confirm_password'] = $this->request->data['new_confirm_password'];
-                unset($this->request->data['new_password']);
-                unset($this->request->data['new_confirm_password']);
+            if($user_data['new_password'] != '') {
+                $user_data['password'] = $user_data['new_password'];
+                $user_data['confirm_password'] = $user_data['new_confirm_password'];
+                unset($user_data['new_password']);
+                unset($user_data['new_confirm_password']);
             } else {
-                unset($this->request->data['new_password']);
-                unset($this->request->data['new_confirm_password']);
+                unset($user_data['new_password']);
+                unset($user_data['new_confirm_password']);
             }
 
             // If an updated is done for user id 1, admin access and account are forced to enable
             if($user['id'] == 1) {
-                $this->request->data['enable'] = 1;
-                $this->request->data['admin'] = 1;
+                $user_data['enable'] = 1;
+                $user_data['admin'] = 1;
             }
 
-            $this->Users->patchEntity($user, $this->request->data);
+            $this->Users->patchEntity($user, $user_data);
 
             if ($this->Users->save($user)) {
                 $this->Flash->success(__('The user has been updated successfully.'));
@@ -342,6 +371,18 @@ class UsersController extends AppController
                 $this->Flash->error(__('Unable to update the user.'));
             }
         }
+
+        // Get timezone
+        $this->loadModel('Config');
+        $timezone = $this->Config->get('host_timezone');
+        $timezone = $timezone['value'];
+        $this->set('timezone', $timezone);
+
+        // Set language for datetime picker
+        $lang = $this->request->session()->read('Config.language');
+        $datetime_picker_locale = explode('_', $lang);
+        $datetime_picker_locale = $datetime_picker_locale[0];
+        $this->set('datetime_picker_locale', $datetime_picker_locale);
 
         // Tranfert result to the View
         $this->set('user', $user);

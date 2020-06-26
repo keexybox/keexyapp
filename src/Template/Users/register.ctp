@@ -22,12 +22,12 @@
            ?>
         </div>
         <div class="form-group">
-          <label for="inputUser"><?= __('Email') ?></label>
-          <?= $this->Form->control('usermail', [
+          <label for="inputEmail"><?= __('Email') ?></label>
+          <?= $this->Form->control('email', [
               'label' => false,
               'class' => "form-control",
-              'id' => "inputUser",
-              'placeholder' => __("Email"),
+              'id' => "inputEmail",
+              'placeholder' => __("@"),
               ]);
           ?>
         </div>

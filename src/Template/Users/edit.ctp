@@ -22,6 +22,21 @@
               ?>
           </div>
           <div class="form-group">
+            <label for="inputEmail"><?= __('Email') ?></label>
+            <div class="input-group">
+              <div class="input-group-addon">
+                <i class="fa fa-envelope"></i>
+              </div>
+              <?= $this->Form->control('email', [
+                'label' => false,
+                'class' => "form-control",
+                'id' => "inputEmail",
+                'placeholder' => __("@"),
+              ]);
+              ?>
+            </div>
+          </div>
+          <div class="form-group">
             <label for="inputUser"><?= __('Login') ?></label>
               <?= $this->Form->control('username', [
                 'label' => false,
@@ -77,6 +92,7 @@
             ?>
           </div>
 
+
           <?php if($user->id == 1): ?>
           <div class="checkbox">
             <label>
@@ -99,23 +115,46 @@
             </label>
           </div>
           <?php else: ?>
-          <div class="checkbox">
-            <label>
-              <?= $this->Form->control('enabled', [
-                'type' => 'checkbox',
-                'label' => __("Enable"),
-                ])
+            <?php if ( $user->expiration != null ) {
+                $expiration = $user->expiration->timezone($timezone)->format('Y-m-d H:i:s');
+            } else {
+                $expiration = null;
+            }
+            ?>
+	        <label for="expiration_datepicker"><?=  __('Expiration').' '.__('(for no expiration, leave blank.)') ?></label>
+            <div class="input-group">
+              <div class="input-group-addon">
+                 <i class="fa fa-clock-o"></i>
+              </div>
+              <?= $this->Form->control('expiration', [
+                     'id' => 'expiration_datepicker',
+                     'type' => 'text',
+                     'label' => false,
+                     'class' => "form-control pull-right",
+                     'placeholder' => null,
+                     'value' => $expiration,
+                     //'value' => $display_begin_date->timezone('Indian/Reunion'),
+                     ]);
               ?>
-            </label>
-            <label>
-              <?= $this->Form->control('admin', [
-                'type' => 'checkbox',
-                'label' => __("Admin"),
-                ])
-              ?>
-            </label>
+            </div>
+            <div class="checkbox">
+              <label>
+                <?= $this->Form->control('enabled', [
+                  'type' => 'checkbox',
+                  'label' => __("Enable"),
+                  ])
+                ?>
+              </label>
+              <label>
+                <?= $this->Form->control('admin', [
+                  'type' => 'checkbox',
+                  'label' => __("Admin"),
+                  ])
+                ?>
+              </label>
 			</div>
           <?php endif; ?>
+
         </div>
         <!-- /.box-body -->
 
@@ -142,3 +181,11 @@
 	 </div><!-- /.box -->
   </div><!-- /.col -->
 </div><!-- /.row -->
+<script>
+	$( function() {
+	    $( "#expiration_datepicker" ).datetimepicker({
+				format: "YYYY-MM-DD HH:mm:ss",
+				locale: "<?= $datetime_picker_locale ?>",
+				});
+	} );
+</script>

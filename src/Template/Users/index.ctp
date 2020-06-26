@@ -55,8 +55,10 @@
           <th><?= $this->Paginator->sort('displayname', __('Display name')) ?></th>
           <th><?= $this->Paginator->sort('username', __('Login')) ?></th>
           <th><?= $this->Paginator->sort('profile_id', __('Profile')) ?></th>
+          <th><?= $this->Paginator->sort('email', __('Email')) ?></th>
           <th><?= $this->Paginator->sort('enabled', __('Enabled')) ?></th>
           <th><?= $this->Paginator->sort('admin', __('Admin')) ?></th>
+          <th><?= $this->Paginator->sort('expiration', __('Expiration')) ?></th>
           <th class="actions"><?= __('Actions') ?></th>
         </tr>
       </thead>
@@ -75,6 +77,9 @@
           </td>
           <td>
             <?= $this->Html->link($user->profile->profilename, ['controller' => 'profiles', 'action' => 'edit', $user->profile->id]) ?>
+          </td>
+          <td>
+            <?= $this->Html->link($user->email, 'mailto:'.$user->email) ?>
           </td>
           <td>
             <?= h($user->enabled) ? 
@@ -104,6 +109,11 @@
                   'title' => __("No"),
               ])
             ?>
+          </td>
+          <td>
+            <?php if ( $user->expiration != null ): ?>
+                <?= $user->expiration->timezone($timezone)->format('Y-m-d H:i:s') ?>
+            <?php endif ?>
           </td>
           <td>
             <?= $this->Html->link(
