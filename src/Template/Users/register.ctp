@@ -23,13 +23,18 @@
         </div>
         <div class="form-group">
           <label for="inputEmail"><?= __('Email') ?></label>
-          <?= $this->Form->control('email', [
+          <div class="input-group">
+            <div class="input-group-addon">
+              <i class="fa fa-envelope"></i>
+            </div>
+            <?= $this->Form->control('email', [
               'label' => false,
               'class' => "form-control",
               'id' => "inputEmail",
               'placeholder' => __("@"),
-              ]);
-          ?>
+            ]);
+            ?>
+          </div>
         </div>
         <div class="form-group">
           <label for="inputUser"><?= __('Login') ?></label>

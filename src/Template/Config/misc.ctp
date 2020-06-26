@@ -55,65 +55,36 @@
           </label>
         </div>
 
-        <legend><?= __('User and device options') ?></legend>
-        <div class="form-group">
-          <label for="input_connection_default_time"><?= __('Default user connection time') ?></label>
-          <?= $this->Form->control('connection_default_time', [
-                'label' => false,
-                'type' => 'select', 
-                'value' => $connection_default_time['value'] / 60,
-                'id' => "input_connection_default_time",
-                'class' => "form-control",
-                'options' => $avail_durations,
-                ])
-          ?>
-          <?= $this->Flash->render('error_connection_default_time')?>
-        </div>
-    
-        <div class="form-group">
-          <label for="input_locale"><?= __('Default language for users and devices') ?></label>
-          <?= $this->Form->control('locale', [
-                'label' => false,
-                'type' => 'select', 
-                'options' => $avail_languages,
-                'id' => "input_locale",
-                'class' => "form-control",
-                'default' => $locale->value,
-                ])
-          ?>
-        
-        </div>
-
         <legend><?= __('Log options') ?></legend>
         <div class="form-group">
-          <label for="input_connection_default_time"><?= __('Maximum retention of logs in database (days)') ?></label>
+          <label for="input_log_db_retention"><?= __('Maximum retention of logs in database (days)') ?></label>
               <?= $this->Form->control('log_db_retention', [
                   'label' => false,
                   'type' => 'number', 
                   'min' => 1, 
                   //'max' => 8760,
                   'value' => $log_db_retention['value'],
-                  'id' => "input_connection_default_time",
+                  'id' => "input_log_db_retention",
                   'class' => "form-control",
                   //'style' => "width: 5em",
                 ])
               ?>
-          <?= $this->Flash->render('error_connection_default_time')?>
+          <?= $this->Flash->render('error_log_db_retention')?>
 		</div>
         <div class="form-group">
-          <label for="input_connection_default_time"><?= __('Maximum retention of logs on the hard drive (days)') ?></label>
+          <label for="input_log_retention"><?= __('Maximum retention of logs on the hard drive (days)') ?></label>
               <?= $this->Form->control('log_retention', [
                   'label' => false,
                   'type' => 'number', 
                   'min' => 1, 
                   //'max' => 8760,
                   'value' => $log_retention['value'],
-                  'id' => "input_connection_default_time",
+                  'id' => "input_log_retention",
                   'class' => "form-control",
                   //'style' => "width: 5em",
                 ])
               ?>
-          <?= $this->Flash->render('error_connection_default_time')?>
+          <?= $this->Flash->render('error_log_retention')?>
 		</div>
       </div>
       <!-- /.box-body -->

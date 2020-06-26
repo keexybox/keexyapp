@@ -1206,20 +1206,12 @@ class ConfigController extends AppController
     {
         // List of params to load
         //$params = array('dns_expiration_delay', 'connection_default_time', 'connection_max_time', 'log_db_retention', 'log_retention', 'bind_use_redirectors', 'locale');
-        $params = array('dns_expiration_delay', 'connection_default_time', 'log_db_retention', 'log_retention', 'bind_use_redirectors', 'locale');
+        $params = array('dns_expiration_delay', 'log_db_retention', 'log_retention', 'bind_use_redirectors');
 
         // Load params
         foreach($params as $param) {
             $$param = $this->Config->get($param, ['contain' => []]);
         }
-
-        // Set list of available languages
-        $this->loadComponent('Lang');
-        $this->set('avail_languages', $this->Lang->ListLanguages());
-
-        // Set list of available durations
-        $this->loadComponent('ConnectionDuration');
-        $this->set('avail_durations', $this->ConnectionDuration->GetDurationList());
 
         if($this->request->is('post')) {
             // Return code to know if all field are validated
@@ -1241,15 +1233,6 @@ class ConfigController extends AppController
                 $rc = 1;
             } 
             
-            // Set and validate new value for connection_default_time
-            $data_connection_default_time = ['value' => $this->request->data['connection_default_time'] * 60];
-
-            $connection_default_time = $this->Config->patchEntity($connection_default_time, $data_connection_default_time);
-
-            // Set default language
-            $data_locale = ['value' => $this->request->data['locale']];
-            $data_locale = $this->Config->patchEntity($locale, $data_locale);
-
             // Set and validate new value for log_db_retention
             $data_log_db_retention = ['value' => $this->request->data['log_db_retention']];
 
@@ -1258,9 +1241,9 @@ class ConfigController extends AppController
                     ['validate' => 'logs_retention']
                     );
 
-            if($connection_default_time->errors()) {
+            if($log_db_retention->errors()) {
                 $this->Flash->set(__('Invalid log retention value'), [ 
-                        'key' => 'error_connection_default_time',
+                        'key' => 'error_log_db_retention',
                         'element' => 'custom_error' ]
                     );
                 $rc = 1;
@@ -1274,9 +1257,9 @@ class ConfigController extends AppController
                     ['validate' => 'logs_retention']
                     );
 
-            if($connection_default_time->errors()) {
+            if($log_retention->errors()) {
                 $this->Flash->set(__('Invalid log retention value'), [ 
-                        'key' => 'error_connection_default_time',
+                        'key' => 'error_log_retention',
                         'element' => 'custom_error' ]
                     );
                 $rc = 1;
@@ -1289,7 +1272,7 @@ class ConfigController extends AppController
 
             if($data_bind_use_redirectors->errors()) {
                 $this->Flash->set(__('Unable to set DNS redirectors'), [ 
-                        'key' => 'error_connection_default_time',
+                        'key' => 'error_bind_use_redirectors',
                         'element' => 'custom_error' ]
                     );
                 $rc = 1;
