@@ -788,6 +788,7 @@ class ProfilesController extends AppController
     {
         $this->loadModel('Users');
         $this->loadModel('Devices');
+        $this->loadModel('Config');
 
         // Allow only HTTP methode POST DELETE
         $this->request->allowMethod(['post', 'delete']);
@@ -822,6 +823,14 @@ class ProfilesController extends AppController
                         $DevicesController->connect($device['devicename']);
                     }
                 }
+                
+                //RESET CAPTIVE PORTAL DEFAULT PROFILE IF WERE SET ON DELETED PROFILE
+                $cportal_default_profile_id = $this->Config->get('cportal_default_profile_id');
+                if ($cportal_default_profile_id->value == $id) {
+                    $this->Config->patchEntity($cportal_default_profile_id, [ 'value' => 1 ]);
+                    $this->Config->save($cportal_default_profile_id);
+                }
+
 
                 // REMOVE BIND CONFIGURATION 
                 exec($this->kxycmd("config bind remove_profile ".$profile['id']), $output, $rc);
