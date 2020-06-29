@@ -67,7 +67,7 @@
                   'label' => false,
                   'type' => 'number', 
                   'min' => 1, 
-                  //'max' => 8760,
+                  'max' => 3650,
                   'value' => $cportal_register_expiration,
                   'id' => "input_cportal_register_expiration",
                   'class' => "form-control",
