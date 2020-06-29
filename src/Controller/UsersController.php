@@ -630,6 +630,7 @@ class UsersController extends AppController
         $active_connection = $this->ActivesConnections->find('all', ['conditions' => [
             'ip' => $ip
         ]])->first();
+
         if(isset($active_connection)) {
             return $this->redirect(['controller' => 'Connections', 'action' => 'view']);
         }
@@ -644,16 +645,44 @@ class UsersController extends AppController
 
         // Login and connection process
         if ($this->request->is('post')) {
-            
+
             // Identify user
             $user = $this->Auth->identify();
             // If user identified
             if ($user) {
-                // Connect user to internet
-                $username = $this->request->data['username'];
-                $session_time = $this->request->data['sessiontime'];
 
-                $this->connect($username, $session_time);
+                // Get current datetime
+                $current_datetime = new Time();
+                $current_datetime = $current_datetime->timezone('GMT')->format('Y-m-d H:i:s');
+
+                // Get expiration datetime of user
+                $user_expiration = null;
+                if (isset($user['expiration'])) {
+                    $user_expiration = new Time($user['expiration']);
+                    $user_expiration = $user_expiration->format('Y-m-d H:i:s');
+                };
+
+                // Check if expiration is set for the user, or if the account has expired
+                if ($user_expiration == null) {
+                    $connect_user = true;    
+                } else {
+                    if ($user_expiration > $current_datetime) {
+                        $connect_user = true;    
+                    } else {
+                        $connect_user = false;    
+                    }
+                }
+
+                if ($connect_user) {
+                    $user_data = $this->request->getData();
+                    $username = $user_data['username'];
+                    $session_time = $user_data['sessiontime'];
+
+                    // Connect user to internet
+                    $this->connect($username, $session_time);
+                } else {
+                    $this->Flash->error(__('Your account has expired.'));
+                }
 
                 return $this->redirect(['controller' => 'Connections', 'action' => 'view']);
             } else {

@@ -30,6 +30,21 @@
            ?>
         </div>
         <div class="form-group">
+          <label for="inputEmail"><?= __('Email') ?></label>
+          <div class="input-group">
+            <div class="input-group-addon">
+              <i class="fa fa-envelope"></i>
+            </div>
+            <?= $this->Form->control('email', [
+              'label' => false,
+              'class' => "form-control",
+              'id' => "inputEmail",
+              'placeholder' => __("@"),
+            ]);
+            ?>
+          </div>
+        </div>
+        <div class="form-group">
           <label for="inputUser"><?= __('Login') ?></label>
           <?= $this->Form->control('username', [
               'label' => false,
@@ -84,6 +99,20 @@
           ]);
           ?>
         </div>
+	    <label for="expiration_datepicker"><?=  __('Expiration').' '.__('(for no expiration, leave blank.)') ?></label>
+        <div class="input-group">
+          <div class="input-group-addon">
+             <i class="fa fa-calendar"></i>
+          </div>
+          <?= $this->Form->control('expiration', [
+                 'id' => 'expiration_datepicker',
+                 'type' => 'text',
+                 'label' => false,
+                 'class' => "form-control pull-right",
+                 'placeholder' => null,
+                 ]);
+          ?>
+        </div>
         <div class="checkbox">
           <label>
             <?= $this->Form->control('enabled', [
@@ -121,6 +150,14 @@
 	</div><!-- /.box -->
   </div><!-- /.col -->
 </div><!-- /.row -->
+<script>
+	$( function() {
+	    $( "#expiration_datepicker" ).datetimepicker({
+				format: "YYYY-MM-DD HH:mm:ss",
+				locale: "<?= $datetime_picker_locale ?>",
+				});
+	} );
+</script>
 <script>
 var urlParams = new URLSearchParams(location.search);
 var install_type = urlParams.get('install_type');
