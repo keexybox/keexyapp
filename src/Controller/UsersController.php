@@ -55,6 +55,8 @@ class UsersController extends AppController
         $cportal_register_allowed = $this->Config->get('cportal_register_allowed')->value;
         if ($cportal_register_allowed == 1) {
             array_push($allowed_pages, 'register');
+        } elseif ($cportal_register_allowed == 2) {
+            array_push($allowed_pages, 'fastlogin');
         }
 
         //No login required for following pages
@@ -623,6 +625,86 @@ class UsersController extends AppController
      * @return void
      */
     public function login()
+    {
+        // check if user is already connected and redirect to ActivesConnections/view
+        $this->loadModel('ActivesConnections');
+        $ip = env('REMOTE_ADDR');
+        $active_connection = $this->ActivesConnections->find('all', ['conditions' => [
+            'ip' => $ip
+        ]])->first();
+
+        if(isset($active_connection)) {
+            return $this->redirect(['controller' => 'Connections', 'action' => 'view']);
+        }
+
+        $this->loadModel('Config');
+        $connection_default_time = $this->Config->get('connection_default_time');
+        $connection_max_time = $this->Config->get('connection_max_time');
+        $cportal_register_allowed = $this->Config->get('cportal_register_allowed')->value;
+
+        $this->loadComponent('ConnectionDuration');
+        $duration_list = $this->ConnectionDuration->GetDurationList();
+
+        // Login and connection process
+        if ($this->request->is('post')) {
+
+            // Identify user
+            $user = $this->Auth->identify();
+            // If user identified
+            if ($user) {
+
+                // Get current datetime
+                $current_datetime = new Time();
+                $current_datetime = $current_datetime->timezone('GMT')->format('Y-m-d H:i:s');
+
+                // Get expiration datetime of user
+                $user_expiration = null;
+                if (isset($user['expiration'])) {
+                    $user_expiration = new Time($user['expiration']);
+                    $user_expiration = $user_expiration->format('Y-m-d H:i:s');
+                };
+
+                // Check if expiration is set for the user, or if the account has expired
+                if ($user_expiration == null) {
+                    $connect_user = true;    
+                } else {
+                    if ($user_expiration > $current_datetime) {
+                        $connect_user = true;    
+                    } else {
+                        $connect_user = false;    
+                    }
+                }
+
+                if ($connect_user) {
+                    $user_data = $this->request->getData();
+                    $username = $user_data['username'];
+                    $session_time = $user_data['sessiontime'];
+
+                    // Connect user to internet
+                    $this->connect($username, $session_time);
+                } else {
+                    $this->Flash->error(__('Your account has expired.'));
+                }
+
+                return $this->redirect(['controller' => 'Connections', 'action' => 'view']);
+            } else {
+                $this->Flash->error(__('Incorrect login or password.')." ".__('Please try again.'));
+            }
+        }
+        //$this->set('lang', $this->lang);
+        $this->set('connection_default_time', $connection_default_time);
+        $this->set('connection_max_time', $connection_max_time);
+        $this->set('duration_list', $duration_list);
+        $this->set('cportal_register_allowed', $cportal_register_allowed);
+        $this->viewBuilder()->setLayout('loginlte');
+    }
+
+    /**
+     * Authenticate user and connect him to Internet (by running $this->connect() method) 
+     *
+     * @return void
+     */
+    public function fastlogin()
     {
         // check if user is already connected and redirect to ActivesConnections/view
         $this->loadModel('ActivesConnections');

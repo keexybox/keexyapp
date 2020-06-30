@@ -1122,7 +1122,7 @@ class ConfigController extends AppController
     {
         // List of params to load
         //$params = array('dns_expiration_delay', 'connection_default_time', 'connection_max_time', 'log_db_retention', 'log_retention', 'bind_use_redirectors', 'locale');
-        $params = array('connection_default_time', 'locale', 'cportal_register_allowed', 'cportal_register_code', 'cportal_register_expiration', 'cportal_default_profile_id');
+        $params = array('connection_default_time', 'locale', 'cportal_register_allowed', 'cportal_register_code', 'cportal_register_expiration', 'cportal_default_profile_id', 'cportal_default_user_id');
 
         // Load params
         foreach($params as $setting) {
@@ -1144,6 +1144,10 @@ class ConfigController extends AppController
         $this->loadModel('Profiles');
         $profiles = $this->Profiles->find('list');
 
+        // Set list of users
+        $this->loadModel('Users');
+        $users = $this->Users->find('list');
+
 
         if($this->request->is('post')) {
 
@@ -1158,20 +1162,21 @@ class ConfigController extends AppController
                 //debug($param);
                 // Prepare data to commit
                 $data = ['value' => $value];
-                // Check data
+
+                // Manage some exceptions
                 if ( $param == 'connection_default_time' ) {
                     $data = ['value' => $value * 60];
                 }
-                //debug($data);
-                $$param = $this->Config->patchEntity($$param, $data);
+
+                // Validate Data
+                if ($param == 'cportal_register_code') {
+                    $$param = $this->Config->patchEntity($$param, $data, ['validate' => 'regcode']);
+                } else {
+                    $$param = $this->Config->patchEntity($$param, $data);
+                }
 
                 // Count error
                 if($$param->errors()) {
-                    /*
-                    $this->Flash->set(__($$param->errors()['value']['hostapd']), [
-                        'key' => 'error_'.$param,
-                        'element' => 'custom_error' ]);
-                    */
                     $validation_errors++;
                 }
             }
@@ -1193,6 +1198,7 @@ class ConfigController extends AppController
         }
 
         $this->set('profiles', $profiles);
+        $this->set('users', $users);
 
         $this->viewBuilder()->setLayout('adminlte');
     }

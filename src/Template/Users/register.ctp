@@ -80,7 +80,7 @@
           ?>
         </div>
         <div class="form-group">
-          <label for="inputRegCode"><?= __('Registration Code') ?></label>
+          <label for="inputRegCode"><?= __('Registration Code')." ".__('(leave blank if not required)') ?></label>
           <?= $this->Form->control('registration_code', [
              'label' => false,
              'id' => "inputRegCode",

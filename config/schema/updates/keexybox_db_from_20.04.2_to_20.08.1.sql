@@ -24,7 +24,8 @@ INSERT INTO `config` VALUES ('hostapd_wpa_passphrase','KeexyBox974','setting','W
 ALTER TABLE users ADD COLUMN email VARCHAR(255) AFTER displayname;
 ALTER TABLE users ADD COLUMN expiration datetime AFTER admin;
 ALTER TABLE users ADD COLUMN lastlogin datetime AFTER expiration;
-INSERT INTO config (param, value, type, description) VALUES ('cportal_default_profile_id', 1, 'setting', 'Profile to use for registred user or fast login');
+INSERT INTO config (param, value, type, description) VALUES ('cportal_default_profile_id', 1, 'setting', 'Profile to use for user registration');
+INSERT INTO config (param, value, type, description) VALUES ('cportal_default_user_id', 1, 'setting', 'User to use for fast login');
 INSERT INTO config (param, value, type, description) VALUES ('cportal_register_code', 'REGCODE', 'setting', 'Code to allow user to register himself on Captive Portal');
 INSERT INTO config (param, value, type, description) VALUES ('cportal_register_allowed', 0, 'setting', 'Allows the user to register himself on Captive Portal - 0=disable, 1=enable, 2=allow internet without registration');
 INSERT INTO config (param, value, type, description) VALUES ('cportal_register_expiration', 7, 'setting', 'Number of days until account expires when register');

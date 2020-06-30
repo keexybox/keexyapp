@@ -14,7 +14,6 @@
       <?= $this->Form->create('config') ?>
       <div class="box-body">
 
-        <legend><?= __('Internet access options') ?></legend>
         <div class="form-group">
           <label for="input_connection_default_time"><?= __('Default user connection time') ?></label>
           <?= $this->Form->control('connection_default_time', [
@@ -42,65 +41,81 @@
           ?>
         </div>
 
-
-        <legend><?= __('Registration') ?></legend>
         <div class="form-group">
-          <label for="input_locale"><?= __('Allow registration') ?></label>
+          <label for="input_locale"><?= __('Internet access conditions') ?></label>
           <?= $this->Form->control('cportal_register_allowed', [
                 'label' => false,
                 'type' => 'select',
                 'options' => [ 
-                    0 => __('Disable'), 
-                    1 => __('Enable'),
-                    2 => __('Internet access without registration'),
+                    0 => __('Private'), 
+                    1 => __('Registration'),
+                    2 => __('Free'),
                     ],
                 'class' => "form-control",
+                'id' => 'cportal_register_allowed',
                 //'label' => __('Allow users to register'),
                 'default' => $cportal_register_allowed
                 ])
           ?>
         </div>
 
-        <div class="form-group">
-          <label for="input_cportal_register_expiration"><?= __('Duration of registration (days)') ?></label>
-              <?= $this->Form->control('cportal_register_expiration', [
-                  'label' => false,
-                  'type' => 'number', 
-                  'min' => 1, 
-                  'max' => 3650,
-                  'value' => $cportal_register_expiration,
-                  'id' => "input_cportal_register_expiration",
-                  'class' => "form-control",
-                  //'style' => "width: 5em",
-                ])
-              ?>
-          <?= $this->Flash->render('error_cportal_register_expiration')?>
-		</div>
+        <div id="reg_1" class="dynform" style="display:none">
+          <div class="form-group">
+            <label for="input_cportal_register_expiration"><?= __('Duration of registration (days)') ?></label>
+            <?= $this->Form->control('cportal_register_expiration', [
+                    'label' => false,
+                    'type' => 'number', 
+                    'min' => 1, 
+                    'max' => 3650,
+                    'value' => $cportal_register_expiration,
+                    'id' => "input_cportal_register_expiration",
+                    'class' => "form-control",
+                    //'style' => "width: 5em",
+                  ])
+            ?>
+            <?= $this->Flash->render('error_cportal_register_expiration')?>
+          </div>
+  
+          <div class="form-group">
+            <label for="input_cportal_register_code"><?= __('Registration Code')." ".__('(leave blank if not required)') ?></label>
+            <?= $this->Form->control('cportal_register_code',[
+                'label' => false,
+                'default' => $cportal_register_code,
+                'id' => "cportal_register_code",
+                'class' => "form-control",
+              ])
+            ?>
+  		    <?= $this->Flash->render('error_cportal_register_code')?>
+  		  </div>
+  
+          <div class="form-group">
+            <label for="inputProfile"><?= __('Profile to set for new registred users') ?></label>
+            <?= $this->Form->control('cportal_default_profile_id', [
+                'type' => 'select',
+                'label' => false,
+                'options' => $profiles,
+                'value' => $cportal_default_profile_id,
+                'empty' => __('(select a profile)'),
+                'id' => "inputProfile",
+                'class' => "form-control input",
+                 ]);
+            ?>
+          </div>
+        </div>
 
-        <div class="form-group">
-          <label for="input_cportal_register_code"><?= __('Registration Code') ?></label>
-          <?= $this->Form->control('cportal_register_code',[
-              'label' => false,
-              'default' => $cportal_register_code,
-              'id' => "cportal_register_code",
-              'class' => "form-control",
-            ])
-          ?>
-		  <?= $this->Flash->render('error_cportal_register_code')?>
-		</div>
-
-        <div class="form-group">
-          <label for="inputProfile"><?= __('Default profile for new users') ?></label>
-          <?= $this->Form->control('cportal_default_profile_id', [
-              'type' => 'select',
-              'label' => false,
-              'options' => $profiles,
-              'value' => $cportal_default_profile_id,
-              'empty' => __('(select a profile)'),
-              'id' => "inputProfile",
-              'class' => "form-control input",
-               ]);
-          ?>
+        <div id="reg_2" class="dynform" style="display:none">
+          <div class="form-group">
+            <label for="inputProfile"><?= __('User account to use for free access') ?></label>
+            <?= $this->Form->control('cportal_default_user_id', [
+                'type' => 'select',
+                'label' => false,
+                'options' => $users,
+                'value' => $cportal_default_user_id,
+                'id' => "inputProfile",
+                'class' => "form-control input",
+                 ]);
+            ?>
+          </div>
         </div>
       </div>
       <!-- /.box-body -->
@@ -130,3 +145,13 @@
 	</div><!-- /.box -->
   </div><!-- /.col -->
 </div><!-- /.row -->
+
+<script>
+  $(document).ready(function() {
+    $('select#cportal_register_allowed').change(function() {
+      $('.dynform').hide();
+      $('#reg_' + $(this).val()).show();
+    });
+	$('#reg_' + $("select#cportal_register_allowed").val()).show();
+  });
+</script>

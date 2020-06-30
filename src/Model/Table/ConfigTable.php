@@ -42,6 +42,7 @@ class ConfigTable extends Table
             
         $validator
             ->requirePresence('value', 'create')
+            //->notEmpty('value');
             ->notEmpty('value');
 
         return $validator;
@@ -218,4 +219,21 @@ class ConfigTable extends Table
 				]);
         return $validator;
 	}
+
+    /**
+     * Registration Code validation rules.
+     *
+     * @param \Cake\Validation\Validator $validator Validator instance.
+     * @return \Cake\Validation\Validator
+     */
+    public function validationRegcode(Validator $validator)
+    {
+        // Allow blank registration Code
+        $validator
+            ->requirePresence('value', 'create')
+            ->allowEmpty('value', 'update');
+            
+        return $validator;
+    }
+
 }
