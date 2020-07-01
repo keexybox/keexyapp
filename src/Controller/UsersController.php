@@ -403,12 +403,21 @@ class UsersController extends AppController
         // Allow only HTTP methode POST DELETE
         $this->request->allowMethod(['post', 'delete']);
 
+        $this->loadModel('Config');
+
+        //RESET CAPTIVE PORTAL DEFAULT USER IF WERE SET ON DELETED USER
+        $cportal_default_user_id = $this->Config->get('cportal_default_user_id');
+        if ($cportal_default_user_id->value == $id) {
+            $this->Config->patchEntity($cportal_default_user_id, [ 'value' => 1 ]);
+            $this->Config->save($cportal_default_user_id);
+        }
+
         //Load user to delete
         $user = $this->Users->get($id);
         if($id != 1) {
             //Delete user
             if ($this->Users->delete($user)) {
-            //Message on success
+                //Message on success
                 if($this->disconnectuser($user['username'])) {
                     $this->Flash->success(__("The user {0} has been deleted.", h($user['username'])));
                     return $this->redirect(['action' => 'index']);

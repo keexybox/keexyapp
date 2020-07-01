@@ -50,7 +50,7 @@
          <a href="/tools/domain-issue" class="btn btn-app">
               <i class="fa fa-check-circle-o"></i><?= __('Domain check') ?>
          </a>
-         <a href="/tools/system-states" class="btn btn-app">
+         <a href="/tools/system-state" class="btn btn-app">
               <i class="fa fa-heartbeat"></i><?= __('System state') ?>
          </a>
          <a href="/tools/iptables-status" class="btn btn-app">
