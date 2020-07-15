@@ -635,6 +635,8 @@ class UsersController extends AppController
      */
     public function login()
     {
+       
+
         // check if user is already connected and redirect to ActivesConnections/view
         $this->loadModel('ActivesConnections');
         $ip = env('REMOTE_ADDR');
@@ -651,6 +653,11 @@ class UsersController extends AppController
         $connection_max_time = $this->Config->get('connection_max_time');
         $cportal_register_allowed = $this->Config->get('cportal_register_allowed')->value;
 
+        // If Internet Access is Free without login requirement, redirect to fastlogin page to connect
+        if ($cportal_register_allowed == 2) {
+            return $this->redirect(['controller' => 'Users', 'action' => 'fastlogin']);
+        }
+
         $this->loadComponent('ConnectionDuration');
         $duration_list = $this->ConnectionDuration->GetDurationList();
 
@@ -659,6 +666,7 @@ class UsersController extends AppController
 
             // Identify user
             $user = $this->Auth->identify();
+
             // If user identified
             if ($user) {
 
@@ -727,6 +735,13 @@ class UsersController extends AppController
         }
 
         $this->loadModel('Config');
+
+        // If Internet Access is not free, redirect to login page to connect
+        $cportal_register_allowed_value = $this->Config->get('cportal_register_allowed')->value;
+        if ($cportal_register_allowed_value == 0 OR $cportal_register_allowed_value == 1 ) {
+            return $this->redirect(['controller' => 'Users', 'action' => 'login']);
+        }
+
         $connection_default_time = $this->Config->get('connection_default_time');
         $connection_max_time = $this->Config->get('connection_max_time');
         $cportal_register_allowed = $this->Config->get('cportal_register_allowed')->value;
@@ -737,8 +752,11 @@ class UsersController extends AppController
         // Login and connection process
         if ($this->request->is('post')) {
 
-            // Identify user
-            $user = $this->Auth->identify();
+            // Load default user settings
+            $default_user_id = $this->Config->get('cportal_default_user_id')->value;
+            $user = $this->Users->get($default_user_id)->toArray();
+            unset($user['password']);
+
             // If user identified
             if ($user) {
 
@@ -765,9 +783,8 @@ class UsersController extends AppController
                 }
 
                 if ($connect_user) {
-                    $user_data = $this->request->getData();
-                    $username = $user_data['username'];
-                    $session_time = $user_data['sessiontime'];
+                    $username = $user['username'];
+                    $session_time = $this->Config->get('connection_default_time')->value / 60;
 
                     // Connect user to internet
                     $this->connect($username, $session_time);
