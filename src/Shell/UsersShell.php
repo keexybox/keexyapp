@@ -151,7 +151,7 @@ class UsersShell extends BoxShell
      * 
      * @return interger: 0 on success else it is an error
      */
-    public function Register($conn_name, $ip, $duration)
+    public function Register($conn_name, $ip, $duration, $client_details = null)
     {
         $user = $this->Users->findByUsername($conn_name)->first();
 
@@ -159,6 +159,9 @@ class UsersShell extends BoxShell
         $start_time = time();
         $duration = $duration * 60;
         $end_time = $start_time + $duration;
+
+        $arp = new ArpShell();
+        $mac = $arp->GetMac($ip);
 
         // Return code to know if user ip regestred sucessfully to load routes
         $rc = 0;
@@ -177,8 +180,10 @@ class UsersShell extends BoxShell
                     'profile_id' => $user['profile_id'],
                     'type' => 'usr',
                     'status' => 'running',
+                    'mac' => $mac,
                     'start_time' => $start_time,
                     'end_time' => $end_time,
+                    'client_details' => $client_details,
                     'display_start_time' => date('Y-m-d H:i:s', $start_time),
                     'display_end_time' => date('Y-m-d H:i:s', $end_time)
                 ];
@@ -244,7 +249,8 @@ class UsersShell extends BoxShell
                 'user_id' => $active_conn->user_id,
                 'profile_id' => $active_conn->profile_id,
                 'type' => $active_conn->type,
-                //'mac' => $active_conn->mac,
+                'mac' => $active_conn->mac,
+                'client_details' => $active_conn->client_details,
                 'start_time' => $active_conn->start_time,
                 'end_time' => $end_time,
                 'duration' => $end_time - $active_conn->start_time,
@@ -491,10 +497,13 @@ class UsersShell extends BoxShell
             $conn_name = $this->args[0];
             $ip = $this->args[1];
             $duration = $this->args[2];
+            if(isset($this->args[3])) {
+                $client_details = $this->args[3];
+            }
         }
 
         if(isset($conn_name) and isset($ip) and isset($duration)) {
-            $rc = $this->Register($conn_name, $ip, $duration);
+            $rc = $this->Register($conn_name, $ip, $duration, $client_details);
             if($rc == 0) {
                 $return = $this->EnableAccess($conn_name, $ip);
                 if($return['rc'] == 0) {

@@ -24,6 +24,7 @@ class ActivesConnection extends Entity
         'type' => true,
         'status' => true,
         'mac' => true,
+        'client_details' => true,
         'start_time' => true,
         'end_time' => true,
         'profile' => true,

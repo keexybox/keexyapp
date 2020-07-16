@@ -205,4 +205,24 @@ class ArpShell extends BoxShell
               }
         }
     }
+    /**
+     * This function gets MAC address from given IP address
+     * It is called to get MAC address of a user that connect to the Internet
+     *
+     * @return string of MAC address
+     */
+    public function GetMac($ip)
+    {
+        parent::initialize();
+        exec("$this->bin_sudo $this->bin_arpscan $ip |$this->bin_grep -E '([[:xdigit:]]{1,2}:){5}[[:xdigit:]]{1,2}'", $res);
+        $mac = null;
+        if(isset($res[0])) {
+            $split_res = preg_split('/\s+/', $res[0]);
+            if(isset($split_res[1])) {
+                $mac = strtoupper($split_res[1]);
+            }
+        }
+        $this->out($mac);
+        return $mac;
+    }
 }

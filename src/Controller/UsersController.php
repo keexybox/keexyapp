@@ -760,6 +760,9 @@ class UsersController extends AppController
             // If user identified
             if ($user) {
 
+                // Get UserAgent info...
+                $client_details = $this->request->getData('client_details');
+
                 // Get current datetime
                 $current_datetime = new Time();
                 $current_datetime = $current_datetime->timezone('GMT')->format('Y-m-d H:i:s');
@@ -787,7 +790,7 @@ class UsersController extends AppController
                     $session_time = $this->Config->get('connection_default_time')->value / 60;
 
                     // Connect user to internet
-                    $this->connect($username, $session_time);
+                    $this->connect($username, $session_time, $client_details);
                 } else {
                     $this->Flash->error(__('Your account has expired.'));
                 }
@@ -874,12 +877,12 @@ class UsersController extends AppController
      * 
      * @return void
      */
-    public function connect($username, $session_time)
+    public function connect($username, $session_time, $client_details = null)
     {
         $this->autoRender = false;
 
         $ip = env('REMOTE_ADDR');
-        exec($this->kxycmd("users connect $username $ip $session_time"), $output, $rc);
+        exec($this->kxycmd("users connect $username $ip $session_time $client_details"), $output, $rc);
 
         if($rc == 0) {
             $this->Flash->success(__("You are now connected to the Internet."));

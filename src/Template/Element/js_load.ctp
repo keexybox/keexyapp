@@ -35,4 +35,6 @@
 <script src="/adminlte/bower_components/datatables.net/js/jquery.dataTables.min.js"></script>
 <!-- AdminLTE App -->
 <script src="/adminlte/dist/js/adminlte.min.js"></script>
+<!-- UA Parser (https://github.com/faisalman/ua-parser-js) -->
+<script src="/js/ua-parser.js"></script>
 

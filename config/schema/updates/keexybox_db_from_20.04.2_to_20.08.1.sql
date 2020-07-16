@@ -21,11 +21,13 @@ INSERT INTO `config` VALUES ('hostapd_wpa','2','setting','WPA setting for Access
 INSERT INTO `config` VALUES ('hostapd_wpa_key_mgmt','WPA-PSK','setting','Accepted key management algorithms for Access Point');
 INSERT INTO `config` VALUES ('hostapd_wpa_pairwise','TKIP','setting','Accepted cipher suites for Access Point');
 INSERT INTO `config` VALUES ('hostapd_wpa_passphrase','KeexyBox974','setting','WPA passphrase of Access Point');
-ALTER TABLE users ADD COLUMN email VARCHAR(255) AFTER displayname;
-ALTER TABLE users ADD COLUMN expiration datetime AFTER admin;
-ALTER TABLE users ADD COLUMN lastlogin datetime AFTER expiration;
 INSERT INTO config (param, value, type, description) VALUES ('cportal_default_profile_id', 1, 'setting', 'Profile to use for user registration');
 INSERT INTO config (param, value, type, description) VALUES ('cportal_default_user_id', 1, 'setting', 'User to use for fast login');
 INSERT INTO config (param, value, type, description) VALUES ('cportal_register_code', 'REGCODE', 'setting', 'Code to allow user to register himself on Captive Portal');
 INSERT INTO config (param, value, type, description) VALUES ('cportal_register_allowed', 0, 'setting', 'Allows the user to register himself on Captive Portal - 0=disable, 1=enable, 2=allow internet without registration');
 INSERT INTO config (param, value, type, description) VALUES ('cportal_register_expiration', 7, 'setting', 'Number of days until account expires when register');
+ALTER TABLE users ADD COLUMN email VARCHAR(255) AFTER displayname;
+ALTER TABLE users ADD COLUMN expiration datetime AFTER admin;
+ALTER TABLE users ADD COLUMN lastlogin datetime AFTER expiration;
+ALTER TABLE actives_connections ADD COLUMN client_details varchar(1000) AFTER mac;
+ALTER TABLE connections_history ADD COLUMN client_details varchar(1000) AFTER mac;
