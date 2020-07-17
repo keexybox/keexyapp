@@ -670,6 +670,9 @@ class UsersController extends AppController
             // If user identified
             if ($user) {
 
+                // Get UserAgent info...
+                $client_details = $this->request->getData('client_details');
+
                 // Get current datetime
                 $current_datetime = new Time();
                 $current_datetime = $current_datetime->timezone('GMT')->format('Y-m-d H:i:s');
@@ -698,7 +701,7 @@ class UsersController extends AppController
                     $session_time = $user_data['sessiontime'];
 
                     // Connect user to internet
-                    $this->connect($username, $session_time);
+                    $this->connect($username, $session_time, $client_details);
                 } else {
                     $this->Flash->error(__('Your account has expired.'));
                 }

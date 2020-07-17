@@ -235,6 +235,7 @@ class ConnectionsController extends AppController
                 ->contain(['Profiles'])
                 ->where($q)->first();
 
+            $client_details = null;
             if(isset($connection->client_details)) {
                 $client_details = json_decode($connection->client_details);
             }
@@ -266,11 +267,11 @@ class ConnectionsController extends AppController
             $this->set('connection', $connection);
         } else {
             return $this->redirect($this->referer());
-            //return null;
         }
 
         $timezone = $this->Config->get('host_timezone');
         $timezone = $timezone['value'];
+        $this->set('client_details', $client_details);
         $this->set('timezone', $timezone);
 
         $this->viewBuilder()->setLayout('adminlte');
@@ -282,11 +283,6 @@ class ConnectionsController extends AppController
         $connhistory = $this->ConnectionsHistory->find('all')
             ->contain(['Profiles', 'Users', 'Devices']);
 
-        /*
-        foreach($connhistory as $conn) {
-            debug($conn->display_start_time);
-        }
-        */
         // Set value of search Query to null by default
         $this->set('search_query', null);
 
