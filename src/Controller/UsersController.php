@@ -882,7 +882,7 @@ class UsersController extends AppController
         $this->autoRender = false;
 
         $ip = env('REMOTE_ADDR');
-        exec($this->kxycmd("users connect $username $ip $session_time $client_details"), $output, $rc);
+        exec($this->kxycmd("users connect $username $ip $session_time '$client_details'"), $output, $rc);
 
         if($rc == 0) {
             $this->Flash->success(__("You are now connected to the Internet."));

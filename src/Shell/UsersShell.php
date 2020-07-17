@@ -160,8 +160,17 @@ class UsersShell extends BoxShell
         $duration = $duration * 60;
         $end_time = $start_time + $duration;
 
-        $arp = new ArpShell();
-        $mac = $arp->GetMac($ip);
+        // Do not record UserAgent details if disabled
+        if($this->cportal_record_useragent == false) {
+            $client_details = null;
+        }
+
+        // Get and Record Mac Address of client if enabled
+        $mac = null;
+        if($this->cportal_record_mac == true) {
+            $arp = new ArpShell();
+            $mac = $arp->GetMac($ip);
+        }
 
         // Return code to know if user ip regestred sucessfully to load routes
         $rc = 0;

@@ -41,6 +41,28 @@
           ?>
         </div>
 
+        <label><?= __('Information to be collected on the client for internet access') ?></label>
+        <div class="checkbox">
+          <label>
+            <?= $this->Form->control('cportal_record_useragent', [
+                  'type' => 'checkbox',
+                  'label' => __('Record UserAgent'),
+                  'default' => $cportal_record_useragent
+                ])
+            ?>
+          </label>
+        </div>
+        <div class="checkbox">
+          <label>
+            <?= $this->Form->control('cportal_record_mac', [
+                  'type' => 'checkbox',
+                  'label' => __('Record Mac Address'),
+                  'default' => $cportal_record_mac
+                ])
+            ?>
+          </label>
+        </div>
+
         <div class="form-group">
           <label for="input_locale"><?= __('Internet access conditions') ?></label>
           <?= $this->Form->control('cportal_register_allowed', [

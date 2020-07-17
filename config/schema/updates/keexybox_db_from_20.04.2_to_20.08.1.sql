@@ -26,6 +26,8 @@ INSERT INTO config (param, value, type, description) VALUES ('cportal_default_us
 INSERT INTO config (param, value, type, description) VALUES ('cportal_register_code', 'REGCODE', 'setting', 'Code to allow user to register himself on Captive Portal');
 INSERT INTO config (param, value, type, description) VALUES ('cportal_register_allowed', 0, 'setting', 'Allows the user to register himself on Captive Portal - 0=disable, 1=enable, 2=allow internet without registration');
 INSERT INTO config (param, value, type, description) VALUES ('cportal_register_expiration', 7, 'setting', 'Number of days until account expires when register');
+INSERT INTO config (param, value, type, description) VALUES ('cportal_record_useragent', 0, 'setting', 'Record UserAgent information when users connects to the Internet.');
+INSERT INTO config (param, value, type, description) VALUES ('cportal_record_mac', 0, 'setting', 'Record Mac address of the device when users connects to the Internet.');
 ALTER TABLE users ADD COLUMN email VARCHAR(255) AFTER displayname;
 ALTER TABLE users ADD COLUMN expiration datetime AFTER admin;
 ALTER TABLE users ADD COLUMN lastlogin datetime AFTER expiration;

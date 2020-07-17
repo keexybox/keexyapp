@@ -235,6 +235,10 @@ class ConnectionsController extends AppController
                 ->contain(['Profiles'])
                 ->where($q)->first();
 
+            if(isset($connection->client_details)) {
+                $client_details = json_decode($connection->client_details);
+            }
+
             if($connection == null) {
                 $connection = $this->ConnectionsHistory->find()
                     ->contain(['Profiles'])

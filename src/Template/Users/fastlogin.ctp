@@ -40,6 +40,4 @@ var client_details = JSON.stringify(ua);
 
 // Set the value in the form
 document.getElementById("client_details").value = client_details;
-
-
 </script>
