@@ -139,6 +139,16 @@
             ?>
           </div>
         </div>
+        <label for="inputProfile"><?= __('Internet access terms and conditions') ?>:</label>
+        <?= $this->Html->link(
+            $this->Html->tag('span', '', [
+              'class' => "glyphicon glyphicon-file",
+              'aria-hidden' => "true",
+              'title' => __("Edit"),
+              ])."&nbsp;".__('Edit'),
+            '#',
+            [ 'class' => "btn btn-default", 'escape' => false, 'onclick' => "open_window_f('/config/terms')"]) 
+        ?>
       </div>
       <!-- /.box-body -->
 
@@ -168,6 +178,12 @@
   </div><!-- /.col -->
 </div><!-- /.row -->
 
+<!-- Script to open domains routing or firewall page in a new window  -->
+<script>
+function open_window_f() {
+        window.open(arguments[0], "_blank", "location=no,status=no,menubar=no,toolbar=no,scrollbars=yes,resizable=yes,top=500,left=500,width=600,height=600");
+}
+</script>
 <script>
   $(document).ready(function() {
     $('select#cportal_register_allowed').change(function() {

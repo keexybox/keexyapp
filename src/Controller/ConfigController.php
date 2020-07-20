@@ -1401,5 +1401,22 @@ class ConfigController extends AppController
 
         $this->viewBuilder()->setLayout('wizard');
     }
+    /**
+     * This function edit the Terms and Conditions to use Access Point
+     *
+     * @return void
+     */
+    public function terms()
+    {
+        $cportal_terms = $this->Config->get('cportal_terms');
+        if($this->request->is('post')) {
+            $terms = $this->request->getData('terms');
+            $this->Config->patchEntity($cportal_terms, ['value' => $terms]);
+            $this->Config->save($cportal_terms, ['value' => $terms]);
+
+        }
+        $this->set('cportal_terms', $cportal_terms->value);
+        $this->viewBuilder()->setLayout('adminlte-nh');
+    }
 
 }
