@@ -52,7 +52,7 @@ DROP TABLE IF EXISTS `config`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `config` (
   `param` varchar(255) NOT NULL,
-  `value` varchar(5000) DEFAULT NULL,
+  `value` varchar(20000) DEFAULT NULL,
   `type` varchar(25) NOT NULL,
   `description` varchar(255) NOT NULL,
   PRIMARY KEY (`param`),
@@ -86,7 +86,7 @@ CREATE TABLE `connections_history` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `id` (`id`),
   KEY `end_time` (`end_time`)
-) ENGINE=InnoDB AUTO_INCREMENT=143 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=144 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -449,4 +449,4 @@ ALTER DATABASE `keexybox` CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci ;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-07-20 13:58:16
+-- Dump completed on 2020-07-20 14:44:26

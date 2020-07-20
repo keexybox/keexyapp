@@ -1,5 +1,5 @@
 UPDATE config SET value='20.08.1' WHERE param='version';
-ALTER TABLE `config` MODIFY value VARCHAR(5000);
+ALTER TABLE `config` MODIFY value VARCHAR(20000);
 INSERT INTO `config` VALUES ('hostapd_ap_isolate','1','setting','Isolation between connected clients (1=yes 0=no)');
 INSERT INTO `config` VALUES ('hostapd_auth_algs','1','setting','Enable Authentication for Access Point');
 INSERT INTO `config` VALUES ('hostapd_bridge','br0','setting','Used Bridge interface name for Access Point');
