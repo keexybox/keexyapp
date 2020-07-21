@@ -748,6 +748,7 @@ class UsersController extends AppController
         $connection_default_time = $this->Config->get('connection_default_time');
         $connection_max_time = $this->Config->get('connection_max_time');
         $cportal_register_allowed = $this->Config->get('cportal_register_allowed')->value;
+        $cportal_terms = $this->Config->get('cportal_terms')->value;
 
         $this->loadComponent('ConnectionDuration');
         $duration_list = $this->ConnectionDuration->GetDurationList();
@@ -808,6 +809,7 @@ class UsersController extends AppController
         $this->set('connection_max_time', $connection_max_time);
         $this->set('duration_list', $duration_list);
         $this->set('cportal_register_allowed', $cportal_register_allowed);
+        $this->set('cportal_terms', $cportal_terms);
         $this->viewBuilder()->setLayout('loginlte');
     }
 

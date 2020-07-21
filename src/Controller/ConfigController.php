@@ -1412,7 +1412,11 @@ class ConfigController extends AppController
         if($this->request->is('post')) {
             $terms = $this->request->getData('terms');
             $this->Config->patchEntity($cportal_terms, ['value' => $terms]);
-            $this->Config->save($cportal_terms, ['value' => $terms]);
+            if ($this->Config->save($cportal_terms, ['value' => $terms])) {
+                $this->Flash->success(__('Saved'));
+            } else {
+                $this->Flash->error(__('Unable to save.')." ".__('Please try again.'));
+            }
 
         }
         $this->set('cportal_terms', $cportal_terms->value);

@@ -142,12 +142,12 @@
         <label for="inputProfile"><?= __('Internet access terms and conditions') ?>:</label>
         <?= $this->Html->link(
             $this->Html->tag('span', '', [
-              'class' => "glyphicon glyphicon-file",
+              'class' => "fa fa-edit ",
               'aria-hidden' => "true",
               'title' => __("Edit"),
               ])."&nbsp;".__('Edit'),
             '#',
-            [ 'class' => "btn btn-default", 'escape' => false, 'onclick' => "open_window_f('/config/terms')"]) 
+            [ 'class' => "btn btn-sm btn-default", 'escape' => false, 'onclick' => "open_window_f('/config/terms')"]) 
         ?>
       </div>
       <!-- /.box-body -->
