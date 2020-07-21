@@ -756,52 +756,56 @@ class UsersController extends AppController
         // Login and connection process
         if ($this->request->is('post')) {
 
-            // Load default user settings
-            $default_user_id = $this->Config->get('cportal_default_user_id')->value;
-            $user = $this->Users->get($default_user_id)->toArray();
-            unset($user['password']);
-
-            // If user identified
-            if ($user) {
-
-                // Get UserAgent info...
-                $client_details = $this->request->getData('client_details');
-
-                // Get current datetime
-                $current_datetime = new Time();
-                $current_datetime = $current_datetime->timezone('GMT')->format('Y-m-d H:i:s');
-
-                // Get expiration datetime of user
-                $user_expiration = null;
-                if (isset($user['expiration'])) {
-                    $user_expiration = new Time($user['expiration']);
-                    $user_expiration = $user_expiration->format('Y-m-d H:i:s');
-                };
-
-                // Check if expiration is set for the user, or if the account has expired
-                if ($user_expiration == null) {
-                    $connect_user = true;    
-                } else {
-                    if ($user_expiration > $current_datetime) {
+            if ($this->request->getData('accept_checkbox')) {
+                // Load default user settings
+                $default_user_id = $this->Config->get('cportal_default_user_id')->value;
+                $user = $this->Users->get($default_user_id)->toArray();
+                unset($user['password']);
+    
+                // If user identified
+                if ($user) {
+    
+                    // Get UserAgent info...
+                    $client_details = $this->request->getData('client_details');
+    
+                    // Get current datetime
+                    $current_datetime = new Time();
+                    $current_datetime = $current_datetime->timezone('GMT')->format('Y-m-d H:i:s');
+    
+                    // Get expiration datetime of user
+                    $user_expiration = null;
+                    if (isset($user['expiration'])) {
+                        $user_expiration = new Time($user['expiration']);
+                        $user_expiration = $user_expiration->format('Y-m-d H:i:s');
+                    };
+    
+                    // Check if expiration is set for the user, or if the account has expired
+                    if ($user_expiration == null) {
                         $connect_user = true;    
                     } else {
-                        $connect_user = false;    
+                        if ($user_expiration > $current_datetime) {
+                            $connect_user = true;    
+                        } else {
+                            $connect_user = false;    
+                        }
                     }
-                }
-
-                if ($connect_user) {
-                    $username = $user['username'];
-                    $session_time = $this->Config->get('connection_default_time')->value / 60;
-
-                    // Connect user to internet
-                    $this->connect($username, $session_time, $client_details);
+    
+                    if ($connect_user) {
+                        $username = $user['username'];
+                        $session_time = $this->Config->get('connection_default_time')->value / 60;
+    
+                        // Connect user to internet
+                        $this->connect($username, $session_time, $client_details);
+                    } else {
+                        $this->Flash->error(__('Your account has expired.'));
+                    }
+    
+                    return $this->redirect(['controller' => 'Connections', 'action' => 'view']);
                 } else {
-                    $this->Flash->error(__('Your account has expired.'));
+                    $this->Flash->error(__('Incorrect login or password.')." ".__('Please try again.'));
                 }
-
-                return $this->redirect(['controller' => 'Connections', 'action' => 'view']);
             } else {
-                $this->Flash->error(__('Incorrect login or password.')." ".__('Please try again.'));
+                $this->Flash->error(__('You did not accept the terms and conditions.'));
             }
         }
         //$this->set('lang', $this->lang);
