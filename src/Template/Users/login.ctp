@@ -50,7 +50,7 @@
 	      <?= $this->Html->link(
                 __('Register'),
                 '/users/register',
-                ['class' => 'btn'])
+                )
 	      ?>
       </div>
       <?php endif ?>

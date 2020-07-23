@@ -458,11 +458,22 @@ class UsersController extends AppController
             $e='"';
 
             // insert header to CSV file
-            fputs($fp, $e.'username'.$e.$d.$e.'displayname'.$e.$d.$e.'password'.$e.$d.$e.'profilename'.$e.$d.$e.'lang'.$e.$d.$e.'enabled'.$e.$d.$e.'admin'.$e."\n");
+            // Export headers KeexyBox 20.04.2
+            //fputs($fp, $e.'username'.$e.$d.$e.'displayname'.$e.$d.$e.'password'.$e.$d.$e.'profilename'.$e.$d.$e.'lang'.$e.$d.$e.'enabled'.$e.$d.$e.'admin'.$e."\n");
+            // Export Data KeexyBox current version
+            fputs($fp, $e.'username'.$e.$d.$e.'displayname'.$e.$d.$e.'password'.$e.$d.$e.'profilename'.$e.$d.$e.'lang'.$e.$d.$e.'enabled'.$e.$d.$e.'admin'.$e.$d.$e.'email'.$e.$d.$e.'expiration'.$e."\n");
 
             // CSV DATA
             foreach ($users as $user) {
-                fputs($fp, $e.$user->username.$e.$d.$e.$user->displayname.$e.$d.$e.$user->password.$e.$d.$e.$user->profile->profilename.$e.$d.$e.$user->lang.$e.$d.$user->enabled.$d.$user->admin."\n");
+                $expiration = null;
+                if(isset($user->expiration)) {
+                    $expiration = new Time($user->expiration);
+                    $expiration = $expiration->timezone('GMT')->format('Y-m-d H:i:s');
+                }
+                // Export data KeexyBox 20.04.2
+                //fputs($fp, $e.$user->username.$e.$d.$e.$user->displayname.$e.$d.$e.$user->password.$e.$d.$e.$user->profile->profilename.$e.$d.$e.$user->lang.$e.$d.$user->enabled.$d.$user->admin."\n");
+                // Export data KeexyBox current version
+                fputs($fp, $e.$user->username.$e.$d.$e.$user->displayname.$e.$d.$e.$user->password.$e.$d.$e.$user->profile->profilename.$e.$d.$e.$user->lang.$e.$d.$user->enabled.$d.$user->admin.$d.$e.$user->email.$e.$d.$e.$expiration.$e."\n");
             }
     }
 
@@ -517,7 +528,8 @@ class UsersController extends AppController
                 // Conditionnal import job
                 foreach ($csv_data as $key=>$csv_line) {
                     // if csv line contains 7 field we allow import
-                    if (count($csv_line) == 7) {
+                    //if (count($csv_line) == 7) {
+                    if (count($csv_line) == 9) {
                         if ($key == 0) {
                             // Check header
                             $check_res = 0;
@@ -528,6 +540,8 @@ class UsersController extends AppController
                             if ($csv_line[4] != 'lang') { $check_res++; }
                             if ($csv_line[5] != 'enabled') { $check_res++; }
                             if ($csv_line[6] != 'admin') { $check_res++; }
+                            if ($csv_line[7] != 'email') { $check_res++; }
+                            if ($csv_line[8] != 'expiration') { $check_res++; }
 
                             // If headers are not ok, stop import
                             if( $check_res != 0 ) {
@@ -567,6 +581,12 @@ class UsersController extends AppController
     
                             // Set if user will be enabled
                             $user_data['admin'] = $csv_line[6];
+
+                            // Set Email
+                            $user_data['email'] = $csv_line[7];
+
+                            // Set Expiration date
+                            $user_data['expiration'] = $csv_line[8];
         
                             //Check if username exist
                             $user = $this->$users_controller->findByUsername($user_data['username'])->first();
