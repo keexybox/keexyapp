@@ -147,7 +147,7 @@
               'title' => __("Edit"),
               ])."&nbsp;".__('Edit'),
             '#',
-            [ 'class' => "btn btn-sm btn-default", 'escape' => false, 'onclick' => "open_window_f('/config/terms')"]) 
+            [ 'class' => "btn btn-sm btn-default", 'escape' => false, 'onclick' => "open_window_f('/config/editterms')"]) 
         ?>
       </div>
       <!-- /.box-body -->

@@ -48,7 +48,7 @@ class UsersController extends AppController
         parent::beforeFilter($event);
 
         // Allowed page as user
-        $allowed_pages = ['login', 'logout', 'adminlogin', 'disconnect'];
+        $allowed_pages = ['login', 'logout', 'adminlogin', 'disconnect', 'terms'];
 
         $this->loadModel('Config');
         // Allow user to access register page
@@ -279,25 +279,30 @@ class UsersController extends AppController
         $user->lang = $locale;
 
         if ($this->request->is('post')) {
-            $user_data = $this->request->getData();
 
-            // Add more information to create the user
-            $user_data['enabled'] = 1;
-            $user_data['admin'] = 0;
-            $user_data['profile_id'] = $cportal_default_profile_id;
-            $datetime = new Time('+'. $cportal_register_expiration . ' days');
-            $user_data['expiration'] = $datetime->timezone('GMT')->format('Y-m-d H:i:s');
-
-            // Only save user if entered registration code match with the one set by admin
-            if ($cportal_register_code == $user_data['registration_code']) {
-                $user = $this->Users->patchEntity($user, $user_data);
-                if ($this->Users->save($user)) {
-                    $this->Flash->success(__('Registration successfull.'));
-                    return $this->redirect(['action' => 'login']);
+            if ($this->request->getData('accept_checkbox')) {
+                $user_data = $this->request->getData();
+    
+                // Add more information to create the user
+                $user_data['enabled'] = 1;
+                $user_data['admin'] = 0;
+                $user_data['profile_id'] = $cportal_default_profile_id;
+                $datetime = new Time('+'. $cportal_register_expiration . ' days');
+                $user_data['expiration'] = $datetime->timezone('GMT')->format('Y-m-d H:i:s');
+    
+                // Only save user if entered registration code match with the one set by admin
+                if ($cportal_register_code == $user_data['registration_code']) {
+                    $user = $this->Users->patchEntity($user, $user_data);
+                    if ($this->Users->save($user)) {
+                        $this->Flash->success(__('Registration successfull.'));
+                        return $this->redirect(['action' => 'login']);
+                    }
+                    $this->Flash->error(__('Unable to register.')." ".__('Please try again.'));
+                } else {
+                    $this->Flash->error(__('Registration code is wrong.')." ".__('Please try again.'));
                 }
-                $this->Flash->error(__('Unable to register.')." ".__('Please try again.'));
             } else {
-                $this->Flash->error(__('Registration code is wrong.')." ".__('Please try again.'));
+                $this->Flash->error(__('You did not accept the terms and conditions.'));
             }
         }
 
@@ -717,6 +722,19 @@ class UsersController extends AppController
         $this->set('duration_list', $duration_list);
         $this->set('cportal_register_allowed', $cportal_register_allowed);
         $this->viewBuilder()->setLayout('loginlte');
+    }
+
+    /**
+     * Display terms 
+     *
+     * @return void
+     */
+    public function terms()
+    {
+        $this->loadModel('Config');
+        $cportal_terms = $this->Config->get('cportal_terms')->value;
+        $this->viewBuilder()->setLayout('adminlte-nh');
+        $this->set('cportal_terms', $cportal_terms);
     }
 
     /**

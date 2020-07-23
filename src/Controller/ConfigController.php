@@ -1406,7 +1406,7 @@ class ConfigController extends AppController
      *
      * @return void
      */
-    public function terms()
+    public function editterms()
     {
         $cportal_terms = $this->Config->get('cportal_terms');
         if($this->request->is('post')) {
