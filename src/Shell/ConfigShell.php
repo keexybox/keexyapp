@@ -392,8 +392,15 @@ class ConfigShell extends BoxShell
     {
         if(isset($part)) {
             if($part == 'main' or $part == 'all') {
+                $params['ExitNodes'] = null;
+                $params['StrictNodes'] = null;
+                if ("" != $this->tor_exitnodes_countries) {
+                    $params['ExitNodes'] = "ExitNodes ".$this->tor_exitnodes_countries;
+                    $params['StrictNodes'] = "StrictNodes 1";
+                }
+
                 $this->ResetConf($this->tor_conffile);
-                $rc = $this->AddConf("tor_conf.php", $this->tor_conffile);
+                $rc = $this->AddConf("tor_conf.php", $this->tor_conffile, $params);
             }
             exit($rc);
         }

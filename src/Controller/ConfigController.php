@@ -1309,15 +1309,23 @@ class ConfigController extends AppController
                 $count_cmd_rc = $count_cmd_rc + $cmd_rc;
                 exec($this->kxycmd("config logrotate main"), $o, $cmd_rc);
                 $count_cmd_rc = $count_cmd_rc + $cmd_rc;
+                exec($this->kxycmd("config tor main"), $o, $cmd_rc);
+                $count_cmd_rc = $count_cmd_rc + $cmd_rc;
 
                 // Reload bind
                 if($count_cmd_rc == 0) {
+                    $this->Flash->success(__('Settings saved successfully.'));
+
                     exec($this->kxycmd("service bind reload"), $o, $cmd_rc);
-                    if($cmd_rc == 0) {
-                        $this->Flash->success(__('Settings saved successfully.'));
-                    } else {
-                        $this->Flash->warning(__('Settings saved successfully.')." ".__('But unable to reload DNS service.'));
+                    if($cmd_rc != 0) {
+                        $this->Flash->warning(__('Unable to reload DNS service.'));
                     }
+
+                    exec($this->kxycmd("service tor restart"), $o, $cmd_rc);
+                    if($cmd_rc != 0) {
+                        $this->Flash->warning(__('Unable to reload Tor service.'));
+                    }
+
                 } else {
                     $this->Flash->error(__('Unable to write {0} configuration files.', null));
                 }
