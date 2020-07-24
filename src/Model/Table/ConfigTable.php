@@ -236,4 +236,20 @@ class ConfigTable extends Table
         return $validator;
     }
 
+    /**
+     * Tor Exit Nodes Country validation rules.
+     *
+     * @param \Cake\Validation\Validator $validator Validator instance.
+     * @return \Cake\Validation\Validator
+     */
+    public function validationTor_exitnodes_countries(Validator $validator)
+    {
+        // Allow blank registration Code
+        $validator
+            ->requirePresence('value', 'create')
+            ->allowEmpty('value', 'update');
+            
+        return $validator;
+    }
+
 }

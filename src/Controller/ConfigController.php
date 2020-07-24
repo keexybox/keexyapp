@@ -1212,14 +1212,16 @@ class ConfigController extends AppController
     {
         // List of params to load
         //$params = array('dns_expiration_delay', 'connection_default_time', 'connection_max_time', 'log_db_retention', 'log_retention', 'bind_use_redirectors', 'locale');
-        $params = array('dns_expiration_delay', 'log_db_retention', 'log_retention', 'bind_use_redirectors');
+        $params = array('dns_expiration_delay', 'log_db_retention', 'log_retention', 'bind_use_redirectors', 'tor_exitnodes_countries');
 
         // Load params
         foreach($params as $param) {
             $$param = $this->Config->get($param, ['contain' => []]);
         }
 
+
         if($this->request->is('post')) {
+
             // Return code to know if all field are validated
             $rc = 0;
 
@@ -1284,6 +1286,15 @@ class ConfigController extends AppController
                 $rc = 1;
             } 
 
+            $tor_countries_array = $this->request->getData('tor_countries');
+            $data_tor_exitnodes_countries = null;
+            if (isset($tor_countries_array)) {
+                foreach($tor_countries_array as $tor_country) {
+                    $data_tor_exitnodes_countries .= $tor_country.",";
+                }
+            }
+            $data_tor_exitnodes_countries = ['value' => rtrim($data_tor_exitnodes_countries, ',')];
+            $data_tor_exitnodes_countries = $this->Config->patchEntity($tor_exitnodes_countries, $data_tor_exitnodes_countries, ['validate' => 'tor_exitnodes_countries']);
 
             if ($rc == 0)
             {
@@ -1315,6 +1326,13 @@ class ConfigController extends AppController
             }
         }
 
+        $this->loadComponent('Tor');
+        $tor_countries = $this->Tor->ExitNodesCountryList();
+
+        $enabled_tor_countries = array_flip(explode(",", $tor_exitnodes_countries->value));
+
+        $this->set('tor_countries', $tor_countries);
+        $this->set('enabled_tor_countries', $enabled_tor_countries);
         // Set to view
         foreach ($params as $param) {
             $this->set($param, $$param);

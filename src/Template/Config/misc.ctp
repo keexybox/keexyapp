@@ -86,6 +86,20 @@
               ?>
           <?= $this->Flash->render('error_log_retention')?>
 		</div>
+
+        <legend><?= __('Tor options') ?></legend>
+        <div class="form-group">
+          <label for="bl-select"><?= __('Define Tor exit nodes countries')?></label>
+          <select name="tor_countries[]" id="bl-select" class="form-control select2" multiple="multiple" data-placeholder="<?= __('Random')?>" style="width: 100%;">
+          <?php foreach ($tor_countries as $key => $tor_country): ?>
+            <?php if(isset($enabled_tor_countries[$key])): ?>
+              <option value="<?= $key ?>" selected><?= $tor_country ?></option>
+            <?php else: ?>
+              <option value="<?= $key ?>"><?= $tor_country ?></option>
+            <?php endif ?>
+          <?php endforeach ?>
+          </select>
+        </div>
       </div>
       <!-- /.box-body -->
 
@@ -114,3 +128,9 @@
 	</div><!-- /.box -->
   </div><!-- /.col -->
 </div><!-- /.row -->
+<script>
+  $(function () {
+              //Initialize Select2 Elements
+              $('.select2').select2()
+  })
+</script>
