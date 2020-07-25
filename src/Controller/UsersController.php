@@ -866,6 +866,7 @@ class UsersController extends AppController
         if ($this->Auth->user()) {
             return $this->redirect(['controller' => 'statistics', 'action' => 'index']);
         }
+
         if ($this->request->is('post')) {
             
             $username = $this->request->data['username'];
@@ -888,7 +889,11 @@ class UsersController extends AppController
                         if ($run_wizard->value == 1)  {
                             return $this->redirect(['controller' => 'config', 'action' => 'wstart']);
                         } else {
-                            return $this->redirect(['controller' => 'statistics', 'action' => 'index']);
+                            if(null != $this->request->getQuery('redirect')) {
+                                return $this->redirect($this->request->getQuery('redirect'));
+                            } else {
+                                return $this->redirect(['controller' => 'statistics', 'action' => 'index']);
+                            }
                         }
                     }
                     // Else show error

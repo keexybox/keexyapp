@@ -86,7 +86,7 @@ CREATE TABLE `connections_history` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `id` (`id`),
   KEY `end_time` (`end_time`)
-) ENGINE=InnoDB AUTO_INCREMENT=158 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=160 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -449,4 +449,4 @@ ALTER DATABASE `keexybox` CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci ;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-07-24  4:37:56
+-- Dump completed on 2020-07-25 11:12:21
