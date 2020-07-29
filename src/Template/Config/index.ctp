@@ -35,7 +35,10 @@
               <i class="fa fa-server"></i><?= __('DHCP') ?>
          </a>
          <a href="/config/wifiap" class="btn btn-app">
-              <i class="fa fa-wifi"></i><?= __('Access Point') ?>
+              <i class="fa fa-wifi"></i><?= __('Wi-Fi Access Point') ?>
+         </a>
+         <a href="/config/captiveportal" class="btn btn-app">
+              <i class="fa fa-road"></i><?= __('Captive Portal') ?>
          </a>
          <a href="/config/certificate" class="btn btn-app">
               <i class="fa fa-certificate"></i><?= __('SSL certificate') ?>

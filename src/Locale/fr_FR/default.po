@@ -3320,8 +3320,8 @@ msgstr "Panneau de configuration"
 
 #: Template/Config/index.ctp:38
 #: Template/Layout/adminlte.ctp:216
-msgid "Access Point"
-msgstr "Point d'accès"
+msgid "Wi-Fi Access Point"
+msgstr "Point d'accès Wi-Fi"
 
 #: Template/Config/misc.ctp:90
 msgid "Tor options"
