@@ -330,7 +330,7 @@ class DevicesController extends AppController
                     $h_o = $this->Ipv4->getNetwork($this->Ipv4->getOutputInfo()['ip'], $this->Ipv4->getOutputInfo()['netmask']);
         
                     if ($d_i != $h_i and $d_o != $h_o) {
-                        $subnet_error_msg = __('The device could not be saved.')." ".__('DHCP IP address does not match with any Keexybox subnets.');
+                        $subnet_error_msg = __('The device could not be saved.')." ".__('DHCP IP address does not match with any KeexyBox subnets.');
     
                     } elseif ($this->request->data['dhcp_reservation_ip'] == $this->Ipv4->getInputInfo()['ip']) {
                         $subnet_error_msg = __('The device could not be saved.')." ".__('DHCP IP address is being used by input interface.');
@@ -401,7 +401,7 @@ class DevicesController extends AppController
         $this->loadModel('Config');
         $dhcp_external_value = $this->Config->get('dhcp_external')->value;
         if($dhcp_external_value == 0) {
-            $dhcp_info = __('By default IP addresses will be assigned in the subnet {0} if DHCP is enabled.', $subnet_i)." ".__('Here you can reserve an IP address for this device.')." ".__('If you want this device to use Keexybox as DNS only, define an IP address in the {0} subnet.', $subnet_o);
+            $dhcp_info = __('By default IP addresses will be assigned in the subnet {0} if DHCP is enabled.', $subnet_i)." ".__('Here you can reserve an IP address for this device.')." ".__('If you want this device to use KeexyBox as DNS only, define an IP address in the {0} subnet.', $subnet_o);
         } else {
             $dhcp_info = __('By default IP addresses will be assigned in the subnet {0} if DHCP is enabled.', $subnet_o)." ".__('Here you can reserve an IP address for this device.');
         }
@@ -424,7 +424,7 @@ class DevicesController extends AppController
                     $d_o = $this->Ipv4->getNetwork($this->request->data['dhcp_reservation_ip'], $this->Ipv4->getOutputInfo()['netmask']);
         
                     if ($d_i != $h_i and $d_o != $h_o) {
-                        $subnet_error_msg = __('The device could not be saved.')." ".__('DHCP IP address does not match with any Keexybox subnets.');
+                        $subnet_error_msg = __('The device could not be saved.')." ".__('DHCP IP address does not match with any KeexyBox subnets.');
     
                     } elseif ($this->request->data['dhcp_reservation_ip'] == $this->Ipv4->getInputInfo()['ip']) {
                         $subnet_error_msg = __('The device could not be saved.')." ".__('DHCP IP address is being used by input interface.');

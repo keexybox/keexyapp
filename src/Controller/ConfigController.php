@@ -398,7 +398,7 @@ class ConfigController extends AppController
                     if ($run_wizard->value == 1) {
                         return $this->redirect(['controller' => 'Config', 'action' => 'wdhcp', 'install_type' => $install_type]);
                     } else {
-                        $this->Flash->success(__('Network settings successfully saved. Please adjust the DHCP settings and reboot Keexybox.'));
+                        $this->Flash->success(__('Network settings successfully saved. Please adjust the DHCP settings and reboot KeexyBox.'));
                         return $this->redirect(['controller' => 'Config', 'action' => 'dhcp']);
                     }
                 } else {
@@ -832,7 +832,7 @@ class ConfigController extends AppController
             } elseif ($rc == 2) {
                 $this->Flash->error(__('One or more DHCP IP Addresses does not match with subnets.'));
             } elseif ($rc == 3) {
-                $this->Flash->error(__('One or more DHCP IP Addresses are used by Keexybox.'));
+                $this->Flash->error(__('One or more DHCP IP Addresses are used by KeexyBox.'));
             } else {
                 $this->Flash->error(__('DHCP settings have not been updated.'));
             }

@@ -43,7 +43,7 @@ msgstr "Le domaine {0} a été supprimé."
 
 #: Controller/BlacklistController.php:330
 msgid "Domain {0} could not be deleted."
-msgstr "Le domain n'a pas pu être supprimé."
+msgstr "Le domaine n'a pas pu être supprimé."
 
 #: Controller/BlacklistController.php:330;352;379
 #: Controller/ConfigController.php:121;1025
@@ -3029,7 +3029,7 @@ msgstr "Les domaines listés ci-dessous pourraient bloquer le domaine {0}. Vous 
 
 #: Template/Tools/domain_issue.ctp:85
 msgid "No domain in the blacklist should block {0}."
-msgstr "Aucun domain dans la Blacklist devrait bloquer {0}."
+msgstr "Aucun domaine dans la Blacklist devrait bloquer {0}."
 
 #: Template/Tools/iptables_status.ctp:8
 msgid "Iptables filter status"
@@ -3201,3 +3201,279 @@ msgstr "Pour se connecter à l'Internet, les utilisateurs ou les membres de votr
 msgid "If you do not want to create them now, or you do not need to create any more, click {0}."
 msgstr "Si vous ne souhaitez pas les créer maintenant, ou que vous n'avez plus besoin d'en créer plus, cliquez sur {0}."
 
+#:
+#: NEW TRANSLATIONS 2020-07
+#:
+
+#: Controller/ConfigController.php:610
+msgid "Wi-Fi Access Point settings successfully saved."
+msgstr "Les paramètres du point d'accès Wi-Fi ont été enregistrés avec succès"
+
+#: Controller/ConfigController.php:1442
+msgid "Saved"
+msgstr "Enregistré"
+
+#: Controller/ConfigController.php:1444
+msgid "Unable to save."
+msgstr "Impossible d'enregistrer."
+
+#: Controller/ToolsController.php:50
+msgid "Service for Wi-Fi Access Point"
+msgstr "Service pour le point d'accès Wi-Fi"
+
+#: Controller/UsersController.php:297
+msgid "Registration successfull."
+msgstr "Inscription réussi."
+
+#: Controller/UsersController.php:300
+msgid "Registration failed."
+msgstr "Échec de l'enregistrement."
+
+#: Controller/UsersController.php:302
+msgid "Registration code is wrong."
+msgstr "Le code d'enregistrement est erroné."
+
+#: Controller/UsersController.php:305
+#: Controller/UsersController.php:846
+msgid "You did not accept the terms and conditions."
+msgstr "Vous n'avez pas accepté les termes et conditions."
+
+#: Controller/UsersController.php:731
+#: Controller/UsersController.php:838
+msgid "Your account has expired."
+msgstr "Votre compte a expiré."
+
+#: Shell/ServiceShell.php:240
+#: Shell/ServiceShell.php:248
+msgid "hostapd service is disabled"
+msgstr "Le service hostapd est désactivé"
+
+#: Template/Config/captiveportal.ctp:8
+msgid "Captive Portal settings"
+msgstr "Paramètres du portail captif"
+
+#: Template/Config/captiveportal.ctp:44
+msgid "Information to be collected on the client for internet access"
+msgstr "Informations à collecter sur le client pour l'accès Internet"
+
+#: Template/Config/captiveportal.ctp:49
+msgid "Record UserAgent"
+msgstr "Enregistrer le UserAgent"
+
+#: Template/Config/captiveportal.ctp:59
+msgid "Record Mac Address"
+msgstr "Enregistrer l'adresse Mac"
+
+#: Template/Config/captiveportal.ctp:67
+msgid "Internet access conditions"
+msgstr "Conditions d'accès Internet"
+
+#: Template/Config/captiveportal.ctp:72
+msgid "Private"
+msgstr "Privé"
+
+#: Template/Config/captiveportal.ctp:73
+msgid "Registration"
+msgstr "Inscription"
+
+#: Template/Config/captiveportal.ctp:74
+msgid "Free"
+msgstr "Libre"
+
+#: Template/Config/captiveportal.ctp:86
+msgid "Duration of registration (days)"
+msgstr "Durée de l'inscription (jours)"
+
+#: Template/Config/captiveportal.ctp:102
+#: Template/Users/register.ctp:83
+msgid "Registration Code"
+msgstr "Code d'enregistrement"
+
+#: Template/Config/captiveportal.ctp:102
+#: Template/Users/register.ctp:83
+msgid "(leave blank if not required)"
+msgstr "(laisser vide si non requis)"
+
+#: Template/Config/captiveportal.ctp:114
+msgid "Profile to be defined for new registrations"
+msgstr "Profil à définir pour les nouvelles inscriptions"
+
+#: Template/Config/captiveportal.ctp:130
+msgid "User account to use for the free access"
+msgstr "Compte utilisateur à utiliser pour l'accès libre"
+
+#: Template/Config/captiveportal.ctp:142
+msgid "Internet access terms and conditions"
+msgstr "Termes et conditions d'accès à Internet"
+
+#: Template/Config/editterms.ctp:10
+msgid "Edit the Terms and Conditions"
+msgstr "Modifier les conditions générales"
+
+#: Template/Config/editterms.ctp:14
+msgid "Your Terms and Conditions for Internet access"
+msgstr "Vos conditions générales d'accès à Internet"
+
+#: Template/Config/index.ctp:8
+msgid "Control panel"
+msgstr "Panneau de configuration"
+
+#: Template/Config/index.ctp:38
+#: Template/Layout/adminlte.ctp:216
+msgid "Access Point"
+msgstr "Point d'accès"
+
+#: Template/Config/misc.ctp:90
+msgid "Tor options"
+msgstr "Options Tor"
+
+#: Template/Config/misc.ctp:92
+msgid "Define Tor exit nodes countries"
+msgstr "Définir les pays des nœuds de sortie Tor"
+
+#: Template/Config/misc.ctp:93
+msgid "Random"
+msgstr "Aléatoire"
+
+#: Template/Config/wifiap.ctp:8
+msgid "Wi-Fi Access Point settings"
+msgstr "Paramètres du point d'accès Wi-Fi"
+
+#: Template/Config/wifiap.ctp:20
+msgid "Enable Access Point"
+msgstr "Activer le point d'accès"
+
+#: Template/Config/wifiap.ctp:30
+msgid "SSID"
+msgstr "SSID"
+
+#: Template/Config/wifiap.ctp:35
+msgid "WIFI_SSID"
+msgstr "WIFI_SSID"
+
+#: Template/Config/wifiap.ctp:44
+msgid "Country"
+msgstr "Pays"
+
+#: Template/Config/wifiap.ctp:57
+msgid "Channel"
+msgstr "Canal"
+
+#: Template/Config/wifiap.ctp:70
+msgid "Operation mode"
+msgstr "Mode de fonctionnement"
+
+#: Template/Config/wifiap.ctp:86
+msgid "Enable Wi-Fi Multimedia"
+msgstr "Activer le multimédia Wi-Fi"
+
+#: Template/Config/wifiap.ctp:93
+msgid "Bridge"
+msgstr "Pont"
+
+#: Template/Config/wifiap.ctp:95
+msgid "Wi-Fi Interface"
+msgstr "Interface Wi-Fi"
+
+#: Template/Config/wifiap.ctp:108
+msgid "Wired Interface"
+msgstr "Interface filaire"
+
+#: Template/Config/wifiap.ctp:120
+msgid "Security"
+msgstr "Sécurité"
+
+#: Template/Config/wifiap.ctp:126
+msgid "Hide Access Point"
+msgstr "Cacher le point d'accès"
+
+#: Template/Config/wifiap.ctp:137
+msgid "Clients Isolation"
+msgstr "Isolation des clients"
+
+#: Template/Config/wifiap.ctp:148
+msgid "Enable Authentication"
+msgstr "Activer l'authentification"
+
+#: Template/Config/wifiap.ctp:156
+msgid "Passphrase"
+msgstr "Mot de passe"
+
+#: Template/Connections/adminview.ctp:237
+msgid "Client details"
+msgstr "Détails du client"
+
+#: Template/Connections/adminview.ctp:245
+msgid "Browser"
+msgstr "Navigateur"
+
+#: Template/Connections/adminview.ctp:249
+msgid "Operating system"
+msgstr "Système d'exploitation"
+
+#: Template/Connections/adminview.ctp:253
+msgid "Screen size"
+msgstr "Taille de l'écran"
+
+#: Template/Layout/adminlte.ctp:217
+msgid "Captive Portal"
+msgstr "Portail captif"
+
+#: Template/Users/add.ctp:25
+#: Template/Users/edit.ctp:25
+#: Template/Users/index.ctp:58
+#: Template/Users/register.ctp:25
+#: Template/Users/wadd.ctp:33
+msgid "Email"
+msgstr "Email"
+
+#: Template/Users/add.ctp:34
+#: Template/Users/edit.ctp:34
+#: Template/Users/register.ctp:34
+#: Template/Users/wadd.ctp:42
+msgid "@"
+msgstr "@"
+
+#: Template/Users/add.ctp:94
+#: Template/Users/edit.ctp:124
+#: Template/Users/index.ctp:61
+#: Template/Users/wadd.ctp:102
+msgid "Expiration"
+msgstr "Expiration"
+
+#: Template/Users/add.ctp:94
+#: Template/Users/edit.ctp:124
+#: Template/Users/wadd.ctp:102
+msgid "(for no expiration, leave blank.)"
+msgstr "(pour aucune expiration, laisser vide.)"
+
+#: Template/Users/fastlogin.ctp:19
+msgid "I accept terms and conditions"
+msgstr "J'accepte les termes et conditions"
+
+#: Template/Users/login.ctp:51
+#: Template/Users/register.ctp:125
+#: Template/Users/register.ctp:126
+msgid "Register"
+msgstr "S'inscrire"
+
+#: Template/Users/register.ctp:8
+msgid "Register to access point"
+msgstr "S'inscrire au point d'accès"
+
+#: Template/Users/register.ctp:103
+msgid "I have read and accept the {0}"
+msgstr "J'ai lu et j'accepte les {0}"
+
+#: Template/Users/register.ctp:104
+msgid "terms and conditions"
+msgstr "termes et conditions"
+
+#: Template/Help/licenses.ctp:1
+#: Template/Help/wlicenses.ctp:1
+msgid "KeexyBox version"
+msgstr "Version de KeexyBox"
+
+#: Controller/ConfigController.php:1326
+msgid "Unable to reload Tor service."
+msgstr ""

@@ -297,7 +297,7 @@ class UsersController extends AppController
                         $this->Flash->success(__('Registration successfull.'));
                         return $this->redirect(['action' => 'login']);
                     }
-                    $this->Flash->error(__('Unable to register.')." ".__('Please try again.'));
+                    $this->Flash->error(__('Registration failed.')." ".__('Please try again.'));
                 } else {
                     $this->Flash->error(__('Registration code is wrong.')." ".__('Please try again.'));
                 }

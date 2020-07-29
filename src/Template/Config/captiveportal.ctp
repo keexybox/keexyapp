@@ -111,7 +111,7 @@
   		  </div>
   
           <div class="form-group">
-            <label for="inputProfile"><?= __('Profile to set for new registred users') ?></label>
+            <label for="inputProfile"><?= __('Profile to be defined for new registrations') ?></label>
             <?= $this->Form->control('cportal_default_profile_id', [
                 'type' => 'select',
                 'label' => false,
@@ -127,7 +127,7 @@
 
         <div id="reg_2" class="dynform" style="display:none">
           <div class="form-group">
-            <label for="inputProfile"><?= __('User account to use for free access') ?></label>
+            <label for="inputProfile"><?= __('User account to use for the free access') ?></label>
             <?= $this->Form->control('cportal_default_user_id', [
                 'type' => 'select',
                 'label' => false,

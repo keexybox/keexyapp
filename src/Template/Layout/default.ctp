@@ -238,7 +238,7 @@ desired effect
           </a>
           <ul class="treeview-menu">
             <li><a href="https://www.keexybox.org" target="_blank"><?= __('Website') ?></a></li>
-            <li><a href="https://wiki.keexybox.org" target="_blank"><?= __('Wiki') ?></a></li>
+            <li><a href="https://wiki.keexybox.org" target="_blank"><?= __('Documentation') ?></a></li>
             <li><a href="/help/licenses"><?= __('Licenses') ?></a></li>
           </ul>
         </li>
