@@ -3476,4 +3476,4 @@ msgstr "Version de KeexyBox"
 
 #: Controller/ConfigController.php:1326
 msgid "Unable to reload Tor service."
-msgstr ""
+msgstr "Impossible de recharger le service Tor."
