@@ -3477,3 +3477,7 @@ msgstr "Version de KeexyBox"
 #: Controller/ConfigController.php:1326
 msgid "Unable to reload Tor service."
 msgstr "Impossible de recharger le service Tor."
+
+#: Template/Users/fastlogin.ctp:36
+msgid "Or connect with an account"
+msgstr "Ou se connecter avec un compte"

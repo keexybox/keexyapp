@@ -31,6 +31,13 @@
          ])
 	  ?>
     </div>
+    <div class="col-xs-12 col-sm-12">
+	  <?= $this->Html->link(
+            __('Or connect with an account'),
+            '/users/login',
+          )
+	  ?>
+    </div>
 
     <input type="hidden" id="client_details" name="client_details" value="">
     <!-- /.col -->

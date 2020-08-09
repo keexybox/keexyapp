@@ -1448,5 +1448,4 @@ class ConfigController extends AppController
         $this->set('cportal_terms', $cportal_terms->value);
         $this->viewBuilder()->setLayout('adminlte-nh');
     }
-
 }

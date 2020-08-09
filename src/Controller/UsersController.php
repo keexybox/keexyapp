@@ -251,6 +251,22 @@ class UsersController extends AppController
     }
 
     /**
+     * Portal - This function redirects the user to the right login page depend on Captive portal configuration
+     *
+     * @return voi Redirects
+     */
+    public function portal() {
+        $this->autoRender = false;
+        $this->loadModel('Config');
+        $cportal_register_allowed = $this->Config->get('cportal_register_allowed')->value;
+        if ($cportal_register_allowed == 2) {
+            return $this->redirect(['controller' => 'Users', 'action' => 'fastlogin']);
+        } else {
+            return $this->redirect(['controller' => 'Users', 'action' => 'login']);
+        }
+    }
+
+    /**
      * Register - allows user to register himself
      *
      * @return void Redirects on successful add, renders view otherwise.
@@ -679,9 +695,11 @@ class UsersController extends AppController
         $cportal_register_allowed = $this->Config->get('cportal_register_allowed')->value;
 
         // If Internet Access is Free without login requirement, redirect to fastlogin page to connect
+        /*
         if ($cportal_register_allowed == 2) {
             return $this->redirect(['controller' => 'Users', 'action' => 'fastlogin']);
         }
+        */
 
         $this->loadComponent('ConnectionDuration');
         $duration_list = $this->ConnectionDuration->GetDurationList();
@@ -972,7 +990,7 @@ class UsersController extends AppController
             $this->Flash->error(__("Your connection is paused.")." ".__("Disconnections are forbidden for paused connections."));
         }
 
-        return $this->redirect(['action' => 'login']);
+        return $this->redirect(['action' => 'portal']);
 
     }
 

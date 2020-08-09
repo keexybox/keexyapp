@@ -166,7 +166,7 @@ desired effect
 				  </div>
 			    <?php else: ?>
                   <div class="pull-right">
-                    <a href="/users/login" class="btn btn-default btn-flat"><?= __('Connect') ?></a>
+                    <a href="/users/portal" class="btn btn-default btn-flat"><?= __('Connect') ?></a>
                   </div>
 			    <?php endif ?>
               </li>
