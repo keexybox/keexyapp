@@ -249,6 +249,14 @@ class ServiceShell extends BoxShell
                 'rc' => 1,
                 ];
             $this->service_exit($return, $exit);
+        } elseif($this->hostapd_enabled == false and $action == 'reload') {
+            $this->service_begin(__FUNCTION__, $action);
+            $this->RunCmd("$this->bin_sudo $this->hostapd_init stop", 'service');
+            $return = [
+                'output' => [__('hostapd service is disabled')],
+                'rc' => 1,
+                ];
+            $this->service_exit($return, $exit);
         } else {
             $this->service_begin(__FUNCTION__, $action);
             $return = $this->RunCmd("$this->bin_sudo $this->hostapd_init $action", 'service');

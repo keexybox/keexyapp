@@ -58,10 +58,14 @@ case "$1" in
 	log_end_msg "$?"
 	;;
   reload)
-  	log_daemon_msg "Reloading $DESC" "$NAME"
-	start-stop-daemon --stop --signal HUP --exec "$DAEMON_SBIN" \
-		--pidfile "$PIDFILE"
-	log_end_msg "$?"
+    # Reload look to have to effect so reload is implemented as restart
+  	$0 stop
+	sleep 8
+	$0 start
+  	#log_daemon_msg "Reloading $DESC" "$NAME"
+	#start-stop-daemon --stop --signal HUP --exec "$DAEMON_SBIN" \
+	#	--pidfile "$PIDFILE"
+	#log_end_msg "$?"
 	;;
   restart|force-reload)
   	$0 stop
