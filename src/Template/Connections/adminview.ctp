@@ -243,7 +243,7 @@
         <table class="table table-striped">
           <tr>
             <td><?= __("Browser") ?></td>
-            <td><?= $client_details->browser->name." ".$client_details->browser->version ?></td>
+            <td><?= $client_details->browser->name." ".$client_details->browser->version." [".$client_details->lang->browser."]" ?></td>
           </tr>
           <tr>
             <td><?= __("Operating system") ?></td>

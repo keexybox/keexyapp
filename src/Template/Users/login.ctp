@@ -73,6 +73,7 @@ var height = window.screen.height * ratio;
 
 // Add screen info to UA info
 ua.screen = {'ratio': ratio, 'width': width, 'height': height};
+ua.lang = {'browser': navigator.language};
 
 // Convert Object to JSON string
 var client_details = JSON.stringify(ua);
