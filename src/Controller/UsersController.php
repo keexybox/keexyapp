@@ -48,7 +48,7 @@ class UsersController extends AppController
         parent::beforeFilter($event);
 
         // Allowed page as user
-        $allowed_pages = ['login', 'logout', 'adminlogin', 'disconnect', 'terms'];
+        $allowed_pages = ['login', 'logout', 'adminlogin', 'disconnect', 'portal', 'terms'];
 
         $this->loadModel('Config');
         // Allow user to access register page
