@@ -562,16 +562,10 @@ class ConfigController extends AppController
             {
                 $this->Config->save($data_dhcp_enabled);
                 $this->Config->save($data_dhcp_external);
-                /*
-                foreach ($request_params as $param)
-                {
-                    $this->Config->save(${"data_$param"});
-                }
-                */
 
                 foreach($request_params as $request_param) {
-                    foreach($validation_params['range_params'] as $param) {
-                        $this->Config->save(${"data_$param"});
+                    foreach($request_param['range_params'] as $param) {
+                        $this->Config->save(${"$param"});
                     }
 
                 }
