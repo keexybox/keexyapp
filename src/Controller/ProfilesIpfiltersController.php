@@ -462,12 +462,7 @@ class ProfilesIpfiltersController extends AppController
             $data_ipfilter['dest_ports'] = rtrim($data_ipfilter['dest_ports'], ",");
 
             if($this->request->data['dest_ip_type'] == 'net') {
-                //unset($data_ipfilter['dest_iprange_first'], $data_ipfilter['dest_iprange_last']);
-
-                // Set others dest_ip_type as null
-                $data_ipfilter['dest_iprange_first'] = null;
-                $data_ipfilter['dest_iprange_last'] = null;
-                $data_ipfilter['dest_hostname'] = null;
+                unset($data_ipfilter['dest_iprange_first'], $data_ipfilter['dest_iprange_last']);
 
                 $profilesIpfilter = $this->ProfilesIpfilters->patchEntity($profilesIpfilter, $data_ipfilter,
                         ['validate' => 'net']
@@ -517,12 +512,7 @@ class ProfilesIpfiltersController extends AppController
             }
 
             elseif($this->request->data['dest_ip_type'] == 'hostname') {
-                //unset($data_ipfilter['dest_ip'], $data_ipfilter['dest_ip_mask'], $data_ipfilter['dest_iprange_first'], $data_ipfilter['dest_iprange_last']);
-
-                $data_ipfilter['dest_ip'] = null;
-                $data_ipfilter['dest_ip_mask'] = null;
-                $data_ipfilter['dest_iprange_first'] = null;
-                $data_ipfilter['dest_iprange_last'] = null;
+                unset($data_ipfilter['dest_ip'], $data_ipfilter['dest_ip_mask'], $data_ipfilter['dest_iprange_first'], $data_ipfilter['dest_iprange_last']);
 
                 $profilesIpfilter = $this->ProfilesIpfilters->patchEntity($profilesIpfilter, $data_ipfilter,
                     ['validate' => 'fqdn']
