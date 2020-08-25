@@ -5,9 +5,9 @@ All notable changes on KeexyApp for KeexyBox is documented below.
 ## [20.10.1] - 2020-10
 
 ### Added
- - Add Wi-Fi Access Point feature
- - Add Captive Portal feature that can be set for professionnal perpose
- - Add the ability to set countries for Tor exit nodes.
+ - Wi-Fi Access Point feature
+ - Captive Portal feature that can be set for professionnal perpose
+ - The ability to set countries for Tor exit nodes.
 
 ### Changed
  - Some misc system settings moved to captive portal settings
