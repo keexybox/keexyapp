@@ -2,6 +2,16 @@
 
 All notable changes on KeexyApp for KeexyBox is documented below.
 
+## [20.04.4] - 2020-08-24
+
+### Changed
+ - Fix SQL error when editing firewall rule
+
+## [20.04.3] - 2020-08-20
+
+### Changed
+ - Fix issue [#7](https://github.com/keexybox/keexyapp/issues/7)
+
 ## [20.04.2] - 2020-05-15
 
 ### Added
