@@ -36,9 +36,11 @@ do
     if [ ! -r "$conf" ]
     then
         log_action_msg "hostapd config $conf not found, not starting hostapd."
-        exit 0
+        exit 1
     fi
 done
+
+rc=0
 
 case "$1" in
   start)
@@ -49,13 +51,15 @@ case "$1" in
 	log_daemon_msg "Starting $DESC" "$NAME"
 	start-stop-daemon --start --oknodo --quiet --exec "$DAEMON_SBIN" \
 		--pidfile "$PIDFILE" -- $DAEMON_OPTS >/dev/null
-	log_end_msg "$?"
+	rc=$?
+	log_end_msg "$rc"
 	;;
   stop)
 	log_daemon_msg "Stopping $DESC" "$NAME"
 	start-stop-daemon --stop --oknodo --quiet --exec "$DAEMON_SBIN" \
 		--pidfile "$PIDFILE"
-	log_end_msg "$?"
+	rc=$?
+	log_end_msg "$rc"
 	;;
   reload)
     # Reload look to have to effect so reload is implemented as restart
@@ -65,12 +69,15 @@ case "$1" in
   	#log_daemon_msg "Reloading $DESC" "$NAME"
 	#start-stop-daemon --stop --signal HUP --exec "$DAEMON_SBIN" \
 	#	--pidfile "$PIDFILE"
-	#log_end_msg "$?"
+	rc=$?
+	log_end_msg "$rc"
 	;;
   restart|force-reload)
   	$0 stop
 	sleep 8
 	$0 start
+	rc=$?
+	log_end_msg "$rc"
 	;;
   status)
 	status_of_proc "$DAEMON_SBIN" "$NAME"
@@ -83,4 +90,5 @@ case "$1" in
 	;;
 esac
 
-exit 0
+#exit 0
+exit $rc
