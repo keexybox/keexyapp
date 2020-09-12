@@ -5,7 +5,7 @@
     <!-- general form elements -->
     <div class="box box-info">
       <div class="box-header with-border">
-        <h3 class="box-title"><?= __('Register to access point')?></h3>
+        <h3 class="box-title"><?= __('Register to the Access Point')?></h3>
       </div>
       <!-- /.box-header -->
       <!-- form start -->
@@ -80,7 +80,7 @@
           ?>
         </div>
         <div class="form-group">
-          <label for="inputRegCode"><?= __('Registration Code')." ".__('(leave blank if not required)') ?></label>
+          <label for="inputRegCode"><?= __('Registration code')." ".__('(leave blank if not required)') ?></label>
           <?= $this->Form->control('registration_code', [
              'label' => false,
              'id' => "inputRegCode",

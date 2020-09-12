@@ -91,7 +91,7 @@
           ]);
           ?>
         </div>
-	    <label for="expiration_datepicker"><?=  __('Expiration').' '.__('(for no expiration, leave blank.)') ?></label>
+	    <label for="expiration_datepicker"><?=  __('Expiry').' '.__('(leave blank for no expiry.)') ?></label>
         <div class="input-group">
           <div class="input-group-addon">
              <i class="fa fa-calendar"></i>

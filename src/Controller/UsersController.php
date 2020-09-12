@@ -310,12 +310,12 @@ class UsersController extends AppController
                 if ($cportal_register_code == $user_data['registration_code']) {
                     $user = $this->Users->patchEntity($user, $user_data);
                     if ($this->Users->save($user)) {
-                        $this->Flash->success(__('Registration successfull.'));
+                        $this->Flash->success(__('Registration successful.'));
                         return $this->redirect(['action' => 'login']);
                     }
                     $this->Flash->error(__('Registration failed.')." ".__('Please try again.'));
                 } else {
-                    $this->Flash->error(__('Registration code is wrong.')." ".__('Please try again.'));
+                    $this->Flash->error(__('Incorrect registration code.')." ".__('Please try again.'));
                 }
             } else {
                 $this->Flash->error(__('You did not accept the terms and conditions.'));

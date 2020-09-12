@@ -607,7 +607,7 @@ class ConfigController extends AppController
                 if ($run_wizard->value == 1) {
                     return $this->redirect(['controller' => 'Config', 'action' => 'wdhcp', 'install_type' => $install_type]);
                 } else {
-                    $this->Flash->success(__('Wi-Fi Access Point settings successfully saved.'));
+                    $this->Flash->success(__('Wireless Access Point settings successfully saved.'));
                 }
             } else {
                 $this->Flash->error(__('Unable to write {0} configuration files.', null));

@@ -56,7 +56,7 @@
           <label>
             <?= $this->Form->control('cportal_record_mac', [
                   'type' => 'checkbox',
-                  'label' => __('Record Mac Address'),
+                  'label' => __('Record MAC Address'),
                   'default' => $cportal_record_mac
                 ])
             ?>
@@ -99,7 +99,7 @@
           </div>
   
           <div class="form-group">
-            <label for="input_cportal_register_code"><?= __('Registration Code')." ".__('(leave blank if not required)') ?></label>
+            <label for="input_cportal_register_code"><?= __('Registration code')." ".__('(leave blank if not required)') ?></label>
             <?= $this->Form->control('cportal_register_code',[
                 'label' => false,
                 'default' => $cportal_register_code,
@@ -127,7 +127,7 @@
 
         <div id="reg_2" class="dynform" style="display:none">
           <div class="form-group">
-            <label for="inputProfile"><?= __('User account to use for the free access') ?></label>
+            <label for="inputProfile"><?= __('User account to use for free access') ?></label>
             <?= $this->Form->control('cportal_default_user_id', [
                 'type' => 'select',
                 'label' => false,

@@ -5,7 +5,7 @@
     <!-- general form elements -->
     <div class="box box-info">
       <div class="box-header with-border">
-        <h3 class="box-title"><?= __('Wi-Fi Access Point settings')?></h3>
+        <h3 class="box-title"><?= __('Wireless Access Point settings')?></h3>
       </div>
       <!-- /.box-header -->
 
@@ -67,7 +67,7 @@
 		</div>
 
         <div class="form-group">
-          <label for="input_hostapd_hw_mode"><?= __('Operation mode') ?></label>
+          <label for="input_hostapd_hw_mode"><?= __('Operating mode') ?></label>
           <?= $this->Form->control('hostapd_hw_mode',[
               'type' => 'select',
               'label' => false,
@@ -134,7 +134,7 @@
           <label>
             <?= $this->Form->control('hostapd_ap_isolate', [
                   'type' => 'checkbox',
-                  'label' => __('Clients Isolation'),
+                  'label' => __('Isolation of Clients'),
                   'default' => $hostapd_ap_isolate
                 ])
             ?>
@@ -153,7 +153,7 @@
         </div>
 
         <div class="form-group">
-          <label for="input_hostapd_wpa_passphrase"><?= __('Passphrase') ?></label>
+          <label for="input_hostapd_wpa_passphrase"><?= __('Password') ?></label>
           <div class="input-group" id="show_hide_password">
             <?= $this->Form->control('hostapd_wpa_passphrase',[
                 'type' => 'password',

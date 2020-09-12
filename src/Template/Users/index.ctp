@@ -58,7 +58,7 @@
           <th><?= $this->Paginator->sort('email', __('Email')) ?></th>
           <th><?= $this->Paginator->sort('enabled', __('Enabled')) ?></th>
           <th><?= $this->Paginator->sort('admin', __('Admin')) ?></th>
-          <th><?= $this->Paginator->sort('expiration', __('Expiration')) ?></th>
+          <th><?= $this->Paginator->sort('expiration', __('Expiry')) ?></th>
           <th class="actions"><?= __('Actions') ?></th>
         </tr>
       </thead>

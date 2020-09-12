@@ -16,7 +16,7 @@
       <?= $this->Form->control('accept_checkbox', [
          'type' => 'checkbox',
          'id' => 'accept_checkbox',
-         'label' => __("I accept terms and conditions"),
+         'label' => __("I accept the terms and conditions"),
          'disabled' => 'disabled',
          'onchange' => 'document.getElementById("connect_button").disabled = !this.checked;'
          ])

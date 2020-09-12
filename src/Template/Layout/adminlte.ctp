@@ -213,8 +213,8 @@ desired effect
             <li><a href="/config/network"><i class="fa fa-laptop"></i><?= __('Network') ?></a></li>
             <li><a href="/config/datetime"><i class="fa fa-clock-o"></i><?= __('Date and time') ?></a></li>
             <li><a href="/config/dhcp"><i class="fa fa-server"></i><?= __('DHCP') ?></a></li>
-            <li><a href="/config/wifiap"><i class="fa fa-wifi"></i><?= __('Wi-Fi Access Point') ?></a></li>
-            <li><a href="/config/captiveportal"><i class="fa fa-road"></i><?= __('Captive Portal') ?></a></li>
+            <li><a href="/config/wifiap"><i class="fa fa-wifi"></i><?= __('Wireless Access Point') ?></a></li>
+            <li><a href="/config/captiveportal"><i class="fa fa-road"></i><?= __('Captive portal') ?></a></li>
             <li><a href="/config/certificate"><i class="fa fa-certificate"></i><?= __('SSL Certificate') ?></a></li>
             <li><a href="/config/misc"><i class="fa fa-cog"></i><?= __('Miscellaneous') ?></a></li>
           </ul>
