@@ -64,6 +64,28 @@ class UsersController extends AppController
     }
 
     /**
+     * This function sets Authorization for an admin account
+     * 
+     * @param $user : Username
+     *
+     * @return CLI command path
+     */
+    public function isAuthorized($user)
+    {
+        // Allow user to edit or delete his account
+        if (in_array($this->request->getParam('action'), ['editr', 'delete'])) {
+            //set the user id to edit
+            $edit_user_id = $this->request->getParam('pass.0');
+            // if authenticated user id is equal to user to edit, authorize
+            if($edit_user_id == $user['id']) {
+                return true;
+            }
+        }
+
+        return parent::isAuthorized($user);
+    }
+
+    /**
      * List users and bulk management of users
      *
      * @return void
@@ -85,7 +107,6 @@ class UsersController extends AppController
                 $query = $this->request->getQuery('query');
                 $users = $this->Users->find()
                         ->where(['OR' => ['Users.username LIKE' => "%$query%", 'Profiles.profilename LIKE' => "%$query%"]])
-                        //->orWhere(['Profiles.profilename LIKE' => "%$query%"])
                         ->contain(['Profiles']);
 
                 $this->paginate = [
@@ -410,6 +431,91 @@ class UsersController extends AppController
         // Tranfert result to the View
         $this->set('user', $user);
         $this->viewBuilder()->setLayout('adminlte');
+    }
+
+    /*
+     * Edit user himself
+     *
+     * @param id : user id
+     * 
+     * @return void
+     */
+    public function editr($id = null)
+    {
+        $this->loadModel('Profiles');
+        $this->loadComponent('Lang');
+
+        // Set list of profiles
+        $profiles = $this->Profiles->find('list');
+        $this->set('profiles',$profiles);
+
+        // Set list of availables languages
+        $this->set('langs', $this->Lang->ListLanguages());
+
+        $user = $this->Users->get($id);
+
+        if ($this->request->is(['post', 'put'])) {
+
+            $user_data = $this->request->getData();
+
+            if (isset($user_data['expiration'])) {
+                if (null != $user_data['expiration']) {
+                    $datetime = new Time($user_data['expiration']);
+                    $user_data['expiration'] = $datetime->timezone('GMT')->format('Y-m-d H:i:s');
+                }
+            }
+
+            $old_profile_id = $user['profile_id'];
+
+            // Update password if a new one has been entered
+            if($user_data['new_password'] != '') {
+                $user_data['password'] = $user_data['new_password'];
+                $user_data['confirm_password'] = $user_data['new_confirm_password'];
+                unset($user_data['new_password']);
+                unset($user_data['new_confirm_password']);
+            } else {
+                unset($user_data['new_password']);
+                unset($user_data['new_confirm_password']);
+            }
+
+            // If an updated is done for user id 1, admin access and account are forced to enable
+            if($user['id'] == 1) {
+                $user_data['enable'] = 1;
+                $user_data['admin'] = 1;
+            }
+
+            $this->Users->patchEntity($user, $user_data);
+
+            if ($this->Users->save($user)) {
+                $this->Flash->success(__('The user has been updated successfully.'));
+                if($user['profile_id'] != $old_profile_id) {
+                    $this->Flash->set(__('Do you want to reconnect {0} with new profile?', $user['username']), [
+                            'key' => 'reconnect',
+                            'element' => 'reconnect_link', 
+                            'params' => [ 'reconnectlink' => '/users/reconnectuser/'.$user['username']]
+                    ]);
+                }
+                //return $this->redirect(['action' => 'index']);
+            } else {
+                $this->Flash->error(__('Unable to update the user.'));
+            }
+        }
+
+        // Get timezone
+        $this->loadModel('Config');
+        $timezone = $this->Config->get('host_timezone');
+        $timezone = $timezone['value'];
+        $this->set('timezone', $timezone);
+
+        // Set language for datetime picker
+        $lang = $this->request->session()->read('Config.language');
+        $datetime_picker_locale = explode('_', $lang);
+        $datetime_picker_locale = $datetime_picker_locale[0];
+        $this->set('datetime_picker_locale', $datetime_picker_locale);
+
+        // Tranfert result to the View
+        $this->set('user', $user);
+        $this->viewBuilder()->setLayout('connection_view');
     }
 
     /*
@@ -881,14 +987,66 @@ class UsersController extends AppController
     public function adminlogin()
     {
         //Check if user is already connected and redirect
+        $isauth_user = $this->Auth->user();
+        if($isauth_user) {
+            if($isauth_user['admin'] == true || $isauth_user['id'] == 1) {
+                //Redirect to statistics page
+                return $this->redirect(['controller' => 'statistics', 'action' => 'index']);
+            } else {
+                //Redirect to page that allow user to change his settings
+                return $this->redirect(['controller' => 'users', 'action' => 'editr', $isauth_user['id']]);
+            }
+        }
+        /*
         if ($this->Auth->user()) {
             return $this->redirect(['controller' => 'statistics', 'action' => 'index']);
         }
+        */
 
         if ($this->request->is('post')) {
             
             $username = $this->request->data['username'];
             $user_info = $this->Users->findByUsername($username)->first();
+
+            if(isset($user_info)) {
+                // Identify user
+                $user = $this->Auth->identify();
+                // If user identified
+                if ($user) {
+                    //Set session for user
+                    $this->Auth->setUser($user);
+
+                    //Set redirect if user is an admin
+                    if($user_info->admin == true || $user_info->id == 1) {
+                        // Check if wizard must be run to setup Keexybox
+                        $this->loadModel('Config');
+                        $run_wizard = null;
+                        $run_wizard = $this->Config->get('run_wizard');
+        
+                        // Redirect to wizard else to Statistics
+                        if ($run_wizard->value == 1)  {
+                            return $this->redirect(['controller' => 'config', 'action' => 'wstart']);
+                        } else {
+                            if(null != $this->request->getQuery('redirect')) {
+                                return $this->redirect($this->request->getQuery('redirect'));
+                            } else {
+                                return $this->redirect(['controller' => 'statistics', 'action' => 'index']);
+                            }
+                        }
+                    } else {
+                        return $this->redirect(['controller' => 'users', 'action' => 'editr', $user['id']]);
+                    }
+
+                } 
+                // Else show error
+                $this->Flash->error(__("Incorrect login or password.")." ".__("Please try again."));
+
+            } else {
+                // Else show error
+                $this->Flash->error(__("Incorrect login or password.")." ".__("Please try again."));
+            }
+
+            /*
             if(isset($user_info)) {
                 if($user_info->admin == true || $user_info->id == 1) {
                     // Identify user
@@ -923,6 +1081,7 @@ class UsersController extends AppController
                 // Else show error
                 $this->Flash->error(__("Incorrect login or password.")." ".__("Please try again."));
             }
+            */
         }
         //$this->set('lang', $this->lang);
         $this->viewBuilder()->setLayout('loginlte');
