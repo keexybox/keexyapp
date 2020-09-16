@@ -107,7 +107,7 @@ desired effect
                     <small><?= __('Login: {0}', $lo_client['session_details']['Auth']['User']['username']) ?></small>
                     <small><?= __('Name: {0}', $lo_client['session_details']['Auth']['User']['displayname']) ?></small>
 			      <?php else: ?>
-				    <?= __('Not authenticated to manage KeexyBox') ?>
+				    <?= __('Click on Manage to edit your account or manage KeexyBox') ?>
 			      <?php endif ?>
 				</p>
 			  </li>

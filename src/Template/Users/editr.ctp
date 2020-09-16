@@ -84,14 +84,15 @@
         <!-- /.box-body -->
 
         <div class="box-footer">
-        <?= $this->Html->link(
+        <?= $this->Form->postLink(
           $this->Html->tag('span', '', [
               'class' => "glyphicon glyphicon-remove-sign",
               'aria-hidden' => "true",
-              'title' => __("Cancel"),
-              ])."&nbsp;".__('Cancel'),
-          ['controller' => 'users', 'action' => 'index'], 
-          [ 'class' => "btn btn-default", 'escape' => false]) 
+              'title' => __("Delete my account"),
+              ])."&nbsp;".__('Delete my account'),
+          ['action' => 'delete', $user->id],
+          ['class' => "btn btn-danger", 'escape' => false, 'block' => true, 'confirm' => __('Are you sure you want to delete {0}?', h($user->username))]
+          )
         ?>
         <?= $this->Form->button(
           $this->Html->tag('span', '', [
@@ -103,6 +104,7 @@
         ?>
         </div><!-- /.box-footer -->
         <?= $this->Form->end() ?>
+        <?= $this->fetch('postLink') ?>
 	 </div><!-- /.box -->
   </div><!-- /.col -->
 </div><!-- /.row -->

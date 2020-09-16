@@ -546,7 +546,15 @@ class UsersController extends AppController
             if ($this->Users->delete($user)) {
                 //Message on success
                 if($this->disconnectuser($user['username'])) {
+                    
                     $this->Flash->success(__("The user {0} has been deleted.", h($user['username'])));
+
+                    // If the user delete is own account, logout
+                    $session_user_id = $this->request->getSession()->read()['Auth']['User']['id'];
+                    if ($user['id'] == $session_user_id) {
+                        $this->Auth->logout();
+                        return $this->redirect(['action' => 'adminlogin']);
+                    }
                     return $this->redirect(['action' => 'index']);
                 }
             }    
