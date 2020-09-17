@@ -98,7 +98,7 @@ desired effect
               <li class="user-header">
                 <p class="user-info">
 		          <?php if(isset($lo_client['session_status'])): ?>
-				    <?= __('Authenticated to manage KeexyBox') ?>
+				    <?= __('KeexyBox management') ?>
                     <small><?= __('Login: {0}', $lo_client['session_details']['Auth']['User']['username']) ?></small>
                     <small><?= __('Name: {0}', $lo_client['session_details']['Auth']['User']['displayname']) ?></small>
 			      <?php else: ?>

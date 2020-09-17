@@ -68,9 +68,9 @@
               <li class="user-header">
                 <p class="user-info">
 		          <?php if(isset($lo_client['session_status'])): ?>
-				    <?= __('Authenticated to manage KeexyBox') ?>
-                    <small><?= __('Login: {0}', $lo_client['session_details']['Auth']['User']['username']) ?></small>
+				    <?= __('KeexyBox management') ?>
                     <small><?= __('Name: {0}', $lo_client['session_details']['Auth']['User']['displayname']) ?></small>
+                    <small><?= __('Login: {0}', $lo_client['session_details']['Auth']['User']['username']) ?></small>
 			      <?php else: ?>
 				    <?= __('Click on Manage to edit your account or manage KeexyBox') ?>
 			      <?php endif ?>
@@ -82,7 +82,7 @@
                     <a href="/users/logout" class="btn btn-default btn-flat"><?= __('Quit') ?></a>
                   </div>
                   <div class="pull-right">
-                    <a href="/connections" class="btn btn-default btn-flat"><?= __('Manage') ?></a>
+                    <a href="/users/adminlogin" class="btn btn-default btn-flat"><?= __('Manage') ?></a>
                   </div>
 			      <?php else: ?>
                   <div class="pull-right">
