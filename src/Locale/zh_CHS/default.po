@@ -3201,3 +3201,298 @@ msgstr "如需连接到互联网，您的用户或家庭成员将会需要在Kee
 msgid "If you do not want to create them now, or you do not need to create any more, click {0}."
 msgstr "如果现在不想创建它们，或者不需要再创建，请点击{0}。"
 
+#:
+#: NEW TRANSLATIONS 2020-07
+#:
+
+#: Controller/ConfigController.php:610
+msgid "Wireless Access Point settings successfully saved."
+msgstr "Wi-Fi热点设置已成功保存"
+
+#: Controller/ConfigController.php:1442
+msgid "Saved"
+msgstr "已保存"
+
+#: Controller/ConfigController.php:1444
+msgid "Unable to save."
+msgstr "无法保存。"
+
+#: Controller/ToolsController.php:50
+msgid "Service for Wireless Access Point"
+msgstr "Wi-Fi热点服务"
+
+#: Controller/UsersController.php:297
+msgid "Registration successful."
+msgstr "注册成功。"
+
+#: Controller/UsersController.php:300
+msgid "Registration failed."
+msgstr "注册失败。"
+
+#: Controller/UsersController.php:302
+msgid "Incorrect registration code."
+msgstr "注册代码不正确。"
+
+#: Controller/UsersController.php:305
+#: Controller/UsersController.php:846
+msgid "You did not accept the terms and conditions."
+msgstr "您尚未接受条款和条件。"
+
+#: Controller/UsersController.php:731
+#: Controller/UsersController.php:838
+msgid "Your account has expired."
+msgstr "您的帐户已过期。"
+
+#: Shell/ServiceShell.php:240
+#: Shell/ServiceShell.php:248
+msgid "Hostapd service is disabled"
+msgstr "Hostapd服务已禁用"
+
+#: Template/Config/captiveportal.ctp:8
+msgid "Captive Portal settings"
+msgstr "强制网络门户设置"
+
+#: Template/Config/captiveportal.ctp:44
+msgid "Information to be collected on the client for internet access"
+msgstr "从客户端收集的用于Internet访问的信息"
+
+#: Template/Config/captiveportal.ctp:49
+msgid "Record UserAgent"
+msgstr "注册UserAgent"
+
+#: Template/Config/captiveportal.ctp:59
+msgid "Record MAC Address"
+msgstr "注册Mac地址"
+
+#: Template/Config/captiveportal.ctp:67
+msgid "Internet access conditions"
+msgstr "Internet访问条件"
+
+#: Template/Config/captiveportal.ctp:72
+msgid "Private"
+msgstr "私人"
+
+#: Template/Config/captiveportal.ctp:73
+msgid "Registration"
+msgstr "注册"
+
+#: Template/Config/captiveportal.ctp:74
+msgid "Free"
+msgstr "免费"
+
+#: Template/Config/captiveportal.ctp:86
+msgid "Duration of registration (days)"
+msgstr "注册时间（天）"
+
+#: Template/Config/captiveportal.ctp:102
+#: Template/Users/register.ctp:83
+msgid "Registration code"
+msgstr "注册代码"
+
+#: Template/Config/captiveportal.ctp:102
+#: Template/Users/register.ctp:83
+msgid "(leave blank if not required)"
+msgstr "（如非必需，可不填）"
+
+#: Template/Config/captiveportal.ctp:114
+msgid "Profile to be defined for new registrations"
+msgstr "为新注册设定的配置文件"
+
+#: Template/Config/captiveportal.ctp:130
+msgid "User account to use for free access"
+msgstr "用于免费访问的用户帐户"
+
+#: Template/Config/captiveportal.ctp:142
+msgid "Internet access terms and conditions"
+msgstr "Internet访问条款和条件"
+
+#: Template/Config/editterms.ctp:10
+msgid "Edit the Terms and Conditions"
+msgstr "修改一般条款"
+
+#: Template/Config/editterms.ctp:14
+msgid "Your Terms and Conditions for Internet access"
+msgstr "您的Internet访问一般条款"
+
+#: Template/Config/index.ctp:8
+msgid "Control panel"
+msgstr "控制面板"
+
+#: Template/Config/index.ctp:38
+#: Template/Layout/adminlte.ctp:216
+msgid "Wireless Access Point"
+msgstr "Wi-Fi热点"
+
+#: Template/Config/misc.ctp:90
+msgid "Tor options"
+msgstr "Tor选项"
+
+#: Template/Config/misc.ctp:92
+msgid "Define Tor exit nodes countries"
+msgstr "设置Tor出口节点的国家和地区"
+
+#: Template/Config/misc.ctp:93
+msgid "Random"
+msgstr "随机"
+
+#: Template/Config/wifiap.ctp:8
+msgid "Wireless Access Point settings"
+msgstr "Wi-Fi热点设置"
+
+#: Template/Config/wifiap.ctp:20
+msgid "Enable Access Point"
+msgstr "激活热点"
+
+#: Template/Config/wifiap.ctp:30
+msgid "SSID"
+msgstr "SSID"
+
+#: Template/Config/wifiap.ctp:35
+msgid "WIFI_SSID"
+msgstr "WIFI_SSID"
+
+#: Template/Config/wifiap.ctp:44
+msgid "Country"
+msgstr "国家"
+
+#: Template/Config/wifiap.ctp:57
+msgid "Channel"
+msgstr "通路"
+
+#: Template/Config/wifiap.ctp:70
+msgid "Operating mode"
+msgstr "运行模式"
+
+#: Template/Config/wifiap.ctp:86
+msgid "Enable Wi-Fi Multimedia"
+msgstr "激活Wi-Fi多媒体"
+
+#: Template/Config/wifiap.ctp:93
+msgid "Bridge"
+msgstr "桥"
+
+#: Template/Config/wifiap.ctp:95
+msgid "Wi-Fi Interface"
+msgstr "Wi-Fi接口"
+
+#: Template/Config/wifiap.ctp:108
+msgid "Wired Interface"
+msgstr "有线接口"
+
+#: Template/Config/wifiap.ctp:120
+msgid "Security"
+msgstr "安全"
+
+#: Template/Config/wifiap.ctp:126
+msgid "Hide Access Point"
+msgstr "隐藏热点"
+
+#: Template/Config/wifiap.ctp:137
+msgid "Isolation of Clients"
+msgstr "客户端隔离"
+
+#: Template/Config/wifiap.ctp:148
+msgid "Enable Authentication"
+msgstr "启用身份验证"
+
+#: Template/Config/wifiap.ctp:156
+msgid "Password"
+msgstr "密码"
+
+#: Template/Connections/adminview.ctp:237
+msgid "Client details"
+msgstr "顾客信息"
+
+#: Template/Connections/adminview.ctp:245
+msgid "Browser"
+msgstr "浏览器"
+
+#: Template/Connections/adminview.ctp:249
+msgid "Operating system"
+msgstr "操作系统"
+
+#: Template/Connections/adminview.ctp:253
+msgid "Screen size"
+msgstr "屏幕尺寸"
+
+#: Template/Layout/adminlte.ctp:217
+msgid "Captive portal"
+msgstr "强制网络门户"
+
+#: Template/Users/add.ctp:25
+#: Template/Users/edit.ctp:25
+#: Template/Users/index.ctp:58
+#: Template/Users/register.ctp:25
+#: Template/Users/wadd.ctp:33
+msgid "Email"
+msgstr "电邮"
+
+#: Template/Users/add.ctp:34
+#: Template/Users/edit.ctp:34
+#: Template/Users/register.ctp:34
+#: Template/Users/wadd.ctp:42
+msgid "@"
+msgstr "@"
+
+#: Template/Users/add.ctp:94
+#: Template/Users/edit.ctp:124
+#: Template/Users/index.ctp:61
+#: Template/Users/wadd.ctp:102
+msgid "Expiry"
+msgstr "过期"
+
+#: Template/Users/add.ctp:94
+#: Template/Users/edit.ctp:124
+#: Template/Users/wadd.ctp:102
+msgid "(leave blank for no expiry.)"
+msgstr "（如未过期，可不填）"
+
+#: Template/Users/fastlogin.ctp:19
+msgid "I accept the terms and conditions"
+msgstr "我接受条款和条件"
+
+#: Template/Users/login.ctp:51
+#: Template/Users/register.ctp:125
+#: Template/Users/register.ctp:126
+msgid "Register"
+msgstr "注册"
+
+#: Template/Users/register.ctp:8
+msgid "Register to the Access Point"
+msgstr "热点注册"
+
+#: Template/Users/register.ctp:103
+msgid "I have read and accept the {0}"
+msgstr "我已阅读并接受{0}"
+
+#: Template/Users/register.ctp:104
+msgid "terms and conditions"
+msgstr "条款和条件"
+
+#: Template/Help/licenses.ctp:1
+#: Template/Help/wlicenses.ctp:1
+msgid "KeexyBox version"
+msgstr "KeexyBox版本"
+
+#: Controller/ConfigController.php:1326
+msgid "Unable to reload Tor service."
+msgstr "无法重新加载Tor服务。"
+
+#: Template/Layout/adminlte.ctp:110
+#: Template/Layout/connection_view.ctp:75
+#: Template/Layout/loginlte.ctp:75
+#: Template/Layout/wizard.ctp:105
+msgid "Click on Manage to edit your account or manage KeexyBox"
+msgstr "点击【管理】来管理您的账户或管理 KeexyBox"
+
+#: Template/Layout/adminlte.ctp:106
+#: Template/Layout/connection_view.ctp:71
+#: Template/Layout/loginlte.ctp:71
+#: Template/Layout/wizard.ctp:101
+msgid "KeexyBox management"
+msgstr "KeexyBox管理"
+
+#: Template/Users/editr.ctp:91
+msgid "Delete my account"
+msgstr "删除我的账户"
+

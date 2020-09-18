@@ -3201,3 +3201,298 @@ msgstr "インターネットに接続するには、ユーザーまたは家族
 msgid "If you do not want to create them now, or you do not need to create any more, click {0}."
 msgstr "今すぐ作成しない場合、またはこれ以上作成する必要がない場合は、{0}をクリックしてください。"
 
+#:
+#: NEW TRANSLATIONS 2020-07
+#:
+
+#: Controller/ConfigController.php:610
+msgid "Wireless Access Point settings successfully saved."
+msgstr "Wi-Fi アクセスポイント設定登録成功です。"
+
+#: Controller/ConfigController.php:1442
+msgid "Saved"
+msgstr "登録完了"
+
+#: Controller/ConfigController.php:1444
+msgid "Unable to save."
+msgstr "登録不能です。"
+
+#: Controller/ToolsController.php:50
+msgid "Service for Wireless Access Point"
+msgstr "Wi-Fi アクセスポイント用サービス"
+
+#: Controller/UsersController.php:297
+msgid "Registration successful."
+msgstr "登録成功です。"
+
+#: Controller/UsersController.php:300
+msgid "Registration failed."
+msgstr "登録失敗です。"
+
+#: Controller/UsersController.php:302
+msgid "Incorrect registration code."
+msgstr "登録コードミスです。"
+
+#: Controller/UsersController.php:305
+#: Controller/UsersController.php:846
+msgid "You did not accept the terms and conditions."
+msgstr "使用規約　・条件を受諾してません。"
+
+#: Controller/UsersController.php:731
+#: Controller/UsersController.php:838
+msgid "Your account has expired."
+msgstr "アカウント期限が切れてます。"
+
+#: Shell/ServiceShell.php:240
+#: Shell/ServiceShell.php:248
+msgid "Hostapd service is disabled"
+msgstr "Hostapdサービスがオフです。"
+
+#: Template/Config/captiveportal.ctp:8
+msgid "Captive Portal settings"
+msgstr "キャプティブポータルの設定"
+
+#: Template/Config/captiveportal.ctp:44
+msgid "Information to be collected on the client for internet access"
+msgstr "インターネットアクセスのためにお客様に関して集める情報"
+
+#: Template/Config/captiveportal.ctp:49
+msgid "Record UserAgent"
+msgstr "UserAgentを登録する"
+
+#: Template/Config/captiveportal.ctp:59
+msgid "Record MAC Address"
+msgstr "Macアドレスを登録する"
+
+#: Template/Config/captiveportal.ctp:67
+msgid "Internet access conditions"
+msgstr "インターネットアクセス条件"
+
+#: Template/Config/captiveportal.ctp:72
+msgid "Private"
+msgstr "民間"
+
+#: Template/Config/captiveportal.ctp:73
+msgid "Registration"
+msgstr "登録"
+
+#: Template/Config/captiveportal.ctp:74
+msgid "Free"
+msgstr "無料"
+
+#: Template/Config/captiveportal.ctp:86
+msgid "Duration of registration (days)"
+msgstr "登録期間（日数）"
+
+#: Template/Config/captiveportal.ctp:102
+#: Template/Users/register.ctp:83
+msgid "Registration code"
+msgstr "登録コード"
+
+#: Template/Config/captiveportal.ctp:102
+#: Template/Users/register.ctp:83
+msgid "(leave blank if not required)"
+msgstr "（必要なければ空白）"
+
+#: Template/Config/captiveportal.ctp:114
+msgid "Profile to be defined for new registrations"
+msgstr "新規登録用プロフィール"
+
+#: Template/Config/captiveportal.ctp:130
+msgid "User account to use for free access"
+msgstr "無料アクセスに使用する利用者アカウント"
+
+#: Template/Config/captiveportal.ctp:142
+msgid "Internet access terms and conditions"
+msgstr "インターネットアクセス規約・条件"
+
+#: Template/Config/editterms.ctp:10
+msgid "Edit the Terms and Conditions"
+msgstr "規約・条件を変更する"
+
+#: Template/Config/editterms.ctp:14
+msgid "Your Terms and Conditions for Internet access"
+msgstr "インターネットアクセス用のあなたの規約・条件"
+
+#: Template/Config/index.ctp:8
+msgid "Control panel"
+msgstr "コントロールパネル"
+
+#: Template/Config/index.ctp:38
+#: Template/Layout/adminlte.ctp:216
+msgid "Wireless Access Point"
+msgstr "Wi-Fi アクセスポイント"
+
+#: Template/Config/misc.ctp:90
+msgid "Tor options"
+msgstr "Torオプション"
+
+#: Template/Config/misc.ctp:92
+msgid "Define Tor exit nodes countries"
+msgstr "Tor 出口ノードの国々を決める"
+
+#: Template/Config/misc.ctp:93
+msgid "Random"
+msgstr "ランダム"
+
+#: Template/Config/wifiap.ctp:8
+msgid "Wireless Access Point settings"
+msgstr "Wi-Fi アクセスポイント設定"
+
+#: Template/Config/wifiap.ctp:20
+msgid "Enable Access Point"
+msgstr "アクセスポイントを有効にする"
+
+#: Template/Config/wifiap.ctp:30
+msgid "SSID"
+msgstr "SSID"
+
+#: Template/Config/wifiap.ctp:35
+msgid "WIFI_SSID"
+msgstr "WIFI_SSID"
+
+#: Template/Config/wifiap.ctp:44
+msgid "Country"
+msgstr "国"
+
+#: Template/Config/wifiap.ctp:57
+msgid "Channel"
+msgstr "チャネル"
+
+#: Template/Config/wifiap.ctp:70
+msgid "Operating mode"
+msgstr "動作モード"
+
+#: Template/Config/wifiap.ctp:86
+msgid "Enable Wi-Fi Multimedia"
+msgstr "WiFi Multimediaを有効にする"
+
+#: Template/Config/wifiap.ctp:93
+msgid "Bridge"
+msgstr "ブリッジ"
+
+#: Template/Config/wifiap.ctp:95
+msgid "Wi-Fi Interface"
+msgstr "Wi-Fi インターフェース"
+
+#: Template/Config/wifiap.ctp:108
+msgid "Wired Interface"
+msgstr "有線インターフェース"
+
+#: Template/Config/wifiap.ctp:120
+msgid "Security"
+msgstr "セキュリティ"
+
+#: Template/Config/wifiap.ctp:126
+msgid "Hide Access Point"
+msgstr "アクセスポイントを隠す"
+
+#: Template/Config/wifiap.ctp:137
+msgid "Isolation of Clients"
+msgstr "クライアントの分離"
+
+#: Template/Config/wifiap.ctp:148
+msgid "Enable Authentication"
+msgstr "認証を有効にする"
+
+#: Template/Config/wifiap.ctp:156
+msgid "Password"
+msgstr "パスワード"
+
+#: Template/Connections/adminview.ctp:237
+msgid "Client details"
+msgstr "お客様情報"
+
+#: Template/Connections/adminview.ctp:245
+msgid "Browser"
+msgstr "ブラウザー"
+
+#: Template/Connections/adminview.ctp:249
+msgid "Operating system"
+msgstr "オペレーティング・システム"
+
+#: Template/Connections/adminview.ctp:253
+msgid "Screen size"
+msgstr "画面サイズ"
+
+#: Template/Layout/adminlte.ctp:217
+msgid "Captive portal"
+msgstr "キャプティブポータル"
+
+#: Template/Users/add.ctp:25
+#: Template/Users/edit.ctp:25
+#: Template/Users/index.ctp:58
+#: Template/Users/register.ctp:25
+#: Template/Users/wadd.ctp:33
+msgid "Email"
+msgstr "Eメール"
+
+#: Template/Users/add.ctp:34
+#: Template/Users/edit.ctp:34
+#: Template/Users/register.ctp:34
+#: Template/Users/wadd.ctp:42
+msgid "@"
+msgstr "@"
+
+#: Template/Users/add.ctp:94
+#: Template/Users/edit.ctp:124
+#: Template/Users/index.ctp:61
+#: Template/Users/wadd.ctp:102
+msgid "Expiry"
+msgstr "満期"
+
+#: Template/Users/add.ctp:94
+#: Template/Users/edit.ctp:124
+#: Template/Users/wadd.ctp:102
+msgid "(leave blank for no expiry.)"
+msgstr "（期限なしの場合、空白のまま）"
+
+#: Template/Users/fastlogin.ctp:19
+msgid "I accept the terms and conditions"
+msgstr "規約・条件を受け入れます"
+
+#: Template/Users/login.ctp:51
+#: Template/Users/register.ctp:125
+#: Template/Users/register.ctp:126
+msgid "Register"
+msgstr "登録する"
+
+#: Template/Users/register.ctp:8
+msgid "Register to the Access Point"
+msgstr "アクセスポイントに登録する"
+
+#: Template/Users/register.ctp:103
+msgid "I have read and accept the {0}"
+msgstr "{0}を読み、承諾します。"
+
+#: Template/Users/register.ctp:104
+msgid "terms and conditions"
+msgstr "規約・条件"
+
+#: Template/Help/licenses.ctp:1
+#: Template/Help/wlicenses.ctp:1
+msgid "KeexyBox version"
+msgstr "KeexyBox バージョン"
+
+#: Controller/ConfigController.php:1326
+msgid "Unable to reload Tor service."
+msgstr "Tor サービスをリロードできません。"
+
+#: Template/Layout/adminlte.ctp:110
+#: Template/Layout/connection_view.ctp:75
+#: Template/Layout/loginlte.ctp:75
+#: Template/Layout/wizard.ctp:105
+msgid "Click on Manage to edit your account or manage KeexyBox"
+msgstr "あなたのアカウントを変更、またはKeeyexBoxを管理するためには＜管理＞ をクリックする"
+
+#: Template/Layout/adminlte.ctp:106
+#: Template/Layout/connection_view.ctp:71
+#: Template/Layout/loginlte.ctp:71
+#: Template/Layout/wizard.ctp:101
+msgid "KeexyBox management"
+msgstr "KeexyBox の管理"
+
+#: Template/Users/editr.ctp:91
+msgid "Delete my account"
+msgstr "删除我的账户"
+
