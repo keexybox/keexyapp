@@ -179,6 +179,8 @@ class UsersShell extends BoxShell
             $message = "No user match $conn_name";
             $rc = 1;
         } else {
+            //For record date in UTC for display_start_time and display_end_time
+            date_default_timezone_set("UTC");
             if($user['enabled'] == 1) {
                 // if single ip is set, connect user
                 $session_data = [
@@ -196,7 +198,7 @@ class UsersShell extends BoxShell
                     'display_start_time' => date('Y-m-d H:i:s', $start_time),
                     'display_end_time' => date('Y-m-d H:i:s', $end_time)
                 ];
-                
+
                 $user_session = $this->ActivesConnections->newEntity();
                 $user_session = $this->ActivesConnections->patchEntity($user_session, $session_data);
 
