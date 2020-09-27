@@ -93,7 +93,7 @@ if url_list == '':
 	usage(sys.argv[0])
 	sys.exit(255)
 
-# Check if path to tar file is valid
+# Check if URL is valid
 url_regex = re.compile(
 	r'^(?:http|ftp)s?://' # http:// or https://
 	r'(?:(?:[A-Z0-9](?:[A-Z0-9-]{0,61}[A-Z0-9])?\.)+(?:[A-Z]{2,6}\.?|[A-Z0-9-]{2,}\.?)|' #domain...
@@ -141,6 +141,8 @@ def importurls(urls, category):
 
 # Hostname validation REGEX
 hostname_regex = re.compile("^(([a-zA-Z0-9]|[a-zA-Z0-9][a-zA-Z0-9\-]*[a-zA-Z0-9])\.)*([A-Za-z0-9]|[A-Za-z0-9][A-Za-z0-9\-]*[A-Za-z0-9])$", re.IGNORECASE)
+# REGEX to reject IPv4 addresses
+ipv4_regex = re.compile("^(?:[0-9]{1,3}\.){3}[0-9]{1,3}$")
 
 # Download file if HTTP request is 200 OK, else give up
 if(urllib.urlopen(url_list).getcode() == 200):
@@ -156,17 +158,24 @@ if (os.path.isfile(import_file)):
 		# set lines
 		lines = []
 		for line in infile:
-			# Append domain is match hostname string
-			if (re.match(hostname_regex, line.split()[0])):
-				lines.append(line.split()[0])
-
+			if not (line == "\n"):
+				if not (line.startswith('#')):
+					# Word number of the line
+					wn = 0
+					while (wn < len(line.split())):
+						# Append domain is match hostname string
+						if not (re.match(ipv4_regex, line.split()[wn])):
+							if (re.match(hostname_regex, line.split()[wn])):
+								lines.append(line.split()[wn])
+						wn += 1
+	
 			# Load N domains in the file (domains_per_query value)
 			if len(lines) > domains_per_query:
 				# Run importurls function to write SQL queries
 				importurls(lines, category)
 				# clear value lines
 				lines = []
-
+                        
 		# Load last domains that remains to import
 		if len(lines) > 0:
 			# Run importurls function to import N domains
