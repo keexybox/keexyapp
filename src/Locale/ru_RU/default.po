@@ -35,7 +35,7 @@ msgstr "Домены из списков успешно внесены в чер
 
 #: Controller/BlacklistController.php:274
 msgid "Some lists were invalid to import domains to the Blacklist."
-msgstr " Домены не внесены в черный список, так как некоторые списки были некорректны."
+msgstr "Домены не внесены в черный список, так как некоторые списки были некорректны."
 
 #: Controller/BlacklistController.php:328
 msgid "Domain {0} has been deleted."
@@ -87,11 +87,11 @@ msgstr "{0} Файлы конфигурации успешно сгенерир�
 #: Controller/ConfigController.php:92;385;613;873;1022
 #: Controller/ProfilesController.php:137;305
 msgid "Unable to write {0} configuration files."
-msgstr " Не удается записать {0} файлы конфигурации."
+msgstr "Не удается записать {0} файлы конфигурации."
 
 #: Controller/ConfigController.php:118
 msgid "The value has been changed successfully."
-msgstr " Значение успешно изменено."
+msgstr "Значение успешно изменено."
 
 #: Controller/ConfigController.php:121
 msgid "Unable to change the value."
@@ -423,7 +423,7 @@ msgstr "Запрещается удалять профиль {0} "
 
 #: Controller/ProfilesController.php:842
 msgid "Profile ID is not specified."
-msgstr " ID профиля не определен."
+msgstr "ID профиля не определен."
 
 #: Controller/ProfilesController.php:846
 msgid "Profile {0} has been reloaded successfully."
@@ -527,7 +527,7 @@ msgstr "Служба анонимизации"
 
 #: Controller/ToolsController.php:97
 msgid "Service {0} {1} successfull."
-msgstr " Операция {0} {1} успешно проведена."
+msgstr "Операция {0} {1} успешно проведена."
 
 #: Controller/ToolsController.php:99
 msgid "Service {0} {1} failed."
@@ -615,7 +615,7 @@ msgstr "Подключение пользователя {0} к сети прио
 
 #: Controller/UsersController.php:722
 msgid "Unable to pause the connection of the user {0}."
-msgstr " Невозможно приостановить подключение пользователя к сети  {0}."
+msgstr "Невозможно приостановить подключение пользователя к сети  {0}."
 
 #: Controller/UsersController.php:748
 msgid "The connection of the user {0} has been resumed."
@@ -686,7 +686,7 @@ msgstr "Данный  IP-адрес уже подключен"
 #: Model/Table/UsersNoHashPasswordTable.php:56
 #: Model/Table/UsersTable.php:50
 msgid "The value must be alphanumeric and may contain hyphens (-) and underscores (_)"
-msgstr "Значение должно быть алфавитно-цифровым. Оно может содержать дефисы (-) и нижние подчеркивания (_)" 
+msgstr "Значение должно быть алфавитно-цифровым. Оно может содержать дефисы (-) и нижние подчеркивания (_)"
 
 #: Model/Table/ConfigTable.php:97
 msgid "The value must be alphanumeric"
@@ -698,7 +698,7 @@ msgstr "Значение должно быть от {0} до {1} дней."
 
 #: Model/Table/DevicesTable.php:68
 msgid "Device name already used"
-msgstr " Устройство с указанным именем уже существует"
+msgstr "Устройство с указанным именем уже существует"
 
 #: Model/Table/DevicesTable.php:87
 #: Model/Table/ProfilesTable.php:94
@@ -1299,7 +1299,7 @@ msgstr "Дополнительные настройки"
 
 #: Template/Config/misc.ctp:16
 msgid "Domains routing and DNS options"
-msgstr " Доменная маршрутизация и параметры DNS"
+msgstr "Доменная маршрутизация и параметры DNS"
 
 #: Template/Config/misc.ctp:18
 msgid "Clear the domain routing cache"
@@ -2309,7 +2309,7 @@ msgstr "Имя: {0}"
 #: Template/Layout/loginlte.ctp:75
 #: Template/Layout/wizard.ctp:105
 msgid "Not authenticated to manage KeexyBox"
-msgstr " Не аутентифицирован для работы в KeexyBox"
+msgstr "Не аутентифицирован для работы в KeexyBox"
 
 #: Template/Layout/adminlte.ctp:117
 #: Template/Layout/connection_view.ctp:82
@@ -2717,7 +2717,7 @@ msgstr "Перезагрузить профиль?"
 
 #: Template/Profiles/index.ctp:163
 msgid "Users and devices attached to this profile will be assigned to the default profile. Do you confirm the deletion of the profile {0}?"
-msgstr "Пользователи и устройства, привязанные к профилю, будут определены по умолчанию. Вы подтверждаете удаление профиля {0}? " 
+msgstr "Пользователи и устройства, привязанные к профилю, будут определены по умолчанию. Вы подтверждаете удаление профиля {0}? "
 
 #: Template/Profiles/upload_import.ctp:45;46
 msgid "Upload"
@@ -3017,7 +3017,7 @@ msgstr "Проверить заблокированный домен"
 
 #: Template/Tools/domain_issue.ctp:12
 msgid "In some cases a domain can be filtered while it is not in the blacklist. In most cases, it comes from a target CNAME record which is in the Blacklist. This form allows you to check the domains causing the blocking."
-msgstr "В некоторых случаях домен может попасть в фильтр, даже если он не находится в черном списке. В большинстве случаев это происходит из-за записи CNAME, которая находится в черном списке. Данная функция позволяет проверить домены, вызывающие блокировку. " 
+msgstr "В некоторых случаях домен может попасть в фильтр, даже если он не находится в черном списке. В большинстве случаев это происходит из-за записи CNAME, которая находится в черном списке. Данная функция позволяет проверить домены, вызывающие блокировку."
 
 #: Template/Tools/domain_issue.ctp:39;40
 msgid "Check"
@@ -3200,4 +3200,299 @@ msgstr "Для подключения к интернету пользовате
 #: Template/Users/wadd.ctp:7
 msgid "If you do not want to create them now, or you do not need to create any more, click {0}."
 msgstr "Если вы желаете создать их сейчас, или если вы больше не желаете их создавать, нажмите {0}."
+
+#:
+#: NEW TRANSLATIONS 2020-07
+#:
+
+#: Controller/ConfigController.php:610
+msgid "Wireless Access Point settings successfully saved."
+msgstr "Параметры точки доступа Wi-Fi были успешно сохранены"
+
+#: Controller/ConfigController.php:1442
+msgid "Saved"
+msgstr "Сохранено"
+
+#: Controller/ConfigController.php:1444
+msgid "Unable to save."
+msgstr "Не удалось сохранить."
+
+#: Controller/ToolsController.php:50
+msgid "Service for Wireless Access Point"
+msgstr "Сервис для точки доступа Wi-Fi"
+
+#: Controller/UsersController.php:297
+msgid "Registration successful."
+msgstr "Регистрация выполнена успешно."
+
+#: Controller/UsersController.php:300
+msgid "Registration failed."
+msgstr "Не удалось выполнить регистрацию."
+
+#: Controller/UsersController.php:302
+msgid "Incorrect registration code."
+msgstr "Неверный код регистрации."
+
+#: Controller/UsersController.php:305
+#: Controller/UsersController.php:846
+msgid "You did not accept the terms and conditions."
+msgstr "Вы не приняли условия."
+
+#: Controller/UsersController.php:731
+#: Controller/UsersController.php:838
+msgid "Your account has expired."
+msgstr "Срок действия вашего аккаунта истек."
+
+#: Shell/ServiceShell.php:240
+#: Shell/ServiceShell.php:248
+msgid "Hostapd service is disabled"
+msgstr "Сервис hostapd отключен"
+
+#: Template/Config/captiveportal.ctp:8
+msgid "Captive Portal settings"
+msgstr "Параметры портала авторизации"
+
+#: Template/Config/captiveportal.ctp:44
+msgid "Information to be collected on the client for internet access"
+msgstr "Данные, которые будут собраны у клиента для доступа к интернету"
+
+#: Template/Config/captiveportal.ctp:49
+msgid "Record UserAgent"
+msgstr "Зарегистрировать UserAgent"
+
+#: Template/Config/captiveportal.ctp:59
+msgid "Record MAC Address"
+msgstr "Зарегистрировать адрес Mac"
+
+#: Template/Config/captiveportal.ctp:67
+msgid "Internet access conditions"
+msgstr "Условия доступа к интернету"
+
+#: Template/Config/captiveportal.ctp:72
+msgid "Private"
+msgstr "Частный"
+
+#: Template/Config/captiveportal.ctp:73
+msgid "Registration"
+msgstr "Регистрация"
+
+#: Template/Config/captiveportal.ctp:74
+msgid "Free"
+msgstr "Свободный"
+
+#: Template/Config/captiveportal.ctp:86
+msgid "Duration of registration (days)"
+msgstr "Длительность регистрации (дни)"
+
+#: Template/Config/captiveportal.ctp:102
+#: Template/Users/register.ctp:83
+msgid "Registration code"
+msgstr "Код регистрации"
+
+#: Template/Config/captiveportal.ctp:102
+#: Template/Users/register.ctp:83
+msgid "(leave blank if not required)"
+msgstr "(оставьте пустым, если заполнение не обязательно)"
+
+#: Template/Config/captiveportal.ctp:114
+msgid "Profile to be defined for new registrations"
+msgstr "Профиль для новых регистраций"
+
+#: Template/Config/captiveportal.ctp:130
+msgid "User account to use for free access"
+msgstr "Аккаунт пользователя для свободного доступа"
+
+#: Template/Config/captiveportal.ctp:142
+msgid "Internet access terms and conditions"
+msgstr "Условия доступа к интернету"
+
+#: Template/Config/editterms.ctp:10
+msgid "Edit the Terms and Conditions"
+msgstr "Изменить общие условия"
+
+#: Template/Config/editterms.ctp:14
+msgid "Your Terms and Conditions for Internet access"
+msgstr "Общие условия доступа к интернету"
+
+#: Template/Config/index.ctp:8
+msgid "Control panel"
+msgstr "Панель управления"
+
+#: Template/Config/index.ctp:38
+#: Template/Layout/adminlte.ctp:216
+msgid "Wireless Access Point"
+msgstr "Точка доступа Wi-Fi"
+
+#: Template/Config/misc.ctp:90
+msgid "Tor options"
+msgstr "Параметры Tor"
+
+#: Template/Config/misc.ctp:92
+msgid "Define Tor exit nodes countries"
+msgstr "Определить страны выходных узлов Tor"
+
+#: Template/Config/misc.ctp:93
+msgid "Random"
+msgstr "Случайно"
+
+#: Template/Config/wifiap.ctp:8
+msgid "Wireless Access Point settings"
+msgstr "Параметры точки доступа Wi-Fi"
+
+#: Template/Config/wifiap.ctp:20
+msgid "Enable Access Point"
+msgstr "Активировать точку доступа"
+
+#: Template/Config/wifiap.ctp:30
+msgid "SSID"
+msgstr "SSID"
+
+#: Template/Config/wifiap.ctp:35
+msgid "WIFI_SSID"
+msgstr "WIFI_SSID"
+
+#: Template/Config/wifiap.ctp:44
+msgid "Country"
+msgstr "Страна"
+
+#: Template/Config/wifiap.ctp:57
+msgid "Channel"
+msgstr "Канал"
+
+#: Template/Config/wifiap.ctp:70
+msgid "Operating mode"
+msgstr "Режим работы"
+
+#: Template/Config/wifiap.ctp:86
+msgid "Enable Wi-Fi Multimedia"
+msgstr "Активировать мультимедиа Wi-Fi"
+
+#: Template/Config/wifiap.ctp:93
+msgid "Bridge"
+msgstr "Мост"
+
+#: Template/Config/wifiap.ctp:95
+msgid "Wi-Fi Interface"
+msgstr "Интерфейс Wi-Fi"
+
+#: Template/Config/wifiap.ctp:108
+msgid "Wired Interface"
+msgstr "Проводной интерфейс"
+
+#: Template/Config/wifiap.ctp:120
+msgid "Security"
+msgstr "Безопасность"
+
+#: Template/Config/wifiap.ctp:126
+msgid "Hide Access Point"
+msgstr "Скрыть точку доступа"
+
+#: Template/Config/wifiap.ctp:137
+msgid "Isolation of Clients"
+msgstr "Изоляция клиентов"
+
+#: Template/Config/wifiap.ctp:148
+msgid "Enable Authentication"
+msgstr "Включить аутентификацию"
+
+#: Template/Config/wifiap.ctp:156
+msgid "Password"
+msgstr "Пароль"
+
+#: Template/Connections/adminview.ctp:237
+msgid "Client details"
+msgstr "Данные клиента"
+
+#: Template/Connections/adminview.ctp:245
+msgid "Browser"
+msgstr "Браузер"
+
+#: Template/Connections/adminview.ctp:249
+msgid "Operating system"
+msgstr "Операционная система"
+
+#: Template/Connections/adminview.ctp:253
+msgid "Screen size"
+msgstr "Размер экрана"
+
+#: Template/Layout/adminlte.ctp:217
+msgid "Captive portal"
+msgstr "Портал авторизации"
+
+#: Template/Users/add.ctp:25
+#: Template/Users/edit.ctp:25
+#: Template/Users/index.ctp:58
+#: Template/Users/register.ctp:25
+#: Template/Users/wadd.ctp:33
+msgid "Email"
+msgstr "Email"
+
+#: Template/Users/add.ctp:34
+#: Template/Users/edit.ctp:34
+#: Template/Users/register.ctp:34
+#: Template/Users/wadd.ctp:42
+msgid "@"
+msgstr "@"
+
+#: Template/Users/add.ctp:94
+#: Template/Users/edit.ctp:124
+#: Template/Users/index.ctp:61
+#: Template/Users/wadd.ctp:102
+msgid "Expiry"
+msgstr "Срок действия"
+
+#: Template/Users/add.ctp:94
+#: Template/Users/edit.ctp:124
+#: Template/Users/wadd.ctp:102
+msgid "(leave blank for no expiry.)"
+msgstr "((если отсутствует, оставить пустым.)"
+
+#: Template/Users/fastlogin.ctp:19
+msgid "I accept the terms and conditions"
+msgstr "Я принимаю условия"
+
+#: Template/Users/login.ctp:51
+#: Template/Users/register.ctp:125
+#: Template/Users/register.ctp:126
+msgid "Register"
+msgstr "Зарегистрироваться"
+
+#: Template/Users/register.ctp:8
+msgid "Register to the Access Point"
+msgstr "Зарегистрироваться в точке доступа"
+
+#: Template/Users/register.ctp:103
+msgid "I have read and accept the {0}"
+msgstr "Я прочитал (-а) и принимаю {0}"
+
+#: Template/Users/register.ctp:104
+msgid "terms and conditions"
+msgstr "условия"
+
+#: Template/Help/licenses.ctp:1
+#: Template/Help/wlicenses.ctp:1
+msgid "KeexyBox version"
+msgstr "Версия KeexyBox"
+
+#: Controller/ConfigController.php:1326
+msgid "Unable to reload Tor service."
+msgstr "Не удается перезагрузить сервис Tor."
+
+#: Template/Layout/adminlte.ctp:110
+#: Template/Layout/connection_view.ctp:75
+#: Template/Layout/loginlte.ctp:75
+#: Template/Layout/wizard.ctp:105
+msgid "Click on Manage to edit your account or manage KeexyBox"
+msgstr "Нажмите «Управление», чтобы изменить учетную запись или настроить KeexyBox."
+
+#: Template/Layout/adminlte.ctp:106
+#: Template/Layout/connection_view.ctp:71
+#: Template/Layout/loginlte.ctp:71
+#: Template/Layout/wizard.ctp:101
+msgid "KeexyBox management"
+msgstr "Настройка KeexyBox"
+
+#: Template/Users/editr.ctp:91
+msgid "Delete my account"
+msgstr "Удалить мою учетную запись"
 

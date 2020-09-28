@@ -3201,3 +3201,298 @@ msgstr "Per connettersi a Internet, gli utenti o i membri della tua famiglia dov
 msgid "If you do not want to create them now, or you do not need to create any more, click {0}."
 msgstr "Se non vuoi crearli ora o non hai bisogno di crearne altri, clicca su {0}."
 
+#:
+#: NEW TRANSLATIONS 2020-07
+#:
+
+#: Controller/ConfigController.php:610
+msgid "Wireless Access Point settings successfully saved."
+msgstr "I parametri del punto di accesso Wi-Fi sono stati correttamente registrati"
+
+#: Controller/ConfigController.php:1442
+msgid "Saved"
+msgstr "Registrato"
+
+#: Controller/ConfigController.php:1444
+msgid "Unable to save."
+msgstr "Impossibile registrare."
+
+#: Controller/ToolsController.php:50
+msgid "Service for Wireless Access Point"
+msgstr "Servizio per il punto di accesso Wi-Fi"
+
+#: Controller/UsersController.php:297
+msgid "Registration successful."
+msgstr "Iscrizione avvenuta con successo."
+
+#: Controller/UsersController.php:300
+msgid "Registration failed."
+msgstr "Registrazione non riuscita."
+
+#: Controller/UsersController.php:302
+msgid "Incorrect registration code."
+msgstr "Il codice di registrazione è errato."
+
+#: Controller/UsersController.php:305
+#: Controller/UsersController.php:846
+msgid "You did not accept the terms and conditions."
+msgstr "Non hai accettato i termini e le condizioni."
+
+#: Controller/UsersController.php:731
+#: Controller/UsersController.php:838
+msgid "Your account has expired."
+msgstr "Il tuo account è scaduto."
+
+#: Shell/ServiceShell.php:240
+#: Shell/ServiceShell.php:248
+msgid "Hostapd service is disabled"
+msgstr "Il servizio hostapd è disattivato"
+
+#: Template/Config/captiveportal.ctp:8
+msgid "Captive Portal settings"
+msgstr "Parametri del Captive portal"
+
+#: Template/Config/captiveportal.ctp:44
+msgid "Information to be collected on the client for internet access"
+msgstr "Informazioni del cliente da fornire per l’accesso a Internet"
+
+#: Template/Config/captiveportal.ctp:49
+msgid "Record UserAgent"
+msgstr "Registrare lo UserAgent"
+
+#: Template/Config/captiveportal.ctp:59
+msgid "Record MAC Address"
+msgstr "Registrare l’indirizzo Mac"
+
+#: Template/Config/captiveportal.ctp:67
+msgid "Internet access conditions"
+msgstr "Condizioni di accesso Internet"
+
+#: Template/Config/captiveportal.ctp:72
+msgid "Private"
+msgstr "Privato"
+
+#: Template/Config/captiveportal.ctp:73
+msgid "Registration"
+msgstr "Inscrizione"
+
+#: Template/Config/captiveportal.ctp:74
+msgid "Free"
+msgstr "Libero"
+
+#: Template/Config/captiveportal.ctp:86
+msgid "Duration of registration (days)"
+msgstr "Durata dell’iscrizione (giorni)"
+
+#: Template/Config/captiveportal.ctp:102
+#: Template/Users/register.ctp:83
+msgid "Registration code"
+msgstr "Codice di registrazione"
+
+#: Template/Config/captiveportal.ctp:102
+#: Template/Users/register.ctp:83
+msgid "(leave blank if not required)"
+msgstr "(lasciare vuoto se non richiesto)"
+
+#: Template/Config/captiveportal.ctp:114
+msgid "Profile to be defined for new registrations"
+msgstr "Profilo da definire per le nuove iscrizioni"
+
+#: Template/Config/captiveportal.ctp:130
+msgid "User account to use for free access"
+msgstr "Account utente da usare per l’accesso libero"
+
+#: Template/Config/captiveportal.ctp:142
+msgid "Internet access terms and conditions"
+msgstr "Termini e condizioni di accesso a Internet"
+
+#: Template/Config/editterms.ctp:10
+msgid "Edit the Terms and Conditions"
+msgstr "Modificare le condizioni generali"
+
+#: Template/Config/editterms.ctp:14
+msgid "Your Terms and Conditions for Internet access"
+msgstr "Le tue condizioni generali di accesso a Internet"
+
+#: Template/Config/index.ctp:8
+msgid "Control panel"
+msgstr "Pannello di configurazione"
+
+#: Template/Config/index.ctp:38
+#: Template/Layout/adminlte.ctp:216
+msgid "Wireless Access Point"
+msgstr "Punto di accesso Wi-Fi"
+
+#: Template/Config/misc.ctp:90
+msgid "Tor options"
+msgstr "Opzioni Tor"
+
+#: Template/Config/misc.ctp:92
+msgid "Define Tor exit nodes countries"
+msgstr "Definire i paesi dei nodi di uscita Tor"
+
+#: Template/Config/misc.ctp:93
+msgid "Random"
+msgstr "Aleatorio"
+
+#: Template/Config/wifiap.ctp:8
+msgid "Wireless Access Point settings"
+msgstr "Parametri del punto di accesso Wi-Fi"
+
+#: Template/Config/wifiap.ctp:20
+msgid "Enable Access Point"
+msgstr "Attivare il punto di accesso"
+
+#: Template/Config/wifiap.ctp:30
+msgid "SSID"
+msgstr "SSID"
+
+#: Template/Config/wifiap.ctp:35
+msgid "WIFI_SSID"
+msgstr "WIFI_SSID"
+
+#: Template/Config/wifiap.ctp:44
+msgid "Country"
+msgstr "Paese"
+
+#: Template/Config/wifiap.ctp:57
+msgid "Channel"
+msgstr "Canale"
+
+#: Template/Config/wifiap.ctp:70
+msgid "Operating mode"
+msgstr "Modalità di funzionamento"
+
+#: Template/Config/wifiap.ctp:86
+msgid "Enable Wi-Fi Multimedia"
+msgstr "Attivare il multimedia Wi-Fi"
+
+#: Template/Config/wifiap.ctp:93
+msgid "Bridge"
+msgstr "Ponte"
+
+#: Template/Config/wifiap.ctp:95
+msgid "Wi-Fi Interface"
+msgstr "Interfaccia Wi-Fi"
+
+#: Template/Config/wifiap.ctp:108
+msgid "Wired Interface"
+msgstr "Interfaccia cablata"
+
+#: Template/Config/wifiap.ctp:120
+msgid "Security"
+msgstr "Sicurezza"
+
+#: Template/Config/wifiap.ctp:126
+msgid "Hide Access Point"
+msgstr "Nascondere il punto di accesso"
+
+#: Template/Config/wifiap.ctp:137
+msgid "Isolation of Clients"
+msgstr "Isolamento dei clienti"
+
+#: Template/Config/wifiap.ctp:148
+msgid "Enable Authentication"
+msgstr "Attivare l’autenticazione"
+
+#: Template/Config/wifiap.ctp:156
+msgid "Password"
+msgstr "Password"
+
+#: Template/Connections/adminview.ctp:237
+msgid "Client details"
+msgstr "Dettagli del cliente"
+
+#: Template/Connections/adminview.ctp:245
+msgid "Browser"
+msgstr "Browser"
+
+#: Template/Connections/adminview.ctp:249
+msgid "Operating system"
+msgstr "Sistema operativo"
+
+#: Template/Connections/adminview.ctp:253
+msgid "Screen size"
+msgstr "Dimensione dello schermo"
+
+#: Template/Layout/adminlte.ctp:217
+msgid "Captive portal"
+msgstr "Captive portal"
+
+#: Template/Users/add.ctp:25
+#: Template/Users/edit.ctp:25
+#: Template/Users/index.ctp:58
+#: Template/Users/register.ctp:25
+#: Template/Users/wadd.ctp:33
+msgid "Email"
+msgstr "Email"
+
+#: Template/Users/add.ctp:34
+#: Template/Users/edit.ctp:34
+#: Template/Users/register.ctp:34
+#: Template/Users/wadd.ctp:42
+msgid "@"
+msgstr "@"
+
+#: Template/Users/add.ctp:94
+#: Template/Users/edit.ctp:124
+#: Template/Users/index.ctp:61
+#: Template/Users/wadd.ctp:102
+msgid "Expiry"
+msgstr "Scadenza"
+
+#: Template/Users/add.ctp:94
+#: Template/Users/edit.ctp:124
+#: Template/Users/wadd.ctp:102
+msgid "(leave blank for no expiry.)"
+msgstr "(se nessuna scadenza, lasciare vuoto.)"
+
+#: Template/Users/fastlogin.ctp:19
+msgid "I accept the terms and conditions"
+msgstr "Accetto i termini e le condizioni"
+
+#: Template/Users/login.ctp:51
+#: Template/Users/register.ctp:125
+#: Template/Users/register.ctp:126
+msgid "Register"
+msgstr "Iscriversi"
+
+#: Template/Users/register.ctp:8
+msgid "Register to the Access Point"
+msgstr "Iscriversi al punto di accesso"
+
+#: Template/Users/register.ctp:103
+msgid "I have read and accept the {0}"
+msgstr "Ho letto e accetto i {0}"
+
+#: Template/Users/register.ctp:104
+msgid "terms and conditions"
+msgstr "termini e condizioni"
+
+#: Template/Help/licenses.ctp:1
+#: Template/Help/wlicenses.ctp:1
+msgid "KeexyBox version"
+msgstr "Versione di KeexyBox"
+
+#: Controller/ConfigController.php:1326
+msgid "Unable to reload Tor service."
+msgstr "Impossibile ricaricare il servizio Tor."
+
+#: Template/Layout/adminlte.ctp:110
+#: Template/Layout/connection_view.ctp:75
+#: Template/Layout/loginlte.ctp:75
+#: Template/Layout/wizard.ctp:105
+msgid "Click on Manage to edit your account or manage KeexyBox"
+msgstr "Clicca su Gestisci per modificare il tuo account o gestire KeexyBox"
+
+#: Template/Layout/adminlte.ctp:106
+#: Template/Layout/connection_view.ctp:71
+#: Template/Layout/loginlte.ctp:71
+#: Template/Layout/wizard.ctp:101
+msgid "KeexyBox management"
+msgstr "Gestione di KeexyBox"
+
+#: Template/Users/editr.ctp:91
+msgid "Delete my account"
+msgstr "Elimina il mio account"
+

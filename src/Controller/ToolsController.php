@@ -47,6 +47,7 @@ class ToolsController extends AppController
         $services = [
             ['name' => 'bind', 'description' => __('DNS Service for domain filtering')],
             ['name' => 'dhcp', 'description' => __('Service which assigns automatically an IP address on devices')],
+            ['name' => 'hostapd', 'description' => __('Service for Wireless Access Point')],
             ['name' => 'ntp', 'description' => __('Service for time synchronization')],
             ['name' => 'rules', 'description' => __('Service for routing and firewall rules')],
             ['name' => 'tor', 'description' => __('Anonymization service')],

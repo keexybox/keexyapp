@@ -26,6 +26,7 @@
               'type' => 'select',
               'label' => false,
               'class' => "form-control",
+              //'disabled' => $hostapd_enabled,
               'options' => $nic_devices,
               'default' => $host_interface_input,
             ]);
@@ -118,6 +119,8 @@
 		      'id' => 'host_interface_output',
               'type' => 'select',
               'label' => false,
+              // Disable input if Wi-Fi Access Point enabled
+              //'disabled' => $hostapd_enabled,
               'class' => "form-control",
               'options' => $nic_devices,
               'default' => $host_interface_output,

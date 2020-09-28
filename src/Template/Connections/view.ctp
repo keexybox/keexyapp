@@ -83,9 +83,7 @@
       </div><!-- /.box-footer -->
       <?= $this->Form->end() ?>
 	</div><!-- /.box -->
-  </div>
 
-  <div class="col-md-6">
     <div class="box box-info">
       <div class="box-header with-border">
         <h3 class="box-title"><?= __('Profile')?></h3>
@@ -138,11 +136,7 @@
 	  <div class="box-footer">
 	  </div>
 	</div>
-  </div><!-- /.col -->
-</div><!-- /.row -->
 
-<div class="row">
-  <div class="col-md-6">
     <div class="box box-info">
       <div class="box-header with-border">
         <h3 class="box-title"><?= __('Search engine options and Blacklist categories')?></h3>
@@ -202,6 +196,7 @@
 	  </div>
     </div>
   </div>
+
   <?php if(!empty($connection->profile_times)): ?>
   <div class="col-md-6">
     <div class="box box-info">

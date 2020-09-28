@@ -135,6 +135,12 @@ class ConfigController extends AppController
     {
         // Getting host name
         $host_name = $this->Config->get('host_name');
+        
+        // Check if Wi-Fi Access point is enabled
+        $hostapd_enabled = $this->Config->get('hostapd_enabled')->value;
+        $hostapd_interface = $this->Config->get('hostapd_interface')->value;
+        $hostapd_bridge_ports = $this->Config->get('hostapd_bridge_ports')->value;
+        $hostapd_bridge = $this->Config->get('hostapd_bridge')->value;
 
         // Getting network input interface path
         $host_interface_input = $this->Config->get('host_interface_input');
@@ -154,11 +160,21 @@ class ConfigController extends AppController
 
         // Cleaning list and remove loopback interface
         $wifi_class = null;
+        $nic_devices = null;
         foreach($nic_files as $nic_file) {
             if( $nic_file != "." AND $nic_file != ".." AND $nic_file != "lo" ) {
-                $nic_devices[$nic_file] = $nic_file;
-                if(is_dir($nic_path->value."/".$nic_file."/wireless")) {
-                    $wifi_class .= $nic_file." ";
+                if ($hostapd_enabled == 0) {
+                    $nic_devices[$nic_file] = $nic_file;
+                    if(is_dir($nic_path->value."/".$nic_file."/wireless")) {
+                        $wifi_class .= $nic_file." ";
+                    }
+                } else {
+                    if ($nic_file != $hostapd_bridge_ports AND $nic_file != $hostapd_interface) { 
+                        $nic_devices[$nic_file] = $nic_file;
+                        if(is_dir($nic_path->value."/".$nic_file."/wireless")) {
+                            $wifi_class .= $nic_file." ";
+                        }
+                    }
                 }
             }
         }
@@ -184,6 +200,7 @@ class ConfigController extends AppController
         $host_dns2 = $this->Config->get('host_dns2');
 
         if ($this->request->is(['patch', 'post', 'put'])) {
+            debug($this->request->getData());
 
             // return code used know if config can be saved
             // $rc = 1 : one on more field were not validated
@@ -210,27 +227,29 @@ class ConfigController extends AppController
             */
 
             /*
-             * UPDATING HOST INPUT AND OUTPUT INTERFACES
+             * UPDATING HOST INPUT AND OUTPUT INTERFACES ONLY IF Wi-Fi Access Point is disabled
              */
 
-            // If input interface is the same as output interface, then create a virtual interface for input
-            if($this->request->data['host_interface_input'] == $this->request->data['host_interface_output']) {
-                $this->request->data['host_interface_input'] = $this->request->data['host_interface_output'].":0";
+            if ($hostapd_enabled == 0) {
+                // If input interface is the same as output interface, then create a virtual interface for input
+                if($this->request->data['host_interface_input'] == $this->request->data['host_interface_output']) {
+                    $this->request->data['host_interface_input'] = $this->request->data['host_interface_output'].":0";
+                }
+    
+                // Patch input interface
+                $confdata = array(
+                    'param' => 'host_interface_input',
+                    'value' => $this->request->data['host_interface_input']
+                );
+                $data_host_interface_input = $this->Config->patchEntity($host_interface_input, $confdata);
+    
+                // Patch output interface
+                $confdata = array(
+                    'param' => 'host_interface_ouput',
+                    'value' => $this->request->data['host_interface_output']
+                );
+                $data_host_interface_output = $this->Config->patchEntity($host_interface_output, $confdata);
             }
-
-            // Patch input interface
-            $confdata = array(
-                'param' => 'host_interface_input',
-                'value' => $this->request->data['host_interface_input']
-            );
-            $data_host_interface_input = $this->Config->patchEntity($host_interface_input, $confdata);
-
-            // Patch output interface
-            $confdata = array(
-                'param' => 'host_interface_ouput',
-                'value' => $this->request->data['host_interface_output']
-            );
-            $data_host_interface_output = $this->Config->patchEntity($host_interface_output, $confdata);
 
 
             // IP validations
@@ -331,9 +350,11 @@ class ConfigController extends AppController
                     $this->Config->save(${"data_$param"});
                 }
 
-                // Save host interface and DNS
-                $this->Config->save($data_host_interface_input);
-                $this->Config->save($data_host_interface_output);
+                // Save host interface (only if Wi-Fi Access Point is disabled) and DNS
+                if ($hostapd_enabled == 0) {
+                    $this->Config->save($data_host_interface_input);
+                    $this->Config->save($data_host_interface_output);
+                }
                 $this->Config->save($data_host_dns1);
                 $this->Config->save($data_host_dns2);
 
@@ -377,7 +398,7 @@ class ConfigController extends AppController
                     if ($run_wizard->value == 1) {
                         return $this->redirect(['controller' => 'Config', 'action' => 'wdhcp', 'install_type' => $install_type]);
                     } else {
-                        $this->Flash->success(__('Network settings successfully saved. Please adjust the DHCP settings and reboot Keexybox.'));
+                        $this->Flash->success(__('Network settings successfully saved. Please adjust the DHCP settings and reboot KeexyBox.'));
                         return $this->redirect(['controller' => 'Config', 'action' => 'dhcp']);
                     }
                 } else {
@@ -395,6 +416,7 @@ class ConfigController extends AppController
     
         // loop to show params on view
         $this->set('host_name', $host_name);
+        $this->set('hostapd_enabled', $hostapd_enabled);
         $this->set('host_interface_input', $host_interface_input_value);
         $this->set('host_interface_output', $host_interface_output_value);
         $this->set('nic_devices', $nic_devices);
@@ -436,6 +458,201 @@ class ConfigController extends AppController
         $this->set('wpa_config_file_contents', $wpa_config_file_contents);
         $this->set('wpa_config_file', $wpa_config_file['value']);
         $this->viewBuilder()->setLayout('adminlte-nh');
+    }
+
+    /**
+     * Edit Wifi Access Point settings
+     *
+     * @return void Redirects on successful edit, renders view otherwise.
+     */
+    public function wifiap()
+    {
+        /** Extract hostapd_% params from database **/
+
+        $hostapd_settings = $this->Config->find('all', [ 'conditions' => [ 'param LIKE' => 'hostapd_%' ]]);
+        foreach($hostapd_settings as $hostapd_setting) {
+            $param = $hostapd_setting->param;
+            $$param = $hostapd_setting->value;
+        }
+
+        // Get if hostapd was enable before update. It is used to know if we have to update network configuration
+        $hostapd_was_enabled = $hostapd_enabled;
+
+        /**************************************/
+        /** Check and Save POST request data **/
+        /**************************************/
+
+        if ($this->request->is(['patch', 'post', 'put'])) {
+
+            /** Update data in database **/ 
+            // Retrieve requested data from Database
+            $request_data = $this->request->getData();
+            foreach ($request_data as $param => $value) {
+                $$param = $this->Config->get($param);
+            }
+
+            // Set and validate each request data
+            $validation_errors = 0;
+            foreach ($request_data as $param => $value) {
+                //debug($param);
+                // Prepare data to commit
+                $data = ['value' => $value];
+                // Check data
+                if ( $param == 'hostapd_ssid' ) {
+                    $$param = $this->Config->patchEntity($$param, $data, ['validate' => 'ssid']);
+                } else {
+                    $$param = $this->Config->patchEntity($$param, $data);
+                }
+                // Count error
+                if($$param->errors()) {
+                    $this->Flash->set(__($$param->errors()['value']['hostapd']), [
+                        'key' => 'error_'.$param,
+                        'element' => 'custom_error' ]);
+                    $validation_errors++;
+                }
+            }
+
+            // If no error, save each data
+            if ($validation_errors == 0) {
+                foreach($request_data as $param => $value) {
+                    $$param = $this->Config->save($$param);
+                }
+            }
+
+            if ($hostapd_was_enabled == 0 && $hostapd_enabled->value == 1) {
+                //debug('Change network configuration for Access Point');
+                // 1 - Save values of input and output interfaces
+                // Backup value of input interface
+                $data = ['value' => $this->Config->get('host_interface_input')->value];
+                $hostapd_host_interface_input_bak = $this->Config->get('hostapd_host_interface_input_bak');
+                $hostapd_host_interface_input_bak = $this->Config->patchEntity($hostapd_host_interface_input_bak, $data);
+                $hostapd_host_interface_input_bak = $this->Config->save($hostapd_host_interface_input_bak);
+
+                // Backup value of output interface
+                $data = ['value' => $this->Config->get('host_interface_output')->value];
+                $hostapd_host_interface_output_bak = $this->Config->get('hostapd_host_interface_output_bak');
+                $hostapd_host_interface_output_bak = $this->Config->patchEntity($hostapd_host_interface_output_bak, $data);
+                $hostapd_host_interface_output_bak = $this->Config->save($hostapd_host_interface_output_bak);
+
+                // 2 - Set Bridge interface as input and output interfaces
+                // Set new input interface
+                $data = ['value' => $this->Config->get('hostapd_bridge')->value.":0"];
+                $host_interface_input = $this->Config->get('host_interface_input');
+                $host_interface_input = $this->Config->patchEntity($host_interface_input, $data);
+                $host_interface_input = $this->Config->save($host_interface_input);
+
+                // Set new output interface
+                $data = ['value' => $this->Config->get('hostapd_bridge')->value];
+                $host_interface_output = $this->Config->get('host_interface_output');
+                $host_interface_output = $this->Config->patchEntity($host_interface_output, $data);
+                $host_interface_output = $this->Config->save($host_interface_output);
+
+                // 3 - Update network and hostapd configs
+                // array that list command to run in shell 
+                $config_cmds = [
+                    'config network main',
+                    'config hostapd main',
+                    ];
+
+
+            } elseif ($hostapd_was_enabled == 1 && $hostapd_enabled->value == 0) {
+                //debug('Restore network configuration');
+                // 1 - Restore values of input and output interfaces
+                $data = ['value' => $this->Config->get('hostapd_host_interface_input_bak')->value];
+                $host_interface_input = $this->Config->get('host_interface_input');
+                $host_interface_input = $this->Config->patchEntity($host_interface_input, $data);
+                $host_interface_input = $this->Config->save($host_interface_input);
+
+                $data = ['value' => $this->Config->get('hostapd_host_interface_output_bak')->value];
+                $host_interface_output = $this->Config->get('host_interface_output');
+                $host_interface_output = $this->Config->patchEntity($host_interface_output, $data);
+                $host_interface_output = $this->Config->save($host_interface_output);
+
+                // 2 - Update network and hostapd configs
+                // array that list command to run in shell 
+                $config_cmds = [
+                    'config network main',
+                    'config hostapd main',
+                    ];
+
+            } elseif ($hostapd_was_enabled == 1 && $hostapd_enabled->value == 1) {
+                //debug('Update hostapd config only');
+                // 1 - Update hostapd config only
+                // array that list command to run in shell 
+                $config_cmds = [
+                    'config hostapd main',
+                    ];
+            } 
+
+            // Updating configuration files 
+            // var to count write configuration errors
+            $count_cmd_rc = 0;
+
+            // Running commands
+            if (isset($config_cmds)) {
+                foreach($config_cmds as $config_cmd) {
+                    exec($this->kxycmd("$config_cmd"), $o, $cmd_rc);
+                    $count_cmd_rc = $count_cmd_rc + $cmd_rc;
+                }
+            }
+
+            if($count_cmd_rc == 0) {
+                // Only use for wizard config
+                $run_wizard = $this->Config->get('run_wizard');
+                $install_type = null;
+                if (null !== $this->request->getQuery('install_type')) {
+                    $install_type = $this->request->getQuery('install_type');
+                }
+
+                if ($run_wizard->value == 1) {
+                    return $this->redirect(['controller' => 'Config', 'action' => 'wdhcp', 'install_type' => $install_type]);
+                } else {
+                    $this->Flash->success(__('Wireless Access Point settings successfully saved.'));
+                }
+            } else {
+                $this->Flash->error(__('Unable to write {0} configuration files.', null));
+            }
+        }
+
+        /** Build lists for select controls **/
+
+        // Getting network interface path
+        $nic_path = $this->Config->get('nic_path');
+
+        // List directory that contain network interface
+        $nic_files = scandir($nic_path->value);
+        $wifi_interfaces = null;
+        $wired_interfaces = null;
+        foreach($nic_files as $nic_file) {
+            if(is_dir($nic_path->value."/".$nic_file."/wireless")) {
+                $wifi_interfaces[$nic_file] = $nic_file;
+            } else {
+                if( $nic_file != "." AND $nic_file != ".." AND $nic_file != "lo" AND $nic_file != "br0") {
+                    $wired_interfaces[$nic_file] = $nic_file;
+                }
+            }
+        }
+
+        $this->loadComponent('WifiAp');
+
+        $this->set('wifi_interfaces', $wifi_interfaces);
+        $this->set('wired_interfaces', $wired_interfaces);
+
+        $country_list = $this->WifiAp->CountryList();
+        $this->set('country_list', $country_list);
+
+        $channel_list = $this->WifiAp->ChannelList();
+        $this->set('channel_list', $channel_list);
+
+        $hw_mode_list = $this->WifiAp->HwModeList();
+        $this->set('hw_mode_list', $hw_mode_list);
+
+        foreach($hostapd_settings as $hostapd_setting) {
+            $this->set($hostapd_setting->param, $hostapd_setting->value);
+        }
+
+        /** View Layout **/
+        $this->viewBuilder()->setLayout('adminlte');
     }
 
     /**
@@ -609,7 +826,7 @@ class ConfigController extends AppController
             } elseif ($rc == 2) {
                 $this->Flash->error(__('One or more DHCP IP Addresses does not match with subnets.'));
             } elseif ($rc == 3) {
-                $this->Flash->error(__('One or more DHCP IP Addresses are used by Keexybox.'));
+                $this->Flash->error(__('One or more DHCP IP Addresses are used by KeexyBox.'));
             } else {
                 $this->Flash->error(__('DHCP settings have not been updated.'));
             }
@@ -891,19 +1108,22 @@ class ConfigController extends AppController
     }
 
     /**
-     * Edit misc settings
+     * Edit captive portal settings
      *
      * @return void 
      */
-    public function misc()
+    public function captiveportal()
     {
         // List of params to load
         //$params = array('dns_expiration_delay', 'connection_default_time', 'connection_max_time', 'log_db_retention', 'log_retention', 'bind_use_redirectors', 'locale');
-        $params = array('dns_expiration_delay', 'connection_default_time', 'log_db_retention', 'log_retention', 'bind_use_redirectors', 'locale');
+        $params = array('connection_default_time', 'locale', 'cportal_register_allowed', 'cportal_register_code', 'cportal_register_expiration', 'cportal_default_profile_id', 'cportal_default_user_id', 'cportal_record_useragent', 'cportal_record_mac');
 
         // Load params
-        foreach($params as $param) {
-            $$param = $this->Config->get($param, ['contain' => []]);
+        foreach($params as $setting) {
+            //$$param = $this->Config->get($setting);
+            //debug($$param);
+            $param = $this->Config->get($setting)->param;
+            $$param = $this->Config->get($setting)->value;
         }
 
         // Set list of available languages
@@ -914,7 +1134,88 @@ class ConfigController extends AppController
         $this->loadComponent('ConnectionDuration');
         $this->set('avail_durations', $this->ConnectionDuration->GetDurationList());
 
+        // Set list of profiles
+        $this->loadModel('Profiles');
+        $profiles = $this->Profiles->find('list');
+
+        // Set list of users
+        $this->loadModel('Users');
+        $users = $this->Users->find('list');
+
+
         if($this->request->is('post')) {
+
+            $request_data = $this->request->getData();
+            foreach ($request_data as $param => $value) {
+                $$param = $this->Config->get($param);
+            }
+
+            // Set and validate each request data
+            $validation_errors = 0;
+            foreach ($request_data as $param => $value) {
+                //debug($param);
+                // Prepare data to commit
+                $data = ['value' => $value];
+
+                // Manage some exceptions
+                if ( $param == 'connection_default_time' ) {
+                    $data = ['value' => $value * 60];
+                }
+
+                // Validate Data
+                if ($param == 'cportal_register_code') {
+                    $$param = $this->Config->patchEntity($$param, $data, ['validate' => 'regcode']);
+                } else {
+                    $$param = $this->Config->patchEntity($$param, $data);
+                }
+
+                // Count error
+                if($$param->errors()) {
+                    $validation_errors++;
+                }
+            }
+
+            // If no error, save each data
+            if ($validation_errors == 0) {
+                foreach($request_data as $param => $value) {
+                    $$param = $this->Config->save($$param);
+                }
+                $this->Flash->success(__('Settings saved successfully.'));
+            } else {
+                $this->Flash->error(__('Settings could not be saved.')." ".__('Please try again.'));
+	    }
+        }
+
+        // Set to view
+        foreach($params as $setting) {
+            $this->set($this->Config->get($setting)->param, $this->Config->get($setting)->value);
+        }
+
+        $this->set('profiles', $profiles);
+        $this->set('users', $users);
+
+        $this->viewBuilder()->setLayout('adminlte');
+    }
+
+    /**
+     * Edit misc settings
+     *
+     * @return void 
+     */
+    public function misc()
+    {
+        // List of params to load
+        //$params = array('dns_expiration_delay', 'connection_default_time', 'connection_max_time', 'log_db_retention', 'log_retention', 'bind_use_redirectors', 'locale');
+        $params = array('dns_expiration_delay', 'log_db_retention', 'log_retention', 'bind_use_redirectors', 'tor_exitnodes_countries');
+
+        // Load params
+        foreach($params as $param) {
+            $$param = $this->Config->get($param, ['contain' => []]);
+        }
+
+
+        if($this->request->is('post')) {
+
             // Return code to know if all field are validated
             $rc = 0;
 
@@ -934,15 +1235,6 @@ class ConfigController extends AppController
                 $rc = 1;
             } 
             
-            // Set and validate new value for connection_default_time
-            $data_connection_default_time = ['value' => $this->request->data['connection_default_time'] * 60];
-
-            $connection_default_time = $this->Config->patchEntity($connection_default_time, $data_connection_default_time);
-
-            // Set default language
-            $data_locale = ['value' => $this->request->data['locale']];
-            $data_locale = $this->Config->patchEntity($locale, $data_locale);
-
             // Set and validate new value for log_db_retention
             $data_log_db_retention = ['value' => $this->request->data['log_db_retention']];
 
@@ -951,9 +1243,9 @@ class ConfigController extends AppController
                     ['validate' => 'logs_retention']
                     );
 
-            if($connection_default_time->errors()) {
+            if($log_db_retention->errors()) {
                 $this->Flash->set(__('Invalid log retention value'), [ 
-                        'key' => 'error_connection_default_time',
+                        'key' => 'error_log_db_retention',
                         'element' => 'custom_error' ]
                     );
                 $rc = 1;
@@ -967,9 +1259,9 @@ class ConfigController extends AppController
                     ['validate' => 'logs_retention']
                     );
 
-            if($connection_default_time->errors()) {
+            if($log_retention->errors()) {
                 $this->Flash->set(__('Invalid log retention value'), [ 
-                        'key' => 'error_connection_default_time',
+                        'key' => 'error_log_retention',
                         'element' => 'custom_error' ]
                     );
                 $rc = 1;
@@ -982,12 +1274,21 @@ class ConfigController extends AppController
 
             if($data_bind_use_redirectors->errors()) {
                 $this->Flash->set(__('Unable to set DNS redirectors'), [ 
-                        'key' => 'error_connection_default_time',
+                        'key' => 'error_bind_use_redirectors',
                         'element' => 'custom_error' ]
                     );
                 $rc = 1;
             } 
 
+            $tor_countries_array = $this->request->getData('tor_countries');
+            $data_tor_exitnodes_countries = null;
+            if (isset($tor_countries_array)) {
+                foreach($tor_countries_array as $tor_country) {
+                    $data_tor_exitnodes_countries .= $tor_country.",";
+                }
+            }
+            $data_tor_exitnodes_countries = ['value' => rtrim($data_tor_exitnodes_countries, ',')];
+            $data_tor_exitnodes_countries = $this->Config->patchEntity($tor_exitnodes_countries, $data_tor_exitnodes_countries, ['validate' => 'tor_exitnodes_countries']);
 
             if ($rc == 0)
             {
@@ -1002,15 +1303,23 @@ class ConfigController extends AppController
                 $count_cmd_rc = $count_cmd_rc + $cmd_rc;
                 exec($this->kxycmd("config logrotate main"), $o, $cmd_rc);
                 $count_cmd_rc = $count_cmd_rc + $cmd_rc;
+                exec($this->kxycmd("config tor main"), $o, $cmd_rc);
+                $count_cmd_rc = $count_cmd_rc + $cmd_rc;
 
                 // Reload bind
                 if($count_cmd_rc == 0) {
+                    $this->Flash->success(__('Settings saved successfully.'));
+
                     exec($this->kxycmd("service bind reload"), $o, $cmd_rc);
-                    if($cmd_rc == 0) {
-                        $this->Flash->success(__('Settings saved successfully.'));
-                    } else {
-                        $this->Flash->warning(__('Settings saved successfully.')." ".__('But unable to reload DNS service.'));
+                    if($cmd_rc != 0) {
+                        $this->Flash->warning(__('Unable to reload DNS service.'));
                     }
+
+                    exec($this->kxycmd("service tor restart"), $o, $cmd_rc);
+                    if($cmd_rc != 0) {
+                        $this->Flash->warning(__('Unable to reload Tor service.'));
+                    }
+
                 } else {
                     $this->Flash->error(__('Unable to write {0} configuration files.', null));
                 }
@@ -1019,6 +1328,13 @@ class ConfigController extends AppController
             }
         }
 
+        $this->loadComponent('Tor');
+        $tor_countries = $this->Tor->ExitNodesCountryList();
+
+        $enabled_tor_countries = array_flip(explode(",", $tor_exitnodes_countries->value));
+
+        $this->set('tor_countries', $tor_countries);
+        $this->set('enabled_tor_countries', $enabled_tor_countries);
         // Set to view
         foreach ($params as $param) {
             $this->set($param, $$param);
@@ -1105,5 +1421,25 @@ class ConfigController extends AppController
 
         $this->viewBuilder()->setLayout('wizard');
     }
+    /**
+     * This function edit the Terms and Conditions to use Access Point
+     *
+     * @return void
+     */
+    public function editterms()
+    {
+        $cportal_terms = $this->Config->get('cportal_terms');
+        if($this->request->is('post')) {
+            $terms = $this->request->getData('terms');
+            $this->Config->patchEntity($cportal_terms, ['value' => $terms]);
+            if ($this->Config->save($cportal_terms, ['value' => $terms])) {
+                $this->Flash->success(__('Saved'));
+            } else {
+                $this->Flash->error(__('Unable to save.')." ".__('Please try again.'));
+            }
 
+        }
+        $this->set('cportal_terms', $cportal_terms->value);
+        $this->viewBuilder()->setLayout('adminlte-nh');
+    }
 }

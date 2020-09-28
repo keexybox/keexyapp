@@ -5,7 +5,7 @@
     <!-- general form elements -->
     <div class="box box-info">
       <div class="box-header with-border">
-        <h3 class="box-title"><?= __('Add a new user')?></h3>
+        <h3 class="box-title"><?= __('Register to the Access Point')?></h3>
       </div>
       <!-- /.box-header -->
       <!-- form start -->
@@ -69,18 +69,6 @@
           ?>
         </div>
         <div class="form-group">
-          <label for="inputProfile"><?= __('Profile') ?></label>
-          <?= $this->Form->control('profile_id', [
-              'type' => 'select',
-              'label' => false,
-              'options' => $profiles,
-              'empty' => __('(select a profile)'),
-              'id' => "inputProfile",
-              'class' => "form-control input",
-               ]);
-          ?>
-        </div>
-        <div class="form-group">
           <label for="inputLang"><?= __('Language') ?></label>
           <?= $this->Form->control('lang', [
              'type' => 'select',
@@ -91,38 +79,32 @@
           ]);
           ?>
         </div>
-	    <label for="expiration_datepicker"><?=  __('Expiry').' '.__('(leave blank for no expiry.)') ?></label>
-        <div class="input-group">
-          <div class="input-group-addon">
-             <i class="fa fa-calendar"></i>
-          </div>
-          <?= $this->Form->control('expiration', [
-                 'id' => 'expiration_datepicker',
-                 'type' => 'text',
-                 'label' => false,
-                 'class' => "form-control pull-right",
-                 'placeholder' => null,
-                 ]);
+        <div class="form-group">
+          <label for="inputRegCode"><?= __('Registration code')." ".__('(leave blank if not required)') ?></label>
+          <?= $this->Form->control('registration_code', [
+             'label' => false,
+             'id' => "inputRegCode",
+             'class' => "form-control",
+          ]);
           ?>
         </div>
-        <div class="checkbox">
-          <label>
-            <?= $this->Form->control('enabled', [
-              'type' => 'checkbox',
-              'label' => __("Enable"),
-              'checked' => true, 
-              ])
-            ?>
-          </label>
-          <label>
-            <?= $this->Form->control('admin', [
-              'type' => 'checkbox',
-              'label' => " ".__("Admin"),
-              'checked' => false, 
-            ])
-            ?>
-          </label>
-        </div>
+        <label>
+          <!-- this button is enabled if terms_text fully scrolled -->
+          <?= $this->Form->control('accept_checkbox', [
+             'for' => 'link_to_terms',
+             'type' => 'checkbox',
+             'id' => 'accept_checkbox',
+             //'label' => __("I have read and accept the {0}", $this->Html->link(__('terms and conditions'), ['controller' => 'users', 'action' => 'terms']) ),
+             'label' => '',
+             'onchange' => 'document.getElementById("register_button").disabled = !this.checked;'
+             ])
+          ?>
+        </label>
+        <?= __("I have read and accept the {0}", 
+          $this->Html->link(__('terms and conditions'), 
+          '#', 
+          ['id' => 'link_to_terms', 'escape' => false, 'onclick' => "open_window_f('/users/terms')" ], 
+          ))?>
       </div>
       <!-- /.box-body -->
 
@@ -133,16 +115,16 @@
             'aria-hidden' => "true",
             'title' => __("Cancel"),
             ])."&nbsp;".__('Cancel'),
-        ['controller' => 'users', 'action' => 'index'], 
+        ['controller' => 'users', 'action' => 'login'], 
         [ 'class' => "btn btn-default", 'escape' => false]) 
       ?>
       <?= $this->Form->button(
         $this->Html->tag('span', '', [
             'class' => "glyphicon glyphicon-save",
             'aria-hidden' => "true",
-            'title' => __("Save"),
-            ])."&nbsp;".__('Save'),
-        [ 'class' => "btn btn-info pull-right float-vertical-align", 'escape' => false]) 
+            'title' => __("Register"),
+            ])."&nbsp;".__('Register'),
+        [ 'id' => 'register_button', 'class' => "btn btn-info pull-right float-vertical-align", 'disabled' => 'disabled', 'escape' => false]) 
       ?>
       </div><!-- /.box-footer -->
       <?= $this->Form->end() ?>
@@ -150,10 +132,7 @@
   </div><!-- /.col -->
 </div><!-- /.row -->
 <script>
-	$( function() {
-	    $( "#expiration_datepicker" ).datetimepicker({
-				format: "YYYY-MM-DD HH:mm:ss",
-				locale: "<?= $datetime_picker_locale ?>",
-				});
-	} );
+function open_window_f() {
+        window.open(arguments[0], "_blank", "location=no,status=no,menubar=no,toolbar=no,scrollbars=yes,resizable=yes,top=500,left=500,width=600,height=600");
+}
 </script>

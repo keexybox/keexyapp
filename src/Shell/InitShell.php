@@ -50,6 +50,7 @@ class InitShell extends BoxShell
         $service = new ServiceShell;
         // Start all services needed by Keexybox
         $service->dhcp('start', 'noexit');
+        $service->hostapd('start', 'noexit');
         $service->bind('start', 'noexit');
         $service->tor('start', 'noexit');
         $service->rules('start', 'noexit');
@@ -68,6 +69,7 @@ class InitShell extends BoxShell
         $service->rules('stop', 'noexit');
         $service->tor('stop', 'noexit');
         $service->bind('stop', 'noexit');
+        $service->hostapd('stop', 'noexit');
         $service->dhcp('stop', 'noexit');
     }
 }

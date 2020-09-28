@@ -42,6 +42,8 @@ DNSPort 0.0.0.0:$this->tor_dns_port #Resolv DNS over Tor
 
 AutomapHostsOnResolve 1
 TransPort 0.0.0.0:$this->tor_trans_port
+".$params['ExitNodes']."
+".$params['StrictNodes']."
 ";
 ?>
 

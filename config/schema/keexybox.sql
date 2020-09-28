@@ -32,6 +32,7 @@ CREATE TABLE `actives_connections` (
   `type` varchar(3) COLLATE utf8mb4_unicode_ci NOT NULL,
   `status` varchar(8) COLLATE utf8mb4_unicode_ci NOT NULL,
   `mac` varchar(17) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
+  `client_details` varchar(1000) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `start_time` decimal(15,3) unsigned NOT NULL,
   `end_time` decimal(15,3) unsigned NOT NULL,
   `display_start_time` datetime NOT NULL,
@@ -51,7 +52,7 @@ DROP TABLE IF EXISTS `config`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `config` (
   `param` varchar(255) NOT NULL,
-  `value` varchar(255) NOT NULL,
+  `value` varchar(20000) DEFAULT NULL,
   `type` varchar(25) NOT NULL,
   `description` varchar(255) NOT NULL,
   PRIMARY KEY (`param`),
@@ -76,6 +77,7 @@ CREATE TABLE `connections_history` (
   `profile_id` int(20) NOT NULL,
   `type` varchar(3) COLLATE utf8mb4_unicode_ci NOT NULL,
   `mac` varchar(17) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
+  `client_details` varchar(1000) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `start_time` decimal(15,3) unsigned NOT NULL,
   `end_time` decimal(15,3) unsigned NOT NULL,
   `duration` int(20) NOT NULL,
@@ -84,7 +86,7 @@ CREATE TABLE `connections_history` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `id` (`id`),
   KEY `end_time` (`end_time`)
-) ENGINE=InnoDB AUTO_INCREMENT=78 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=175 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -106,7 +108,7 @@ CREATE TABLE `devices` (
   `modified` datetime DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `id` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=83 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=115 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 ALTER DATABASE `keexybox` CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci ;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
@@ -157,7 +159,7 @@ CREATE TABLE `dns_cache` (
   `timestamp` int(20) NOT NULL,
   `c_timestamp` int(20) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -210,7 +212,7 @@ CREATE TABLE `profiles` (
   `created` datetime DEFAULT NULL,
   `modified` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=38 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=46 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 ALTER DATABASE `keexybox` CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci ;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
@@ -259,7 +261,7 @@ CREATE TABLE `profiles_blacklists` (
   `profile_id` int(10) NOT NULL,
   `category` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=97 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=111 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -284,7 +286,7 @@ CREATE TABLE `profiles_ipfilters` (
   `target` varchar(6) COLLATE utf8mb4_unicode_ci NOT NULL,
   `enabled` tinyint(1) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=24 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -302,7 +304,7 @@ CREATE TABLE `profiles_routing` (
   `profile_id` int(20) NOT NULL,
   `enabled` tinyint(1) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -319,7 +321,7 @@ CREATE TABLE `profiles_times` (
   `profile_id` int(20) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `timeid` (`daysofweek`,`timerange`,`profile_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=24 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -352,15 +354,18 @@ CREATE TABLE `users` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `username` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `displayname` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `email` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `password` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `lang` varchar(5) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'en_US',
   `profile_id` int(11) DEFAULT NULL,
   `enabled` tinyint(1) NOT NULL,
   `admin` tinyint(1) NOT NULL,
+  `expiration` datetime DEFAULT NULL,
+  `lastlogin` datetime DEFAULT NULL,
   `created` datetime DEFAULT NULL,
   `modified` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=56 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 ALTER DATABASE `keexybox` CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci ;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
@@ -444,4 +449,4 @@ ALTER DATABASE `keexybox` CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci ;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-04-10 10:53:55
+-- Dump completed on 2020-08-25  8:30:03

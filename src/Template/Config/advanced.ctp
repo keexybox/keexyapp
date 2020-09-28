@@ -25,6 +25,7 @@
                       'apache' => 'apache',
                       'bind' => 'bind',
                       'dhcp' => 'dhcp',
+                      'hostapd' => 'hostapd',
                       'ntp' => 'ntp',
                       'scripts' => 'scripts',
                       'tor' => 'tor',

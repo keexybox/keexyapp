@@ -352,12 +352,25 @@ class ConfigShell extends BoxShell
 
                 // Detect wireless devices and set param
                 $params['wpa_config_in'] = null;
-                $params['wpa_config_out'] = null;
                 if(is_dir($this->nic_path."/".$this->host_interface_input."/wireless")) {
                     $params['wpa_config_in'] = "wpa-conf $this->wpa_config_file";
                 }
+
+                $params['wpa_config_out'] = null;
                 if(is_dir($this->nic_path."/".$this->host_interface_output."/wireless")) {
                     $params['wpa_config_out'] = "wpa-conf $this->wpa_config_file";
+                }
+
+                // Additionnal setting if hostapd is enabled
+                $params['bridge_ports'] = null;
+                $params['bridge_stp'] = null;
+                $params['bridge_waitport'] = null;
+                $params['bridge_waitport'] = null;
+                if($this->hostapd_enabled == 1) {
+                    $params['bridge_ports'] = "bridge_ports $this->hostapd_bridge_ports";
+                    $params['bridge_stp'] = "bridge_stp off";
+                    $params['bridge_waitport'] = "bridge_waitport 0";
+                    $params['bridge_fd'] = "bridge_fd 0";
                 }
 
                 $rc = $rc + $this->AddConf("network_conf.php", $this->network_conffile, $params);
@@ -379,8 +392,49 @@ class ConfigShell extends BoxShell
     {
         if(isset($part)) {
             if($part == 'main' or $part == 'all') {
+                $params['ExitNodes'] = null;
+                $params['StrictNodes'] = null;
+                if ("" != $this->tor_exitnodes_countries) {
+                    $params['ExitNodes'] = "ExitNodes ".$this->tor_exitnodes_countries;
+                    $params['StrictNodes'] = "StrictNodes 1";
+                }
+
                 $this->ResetConf($this->tor_conffile);
-                $rc = $this->AddConf("tor_conf.php", $this->tor_conffile);
+                $rc = $this->AddConf("tor_conf.php", $this->tor_conffile, $params);
+            }
+            exit($rc);
+        }
+    }
+
+    /**
+     * This function generate configuration file for hostapd
+     *
+     * @param $part: Part of configuration file to generate
+     *  - main/all: generate main tor configuration file
+     *
+     * @exit number: 0 for success else it is an error
+     * 
+     */
+    public function hostapd($part)
+    {
+        if(isset($part)) {
+            if($part == 'main' or $part == 'all') {
+                $params['auth_algs'] = null;
+                $params['wpa'] = null;
+                $params['wpa_key_mgmt'] = null;
+                $params['wpa_pairwise'] = null;
+                $params['rsn_pairwise'] = null;
+                $params['wpa_passphrase'] = null;
+                if ($this->hostapd_auth_algs == 1) {
+                    $params['auth_algs'] = "auth_algs=".$this->hostapd_auth_algs;
+                    $params['wpa'] = "wpa=".$this->hostapd_wpa;
+                    $params['wpa_key_mgmt'] = "wpa_key_mgmt=".$this->hostapd_wpa_key_mgmt;
+                    $params['wpa_pairwise'] = "wpa_pairwise=".$this->hostapd_wpa_pairwise;
+                    $params['rsn_pairwise'] = "rsn_pairwise=".$this->hostapd_rsn_pairwise;
+                    $params['wpa_passphrase'] = "wpa_passphrase=".$this->hostapd_wpa_passphrase;
+                }
+                $this->ResetConf($this->hostapd_conf_file);
+                $rc = $this->AddConf("hostapd_conf.php", $this->hostapd_conf_file, $params);
             }
             exit($rc);
         }

@@ -3,6 +3,7 @@
 <div class="row">
   <!-- left column -->
   <div class="col-md-6">
+
     <!-- general form elements -->
     <div class="box box-info">
       <div class="box-header with-border">
@@ -24,6 +25,10 @@
           <tr>
             <td><?= __("IP address") ?></td>
             <td><?= h($connection->ip) ?></td>
+          </tr>
+          <tr>
+            <td><?= __("MAC address") ?></td>
+            <td><?= h($connection->mac) ?></td>
           </tr>
           <tr>
             <td><?= __("Connection start time") ?></td>
@@ -224,9 +229,38 @@
       </div><!-- /.box-footer -->
       <?= $this->Form->end() ?>
 	</div><!-- /.box -->
-  </div>
 
-  <div class="col-md-6">
+    <!-- Client detail Section -->
+    <?php if(!empty($client_details)): ?>
+    <div class="box box-info">
+      <div class="box-header with-border">
+        <h3 class="box-title"><?= __('Client details')?></h3>
+      </div>
+      <!-- /.box-header -->
+
+      <!-- form start -->
+      <div class="box-body">
+        <table class="table table-striped">
+          <tr>
+            <td><?= __("Browser") ?></td>
+            <td><?= $client_details->browser->name." ".$client_details->browser->version." [".$client_details->lang->browser."]" ?></td>
+          </tr>
+          <tr>
+            <td><?= __("Operating system") ?></td>
+            <td><?= $client_details->os->name." ".$client_details->os->version ?></td>
+          </tr>
+          <tr>
+            <td><?= __("Screen size") ?></td>
+            <td><?= $client_details->screen->width."x".$client_details->screen->height ?></td>
+          </tr>
+        </table>
+      </div>
+      <div class="box-footer">
+      </div><!-- /.box-footer -->
+    </div>
+    <?php endif ?>
+
+    <!-- Profile info Section -->
     <div class="box box-info">
       <div class="box-header with-border">
         <h3 class="box-title"><?= __('Profile')?></h3>
@@ -279,11 +313,7 @@
 	  <div class="box-footer">
 	  </div>
 	</div>
-  </div><!-- /.col -->
-</div><!-- /.row -->
 
-<div class="row">
-  <div class="col-md-6">
     <div class="box box-info">
       <div class="box-header with-border">
         <h3 class="box-title"><?= __('Search engine options and Blacklist categories')?></h3>
@@ -343,6 +373,7 @@
 	  </div>
     </div>
   </div>
+
   <?php if(!empty($connection->profile_times)): ?>
   <div class="col-md-6">
     <div class="box box-info">
@@ -408,8 +439,8 @@
 <!--</div>-->
 
 <!-- <div class="row"> -->
-  <?php if(!empty($connection->profile_ipfilters)): ?>
   <div class="col-md-6">
+  <?php if(!empty($connection->profile_ipfilters)): ?>
     <div class="box box-info">
       <div class="box-header with-border">
         <h3 class="box-title"><?= __('Firewall rules')?></h3>
@@ -471,10 +502,8 @@
       <div class="box-footer">
 	  </div>
     </div>
-  </div>
-  <?php endif ?>
-  <?php if(!empty($connection->profile_routing)): ?>
-  <div class="col-md-6">
+    <?php endif ?>
+    <?php if(!empty($connection->profile_routing)): ?>
     <div class="box box-info">
       <div class="box-header with-border">
         <h3 class="box-title"><?= __('Domains routing')?></h3>
@@ -526,8 +555,8 @@
       <div class="box-footer">
 	  </div>
     </div>
+    <?php endif ?>
   </div>
-  <?php endif ?>
 </div>
 
 <!-- Script for large table horizontal scrolling -->

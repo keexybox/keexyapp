@@ -393,7 +393,12 @@ class ProfilesRoutingController extends AppController
         } else {
             $this->set('categories', null);
         }
-        $this->set(compact('url', 'profiles'));
+
+        $this->set('profiles', $profiles);
+        if(isset($url)) {
+            $this->set('url', $url);
+        }
+        
         $this->set('_serialize', ['url']);
         //$this->viewBuilder()->setLayout('adminlte');
         $this->viewBuilder()->setLayout('adminlte-nh');

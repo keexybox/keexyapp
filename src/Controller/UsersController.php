@@ -28,6 +28,7 @@ use Cake\Cache\Cache;
 use App\Controller\AppController;
 use Cake\Event\Event;
 use Cake\Network\Exception\NotFoundException;
+use Cake\I18n\Time;
 
 /**
  * This class allows to manage users
@@ -46,8 +47,42 @@ class UsersController extends AppController
     {
         parent::beforeFilter($event);
 
+        // Allowed page as user
+        $allowed_pages = ['login', 'logout', 'adminlogin', 'disconnect', 'portal', 'terms'];
+
+        $this->loadModel('Config');
+        // Allow user to access register page
+        $cportal_register_allowed = $this->Config->get('cportal_register_allowed')->value;
+        if ($cportal_register_allowed == 1) {
+            array_push($allowed_pages, 'register');
+        } elseif ($cportal_register_allowed == 2) {
+            array_push($allowed_pages, 'fastlogin');
+        }
+
         //No login required for following pages
-        $this->Auth->allow(['login', 'logout', 'adminlogin', 'disconnect', 'testadminlte']);
+        $this->Auth->allow($allowed_pages);
+    }
+
+    /**
+     * This function sets Authorization for an admin account
+     * 
+     * @param $user : Username
+     *
+     * @return CLI command path
+     */
+    public function isAuthorized($user)
+    {
+        // Allow user to edit or delete his account
+        if (in_array($this->request->getParam('action'), ['editr', 'delete'])) {
+            //set the user id to edit
+            $edit_user_id = $this->request->getParam('pass.0');
+            // if authenticated user id is equal to user to edit, authorize
+            if($edit_user_id == $user['id']) {
+                return true;
+            }
+        }
+
+        return parent::isAuthorized($user);
     }
 
     /**
@@ -72,7 +107,6 @@ class UsersController extends AppController
                 $query = $this->request->getQuery('query');
                 $users = $this->Users->find()
                         ->where(['OR' => ['Users.username LIKE' => "%$query%", 'Profiles.profilename LIKE' => "%$query%"]])
-                        //->orWhere(['Profiles.profilename LIKE' => "%$query%"])
                         ->contain(['Profiles']);
 
                 $this->paginate = [
@@ -149,6 +183,12 @@ class UsersController extends AppController
             }
         }
 
+        // Get timezone
+        $this->loadModel('Config');
+        $timezone = $this->Config->get('host_timezone');
+        $timezone = $timezone['value'];
+        $this->set('timezone', $timezone);
+
         $this->set('users', $this->paginate($users));
         $this->loadModel('Profiles');
         $profiles = $this->Profiles->find('list');
@@ -181,7 +221,15 @@ class UsersController extends AppController
         $user->lang = $locale;
 
         if ($this->request->is('post')) {
-            $user = $this->Users->patchEntity($user, $this->request->data);
+            $user_data = $this->request->getData();
+
+            if (null != $user_data['expiration']) {
+                $datetime = new Time($user_data['expiration']);
+                $user_data['expiration'] = $datetime->timezone('GMT')->format('Y-m-d H:i:s');
+            }
+
+            $user = $this->Users->patchEntity($user, $user_data);
+
             if ($this->Users->save($user)) {
                 $this->Flash->success(__('The user has been added successfully.'));
 
@@ -201,6 +249,12 @@ class UsersController extends AppController
             $this->Flash->error(__('Unable to add the user.'));
         }
 
+        // Set language for datetime picker
+        $lang = $this->request->session()->read('Config.language');
+        $datetime_picker_locale = explode('_', $lang);
+        $datetime_picker_locale = $datetime_picker_locale[0];
+        $this->set('datetime_picker_locale', $datetime_picker_locale);
+
         $this->set('profiles',$profiles);
         $this->set('user', $user);
         $this->viewBuilder()->setLayout('adminlte');
@@ -215,6 +269,83 @@ class UsersController extends AppController
     {
         $this->add();
         $this->viewBuilder()->setLayout('wizard');
+    }
+
+    /**
+     * Portal - This function redirects the user to the right login page depend on Captive portal configuration
+     *
+     * @return voi Redirects
+     */
+    public function portal() {
+        $this->autoRender = false;
+        $this->loadModel('Config');
+        $cportal_register_allowed = $this->Config->get('cportal_register_allowed')->value;
+        if ($cportal_register_allowed == 2) {
+            return $this->redirect(['controller' => 'Users', 'action' => 'fastlogin']);
+        } else {
+            return $this->redirect(['controller' => 'Users', 'action' => 'login']);
+        }
+    }
+
+    /**
+     * Register - allows user to register himself
+     *
+     * @return void Redirects on successful add, renders view otherwise.
+     */
+    public function register()
+    {
+        // Get available profiles
+        $this->loadModel('Profiles');
+        $profiles = $this->Profiles->find('list');
+
+        // Set list of availables languages
+        $this->loadComponent('Lang');
+        $this->set('langs', $this->Lang->ListLanguages());
+
+        // Get default language to sugest if as default language
+        $this->loadModel('Config');
+        $locale = $this->Config->get('locale')->value;
+
+        $cportal_register_code = $this->Config->get('cportal_register_code')->value;
+        $cportal_default_profile_id = $this->Config->get('cportal_default_profile_id')->value;
+        $cportal_register_expiration = $this->Config->get('cportal_register_expiration')->value;
+
+        // Create new user object
+        $user = $this->Users->newEntity();
+        // preset language
+        $user->lang = $locale;
+
+        if ($this->request->is('post')) {
+
+            if ($this->request->getData('accept_checkbox')) {
+                $user_data = $this->request->getData();
+    
+                // Add more information to create the user
+                $user_data['enabled'] = 1;
+                $user_data['admin'] = 0;
+                $user_data['profile_id'] = $cportal_default_profile_id;
+                $datetime = new Time('+'. $cportal_register_expiration . ' days');
+                $user_data['expiration'] = $datetime->timezone('GMT')->format('Y-m-d H:i:s');
+    
+                // Only save user if entered registration code match with the one set by admin
+                if ($cportal_register_code == $user_data['registration_code']) {
+                    $user = $this->Users->patchEntity($user, $user_data);
+                    if ($this->Users->save($user)) {
+                        $this->Flash->success(__('Registration successful.'));
+                        return $this->redirect(['action' => 'login']);
+                    }
+                    $this->Flash->error(__('Registration failed.')." ".__('Please try again.'));
+                } else {
+                    $this->Flash->error(__('Incorrect registration code.')." ".__('Please try again.'));
+                }
+            } else {
+                $this->Flash->error(__('You did not accept the terms and conditions.'));
+            }
+        }
+
+        $this->set('profiles',$profiles);
+        $this->set('user', $user);
+        $this->viewBuilder()->setLayout('connection_view');
     }
 
     /*
@@ -240,26 +371,35 @@ class UsersController extends AppController
 
         if ($this->request->is(['post', 'put'])) {
 
+            $user_data = $this->request->getData();
+
+            if (isset($user_data['expiration'])) {
+                if (null != $user_data['expiration']) {
+                    $datetime = new Time($user_data['expiration']);
+                    $user_data['expiration'] = $datetime->timezone('GMT')->format('Y-m-d H:i:s');
+                }
+            }
+
             $old_profile_id = $user['profile_id'];
 
             // Update password if a new one has been entered
-            if($this->request->data['new_password'] != '') {
-                $this->request->data['password'] = $this->request->data['new_password'];
-                $this->request->data['confirm_password'] = $this->request->data['new_confirm_password'];
-                unset($this->request->data['new_password']);
-                unset($this->request->data['new_confirm_password']);
+            if($user_data['new_password'] != '') {
+                $user_data['password'] = $user_data['new_password'];
+                $user_data['confirm_password'] = $user_data['new_confirm_password'];
+                unset($user_data['new_password']);
+                unset($user_data['new_confirm_password']);
             } else {
-                unset($this->request->data['new_password']);
-                unset($this->request->data['new_confirm_password']);
+                unset($user_data['new_password']);
+                unset($user_data['new_confirm_password']);
             }
 
             // If an updated is done for user id 1, admin access and account are forced to enable
             if($user['id'] == 1) {
-                $this->request->data['enable'] = 1;
-                $this->request->data['admin'] = 1;
+                $user_data['enable'] = 1;
+                $user_data['admin'] = 1;
             }
 
-            $this->Users->patchEntity($user, $this->request->data);
+            $this->Users->patchEntity($user, $user_data);
 
             if ($this->Users->save($user)) {
                 $this->Flash->success(__('The user has been updated successfully.'));
@@ -276,9 +416,106 @@ class UsersController extends AppController
             }
         }
 
+        // Get timezone
+        $this->loadModel('Config');
+        $timezone = $this->Config->get('host_timezone');
+        $timezone = $timezone['value'];
+        $this->set('timezone', $timezone);
+
+        // Set language for datetime picker
+        $lang = $this->request->session()->read('Config.language');
+        $datetime_picker_locale = explode('_', $lang);
+        $datetime_picker_locale = $datetime_picker_locale[0];
+        $this->set('datetime_picker_locale', $datetime_picker_locale);
+
         // Tranfert result to the View
         $this->set('user', $user);
         $this->viewBuilder()->setLayout('adminlte');
+    }
+
+    /*
+     * Edit user himself
+     *
+     * @param id : user id
+     * 
+     * @return void
+     */
+    public function editr($id = null)
+    {
+        $this->loadModel('Profiles');
+        $this->loadComponent('Lang');
+
+        // Set list of profiles
+        $profiles = $this->Profiles->find('list');
+        $this->set('profiles',$profiles);
+
+        // Set list of availables languages
+        $this->set('langs', $this->Lang->ListLanguages());
+
+        $user = $this->Users->get($id);
+
+        if ($this->request->is(['post', 'put'])) {
+
+            $user_data = $this->request->getData();
+
+            if (isset($user_data['expiration'])) {
+                if (null != $user_data['expiration']) {
+                    $datetime = new Time($user_data['expiration']);
+                    $user_data['expiration'] = $datetime->timezone('GMT')->format('Y-m-d H:i:s');
+                }
+            }
+
+            $old_profile_id = $user['profile_id'];
+
+            // Update password if a new one has been entered
+            if($user_data['new_password'] != '') {
+                $user_data['password'] = $user_data['new_password'];
+                $user_data['confirm_password'] = $user_data['new_confirm_password'];
+                unset($user_data['new_password']);
+                unset($user_data['new_confirm_password']);
+            } else {
+                unset($user_data['new_password']);
+                unset($user_data['new_confirm_password']);
+            }
+
+            // If an updated is done for user id 1, admin access and account are forced to enable
+            if($user['id'] == 1) {
+                $user_data['enable'] = 1;
+                $user_data['admin'] = 1;
+            }
+
+            $this->Users->patchEntity($user, $user_data);
+
+            if ($this->Users->save($user)) {
+                $this->Flash->success(__('The user has been updated successfully.'));
+                if($user['profile_id'] != $old_profile_id) {
+                    $this->Flash->set(__('Do you want to reconnect {0} with new profile?', $user['username']), [
+                            'key' => 'reconnect',
+                            'element' => 'reconnect_link', 
+                            'params' => [ 'reconnectlink' => '/users/reconnectuser/'.$user['username']]
+                    ]);
+                }
+                //return $this->redirect(['action' => 'index']);
+            } else {
+                $this->Flash->error(__('Unable to update the user.'));
+            }
+        }
+
+        // Get timezone
+        $this->loadModel('Config');
+        $timezone = $this->Config->get('host_timezone');
+        $timezone = $timezone['value'];
+        $this->set('timezone', $timezone);
+
+        // Set language for datetime picker
+        $lang = $this->request->session()->read('Config.language');
+        $datetime_picker_locale = explode('_', $lang);
+        $datetime_picker_locale = $datetime_picker_locale[0];
+        $this->set('datetime_picker_locale', $datetime_picker_locale);
+
+        // Tranfert result to the View
+        $this->set('user', $user);
+        $this->viewBuilder()->setLayout('connection_view');
     }
 
     /*
@@ -293,14 +530,31 @@ class UsersController extends AppController
         // Allow only HTTP methode POST DELETE
         $this->request->allowMethod(['post', 'delete']);
 
+        $this->loadModel('Config');
+
+        //RESET CAPTIVE PORTAL DEFAULT USER IF WERE SET ON DELETED USER
+        $cportal_default_user_id = $this->Config->get('cportal_default_user_id');
+        if ($cportal_default_user_id->value == $id) {
+            $this->Config->patchEntity($cportal_default_user_id, [ 'value' => 1 ]);
+            $this->Config->save($cportal_default_user_id);
+        }
+
         //Load user to delete
         $user = $this->Users->get($id);
         if($id != 1) {
             //Delete user
             if ($this->Users->delete($user)) {
-            //Message on success
+                //Message on success
                 if($this->disconnectuser($user['username'])) {
+                    
                     $this->Flash->success(__("The user {0} has been deleted.", h($user['username'])));
+
+                    // If the user delete is own account, logout
+                    $session_user_id = $this->request->getSession()->read()['Auth']['User']['id'];
+                    if ($user['id'] == $session_user_id) {
+                        $this->Auth->logout();
+                        return $this->redirect(['action' => 'adminlogin']);
+                    }
                     return $this->redirect(['action' => 'index']);
                 }
             }    
@@ -334,11 +588,22 @@ class UsersController extends AppController
             $e='"';
 
             // insert header to CSV file
-            fputs($fp, $e.'username'.$e.$d.$e.'displayname'.$e.$d.$e.'password'.$e.$d.$e.'profilename'.$e.$d.$e.'lang'.$e.$d.$e.'enabled'.$e.$d.$e.'admin'.$e."\n");
+            // Export headers KeexyBox 20.04.2
+            //fputs($fp, $e.'username'.$e.$d.$e.'displayname'.$e.$d.$e.'password'.$e.$d.$e.'profilename'.$e.$d.$e.'lang'.$e.$d.$e.'enabled'.$e.$d.$e.'admin'.$e."\n");
+            // Export Data KeexyBox current version
+            fputs($fp, $e.'username'.$e.$d.$e.'displayname'.$e.$d.$e.'password'.$e.$d.$e.'profilename'.$e.$d.$e.'lang'.$e.$d.$e.'enabled'.$e.$d.$e.'admin'.$e.$d.$e.'email'.$e.$d.$e.'expiration'.$e."\n");
 
             // CSV DATA
             foreach ($users as $user) {
-                fputs($fp, $e.$user->username.$e.$d.$e.$user->displayname.$e.$d.$e.$user->password.$e.$d.$e.$user->profile->profilename.$e.$d.$e.$user->lang.$e.$d.$user->enabled.$d.$user->admin."\n");
+                $expiration = null;
+                if(isset($user->expiration)) {
+                    $expiration = new Time($user->expiration);
+                    $expiration = $expiration->timezone('GMT')->format('Y-m-d H:i:s');
+                }
+                // Export data KeexyBox 20.04.2
+                //fputs($fp, $e.$user->username.$e.$d.$e.$user->displayname.$e.$d.$e.$user->password.$e.$d.$e.$user->profile->profilename.$e.$d.$e.$user->lang.$e.$d.$user->enabled.$d.$user->admin."\n");
+                // Export data KeexyBox current version
+                fputs($fp, $e.$user->username.$e.$d.$e.$user->displayname.$e.$d.$e.$user->password.$e.$d.$e.$user->profile->profilename.$e.$d.$e.$user->lang.$e.$d.$user->enabled.$d.$user->admin.$d.$e.$user->email.$e.$d.$e.$expiration.$e."\n");
             }
     }
 
@@ -393,7 +658,8 @@ class UsersController extends AppController
                 // Conditionnal import job
                 foreach ($csv_data as $key=>$csv_line) {
                     // if csv line contains 7 field we allow import
-                    if (count($csv_line) == 7) {
+                    //if (count($csv_line) == 7) {
+                    if (count($csv_line) == 9) {
                         if ($key == 0) {
                             // Check header
                             $check_res = 0;
@@ -404,6 +670,8 @@ class UsersController extends AppController
                             if ($csv_line[4] != 'lang') { $check_res++; }
                             if ($csv_line[5] != 'enabled') { $check_res++; }
                             if ($csv_line[6] != 'admin') { $check_res++; }
+                            if ($csv_line[7] != 'email') { $check_res++; }
+                            if ($csv_line[8] != 'expiration') { $check_res++; }
 
                             // If headers are not ok, stop import
                             if( $check_res != 0 ) {
@@ -443,6 +711,12 @@ class UsersController extends AppController
     
                             // Set if user will be enabled
                             $user_data['admin'] = $csv_line[6];
+
+                            // Set Email
+                            $user_data['email'] = $csv_line[7];
+
+                            // Set Expiration date
+                            $user_data['expiration'] = $csv_line[8];
         
                             //Check if username exist
                             $user = $this->$users_controller->findByUsername($user_data['username'])->first();
@@ -516,12 +790,15 @@ class UsersController extends AppController
      */
     public function login()
     {
+       
+
         // check if user is already connected and redirect to ActivesConnections/view
         $this->loadModel('ActivesConnections');
         $ip = env('REMOTE_ADDR');
         $active_connection = $this->ActivesConnections->find('all', ['conditions' => [
             'ip' => $ip
         ]])->first();
+
         if(isset($active_connection)) {
             return $this->redirect(['controller' => 'Connections', 'action' => 'view']);
         }
@@ -529,22 +806,62 @@ class UsersController extends AppController
         $this->loadModel('Config');
         $connection_default_time = $this->Config->get('connection_default_time');
         $connection_max_time = $this->Config->get('connection_max_time');
+        $cportal_register_allowed = $this->Config->get('cportal_register_allowed')->value;
+
+        // If Internet Access is Free without login requirement, redirect to fastlogin page to connect
+        /*
+        if ($cportal_register_allowed == 2) {
+            return $this->redirect(['controller' => 'Users', 'action' => 'fastlogin']);
+        }
+        */
 
         $this->loadComponent('ConnectionDuration');
         $duration_list = $this->ConnectionDuration->GetDurationList();
 
         // Login and connection process
         if ($this->request->is('post')) {
-            
+
             // Identify user
             $user = $this->Auth->identify();
+
             // If user identified
             if ($user) {
-                // Connect user to internet
-                $username = $this->request->data['username'];
-                $session_time = $this->request->data['sessiontime'];
 
-                $this->connect($username, $session_time);
+                // Get UserAgent info...
+                $client_details = $this->request->getData('client_details');
+
+                // Get current datetime
+                $current_datetime = new Time();
+                $current_datetime = $current_datetime->timezone('GMT')->format('Y-m-d H:i:s');
+
+                // Get expiration datetime of user
+                $user_expiration = null;
+                if (isset($user['expiration'])) {
+                    $user_expiration = new Time($user['expiration']);
+                    $user_expiration = $user_expiration->format('Y-m-d H:i:s');
+                };
+
+                // Check if expiration is set for the user, or if the account has expired
+                if ($user_expiration == null) {
+                    $connect_user = true;    
+                } else {
+                    if ($user_expiration > $current_datetime) {
+                        $connect_user = true;    
+                    } else {
+                        $connect_user = false;    
+                    }
+                }
+
+                if ($connect_user) {
+                    $user_data = $this->request->getData();
+                    $username = $user_data['username'];
+                    $session_time = $user_data['sessiontime'];
+
+                    // Connect user to internet
+                    $this->connect($username, $session_time, $client_details);
+                } else {
+                    $this->Flash->error(__('Your account has expired.'));
+                }
 
                 return $this->redirect(['controller' => 'Connections', 'action' => 'view']);
             } else {
@@ -555,6 +872,118 @@ class UsersController extends AppController
         $this->set('connection_default_time', $connection_default_time);
         $this->set('connection_max_time', $connection_max_time);
         $this->set('duration_list', $duration_list);
+        $this->set('cportal_register_allowed', $cportal_register_allowed);
+        $this->viewBuilder()->setLayout('loginlte');
+    }
+
+    /**
+     * Display terms 
+     *
+     * @return void
+     */
+    public function terms()
+    {
+        $this->loadModel('Config');
+        $cportal_terms = $this->Config->get('cportal_terms')->value;
+        $this->viewBuilder()->setLayout('adminlte-nh');
+        $this->set('cportal_terms', $cportal_terms);
+    }
+
+    /**
+     * Authenticate user and connect him to Internet (by running $this->connect() method) 
+     *
+     * @return void
+     */
+    public function fastlogin()
+    {
+        // check if user is already connected and redirect to ActivesConnections/view
+        $this->loadModel('ActivesConnections');
+        $ip = env('REMOTE_ADDR');
+        $active_connection = $this->ActivesConnections->find('all', ['conditions' => [
+            'ip' => $ip
+        ]])->first();
+
+        if(isset($active_connection)) {
+            return $this->redirect(['controller' => 'Connections', 'action' => 'view']);
+        }
+
+        $this->loadModel('Config');
+
+        // If Internet Access is not free, redirect to login page to connect
+        $cportal_register_allowed_value = $this->Config->get('cportal_register_allowed')->value;
+        if ($cportal_register_allowed_value == 0 OR $cportal_register_allowed_value == 1 ) {
+            return $this->redirect(['controller' => 'Users', 'action' => 'login']);
+        }
+
+        $connection_default_time = $this->Config->get('connection_default_time');
+        $connection_max_time = $this->Config->get('connection_max_time');
+        $cportal_register_allowed = $this->Config->get('cportal_register_allowed')->value;
+        $cportal_terms = $this->Config->get('cportal_terms')->value;
+
+        $this->loadComponent('ConnectionDuration');
+        $duration_list = $this->ConnectionDuration->GetDurationList();
+
+        // Login and connection process
+        if ($this->request->is('post')) {
+
+            if ($this->request->getData('accept_checkbox')) {
+                // Load default user settings
+                $default_user_id = $this->Config->get('cportal_default_user_id')->value;
+                $user = $this->Users->get($default_user_id)->toArray();
+                unset($user['password']);
+    
+                // If user identified
+                if ($user) {
+    
+                    // Get UserAgent info...
+                    $client_details = $this->request->getData('client_details');
+    
+                    // Get current datetime
+                    $current_datetime = new Time();
+                    $current_datetime = $current_datetime->timezone('GMT')->format('Y-m-d H:i:s');
+    
+                    // Get expiration datetime of user
+                    $user_expiration = null;
+                    if (isset($user['expiration'])) {
+                        $user_expiration = new Time($user['expiration']);
+                        $user_expiration = $user_expiration->format('Y-m-d H:i:s');
+                    };
+    
+                    // Check if expiration is set for the user, or if the account has expired
+                    if ($user_expiration == null) {
+                        $connect_user = true;    
+                    } else {
+                        if ($user_expiration > $current_datetime) {
+                            $connect_user = true;    
+                        } else {
+                            $connect_user = false;    
+                        }
+                    }
+    
+                    if ($connect_user) {
+                        $username = $user['username'];
+                        $session_time = $this->Config->get('connection_default_time')->value / 60;
+    
+                        // Connect user to internet
+                        $this->connect($username, $session_time, $client_details);
+                    } else {
+                        $this->Flash->error(__('Your account has expired.'));
+                    }
+    
+                    return $this->redirect(['controller' => 'Connections', 'action' => 'view']);
+                } else {
+                    $this->Flash->error(__('Incorrect login or password.')." ".__('Please try again.'));
+                }
+            } else {
+                $this->Flash->error(__('You did not accept the terms and conditions.'));
+            }
+        }
+        //$this->set('lang', $this->lang);
+        $this->set('connection_default_time', $connection_default_time);
+        $this->set('connection_max_time', $connection_max_time);
+        $this->set('duration_list', $duration_list);
+        $this->set('cportal_register_allowed', $cportal_register_allowed);
+        $this->set('cportal_terms', $cportal_terms);
         $this->viewBuilder()->setLayout('loginlte');
     }
 
@@ -566,13 +995,66 @@ class UsersController extends AppController
     public function adminlogin()
     {
         //Check if user is already connected and redirect
+        $isauth_user = $this->Auth->user();
+        if($isauth_user) {
+            if($isauth_user['admin'] == true || $isauth_user['id'] == 1) {
+                //Redirect to statistics page
+                return $this->redirect(['controller' => 'statistics', 'action' => 'index']);
+            } else {
+                //Redirect to page that allow user to change his settings
+                return $this->redirect(['controller' => 'users', 'action' => 'editr', $isauth_user['id']]);
+            }
+        }
+        /*
         if ($this->Auth->user()) {
             return $this->redirect(['controller' => 'statistics', 'action' => 'index']);
         }
+        */
+
         if ($this->request->is('post')) {
             
             $username = $this->request->data['username'];
             $user_info = $this->Users->findByUsername($username)->first();
+
+            if(isset($user_info)) {
+                // Identify user
+                $user = $this->Auth->identify();
+                // If user identified
+                if ($user) {
+                    //Set session for user
+                    $this->Auth->setUser($user);
+
+                    //Set redirect if user is an admin
+                    if($user_info->admin == true || $user_info->id == 1) {
+                        // Check if wizard must be run to setup Keexybox
+                        $this->loadModel('Config');
+                        $run_wizard = null;
+                        $run_wizard = $this->Config->get('run_wizard');
+        
+                        // Redirect to wizard else to Statistics
+                        if ($run_wizard->value == 1)  {
+                            return $this->redirect(['controller' => 'config', 'action' => 'wstart']);
+                        } else {
+                            if(null != $this->request->getQuery('redirect')) {
+                                return $this->redirect($this->request->getQuery('redirect'));
+                            } else {
+                                return $this->redirect(['controller' => 'statistics', 'action' => 'index']);
+                            }
+                        }
+                    } else {
+                        return $this->redirect(['controller' => 'users', 'action' => 'editr', $user['id']]);
+                    }
+
+                } 
+                // Else show error
+                $this->Flash->error(__("Incorrect login or password.")." ".__("Please try again."));
+
+            } else {
+                // Else show error
+                $this->Flash->error(__("Incorrect login or password.")." ".__("Please try again."));
+            }
+
+            /*
             if(isset($user_info)) {
                 if($user_info->admin == true || $user_info->id == 1) {
                     // Identify user
@@ -591,7 +1073,11 @@ class UsersController extends AppController
                         if ($run_wizard->value == 1)  {
                             return $this->redirect(['controller' => 'config', 'action' => 'wstart']);
                         } else {
-                            return $this->redirect(['controller' => 'statistics', 'action' => 'index']);
+                            if(null != $this->request->getQuery('redirect')) {
+                                return $this->redirect($this->request->getQuery('redirect'));
+                            } else {
+                                return $this->redirect(['controller' => 'statistics', 'action' => 'index']);
+                            }
                         }
                     }
                     // Else show error
@@ -603,6 +1089,7 @@ class UsersController extends AppController
                 // Else show error
                 $this->Flash->error(__("Incorrect login or password.")." ".__("Please try again."));
             }
+            */
         }
         //$this->set('lang', $this->lang);
         $this->viewBuilder()->setLayout('loginlte');
@@ -627,12 +1114,12 @@ class UsersController extends AppController
      * 
      * @return void
      */
-    public function connect($username, $session_time)
+    public function connect($username, $session_time, $client_details = null)
     {
         $this->autoRender = false;
 
         $ip = env('REMOTE_ADDR');
-        exec($this->kxycmd("users connect $username $ip $session_time"), $output, $rc);
+        exec($this->kxycmd("users connect $username $ip $session_time '$client_details'"), $output, $rc);
 
         if($rc == 0) {
             $this->Flash->success(__("You are now connected to the Internet."));
@@ -670,7 +1157,7 @@ class UsersController extends AppController
             $this->Flash->error(__("Your connection is paused.")." ".__("Disconnections are forbidden for paused connections."));
         }
 
-        return $this->redirect(['action' => 'login']);
+        return $this->redirect(['action' => 'portal']);
 
     }
 

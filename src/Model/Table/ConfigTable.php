@@ -42,6 +42,7 @@ class ConfigTable extends Table
             
         $validator
             ->requirePresence('value', 'create')
+            //->notEmpty('value');
             ->notEmpty('value');
 
         return $validator;
@@ -112,6 +113,22 @@ class ConfigTable extends Table
 			'rule' => ['custom', "/^(?![\s'-])(?:[\s'-]{0,1}[\p{Ll}\p{Lm}\p{Lo}\p{Lt}\p{Lu}\p{Nd}])+$/Du"],
 			'message' => __('Invalid name')
 		]);
+        return $validator;
+    }
+
+    /**
+     * Custom Wifi Access Point SSID validation rule.
+     *
+     * @param \Cake\Validation\Validator $validator Validator instance.
+     * @return \Cake\Validation\Validator
+     */
+    public function validationSsid(Validator $validator)
+    {
+        $validator
+			->add('value', 'hostapd', [
+				'rule' => ['custom', "/(?=^[a-zA-Z0-9_\-]*$)/i"],
+				'message' => __('The value must be alphanumeric and may contain hyphens (-) and underscores (_)')
+        ]);
         return $validator;
     }
 
@@ -202,4 +219,37 @@ class ConfigTable extends Table
 				]);
         return $validator;
 	}
+
+    /**
+     * Registration Code validation rules.
+     *
+     * @param \Cake\Validation\Validator $validator Validator instance.
+     * @return \Cake\Validation\Validator
+     */
+    public function validationRegcode(Validator $validator)
+    {
+        // Allow blank registration Code
+        $validator
+            ->requirePresence('value', 'create')
+            ->allowEmpty('value', 'update');
+            
+        return $validator;
+    }
+
+    /**
+     * Tor Exit Nodes Country validation rules.
+     *
+     * @param \Cake\Validation\Validator $validator Validator instance.
+     * @return \Cake\Validation\Validator
+     */
+    public function validationTor_exitnodes_countries(Validator $validator)
+    {
+        // Allow blank registration Code
+        $validator
+            ->requirePresence('value', 'create')
+            ->allowEmpty('value', 'update');
+            
+        return $validator;
+    }
+
 }

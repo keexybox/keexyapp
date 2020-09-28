@@ -86,6 +86,11 @@ along with KeexyBox. If not, see ') ?><a href='http://www.gnu.org/licenses/' tar
 		<li>License: <a href='https://gitweb.torproject.org/tor.git/plain/LICENSE' target="_blank">https://gitweb.torproject.org/tor.git/plain/LICENSE</a></li>
 		<li>Website: <a href='https://www.torproject.org/' target="_blank">https://www.torproject.org/</a></li>
 	  </ul>
+      <h4>Hostapd</h4>
+	  <ul>
+		<li>License: <a href='http://w1.fi/cgit/hostap/plain/hostapd/README' target="_blank">http://w1.fi/cgit/hostap/plain/hostapd/README</a></li>
+		<li>Website: <a href='http://w1.fi/hostapd/' target="_blank">http://w1.fi/hostapd/</a></li>
+	  </ul>
       <h4>AdminLTE</h4>
 	  <ul>
 		<li>License: <a href='https://adminlte.io/docs/2.4/license' target="_blank">https://adminlte.io/docs/2.4/license</a></li>

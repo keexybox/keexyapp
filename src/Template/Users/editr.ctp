@@ -69,18 +69,6 @@
               ?>
           </div>
           <div class="form-group">
-             <label for="inputProfile"><?= __('Profile') ?></label>
-             <?= $this->Form->control('profile_id', [
-                'type' => 'select',
-                'label' => false,
-                'options' => $profiles,
-                'empty' => __('(select a profile)'),
-                'id' => "inputProfile",
-                'class' => "form-control input",
-             ]);
-             ?>
-          </div>
-          <div class="form-group">
             <label for="inputLang"><?= __('Language') ?></label>
             <?= $this->Form->control('lang', [
                'type' => 'select',
@@ -92,81 +80,19 @@
             ?>
           </div>
 
-
-          <?php if($user->id == 1): ?>
-          <div class="checkbox">
-            <label>
-              <?= $this->Form->control('enabled', [
-                'type' => 'checkbox',
-                'label' => __("Enable"),
-                'onclick' => 'return false',
-                'disabled' => 'disabled',
-                ])
-              ?>
-            </label>
-            <label>
-              <?= $this->Form->control('admin', [
-                'type' => 'checkbox',
-                'label' => __("Admin"),
-                'onclick' => 'return false',
-                'disabled' => 'disabled',
-                ])
-              ?>
-            </label>
-          </div>
-          <?php else: ?>
-            <?php if ( $user->expiration != null ) {
-                $expiration = $user->expiration->timezone($timezone)->format('Y-m-d H:i:s');
-            } else {
-                $expiration = null;
-            }
-            ?>
-	        <label for="expiration_datepicker"><?=  __('Expiry').' '.__('(leave blank for no expiry.)') ?></label>
-            <div class="input-group">
-              <div class="input-group-addon">
-                 <i class="fa fa-calendar"></i>
-              </div>
-              <?= $this->Form->control('expiration', [
-                     'id' => 'expiration_datepicker',
-                     'type' => 'text',
-                     'label' => false,
-                     'class' => "form-control pull-right",
-                     'placeholder' => null,
-                     'value' => $expiration,
-                     //'value' => $display_begin_date->timezone('Indian/Reunion'),
-                     ]);
-              ?>
-            </div>
-            <div class="checkbox">
-              <label>
-                <?= $this->Form->control('enabled', [
-                  'type' => 'checkbox',
-                  'label' => __("Enable"),
-                  ])
-                ?>
-              </label>
-              <label>
-                <?= $this->Form->control('admin', [
-                  'type' => 'checkbox',
-                  'label' => __("Admin"),
-                  ])
-                ?>
-              </label>
-			</div>
-          <?php endif; ?>
-
         </div>
         <!-- /.box-body -->
 
         <div class="box-footer">
-        <?= $this->Html->link(
+        <?= $this->Form->postLink(
           $this->Html->tag('span', '', [
               'class' => "glyphicon glyphicon-remove-sign",
               'aria-hidden' => "true",
-              'title' => __("Cancel"),
-              ])."&nbsp;".__('Cancel'),
-          ['controller' => 'users', 'action' => 'index'], 
-          [ 'class' => "btn btn-default", 'escape' => false]) 
+              'title' => __("Delete my account"),
+              ])."&nbsp;".__('Delete my account'),
+          ['action' => 'delete', $user->id],
+          ['class' => "btn btn-danger", 'escape' => false, 'block' => true, 'confirm' => __('Are you sure you want to delete {0}?', h($user->username))]
+          )
         ?>
         <?= $this->Form->button(
           $this->Html->tag('span', '', [
@@ -178,6 +104,7 @@
         ?>
         </div><!-- /.box-footer -->
         <?= $this->Form->end() ?>
+        <?= $this->fetch('postLink') ?>
 	 </div><!-- /.box -->
   </div><!-- /.col -->
 </div><!-- /.row -->

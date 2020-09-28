@@ -3201,3 +3201,298 @@ msgstr "Para ligar à Internet, os utilizadores ou membros da sua família dever
 msgid "If you do not want to create them now, or you do not need to create any more, click {0}."
 msgstr "Se não desejar criá-los agora, ou se não necessitar mais de os criar, clique em {0}."
 
+#:
+#: NEW TRANSLATIONS 2020-07
+#:
+
+#: Controller/ConfigController.php:610
+msgid "Wireless Access Point settings successfully saved."
+msgstr "Os parâmetros do ponto de acesso Wi-Fi foram guardados com sucesso"
+
+#: Controller/ConfigController.php:1442
+msgid "Saved"
+msgstr "Guardado"
+
+#: Controller/ConfigController.php:1444
+msgid "Unable to save."
+msgstr "Impossível guardar."
+
+#: Controller/ToolsController.php:50
+msgid "Service for Wireless Access Point"
+msgstr "Serviço para o ponto de acesso Wi-Fi"
+
+#: Controller/UsersController.php:297
+msgid "Registration successful."
+msgstr "Inscrição bem-sucedida."
+
+#: Controller/UsersController.php:300
+msgid "Registration failed."
+msgstr "Falha ao guardar."
+
+#: Controller/UsersController.php:302
+msgid "Incorrect registration code."
+msgstr "O código da gravação está errado."
+
+#: Controller/UsersController.php:305
+#: Controller/UsersController.php:846
+msgid "You did not accept the terms and conditions."
+msgstr "Não aceitou os termos e condições."
+
+#: Controller/UsersController.php:731
+#: Controller/UsersController.php:838
+msgid "Your account has expired."
+msgstr "A sua conta expirou."
+
+#: Shell/ServiceShell.php:240
+#: Shell/ServiceShell.php:248
+msgid "Hostapd service is disabled"
+msgstr "O serviço hostapd está desativado"
+
+#: Template/Config/captiveportal.ctp:8
+msgid "Captive Portal settings"
+msgstr "Parâmetros do portal cativo"
+
+#: Template/Config/captiveportal.ctp:44
+msgid "Information to be collected on the client for internet access"
+msgstr "Informações a recolher sobre o cliente para o acesso à Internet"
+
+#: Template/Config/captiveportal.ctp:49
+msgid "Record UserAgent"
+msgstr "Guardar o UserAgent"
+
+#: Template/Config/captiveportal.ctp:59
+msgid "Record MAC Address"
+msgstr "Guardar o endereço Mac"
+
+#: Template/Config/captiveportal.ctp:67
+msgid "Internet access conditions"
+msgstr "Condições de acesso à Internet"
+
+#: Template/Config/captiveportal.ctp:72
+msgid "Private"
+msgstr "Privado"
+
+#: Template/Config/captiveportal.ctp:73
+msgid "Registration"
+msgstr "Inscrição"
+
+#: Template/Config/captiveportal.ctp:74
+msgid "Free"
+msgstr "Livre"
+
+#: Template/Config/captiveportal.ctp:86
+msgid "Duration of registration (days)"
+msgstr "Duração da inscrição (dias)"
+
+#: Template/Config/captiveportal.ctp:102
+#: Template/Users/register.ctp:83
+msgid "Registration code"
+msgstr "Código de gravação"
+
+#: Template/Config/captiveportal.ctp:102
+#: Template/Users/register.ctp:83
+msgid "(leave blank if not required)"
+msgstr "(deixar em branco, se não for necessário)"
+
+#: Template/Config/captiveportal.ctp:114
+msgid "Profile to be defined for new registrations"
+msgstr "Perfil a definir para as novas inscrições"
+
+#: Template/Config/captiveportal.ctp:130
+msgid "User account to use for free access"
+msgstr "Conta de utilizador a utilizar para o acesso livre"
+
+#: Template/Config/captiveportal.ctp:142
+msgid "Internet access terms and conditions"
+msgstr "Termos e condições de acesso à Internet"
+
+#: Template/Config/editterms.ctp:10
+msgid "Edit the Terms and Conditions"
+msgstr "Modificar as condições gerais"
+
+#: Template/Config/editterms.ctp:14
+msgid "Your Terms and Conditions for Internet access"
+msgstr "Ver condições gerais de acesso à Internet"
+
+#: Template/Config/index.ctp:8
+msgid "Control panel"
+msgstr "Painel de configuração"
+
+#: Template/Config/index.ctp:38
+#: Template/Layout/adminlte.ctp:216
+msgid "Wireless Access Point"
+msgstr "Ponto de acesso Wi-Fi"
+
+#: Template/Config/misc.ctp:90
+msgid "Tor options"
+msgstr "Opções Tor"
+
+#: Template/Config/misc.ctp:92
+msgid "Define Tor exit nodes countries"
+msgstr "Definir os países dos nós de saída Tor"
+
+#: Template/Config/misc.ctp:93
+msgid "Random"
+msgstr "Aleatório"
+
+#: Template/Config/wifiap.ctp:8
+msgid "Wireless Access Point settings"
+msgstr "Parâmetros do ponto de acesso Wi-Fi"
+
+#: Template/Config/wifiap.ctp:20
+msgid "Enable Access Point"
+msgstr "Ativar o ponto de acesso"
+
+#: Template/Config/wifiap.ctp:30
+msgid "SSID"
+msgstr "SSID"
+
+#: Template/Config/wifiap.ctp:35
+msgid "WIFI_SSID"
+msgstr "WIFI_SSID"
+
+#: Template/Config/wifiap.ctp:44
+msgid "Country"
+msgstr "País"
+
+#: Template/Config/wifiap.ctp:57
+msgid "Channel"
+msgstr "Canal"
+
+#: Template/Config/wifiap.ctp:70
+msgid "Operating mode"
+msgstr "Modo de funcionamento"
+
+#: Template/Config/wifiap.ctp:86
+msgid "Enable Wi-Fi Multimedia"
+msgstr "Ativar o multimédia Wi-Fi"
+
+#: Template/Config/wifiap.ctp:93
+msgid "Bridge"
+msgstr "Ponte"
+
+#: Template/Config/wifiap.ctp:95
+msgid "Wi-Fi Interface"
+msgstr "Interface Wi-Fi"
+
+#: Template/Config/wifiap.ctp:108
+msgid "Wired Interface"
+msgstr "Interface com fios"
+
+#: Template/Config/wifiap.ctp:120
+msgid "Security"
+msgstr "Segurança"
+
+#: Template/Config/wifiap.ctp:126
+msgid "Hide Access Point"
+msgstr "Ocultar o ponto de acesso"
+
+#: Template/Config/wifiap.ctp:137
+msgid "Isolation of Clients"
+msgstr "Isolamento dos clientes"
+
+#: Template/Config/wifiap.ctp:148
+msgid "Enable Authentication"
+msgstr "Ativar autenticação"
+
+#: Template/Config/wifiap.ctp:156
+msgid "Password"
+msgstr "Palavra-passe"
+
+#: Template/Connections/adminview.ctp:237
+msgid "Client details"
+msgstr "Detalhes do cliente"
+
+#: Template/Connections/adminview.ctp:245
+msgid "Browser"
+msgstr "Navegador"
+
+#: Template/Connections/adminview.ctp:249
+msgid "Operating system"
+msgstr "Sistema operativo"
+
+#: Template/Connections/adminview.ctp:253
+msgid "Screen size"
+msgstr "Tamanho do ecrã"
+
+#: Template/Layout/adminlte.ctp:217
+msgid "Captive portal"
+msgstr "Portal cativo"
+
+#: Template/Users/add.ctp:25
+#: Template/Users/edit.ctp:25
+#: Template/Users/index.ctp:58
+#: Template/Users/register.ctp:25
+#: Template/Users/wadd.ctp:33
+msgid "Email"
+msgstr "E-mail"
+
+#: Template/Users/add.ctp:34
+#: Template/Users/edit.ctp:34
+#: Template/Users/register.ctp:34
+#: Template/Users/wadd.ctp:42
+msgid "@"
+msgstr "@"
+
+#: Template/Users/add.ctp:94
+#: Template/Users/edit.ctp:124
+#: Template/Users/index.ctp:61
+#: Template/Users/wadd.ctp:102
+msgid "Expiry"
+msgstr "Validade"
+
+#: Template/Users/add.ctp:94
+#: Template/Users/edit.ctp:124
+#: Template/Users/wadd.ctp:102
+msgid "(leave blank for no expiry.)"
+msgstr "(se sem validade, deixar em branco.)"
+
+#: Template/Users/fastlogin.ctp:19
+msgid "I accept the terms and conditions"
+msgstr "Aceito os termos e condições"
+
+#: Template/Users/login.ctp:51
+#: Template/Users/register.ctp:125
+#: Template/Users/register.ctp:126
+msgid "Register"
+msgstr "Registar-se"
+
+#: Template/Users/register.ctp:8
+msgid "Register to the Access Point"
+msgstr "Registar-se no ponto de acesso"
+
+#: Template/Users/register.ctp:103
+msgid "I have read and accept the {0}"
+msgstr "Li e aceito o regulamento os {0}"
+
+#: Template/Users/register.ctp:104
+msgid "terms and conditions"
+msgstr "termos e condições"
+
+#: Template/Help/licenses.ctp:1
+#: Template/Help/wlicenses.ctp:1
+msgid "KeexyBox version"
+msgstr "Versão de KeexyBox"
+
+#: Controller/ConfigController.php:1326
+msgid "Unable to reload Tor service."
+msgstr "Impossível recarregar o serviço Tor."
+
+#: Template/Layout/adminlte.ctp:110
+#: Template/Layout/connection_view.ctp:75
+#: Template/Layout/loginlte.ctp:75
+#: Template/Layout/wizard.ctp:105
+msgid "Click on Manage to edit your account or manage KeexyBox"
+msgstr "Clicar em Gerir para alterar a sua conta ou gerir KeexyBox"
+
+#: Template/Layout/adminlte.ctp:106
+#: Template/Layout/connection_view.ctp:71
+#: Template/Layout/loginlte.ctp:71
+#: Template/Layout/wizard.ctp:101
+msgid "KeexyBox management"
+msgstr "Gestão de KeexyBox"
+
+#: Template/Users/editr.ctp:91
+msgid "Delete my account"
+msgstr "Eliminar a minha conta"
+
