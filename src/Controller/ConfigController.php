@@ -200,7 +200,6 @@ class ConfigController extends AppController
         $host_dns2 = $this->Config->get('host_dns2');
 
         if ($this->request->is(['patch', 'post', 'put'])) {
-            debug($this->request->getData());
 
             // return code used know if config can be saved
             // $rc = 1 : one on more field were not validated
