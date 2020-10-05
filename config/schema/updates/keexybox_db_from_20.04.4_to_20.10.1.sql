@@ -30,6 +30,7 @@ INSERT INTO `config` VALUES ('cportal_register_expiration', 7, 'setting', 'Numbe
 INSERT INTO `config` VALUES ('cportal_record_useragent', 0, 'setting', 'Record UserAgent information when users connects to the Internet.');
 INSERT INTO `config` VALUES ('cportal_record_mac', 0, 'setting', 'Record Mac address of the device when users connects to the Internet.');
 INSERT INTO `config` VALUES ('cportal_terms', null, 'setting', 'Text of Terms and conditions of Internet Access to display to users.');
+INSERT INTO `config` VALUES ('cportal_test_domains', null, 'setting', 'Tested domains by clients to detect presence of a captive portal.');
 INSERT INTO `config` VALUES ('tor_exitnodes_countries', null, 'setting', 'Force Tor Exit Nodes Countries.');
 ALTER TABLE `users` ADD COLUMN email VARCHAR(255) AFTER displayname;
 ALTER TABLE `users` ADD COLUMN expiration datetime AFTER admin;

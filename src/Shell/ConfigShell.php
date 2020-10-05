@@ -541,6 +541,11 @@ class ConfigShell extends BoxShell
                 $params['rndc_port'] = $this->rndc_port_portal;
                 $params['logging'] = null;
                 $params['pidfile'] = 'named_portal.pid';
+                $cportal_test_domains = explode(',', $this->cportal_test_domains);
+                $params['cportal_test_domains'] = null;
+                foreach ($cportal_test_domains as $cportal_test_domain) {
+                    $params['cportal_test_domains'] .= "zone \"$cportal_test_domain\" {type master; file \"catchall.zone\"; allow-query { any; };};\n";
+                }
                 $this->ResetConf($this->bind_root_dir."/etc/named_portal.conf", '//');
                 $rc = $rc + $this->AddConf("bind_named_portal_conf.php", $this->bind_root_dir."/etc/named_portal.conf", $params);
             }

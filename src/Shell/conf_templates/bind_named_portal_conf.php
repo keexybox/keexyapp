@@ -48,63 +48,8 @@ zone \"keexybox\" {
 	allow-query { any; };
 };
 
-// Android Captive Portal Check domains
-zone \"connectivitycheck.gstatic.com\" {
-	type master;
-	file \"catchall.zone\";
-	allow-query { any; };
-};
-
-zone \"clients1.google.com\" {
-	type master;
-	file \"catchall.zone\";
-	allow-query { any; };
-};
-
-zone \"clients3.google.com\" {
-	type master;
-	file \"catchall.zone\";
-	allow-query { any; };
-};
-
-// Android XIAOMI
-zone \"connect.rom.miui.com\" {
-	type master;
-	file \"catchall.zone\";
-	allow-query { any; };
-};
-
-// Apple Captive Portal Check domains
-zone \"captive.apple.com\" {
-	type master;
-	file \"catchall.zone\";
-	allow-query { any; };
-};
-
-zone \"airport.us\" {
-	type master;
-	file \"catchall.zone\";
-	allow-query { any; };
-};
-
-zone \"thinkdifferent.us\" {
-	type master;
-	file \"catchall.zone\";
-	allow-query { any; };
-};
-
-// Windows Captive Portal Check domains
-zone \"msftconnecttest.com\" {
-	type master;
-	file \"catchall.zone\";
-	allow-query { any; };
-};
-
-zone \"www.msftconnecttest.com\" {
-	type master;
-	file \"catchall.zone\";
-	allow-query { any; };
-};
-"
+// domains to check the presence of Captive portal
+".$params['cportal_test_domains']."
+";
 
 ?>
