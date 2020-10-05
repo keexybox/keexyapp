@@ -7,7 +7,7 @@ INSERT INTO `config` VALUES ('hostapd_bridge_ports','eth0','setting','Wired brid
 INSERT INTO `config` VALUES ('hostapd_channel','8','setting','Frequency channel for Access Point');
 INSERT INTO `config` VALUES ('hostapd_conf_file','/opt/keexybox/hostapd/etc/hostapd.conf','config_file','Hostapd configuration file');
 INSERT INTO `config` VALUES ('hostapd_country_code','FR','setting','Country Code of Access Point');
-INSERT INTO `config` VALUES ('hostapd_enabled','1','setting','Enable Wifi Access Point (1=yes 0=no)');
+INSERT INTO `config` VALUES ('hostapd_enabled','0','setting','Enable Wifi Access Point (1=yes 0=no)');
 INSERT INTO `config` VALUES ('hostapd_host_interface_input_bak','eth0:0','setting','Used input interface before enabling hostapd');
 INSERT INTO `config` VALUES ('hostapd_host_interface_output_bak','eth0','setting','Used output interface before enabling hostapd');
 INSERT INTO `config` VALUES ('hostapd_hw_mode','g','setting','Wifi mode for Access Point (a = IEEE 802.11a, b = IEEE 802.11b, g = IEEE 802.11g)');
@@ -30,7 +30,7 @@ INSERT INTO `config` VALUES ('cportal_register_expiration', 7, 'setting', 'Numbe
 INSERT INTO `config` VALUES ('cportal_record_useragent', 0, 'setting', 'Record UserAgent information when users connects to the Internet.');
 INSERT INTO `config` VALUES ('cportal_record_mac', 0, 'setting', 'Record Mac address of the device when users connects to the Internet.');
 INSERT INTO `config` VALUES ('cportal_terms', null, 'setting', 'Text of Terms and conditions of Internet Access to display to users.');
-INSERT INTO `config` VALUES ('cportal_test_domains', null, 'setting', 'Tested domains by clients to detect presence of a captive portal.');
+INSERT INTO `config` VALUES ('cportal_test_domains', 'connectivitycheck.gstatic.com,clients1.google.com,clients3.google.com,connect.rom.miui.com,captive.apple.com,airport.us,thinkdifferent.us,msftconnecttest.com,www.msftconnecttest.com', 'setting', 'Tested domains by clients to detect presence of a captive portal.');
 INSERT INTO `config` VALUES ('tor_exitnodes_countries', null, 'setting', 'Force Tor Exit Nodes Countries.');
 ALTER TABLE `users` ADD COLUMN email VARCHAR(255) AFTER displayname;
 ALTER TABLE `users` ADD COLUMN expiration datetime AFTER admin;
