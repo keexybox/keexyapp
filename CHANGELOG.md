@@ -5,7 +5,7 @@ All notable changes on KeexyApp for KeexyBox is documented below.
 ## [20.10.1] - 2020-10
 
 ### Added
- - Wireless Access Point feature
+ - Wireless Access Point
  - Captive Portal feature that can be set for a public Wireless Access Point
  - Allow users to edit or delete their account
  - The ability to set countries for Tor exit nodes
