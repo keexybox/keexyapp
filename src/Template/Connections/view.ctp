@@ -19,16 +19,14 @@
         <h3 class="box-title"><?= __('Tools & diagnostics')?></h3>
       </div>
       <div class="box-body">
-         <div class="col-md-12">
-         <a href="<?= h($cportal_ip_info_url) ?>" class="btn btn-app" target="_blank">
-              <i class="fa fa-laptop"></i><?= __('Check my IP') ?>
-         </a>
-         <a href="<?= $cportal_check_tor_url ?>" class="btn btn-app" target="_blank">
-              <i class="fa fa-user-secret"></i><?= __('Check Tor') ?>
-         </a>
-         </div>
-
-
+        <div class="col-md-12">
+        <a href="<?= h($cportal_ip_info_url) ?>" class="btn btn-app" target="_blank">
+             <i class="fa fa-laptop"></i><?= __('Check my IP') ?>
+        </a>
+        <a href="<?= $cportal_check_tor_url ?>" class="btn btn-app" target="_blank">
+             <i class="fa fa-user-secret"></i><?= __('Check Tor') ?>
+        </a>
+        </div>
 
         <?= $this->Form->create('search', array('type'=>'get')) ?>
         <div class="form-group">
@@ -95,25 +93,21 @@
           </div>
         </div>
         <?= $this->Form->end() ?>
-
-
-
-
       </div>
       <div class="box-footer">
       </div><!-- /.box-footer -->
     </div>
       <!-- /.box-header -->
-    <legend><?= __("Connection information") ?></legend>
     <!-- general form elements -->
     <div class="box box-info">
       <div class="box-header with-border">
-        <h3 class="box-title"><?= __('General')?></h3>
+        <h3 class="box-title"><?= __('Connection information')?></h3>
       </div>
       <!-- /.box-header -->
 
       <!-- form start -->
       <div class="box-body">
+        <h4 class="box-title"><?= __('General')?></h4>
         <table class="table table-striped">
           <tr>
             <td><?= __("Name") ?></td>
@@ -175,22 +169,8 @@
           <?php endif ?>
         </table>
 
-	  <!--  BODY -->
-
-      </div>
-      <!-- /.box-body -->
-
-      <div class="box-footer">
-
-      </div><!-- /.box-footer -->
-      <?= $this->Form->end() ?>
-	</div><!-- /.box -->
-
-    <div class="box box-info">
-      <div class="box-header with-border">
-        <h3 class="box-title"><?= __('Profile')?></h3>
-      </div>
-      <div class="box-body">
+        <hr>
+        <h4 class="box-title"><?= __('Profile')?></h4>
         <table class="table table-striped">
           <tr>
             <td><?= __("Profile") ?></td>
@@ -234,16 +214,9 @@
             </td>
           </tr>
         </table>
-	  </div>
-	  <div class="box-footer">
-	  </div>
-	</div>
 
-    <div class="box box-info">
-      <div class="box-header with-border">
-        <h3 class="box-title"><?= __('Search engine options and Blacklist categories')?></h3>
-      </div>
-      <div class="box-body">
+        <hr>
+        <h4 class="box-title"><?= __('Search engine options and Blacklist categories')?></h4>
         <table class="table table-striped">
           <tr>
             <td><?= __("Force Google SafeSearch") ?></td>

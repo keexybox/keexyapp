@@ -255,8 +255,13 @@ class ConfigShell extends BoxShell
                 $rc = $this->AddConf("apache_ports_conf.php", $this->apache_ports_conf_file);
             }
             if($part == 'vhosts') {
+                $cportal_test_domains = explode(',', $this->cportal_test_domains);
+                $params['cportal_test_domains'] = null;
+                foreach ($cportal_test_domains as $cportal_test_domain) {
+                    $params['cportal_test_domains'] .= "    ServerAlias $cportal_test_domain\n";
+                }
                 $this->ResetConf($this->apache_vhosts_conf_file);
-                $rc = $this->AddConf("apache_vhosts_conf.php", $this->apache_vhosts_conf_file);
+                $rc = $this->AddConf("apache_vhosts_conf.php", $this->apache_vhosts_conf_file, $params);
             }
             if($part == 'envvars') {
                 $this->ResetConf($this->apache_envvars_conf_file);

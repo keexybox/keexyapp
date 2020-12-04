@@ -73,19 +73,9 @@ $conf_data =
 # vHost to redirect none connected users to captive portal
 <VirtualHost *:$this->apache_denied_access_http_port>
     # Android Captive Portal Check domains
-    Servername connectivitycheck.gstatic.com
-    ServerAlias clients1.google.com
-    ServerAlias clients3.google.com
-    ServerAlias connect.rom.miui.com
-
-    # Windows Captive Portal Check domains
-    ServerAlias www.msftconnecttest.com
-    ServerAlias msftconnecttest.com
-
-    # Apple Captive Portal Check domains
-    ServerAlias captive.apple.com
-    ServerAlias airport.us
-    ServerAlias thinkdifferent.us
+    Servername keexybox.keexybox
+    # domains to check the presence of Captive portal
+    ".$params['cportal_test_domains']."
 
     ServerAdmin webmaster@localhost
 
