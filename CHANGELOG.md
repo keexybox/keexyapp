@@ -2,6 +2,13 @@
 
 All notable changes on KeexyApp for KeexyBox is documented below.
 
+## [20.10.2]
+### Added
+ - Links and useful tools for users in the login information page
+
+### Changed
+ - Fixed an issue when updating the Apache configuration
+
 ## [20.10.1] - 2020-10
 
 ### Added
@@ -36,4 +43,4 @@ All notable changes on KeexyApp for KeexyBox is documented below.
 ## [20.04.1] - 2020-04-25
 
 ### Added
-- Initial release
+ - Initial release
