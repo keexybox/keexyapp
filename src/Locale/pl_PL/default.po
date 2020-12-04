@@ -3023,9 +3023,14 @@ msgstr "W niektórych przypadkach domenę można filtrować, gdy nie znajduje si
 msgid "Check"
 msgstr "Sprawdź"
 
+#: Template/Connections/view.ctp:55
 #: Template/Tools/domain_issue.ctp:57
-msgid "The domains listed below could block the domain {0}. You can delete them or change their category to fix the issue."
-msgstr "Domeny wymienione poniżej mogą blokować domenę {0}. Możesz je usunąć lub zmienić ich kategorię, aby rozwiązać problem."
+msgid "The domains listed below could block the domain {0}."
+msgstr "Domeny wymienione poniżej mogą blokować domenę {0}."
+
+#: Template/Tools/domain_issue.ctp:57
+msgid "You can delete them or change their category to fix the issue."
+msgstr "Możesz je usunąć lub zmienić ich kategorię, aby rozwiązać problem."
 
 #: Template/Tools/domain_issue.ctp:85
 msgid "No domain in the blacklist should block {0}."

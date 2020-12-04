@@ -3023,9 +3023,14 @@ msgstr "В некоторых случаях домен может попаст�
 msgid "Check"
 msgstr "Проверка"
 
+#: Template/Connections/view.ctp:55
 #: Template/Tools/domain_issue.ctp:57
-msgid "The domains listed below could block the domain {0}. You can delete them or change their category to fix the issue."
-msgstr "Домены, указанные ниже, могли заблокировать домен {0}. Вы можете их удалить или изменить категорию домен для устранения данной проблемы."
+msgid "The domains listed below could block the domain {0}."
+msgstr "Домены, указанные ниже, могли заблокировать домен {0}."
+
+#: Template/Tools/domain_issue.ctp:57
+msgid "You can delete them or change their category to fix the issue."
+msgstr "Вы можете их удалить или изменить категорию домен для устранения данной проблемы."
 
 #: Template/Tools/domain_issue.ctp:85
 msgid "No domain in the blacklist should block {0}."

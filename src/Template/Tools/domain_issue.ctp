@@ -54,7 +54,7 @@
         <?php if(isset($bl_domains)): ?>
         <div class="alert alert-warning">
           <i class="icon fa fa-info"></i>
-            <?= __('The domains listed below could block the domain {0}. You can delete them or change their category to fix the issue.', $search_domain) ?>
+            <?= __('The domains listed below could block the domain {0}.', $search_domain).' '.__('You can delete them or change their category to fix the issue.') ?>
         </div>
         <table class="table table-bordered table-striped" id="scroll_table">
           <thead>

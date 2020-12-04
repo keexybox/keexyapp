@@ -179,9 +179,67 @@ class ConnectionsController extends AppController
         $this->loadModel('ProfilesRouting');
         $this->loadModel('ProfilesIpfilters');
         $this->loadModel('ProfilesBlacklists');
+        $this->loadModel('Config');
+
+        $this->set('cportal_check_tor_url', $this->Config->get('cportal_check_tor_url')->value);
+        $this->set('cportal_homepage_button_name', $this->Config->get('cportal_homepage_button_name')->value);
+        $this->set('cportal_homepage_button_url', $this->Config->get('cportal_homepage_button_url')->value);
+        $this->set('cportal_ip_info_url', $this->Config->get('cportal_ip_info_url')->value);
 
         $ip = env('REMOTE_ADDR');
         $connection = $this->ActivesConnections->findByIp($ip)->contain(['Profiles'])->first();
+        
+        // Check blocked domain
+        $search_domain = null;
+        $suggested_domain_to_remove = null;
+        if(null !== $this->request->getQuery('domain')) {
+
+            $search_domain = $this->request->getQuery('domain');
+            //$dns_results = null;
+
+            $this->loadComponent('Urlparser');
+            $parsedurl = $this->Urlparser->Parseurl($search_domain);
+            $search_domain = $parsedurl['fqdn'];
+
+            // Requested domain will be checked first
+            $domains_to_check_in_bl[] = $search_domain; 
+
+            // Build a list of CNAME records for related $search_domain
+            $dns_results = dns_get_record($search_domain, DNS_CNAME);
+            while($dns_results != null) {
+                foreach($dns_results as $dns_result) {
+                    if(isset($dns_result['type']) and $dns_result['type'] == 'CNAME') {
+                        $domains_to_check_in_bl[] = $dns_result['target'];
+                        $dns_results = dns_get_record($dns_result['target'], DNS_CNAME);
+                    }
+                }
+            }
+
+            $this->loadModel('Blacklist');
+
+            // Build a list of CNAME records that can be in the Blacklist
+            if(isset($domains_to_check_in_bl)) {
+                foreach($domains_to_check_in_bl as $domain) {
+                    // For each domain, checking if it is in BL from ROOT dns name
+                    //   for example : check .org then keexybox.com and the www.keexybox.com
+                    $split_domain = array_reverse(explode(".", $domain));
+                    $nb_sub_domain = count($split_domain);
+                    $i = 0;
+                    $chk_sub_domain = $split_domain[0];
+                    while($i < $nb_sub_domain) {
+                        $bl_domain = $this->Blacklist->findByZone($chk_sub_domain)->first();
+                        if(isset($bl_domain)) {
+                            $suggested_domain_to_remove[] = $bl_domain;
+                        }
+                        $i++;
+                        if($i < $nb_sub_domain) {
+                            $chk_sub_domain = $split_domain[$i].".".$chk_sub_domain;
+                        }
+                    }
+                }
+            }
+        }
+        // END Check blocked domain
 
         if(isset($connection)) {
             $connection->profile_times = $this->ProfilesTimes->find("all", ["conditions" => ["profile_id" => $connection->profile_id]])->toArray();
@@ -207,6 +265,8 @@ class ConnectionsController extends AppController
         } else {
             return $this->redirect(['controller' => 'users', "action" => 'login']);
         }
+        $this->set('search_domain', $search_domain);
+        $this->set('bl_domains', $suggested_domain_to_remove);
         //$this->viewBuilder()->setLayout('connection_view');
         $this->viewBuilder()->setLayout('connection_view');
     }

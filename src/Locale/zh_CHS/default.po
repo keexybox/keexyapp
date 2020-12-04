@@ -3023,9 +3023,14 @@ msgstr "在某些情况下，不在黑名单中的域名可以进行筛选。在
 msgid "Check"
 msgstr "检查"
 
+#: Template/Connections/view.ctp:55
 #: Template/Tools/domain_issue.ctp:57
-msgid "The domains listed below could block the domain {0}. You can delete them or change their category to fix the issue."
-msgstr "下面列出的域名可能会屏蔽域名{0}。您可以删除它们或更改所在类别来解决问题。"
+msgid "The domains listed below could block the domain {0}."
+msgstr "下面列出的域名可能会屏蔽域名{0}。"
+
+#: Template/Tools/domain_issue.ctp:57
+msgid "You can delete them or change their category to fix the issue."
+msgstr "您可以删除它们或更改所在类别来解决问题。"
 
 #: Template/Tools/domain_issue.ctp:85
 msgid "No domain in the blacklist should block {0}."

@@ -122,6 +122,10 @@ class ToolsController extends AppController
             $search_domain = $this->request->getQuery('domain');
             //$dns_results = null;
 
+            $this->loadComponent('Urlparser');
+            $parsedurl = $this->Urlparser->Parseurl($search_domain);
+            $search_domain = $parsedurl['fqdn'];
+
             // Requested domain will be checked first
             $domains_to_check_in_bl[] = $search_domain; 
 

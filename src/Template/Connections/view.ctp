@@ -1,8 +1,110 @@
 <!-- Main content -->
-<legend><?= __("Connection information") ?></legend>
 <div class="row">
   <!-- left column -->
   <div class="col-md-6">
+    <div class="box box-info">
+      <div class="box-header with-border"></div>
+      <div class="box-body">
+         <center>
+         <a href="<?= h($cportal_homepage_button_url) ?>" class="btn btn-lg btn-success" target="_blank">
+              <i class="fa fa-globe"></i>&nbsp;<?= h($cportal_homepage_button_name) ?>
+         </a>
+         </center>
+      </div>
+      <div class="box-footer"></div><!-- /.box-footer -->
+    </div>
+    <!-- general form elements -->
+    <div class="box box-info">
+      <div class="box-header with-border">
+        <h3 class="box-title"><?= __('Tools & diagnostics')?></h3>
+      </div>
+      <div class="box-body">
+         <div class="col-md-12">
+         <a href="<?= h($cportal_ip_info_url) ?>" class="btn btn-app" target="_blank">
+              <i class="fa fa-laptop"></i><?= __('Check my IP') ?>
+         </a>
+         <a href="<?= $cportal_check_tor_url ?>" class="btn btn-app" target="_blank">
+              <i class="fa fa-user-secret"></i><?= __('Check Tor') ?>
+         </a>
+         </div>
+
+
+
+        <?= $this->Form->create('search', array('type'=>'get')) ?>
+        <div class="form-group">
+          <label for="domain"><?=  __("Check blocked domain") ?></label>
+          <div class="input-group">
+            <div class="input-group-addon">
+               <i class="fa fa-globe"></i>
+            </div>
+            <?= $this->Form->control('domain', [
+              'id' => 'domain',
+              'type' => 'text',
+              'label' => false,
+              'class' => "form-control",
+              'placeholder' => null,
+              'value' => $search_domain,
+              ]);
+            ?>
+          </div>
+        </div>
+
+        <?php if(isset($bl_domains)): ?>
+        <div class="alert alert-warning">
+          <i class="icon fa fa-info"></i>
+            <?= __('The domains listed below could block the domain {0}.', $search_domain) ?>
+        </div>
+        <table class="table table-bordered table-striped" id="scroll_table">
+          <thead>
+            <tr>
+              <th><?= $this->Paginator->sort('zone', __('Domain')) ?></th>
+              <th><?= $this->Paginator->sort('category', __('Category')) ?></th>
+            </tr>
+          </thead>
+          
+          <tbody>
+            <?php foreach ($bl_domains as $bl_domain): ?>
+            <tr>
+              <td><?= h($bl_domain->zone) ?></td>
+              <td><?= h($bl_domain->category) ?></td>
+            </tr>
+            <?php endforeach; ?>
+          </tbody>
+        </table>
+        <?php elseif (isset($search_domain)): ?>
+        <div class="row">
+          <div class="col-sm-12">
+            <div class="alert alert-success">
+              <i class="icon fa fa-info"></i>
+                <?= __('No domain in the blacklist should block {0}.', $search_domain) ?>
+            </div>
+          </div>
+        </div>
+        <?php endif ?>
+
+        <div class="row">
+          <div class="col-sm-12">
+            <?= $this->Form->button(
+              $this->Html->tag('span', '', [
+                  'class' => "glyphicon glyphicon-ok",
+                  'aria-hidden' => "true",
+                  'title' => __("Check"),
+                  ])."&nbsp;".__('Check'),
+              [ 'class' => "btn btn-info pull-right float-vertical-align", 'escape' => false]) 
+            ?>
+          </div>
+        </div>
+        <?= $this->Form->end() ?>
+
+
+
+
+      </div>
+      <div class="box-footer">
+      </div><!-- /.box-footer -->
+    </div>
+      <!-- /.box-header -->
+    <legend><?= __("Connection information") ?></legend>
     <!-- general form elements -->
     <div class="box box-info">
       <div class="box-header with-border">
