@@ -303,5 +303,14 @@ class ToolsController extends AppController
 
         $this->viewBuilder()->setLayout('adminlte');
     }
+    /**
+     * This function allow admin to check updates and install them
+     *
+     * @return void
+     */
+    public function update()
+    {
+        $this->viewBuilder()->setLayout('adminlte');
+    }
 }
 ?>
