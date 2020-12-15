@@ -608,6 +608,8 @@ class ConfigShell extends BoxShell
                         $params['profile_id'] = $profile_id;
                         $this->ResetConf($this->bind_root_dir."/etc/conf.d/acl_profile_".$profile_id.".conf", '//');
                         $rc = $rc + $this->AddConf("bind_acl_profile_conf.php", $this->bind_root_dir."/etc/conf.d/acl_profile_".$profile_id.".conf", $params);
+                        // Reset values for next profile iteration - fix bug #11
+                        $params['ips'] = null;
                     }
                 }
             }
