@@ -5,9 +5,11 @@ All notable changes on KeexyApp for KeexyBox is documented below.
 ## [20.10.2]
 ### Added
  - Links and useful tools for users in the login information page
+ - Add check and update from WebUI
 
 ### Changed
  - Fixed an issue when updating the Apache configuration
+ - Fix issue [#11](https://github.com/keexybox/keexyapp/issues/11)
 
 ## [20.10.1] - 2020-10
 
