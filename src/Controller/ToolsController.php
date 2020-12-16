@@ -310,6 +310,20 @@ class ToolsController extends AppController
      */
     public function update()
     {
+        $update_data = null;
+        $this->set('uptodate', null);
+
+        if ( $this->request->getQuery('check_update') == 1) {
+            //debug($this->Config->get('update_check_url')->value);
+            //debug($this->Config->get('version')->value);
+            $update_url = $this->Config->get('update_check_url')->value.$this->Config->get('version')->value;
+            $update_data = json_decode(file_get_contents($update_url));
+            if (isset($update_data)) {
+                $this->set('update_data', $update_data);
+            } else {
+                $this->set('uptodate', true);
+            }
+        }
         $this->viewBuilder()->setLayout('adminlte');
     }
 }
