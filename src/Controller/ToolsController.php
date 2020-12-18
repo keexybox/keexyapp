@@ -311,19 +311,21 @@ class ToolsController extends AppController
     public function update()
     {
         $update_data = null;
-        $this->set('uptodate', null);
+        $check_update = null;
 
-        if ( $this->request->getQuery('check_update') == 1) {
-            //debug($this->Config->get('update_check_url')->value);
-            //debug($this->Config->get('version')->value);
-            $update_url = $this->Config->get('update_check_url')->value.$this->Config->get('version')->value;
+        $update_url = $this->Config->get('update_check_url')->value.$this->Config->get('version')->value;
+        //$update_url = 'https://keexybox.g/dsfsdf';
+        //debug (get_headers($update_url));
+        
+        //if(get_http_response_code($update_url) == "200") {
             $update_data = json_decode(file_get_contents($update_url));
-            if (isset($update_data)) {
-                $this->set('update_data', $update_data);
+            if ($update_data == false) {
+                $this->set('update_data', null);
             } else {
-                $this->set('uptodate', true);
+                $this->set('update_data', $update_data);
             }
-        }
+        //}
+
         $this->viewBuilder()->setLayout('adminlte');
     }
 }
