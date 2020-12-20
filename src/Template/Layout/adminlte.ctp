@@ -230,7 +230,7 @@ desired effect
             <li><a href="/tools/services"><i class="fa fa-power-off"></i><?= __('Services and power') ?></a></li>
             <li><a href="/tools/domain-issue"><i class="fa fa-check-circle-o"></i><?= __('Domain check') ?></a></li>
             <li><a href="/tools/system-state"><i class="fa fa-heartbeat"></i><?= __('System state') ?></a></li>
-            <li><a href="/tools/update"><i class="fa fa-cloud-download"></i><?= __('Update') ?></a></li>
+            <li><a href="/tools/update?check_update=1"><i class="fa fa-cloud-download"></i><?= __('Update') ?></a></li>
           </ul>
         </li>
 

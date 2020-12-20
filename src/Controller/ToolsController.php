@@ -314,17 +314,26 @@ class ToolsController extends AppController
         $check_update = null;
 
         $update_url = $this->Config->get('update_check_url')->value.$this->Config->get('version')->value;
-        //$update_url = 'https://keexybox.g/dsfsdf';
-        //debug (get_headers($update_url));
-        
-        //if(get_http_response_code($update_url) == "200") {
+        //$update_url = 'https://www.keexybox.g/dslqkjds';
+            
+        if ( $this->request->getQuery('check_update') == 1) {
+            // Disable PHP error reporting to avoid warning in case of bad update URL
+            //error_reporting(0);
             $update_data = json_decode(file_get_contents($update_url));
+            // Enable errors again
+            //error_reporting(E_ALL);
+
             if ($update_data == false) {
                 $this->set('update_data', null);
             } else {
                 $this->set('update_data', $update_data);
             }
-        //}
+        }
+        if ( $this->request->getQuery('run_update') == 1) {
+            if (null != $this->request->getQuery('download')) {
+                debug($this->request->getQuery('download'));
+            }
+        }
 
         $this->viewBuilder()->setLayout('adminlte');
     }
