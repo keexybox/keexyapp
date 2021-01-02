@@ -331,7 +331,8 @@ class ToolsController extends AppController
         }
         if ( $this->request->getQuery('run_update') == 1) {
             if (null != $this->request->getQuery('download')) {
-                debug($this->request->getQuery('download'));
+                $download_url = $this->request->getQuery('download');
+                exec($this->kxycmd("update run $download_url"), $output, $rc);
             }
         }
 
