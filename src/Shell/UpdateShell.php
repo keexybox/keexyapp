@@ -42,8 +42,17 @@ class UpdateShell extends BoxShell
     {
         parent::initialize();
         $expl_url = explode("/", $download_url);
-        $update_file = sys_get_temp_dir()."/".end($expl_url);
+        $update_file = $this->tmp_dir."/".end($expl_url);
         file_put_contents($update_file, fopen($download_url, 'r'));
+    }
+
+    public function extractPkg($update_file = null)
+    {
+        parent::initialize();
+        $update_file = "/opt/keexybox/tmp/keexybox_20.10.3_raspbian10.tar.gz";
+        $phar = new \PharData($update_file);
+        $phar->extractTo($this->tmp_dir);
+
     }
 
     public function run($download_url)

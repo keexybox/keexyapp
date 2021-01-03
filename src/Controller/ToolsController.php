@@ -311,31 +311,51 @@ class ToolsController extends AppController
     public function update()
     {
         $update_data = null;
-        $check_update = null;
+        $step = null;
 
         $update_url = $this->Config->get('update_check_url')->value.$this->Config->get('version')->value;
         //$update_url = 'https://www.keexybox.g/dslqkjds';
             
-        if ( $this->request->getQuery('check_update') == 1) {
+        if ( $this->request->getQuery('step') == 1) {
             // Disable PHP error reporting to avoid warning in case of bad update URL
-            //error_reporting(0);
+            error_reporting(0);
             $update_data = json_decode(file_get_contents($update_url));
             // Enable errors again
-            //error_reporting(E_ALL);
+            error_reporting(E_ALL);
 
             if ($update_data == false) {
                 $this->set('update_data', null);
             } else {
                 $this->set('update_data', $update_data);
             }
+            $step = 1;
         }
-        if ( $this->request->getQuery('run_update') == 1) {
+
+        if ( $this->request->getQuery('step') == 2) {
+            /*
+            if (null != $this->request->getQuery('download')) {
+                $download_url = $this->request->getQuery('download');
+                //return $this->redirect(['controller' => 'tools', 'action' => 'update', 'run_update' => 2, 'download' => $download_url ]);
+            }
+            */
+            $step = 2;
+        }
+
+        if ( $this->request->getQuery('step') == 3) {
             if (null != $this->request->getQuery('download')) {
                 $download_url = $this->request->getQuery('download');
                 exec($this->kxycmd("update run $download_url"), $output, $rc);
             }
+            $step = 3;
         }
 
+        // inform View it is check_update step
+        $this->set('step', $step);
+
+        $this->viewBuilder()->setLayout('adminlte');
+    }
+    public function test()
+    {
         $this->viewBuilder()->setLayout('adminlte');
     }
 }
