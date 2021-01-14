@@ -35,7 +35,6 @@ macaddr_acl=".$this->hostapd_macaddr_acl."
 
 # Security
 ignore_broadcast_ssid=".$this->hostapd_ignore_broadcast_ssid."
-".$params['hostapd_auth_algs']."
 ".$params['auth_algs']."
 ".$params['wpa']."
 ".$params['wpa_key_mgmt']."
