@@ -65,12 +65,13 @@ class UpdateShell extends BoxShell
     {
         parent::initialize();
         $install_dir = null;
-        $update_file = "/opt/keexybox/tmp/keexybox_20.10.2_raspbian10.tar.gz";
+        //$update_file = "/opt/keexybox/tmp/keexybox_20.10.2_raspbian10.tar.gz";
         $phar = new \PharData($update_file);
         foreach($phar as $file) { 
             if($file->isDir()) {
                 $expl_file = explode("/", $file);
                 $install_dir = $this->tmp_dir."/".end($expl_file);
+                $phar->extractTo($this->tmp_dir);
                 echo $install_dir."\n";
                 return $install_dir;
             }
@@ -84,8 +85,9 @@ class UpdateShell extends BoxShell
     public function run($download_url)
     {
         parent::initialize();
-        //$this->download($download_url);
-        //$this->extractPkg($download_url);
+        $update_file = $this->download($download_url);
+        $install_dir = $this->extractPkg($update_file);
+        debug($install_dir);
         //$this->install();
     }
 }
