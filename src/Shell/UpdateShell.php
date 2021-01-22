@@ -38,26 +38,54 @@ class UpdateShell extends BoxShell
     public function main(){}
     public function startup(){}
 
+    /**
+     * This function download the archive that contain the KeexyBox update
+     *
+     * @param $download_url: example: https://download.keexybox.org/keexybox_20.10.2_raspbian10.tar.gz
+     *
+     * @return string: local path of the archive file
+     */
     public function download($download_url)
     {
         parent::initialize();
         $expl_url = explode("/", $download_url);
         $update_file = $this->tmp_dir."/".end($expl_url);
         file_put_contents($update_file, fopen($download_url, 'r'));
+        return $update_file;
     }
 
+    /**
+     * This function extract archive that contains the update
+     *
+     * @param $update_file: path to the archive to extract
+     *
+     * @return string: return the subfolder name of the archive
+     */
     public function extractPkg($update_file = null)
     {
         parent::initialize();
-        $update_file = "/opt/keexybox/tmp/keexybox_20.10.3_raspbian10.tar.gz";
+        $install_dir = null;
+        $update_file = "/opt/keexybox/tmp/keexybox_20.10.2_raspbian10.tar.gz";
         $phar = new \PharData($update_file);
-        $phar->extractTo($this->tmp_dir);
+        foreach($phar as $file) { 
+            if($file->isDir()) {
+                $expl_file = explode("/", $file);
+                $install_dir = $this->tmp_dir."/".end($expl_file);
+                echo $install_dir."\n";
+                return $install_dir;
+            }
+        }
+    }
 
+    public function install($script_path = null) {
+        exec($this->tmp_dir."/test.sh");
     }
 
     public function run($download_url)
     {
         parent::initialize();
-        $this->download($download_url);
+        //$this->download($download_url);
+        //$this->extractPkg($download_url);
+        //$this->install();
     }
 }
