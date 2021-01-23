@@ -38,7 +38,7 @@ class UpdateShell extends BoxShell
 {
 
     public function main(){}
-    public function startup(){}
+    //public function startup(){}
 
     /**
      * This function download the archive that contain the KeexyBox update
@@ -77,10 +77,12 @@ class UpdateShell extends BoxShell
                 // Define target path to extract files
                 $install_dir = $this->tmp_dir."/".end($expl_file);
                 // Delete files of target
+                /*
                 if ($install_dir != $this->tmp_dir."/") {
                     $shell_component->DeleteFiles($install_dir);
                 }
-                $phar->extractTo($this->tmp_dir);
+                */
+                $phar->extractTo($this->tmp_dir, null, true);
                 echo $install_dir."\n";
                 return $install_dir;
             }

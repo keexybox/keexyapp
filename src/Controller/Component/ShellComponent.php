@@ -37,7 +37,7 @@ class ShellComponent
             $files = glob( $target . '*', GLOB_MARK ); //GLOB_MARK adds a slash to directories returned
 
             foreach( $files as $file ) {
-                delete_files( $file );
+                $this->DeleteFiles( $file );
             }
 
             rmdir( $target );
