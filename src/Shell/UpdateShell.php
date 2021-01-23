@@ -24,8 +24,10 @@
 
 Namespace App\Shell;
 
+require_once(APP .DS. 'Controller' . DS . 'Component' . DS . 'ShellComponent.php');
 use Cake\Console\Shell;
 use Cake\Core\Configure;
+use keexybox\ShellComponent;
 
 /**
  * This class is use to manage KeexyBox updates
@@ -64,13 +66,20 @@ class UpdateShell extends BoxShell
     public function extractPkg($update_file = null)
     {
         parent::initialize();
+        $shell_component = new ShellComponent('ShellComponent');
+
         $install_dir = null;
         //$update_file = "/opt/keexybox/tmp/keexybox_20.10.2_raspbian10.tar.gz";
         $phar = new \PharData($update_file);
         foreach($phar as $file) { 
             if($file->isDir()) {
                 $expl_file = explode("/", $file);
+                // Define target path to extract files
                 $install_dir = $this->tmp_dir."/".end($expl_file);
+                // Delete files of target
+                if ($install_dir != $this->tmp_dir."/") {
+                    $shell_component->DeleteFiles($install_dir);
+                }
                 $phar->extractTo($this->tmp_dir);
                 echo $install_dir."\n";
                 return $install_dir;
