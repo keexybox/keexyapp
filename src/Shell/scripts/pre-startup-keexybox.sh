@@ -1,11 +1,18 @@
 #!/bin/bash
 USER=keexybox
 KEEXYBOX_HOME="/opt/keexybox"
+
+# Create tmp dir if not exists
+if [ ! -d ${KEEXYBOX_HOME}/tmp ]; then
+    mkdir ${KEEXYBOX_HOME}/tmp
+fi
+
 chown -R $USER:$USER ${KEEXYBOX_HOME}
 chmod go+w ${KEEXYBOX_HOME}/bind/etc/zones
 # Set UID on iptables (instead of sudo that terminated with buffer over flow)
 [[ -f "/sbin/xtables-multi" ]] && chmod u+s /sbin/xtables-multi
 [[ -f "/usr/sbin/xtables-nft-multi" ]] && chmod u+s /usr/sbin/xtables-nft-multi
+
 
 items=" 
 /etc/ntp.conf
