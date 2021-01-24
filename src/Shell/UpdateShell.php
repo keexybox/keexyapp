@@ -38,7 +38,7 @@ class UpdateShell extends BoxShell
 {
 
     public function main(){}
-    //public function startup(){}
+    public function startup(){}
 
     /**
      * This function download the archive that contain the KeexyBox update
@@ -76,12 +76,7 @@ class UpdateShell extends BoxShell
                 $expl_file = explode("/", $file);
                 // Define target path to extract files
                 $install_dir = $this->tmp_dir."/".end($expl_file);
-                // Delete files of target
-                /*
-                if ($install_dir != $this->tmp_dir."/") {
-                    $shell_component->DeleteFiles($install_dir);
-                }
-                */
+                // Extract files to keexybox tmp dir
                 $phar->extractTo($this->tmp_dir, null, true);
                 echo $install_dir."\n";
                 return $install_dir;
@@ -89,8 +84,14 @@ class UpdateShell extends BoxShell
         }
     }
 
-    public function install($script_path = null) {
-        exec($this->tmp_dir."/test.sh");
+    public function install($update_script = null) {
+        $log_time_stamp = date('YmdHis');
+        $install_log_file_name = $this->keexyboxlogs."/keexybox_update_".$log_time_stamp.".log";
+        //passthru($this->tmp_dir."/test.sh"." > ".$install_log_file_name."2>&1", $update_res);
+        passthru($update_script." > ".$install_log_file_name." 2>&1", $update_res);
+        $res_info = [ $update_res, $install_log_file_name ];
+        $res_info = serialize($res_info);
+        return $res_info;
     }
 
     public function run($download_url)
@@ -98,7 +99,8 @@ class UpdateShell extends BoxShell
         parent::initialize();
         $update_file = $this->download($download_url);
         $install_dir = $this->extractPkg($update_file);
-        debug($install_dir);
-        //$this->install();
+        $update_res = $this->install($install_dir."/test.sh");
+        $this->out($update_res);
+        return $update_res;
     }
 }
