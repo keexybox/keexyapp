@@ -312,6 +312,10 @@ class ToolsController extends AppController
     {
         $update_data = null;
         $step = null;
+        // Set failed install status by default
+        $install_status = 1;
+        $install_logfile_path = null;
+        $install_logfile_content = null;
 
         $update_url = $this->Config->get('update_check_url')->value.$this->Config->get('version')->value;
         //$update_url = 'https://www.keexybox.g/dslqkjds';
@@ -345,17 +349,19 @@ class ToolsController extends AppController
             if (null != $this->request->getQuery('download')) {
                 $download_url = $this->request->getQuery('download');
                 exec($this->kxycmd("update run $download_url"), $output, $rc);
+                $install_logfile_path = $output[0];
+                $install_logfile_content = file_get_contents($output[0]);
+                $install_status = $rc;
             }
             $step = 3;
         }
 
         // inform View it is check_update step
         $this->set('step', $step);
+        $this->set('install_status', $install_status);
+        $this->set('install_logfile_path', $install_logfile_path);
+        $this->set('install_logfile_content', $install_logfile_content);
 
-        $this->viewBuilder()->setLayout('adminlte');
-    }
-    public function test()
-    {
         $this->viewBuilder()->setLayout('adminlte');
     }
 }

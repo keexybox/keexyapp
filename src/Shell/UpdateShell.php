@@ -84,23 +84,40 @@ class UpdateShell extends BoxShell
         }
     }
 
+    /**
+     * This function update keexybox
+     *
+     * @param $update_script: path to the script do run
+     *
+     * @return array: [ 0 => "return code", 1 => 'path to log file of installation' ]
+     */
     public function install($update_script = null) {
         $log_time_stamp = date('YmdHis');
         $install_log_file_name = $this->keexyboxlogs."/keexybox_update_".$log_time_stamp.".log";
         //passthru($this->tmp_dir."/test.sh"." > ".$install_log_file_name."2>&1", $update_res);
         passthru($update_script." > ".$install_log_file_name." 2>&1", $update_res);
         $res_info = [ $update_res, $install_log_file_name ];
-        $res_info = serialize($res_info);
+        //$res_info = serialize($res_info);
         return $res_info;
     }
 
+    /**
+     * This function run above functions
+     *
+     * @param $update_script: path to the script do run
+     *
+     * @return array: [ 0 => "return code", 1 => 'path to install log file' ]
+     * @output: path to log file of installation
+     */
     public function run($download_url)
     {
         parent::initialize();
-        $update_file = $this->download($download_url);
-        $install_dir = $this->extractPkg($update_file);
-        $update_res = $this->install($install_dir."/test.sh");
-        $this->out($update_res);
-        return $update_res;
+        //$update_file = $this->download($download_url);
+        //$install_dir = $this->extractPkg($update_file);
+        //$update_res = $this->install($install_dir."/install.sh");
+        $update_res = $this->install("/opt/keexybox/tmp/test.sh");
+        //debug($update_res);
+        $this->out($update_res[1]);
+        return $update_res[0];
     }
 }

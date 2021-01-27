@@ -7,11 +7,6 @@
         <h3 class="box-title"><?= __('KeexyBox update')?></h3>
       </div>
 
-
-
-
-
-
       <?php if ( $step == 1 ): ?>
       <!-- Content displayed for update step 1 -->
       <div class="box-body">
@@ -81,8 +76,21 @@
       <div class="box-body">
         <div class="row">
           <div class="col-sm-12">
+              <?php if ( $install_status == 0 ): ?>
               <div class="alert alert-success">
                 <h4><i class="icon fa fa-info"></i><?= __('Update done.') ?></h4>
+              </div>
+              <?php else: ?>
+              <div class="alert alert-danger">
+                <h4><i class="icon fa fa-info"></i><?= __('Update failed.') ?></h4>
+              </div>
+              <?php endif ?>
+              <hr>
+              <div id="content_collapse">
+                <h4><?= __('Installation trace: {0}', $install_logfile_path) ?>&nbsp;(<a href="#"><?= __('details', $install_logfile_path) ?></a>)</h4>
+              </div>
+              <div id="install_content" style="display:none">
+                <pre><?= $install_logfile_content ?></pre>
               </div>
           </div>
         </div>
@@ -98,3 +106,12 @@
   </div><!-- /.col -->
 </div>
 
+<script>
+$('div#content_collapse').click(function(){
+  if ( $("#install_content").is(":visible") ) {
+    $("#install_content").hide();
+  } else if ( $("#install_content").is(":hidden") ) {
+    $("#install_content").show();
+  }
+})
+</script>
