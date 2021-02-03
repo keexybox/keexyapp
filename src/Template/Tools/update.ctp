@@ -18,8 +18,8 @@
               </div>
               <h4><?= __('Information about the new version') ?><h4>
               <ul>
-                <?php if(isset($update_data->version)): ?><li><?= __('New version').": ".$update_data->version ?></li><?php endif ?>
-                <?php if(isset($update_data->changelog)): ?><li><?= $this->Html->link(__('ChangeLog'), $update_data->changelog, array('target'=>'_blank','escape'=>false)) ?></li><?php endif ?>
+                <?php if(isset($update_data->version)): ?><li><?= __('KeexyBox version').": ".$update_data->version ?></li><?php endif ?>
+                <?php if(isset($update_data->changelog)): ?><li><?= $this->Html->link(__('Change log'), $update_data->changelog, array('target'=>'_blank','escape'=>false)) ?></li><?php endif ?>
                 <?php if(isset($update_data->documentation)): ?><li><?= $this->Html->link(__('Documentation'), $update_data->documentation, array('target'=>'_blank','escape'=>false)) ?></li><?php endif ?>
               </ul>
             <?php else: ?>
@@ -87,7 +87,7 @@
               <?php endif ?>
               <hr>
               <div id="content_collapse">
-                <h4><?= __('Installation trace: {0}', $install_logfile_path) ?>&nbsp;(<a href="#"><?= __('details', $install_logfile_path) ?></a>)</h4>
+                <h4><?= __('Log').": ".$install_logfile_path) ?>&nbsp;(<a href="#"><?= __('details', $install_logfile_path) ?></a>)</h4>
               </div>
               <div id="install_content" style="display:none">
                 <pre><?= $install_logfile_content ?></pre>

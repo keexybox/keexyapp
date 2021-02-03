@@ -320,6 +320,7 @@ class ToolsController extends AppController
         $update_url = $this->Config->get('update_check_url')->value.$this->Config->get('version')->value;
         //$update_url = 'https://www.keexybox.g/dslqkjds';
             
+        // Step to confirm the update
         if ( $this->request->getQuery('step') == 1) {
             // Disable PHP error reporting to avoid warning in case of bad update URL
             error_reporting(0);
@@ -335,22 +336,18 @@ class ToolsController extends AppController
             $step = 1;
         }
 
+        // Installation waiting step
         if ( $this->request->getQuery('step') == 2) {
-            /*
-            if (null != $this->request->getQuery('download')) {
-                $download_url = $this->request->getQuery('download');
-                //return $this->redirect(['controller' => 'tools', 'action' => 'update', 'run_update' => 2, 'download' => $download_url ]);
-            }
-            */
             $step = 2;
         }
 
+        // Step to display installation result
         if ( $this->request->getQuery('step') == 3) {
             if (null != $this->request->getQuery('download')) {
                 $download_url = $this->request->getQuery('download');
                 exec($this->kxycmd("update run $download_url"), $output, $rc);
-                $install_logfile_path = $output[0];
-                $install_logfile_content = file_get_contents($output[0]);
+                $install_logfile_path = end($output);
+                $install_logfile_content = file_get_contents($install_logfile_path);
                 $install_status = $rc;
             }
             $step = 3;
