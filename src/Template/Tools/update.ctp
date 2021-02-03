@@ -87,7 +87,7 @@
               <?php endif ?>
               <hr>
               <div id="content_collapse">
-                <h4><?= __('Log').": ".$install_logfile_path) ?>&nbsp;(<a href="#"><?= __('details', $install_logfile_path) ?></a>)</h4>
+                <h4><?= __('Log').": ".$install_logfile_path ?>&nbsp;(<a href="#"><?= __('details') ?></a>)</h4>
               </div>
               <div id="install_content" style="display:none">
                 <pre><?= $install_logfile_content ?></pre>

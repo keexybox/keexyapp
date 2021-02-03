@@ -111,10 +111,10 @@ class UpdateShell extends BoxShell
     public function run($download_url)
     {
         parent::initialize();
-        //$update_file = $this->download($download_url);
-        //$install_dir = $this->extractPkg($update_file);
-        //$update_res = $this->install($install_dir."/install.sh");
-        $update_res = $this->install("/opt/keexybox/tmp/test.sh");
+        $update_file = $this->download($download_url);
+        $install_dir = $this->extractPkg($update_file);
+        $update_res = $this->install($install_dir."/install.sh");
+        //$update_res = $this->install("/opt/keexybox/tmp/test.sh");
         $this->out($update_res[1]);
         return $update_res[0];
     }
