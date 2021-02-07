@@ -3540,3 +3540,9 @@ msgstr "Atualização falhou."
 
 msgid "details"
 msgstr "detalhes"
+
+msgid "URL for internet browsing"
+msgstr "URL para navegação na internet"
+
+msgid "URL to check the IP address"
+msgstr "URL para verificar o endereço IP"

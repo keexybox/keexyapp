@@ -3540,3 +3540,9 @@ msgstr "Не удалось обновить."
 
 msgid "details"
 msgstr "подробности"
+
+msgid "URL for internet browsing"
+msgstr "URL для просмотра в Интернете"
+
+msgid "URL to check the IP address"
+msgstr "URL для проверки IP-адреса"

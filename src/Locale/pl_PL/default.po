@@ -3540,3 +3540,9 @@ msgstr "Aktualizacja nieudana."
 
 msgid "details"
 msgstr "Detale"
+
+msgid "URL for internet browsing"
+msgstr "URL do przeglądania Internetu"
+
+msgid "URL to check the IP address"
+msgstr "URL, aby sprawdzić adres IP"

@@ -41,6 +41,26 @@
           ?>
         </div>
 
+        <div class="form-group">
+            <label for="inputtime"><?= __('URL for internet browsing') ?></label>
+                <?= $this->Form->control('cportal_homepage_button_url', [
+                        'label' => false,
+                        'class' => "form-control input",
+                        'default' => $cportal_homepage_button_url,
+                    ]);
+                ?>
+        </div>
+
+        <div class="form-group">
+            <label for="inputtime"><?= __('URL to check the IP') ?></label>
+                <?= $this->Form->control('cportal_ip_info_url', [
+                        'label' => false,
+                        'class' => "form-control input",
+                        'default' => $cportal_ip_info_url,
+                    ]);
+                ?>
+        </div>
+
         <label><?= __('Information to be collected on the client for internet access') ?></label>
         <div class="checkbox">
           <label>

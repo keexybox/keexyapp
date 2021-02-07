@@ -3540,3 +3540,9 @@ msgstr "更新失敗。"
 
 msgid "details"
 msgstr "細部"
+
+msgid "URL for internet browsing"
+msgstr "インターネットブラウジングのURL"
+
+msgid "URL to check the IP address"
+msgstr "IPアドレスを確認するためのURL"

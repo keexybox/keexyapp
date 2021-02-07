@@ -3543,3 +3543,9 @@ msgstr "Update fehlgeschlagen."
 
 msgid "details"
 msgstr "Einzelheiten"
+
+msgid "URL for internet browsing"
+msgstr "URL zum Surfen im Internet"
+
+msgid "URL to check the IP address"
+msgstr "URL zur Überprüfung der IP-Adresse"

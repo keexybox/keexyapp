@@ -1115,7 +1115,7 @@ class ConfigController extends AppController
     {
         // List of params to load
         //$params = array('dns_expiration_delay', 'connection_default_time', 'connection_max_time', 'log_db_retention', 'log_retention', 'bind_use_redirectors', 'locale');
-        $params = array('connection_default_time', 'locale', 'cportal_register_allowed', 'cportal_register_code', 'cportal_register_expiration', 'cportal_default_profile_id', 'cportal_default_user_id', 'cportal_record_useragent', 'cportal_record_mac');
+        $params = array('connection_default_time', 'locale', 'cportal_register_allowed', 'cportal_register_code', 'cportal_register_expiration', 'cportal_default_profile_id', 'cportal_default_user_id', 'cportal_record_useragent', 'cportal_record_mac', 'cportal_homepage_button_url', 'cportal_ip_info_url');
 
         // Load params
         foreach($params as $setting) {

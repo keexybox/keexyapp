@@ -3559,3 +3559,15 @@ msgstr "La mise à jour a échoué."
 
 msgid "details"
 msgstr "détails"
+
+msgid "URL for internet browsing"
+msgstr "URL pour la navigation sur Internet"
+
+msgid "URL to check the IP address"
+msgstr "URL pour vérifier l'adresse IP"
+
+msgid "URL for internet browsing"
+msgstr "URL pour la navigation sur Internet"
+
+msgid "URL to check the IP address"
+msgstr "URL pour vérifier l'adresse IP"

@@ -3540,3 +3540,9 @@ msgstr "更新失败。"
 
 msgid "details"
 msgstr "细节"
+
+msgid "URL for internet browsing"
+msgstr "互联网浏览网址"
+
+msgid "URL to check the IP address"
+msgstr "用于检查IP地址的URL"
