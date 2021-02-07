@@ -3501,3 +3501,45 @@ msgstr "Verwaltung von KeexyBox"
 msgid "Delete my account"
 msgstr "Mein Konto löschen"
 
+#: New translations KeexyBox 20.10.2
+msgid "Check my IP"
+msgstr "Überprüfen Sie meine IP"
+
+msgid "Check Tor"
+msgstr "Überprüfen Sie Tor"
+
+msgid "Browse the internet"
+msgstr "Im Internet surfen"
+
+msgid "A new version is available."
+msgstr "Informationen zur neuen Version"
+
+msgid "Information about the new version"
+msgstr "Eine neue Version ist verfügbar."
+
+msgid "KeexyBox update"
+msgstr "KeexyBox-Update"
+
+msgid "A new version is available."
+msgstr "Eine neue Version ist verfügbar."
+
+msgid "Change log"
+msgstr "Änderungsprotokoll"
+
+msgid "No update is available."
+msgstr "Es ist kein Update verfügbar."
+
+msgid "Install the update"
+msgstr "Installieren Sie das Update"
+
+msgid "Please wait while updating..."
+msgstr "Bitte warten Sie beim Aktualisieren ..."
+
+msgid "Update done."
+msgstr "Update beendet."
+
+msgid "Update failed."
+msgstr "Update fehlgeschlagen."
+
+msgid "details"
+msgstr "Einzelheiten"

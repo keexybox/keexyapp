@@ -3501,3 +3501,42 @@ msgstr "Διαχείριση του KeexyBox"
 msgid "Delete my account"
 msgstr "Διαγραφή του λογαριασμού μου"
 
+#: New translations KeexyBox 20.10.2
+msgid "Check my IP"
+msgstr "Ελέγξτε την IP μου"
+
+msgid "Check Tor"
+msgstr "Ελέγξτε το Tor"
+
+msgid "Browse the internet"
+msgstr "Περιηγηθείτε στο διαδίκτυο"
+
+msgid "A new version is available."
+msgstr "Μια νέα έκδοση είναι διαθέσιμη."
+
+msgid "Information about the new version"
+msgstr "Πληροφορίες για τη νέα έκδοση"
+
+msgid "KeexyBox update"
+msgstr "Ενημέρωση KeexyBox"
+
+msgid "Change log"
+msgstr "Αλλαγή αρχείου καταγραφής"
+
+msgid "No update is available."
+msgstr "Δεν υπάρχει διαθέσιμη ενημέρωση."
+
+msgid "Install the update"
+msgstr "Εγκαταστήστε την ενημέρωση"
+
+msgid "Please wait while updating..."
+msgstr "Περιμένετε κατά την ενημέρωση ..."
+
+msgid "Update done."
+msgstr "Η ενημέρωση ολοκληρώθηκε."
+
+msgid "Update failed."
+msgstr "Ενημέρωση απέτυχε."
+
+msgid "details"
+msgstr "Λεπτομέριες"

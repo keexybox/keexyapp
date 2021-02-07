@@ -1852,7 +1852,7 @@ msgstr "目标"
 #: Template/Connections/adminview.ctp:450
 #: Template/Connections/view.ctp:309
 msgid "Domains routing"
-msgstr "域名路由""
+msgstr "域名路由"
 
 #: Template/Connections/adminview.ctp:456
 #: Template/Connections/view.ctp:315
@@ -3501,3 +3501,42 @@ msgstr "KeexyBox管理"
 msgid "Delete my account"
 msgstr "删除我的账户"
 
+#: New translations KeexyBox 20.10.2
+msgid "Check my IP"
+msgstr "检查我的IP"
+
+msgid "Check Tor"
+msgstr "检查托"
+
+msgid "Browse the internet"
+msgstr "浏览网络"
+
+msgid "A new version is available."
+msgstr "有新版本可用。"
+
+msgid "Information about the new version"
+msgstr "有关新版本的信息"
+
+msgid "KeexyBox update"
+msgstr "KeexyBox更新"
+
+msgid "Change log"
+msgstr "变更记录"
+
+msgid "No update is available."
+msgstr "没有可用的更新。"
+
+msgid "Install the update"
+msgstr "安装更新"
+
+msgid "Please wait while updating..."
+msgstr "请稍候，正在更新..."
+
+msgid "Update done."
+msgstr "更新完成。"
+
+msgid "Update failed."
+msgstr "更新失败。"
+
+msgid "details"
+msgstr "细节"

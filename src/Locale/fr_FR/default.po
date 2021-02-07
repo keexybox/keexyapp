@@ -3530,18 +3530,6 @@ msgstr "Vérifier Tor"
 msgid "Browse the internet"
 msgstr "Surfer sur Internet"
 
-msgid "Browse the internet"
-msgstr "Surfer sur Internet"
-
-msgid "A new version is available."
-msgstr "Une nouvelle version est disponible."
-
-msgid "Information about the new version"
-msgstr "Informations sur la nouvelle version"
-
-msgid "KeexyBox update"
-msgstr "Mise à jour KeexyBox"
-
 msgid "A new version is available."
 msgstr "Une nouvelle version est disponible."
 
