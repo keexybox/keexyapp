@@ -92,6 +92,28 @@
               <div id="install_content" style="display:none">
                 <pre><?= $install_logfile_content ?></pre>
               </div>
+
+              <?php if ( $install_status == 0 ): ?>
+              <hr>
+              <h4><?= __('You need to reboot KeexyBox. Reboot now?') ?></h4>
+              <?= $this->Form->create('reboot', ['onsubmit' => "return confirm('".__('Are you sure you want to reboot?')."');"]) ?>
+                <?= $this->Form->control('action', [
+                  'type' => 'hidden',
+                  'value' => 'reboot'])
+                ?>
+      
+                <?= $this->Form->button(
+                    $this->Html->tag('span', "", [
+                      'class' => "glyphicon glyphicon-repeat",
+                      'aria-hidden' => "true",
+                      'title' => __("Reboot"),
+                    ])."  ".__('Reboot'),
+                       ['escape' => false, 'id' => 'reboot', 'class' => 'btn btn-lg btn-warning']
+                  );
+                ?>
+              <?= $this->Form->end() ?>
+              <?php endif ?>
+
           </div>
         </div>
       </div>

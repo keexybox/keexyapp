@@ -351,6 +351,11 @@ class ToolsController extends AppController
                 $install_status = $rc;
             }
             $step = 3;
+            if ($this->request->is(['patch', 'post', 'put'])) {
+                if ($this->request->data['action'] == 'reboot') {
+                    exec($this->kxycmd("service reboot"), $output, $rc);
+                }
+            }
         }
 
         // inform View it is check_update step
