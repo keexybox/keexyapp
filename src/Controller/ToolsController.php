@@ -320,8 +320,17 @@ class ToolsController extends AppController
         $update_url = $this->Config->get('update_check_url')->value.$this->Config->get('version')->value;
         //$update_url = 'https://www.keexybox.g/dslqkjds';
             
+        $step = $this->request->getQuery('step');
+
+        if ($this->request->is(['patch', 'post', 'put'])) {
+            if ($this->request->data['action'] == 'reboot') {
+                unset($step);
+                exec($this->kxycmd("service reboot"), $output, $rc);
+            }
+        }
+
         // Step to confirm the update
-        if ( $this->request->getQuery('step') == 1) {
+        if ( $step == 1) {
             // Disable PHP error reporting to avoid warning in case of bad update URL
             error_reporting(0);
             $update_data = json_decode(file_get_contents($update_url));
@@ -333,28 +342,21 @@ class ToolsController extends AppController
             } else {
                 $this->set('update_data', $update_data);
             }
-            $step = 1;
         }
 
-        // Installation waiting step
-        if ( $this->request->getQuery('step') == 2) {
-            $step = 2;
-        }
+        //// Installation waiting step
+        //if ( $step == 2) {
+        //    $step = 2;
+        //}
 
         // Step to display installation result
-        if ( $this->request->getQuery('step') == 3) {
+        if ( $step == 3) {
             if (null != $this->request->getQuery('download')) {
                 $download_url = $this->request->getQuery('download');
                 exec($this->kxycmd("update run $download_url"), $output, $rc);
                 $install_logfile_path = end($output);
                 $install_logfile_content = file_get_contents($install_logfile_path);
                 $install_status = $rc;
-            }
-            $step = 3;
-            if ($this->request->is(['patch', 'post', 'put'])) {
-                if ($this->request->data['action'] == 'reboot') {
-                    exec($this->kxycmd("service reboot"), $output, $rc);
-                }
             }
         }
 
