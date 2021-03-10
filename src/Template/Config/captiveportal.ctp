@@ -92,6 +92,7 @@
                     0 => __('Private'), 
                     1 => __('Registration'),
                     2 => __('Free'),
+                    3 => __('Disabled'),
                     ],
                 'class' => "form-control",
                 'id' => 'cportal_register_allowed',
@@ -101,7 +102,7 @@
           ?>
         </div>
 
-        <div id="reg_1" class="dynform" style="display:none">
+        <div id="reg_1" class="dynform reg_1" style="display:none">
           <div class="form-group">
             <label for="input_cportal_register_expiration"><?= __('Duration of registration (days)') ?></label>
             <?= $this->Form->control('cportal_register_expiration', [
@@ -129,9 +130,11 @@
             ?>
   		    <?= $this->Flash->render('error_cportal_register_code')?>
   		  </div>
+        </div>
   
+        <div id="reg_3" class="dynform reg_1 reg_3" style="display:none">
           <div class="form-group">
-            <label for="inputProfile"><?= __('Profile to be defined for new registrations') ?></label>
+            <label for="inputProfile"><?= __('Default profile to use') ?></label>
             <?= $this->Form->control('cportal_default_profile_id', [
                 'type' => 'select',
                 'label' => false,
@@ -145,7 +148,7 @@
           </div>
         </div>
 
-        <div id="reg_2" class="dynform" style="display:none">
+        <div id="reg_2" class="dynform reg_2" style="display:none">
           <div class="form-group">
             <label for="inputProfile"><?= __('User account to use for free access') ?></label>
             <?= $this->Form->control('cportal_default_user_id', [
@@ -208,7 +211,8 @@ function open_window_f() {
   $(document).ready(function() {
     $('select#cportal_register_allowed').change(function() {
       $('.dynform').hide();
-      $('#reg_' + $(this).val()).show();
+      //$('#reg_' + $(this).val()).show();
+      $('.reg_' + $(this).val()).show();
     });
 	$('#reg_' + $("select#cportal_register_allowed").val()).show();
   });

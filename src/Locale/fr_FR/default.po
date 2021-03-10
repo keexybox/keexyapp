@@ -3571,3 +3571,7 @@ msgstr "URL pour la navigation sur Internet"
 
 msgid "URL to check the IP address"
 msgstr "URL pour vérifier l'adresse IP"
+
+#: New translations KeexyBox 21.04.1
+msgid "Default profile to use"
+msgstr "Profil par défaut à utiliser"
