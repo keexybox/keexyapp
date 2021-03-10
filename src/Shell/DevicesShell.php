@@ -374,6 +374,84 @@ class DevicesShell extends BoxShell
     }
 
     /**
+     * This function load rules to connect all device to Internet without declaring devices
+     * It is used only if Captive portal is disabled 'cportal_register_allowed' = 3
+     * No device registration required
+     *
+     * @param $profile_id: Profile to use for the connection
+     * 
+     * @return array: Errors informations encountered during the connection process
+     *
+     */
+    public function EnableDefaultAccess($profile_id)
+    {
+        parent::initialize();
+        $router = new RulesShell;
+        // Show message and log action 
+        $message = "Enabling default access for all devices with profile ID ".$profile_id.".";
+        $this->out($message);
+        $this->LogMessage($message, 'devices');
+
+        // Verify if rules for profiles are already been created
+        $rc = $router->CheckChainsExists($profile_id);
+    
+        // If yes, load profile rules
+        if($rc != 0) {
+            $profile_rules = new ProfilesShell;
+            $create_access_return = $profile_rules->CreateAccess($profile_id);
+            if($create_access_return['rc'] == 1) {
+                $return['rc'] = 1;
+                return $return;
+            }
+        }
+
+        // Lookup if there are some time conditions for access
+        $conn_times = $this->ProfilesTimes->find('all', ['conditions' => [
+            'ProfilesTimes.profile_id' => $profile_id
+        ]]);
+
+        if($conn_times->isEmpty()) {
+            // If no time conditions are set, Access is enabled for 24/7 access
+            $router->LoadDefaultDeviceRules($profile_id);
+        } else {
+            foreach($conn_times as $conn_time) {
+                $router->LoadDefaultDeviceRules($profile_id, $conn_time['daysofweek'], $conn_time['timerange']);
+            }
+        }
+
+        // Check if device rules loaded successfully
+        $load_access_return = $router->GetRulesCount();
+        if(isset($create_access_return)) {
+            foreach(['count_rules', 'count_critical_errors', 'count_warning_errors'] as $count_value) {
+                $return[$count_value] = $load_access_return[$count_value] + $create_access_return[$count_value];
+            }
+        } else {
+            $return = $load_access_return;
+        }
+
+        if($return['count_critical_errors'] == 0 and $return['count_warning_errors'] == 0) {
+            $message = "All rules for all devices loaded successfully";
+            $return['rc'] = 0;
+        }
+        elseif($return['count_warning_errors'] > 0 and $return['count_critical_errors'] == 0) {
+            $message = $return['count_warning_errors']." warning error(s) on loading rules for all devices, check log files";
+            $return['rc'] = 2;
+        }
+        elseif($return['count_critical_errors'] > 0) {
+            $message = $return['count_critical_errors']." critical error(s) on loading rules for all devices, check log files";
+            $return['rc'] = 1;
+        }
+        else {
+            $message = "Loading rules status for all devices is unknown";
+            $return['rc'] = 3;
+        }
+
+        $this->out($message);
+        $this->LogMessage($message, 'devices');
+        return $return;
+    }
+
+    /**
      * This function unload rules to disconnect device from Internet
      *
      * @param $conn_name: It expect to be the device name

@@ -502,7 +502,7 @@ class RulesShell extends BoxShell
 
     /**
      * This function load profile rules for given user IP address
-     * In case of time contitions, profile rules must be loaded as many times as there are defined time conditions for the profile.
+     * In case of time conditions, profile rules must be loaded as many times as there are defined time conditions for the profile.
      *
      * @param chain : name of the chain to create
      * @param src_ip : user IP address
@@ -595,6 +595,46 @@ class RulesShell extends BoxShell
         } else {
             foreach($chains as $chain) {
                 $rc = $iptables->LoadChain($chain['table'], $chain['name'], $chain['builtin'], "-m mac --mac-source $src_mac");
+                $this->count_rules++;
+                if($rc != 0) {
+                    $this->count_critical_errors++;
+                }
+            }
+        }
+    }
+
+    /**
+     * This function load profile rules for all devices
+     * It is used only if Captive portal is disabled 'cportal_register_allowed' = 3
+     * In case of time contitions, profile rules must be loaded as many times as there are defined time conditions for the profile.
+     *
+     * @param $chain_id : expected to be the profile_id
+     * @param daysofweek : Days of week format (MTWHFAS)
+     * @param timerange : Time range in Squid format (e.g. 08:00-18:00)
+     * 
+     * @return void (but increments counters)
+     */
+    public function LoadDefaultDeviceRules($chain_id, $daysofweek=null, $timerange=null)
+    {
+        parent::initialize();
+        $iptables = new IptablesShell();
+
+        $chains = $this->SetChains($chain_id);
+
+        // This iptables built-in chains don't works when source is MAC. 
+        unset($chains['FILTER_OUTPUT']);
+
+        if(isset($daysofweek) and isset($timerange)) {
+            foreach($chains as $chain) {
+                $rc = $iptables->LoadChain($chain['table'], $chain['name'], $chain['builtin'], null, $daysofweek, $timerange);
+                $this->count_rules++;
+                if($rc != 0) {
+                    $this->count_critical_errors++;
+                }
+            }
+        } else {
+            foreach($chains as $chain) {
+                $rc = $iptables->LoadChain($chain['table'], $chain['name'], $chain['builtin'], null);
                 $this->count_rules++;
                 if($rc != 0) {
                     $this->count_critical_errors++;

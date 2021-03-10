@@ -107,9 +107,17 @@ class DaemonShell extends BoxShell
     public function ReconnectRegistred()
     {
         parent::initialize();
-        $actives_connections = $this->ActivesConnections->find('all');
         $users_shell = new UsersShell;
         $devices_shell = new DevicesShell;
+
+        // Enable access for all device if Captive Portal is disabled
+        if ( $this->cportal_register_allowed == 3 ) {
+            $devices_shell->EnableDefaultAccess($this->cportal_default_profile_id);
+
+        }
+
+        $actives_connections = $this->ActivesConnections->find('all');
+
         foreach($actives_connections as $active_connection) {
             if($active_connection->type == 'usr') {
                 $users_shell->EnableAccess($active_connection->name, $active_connection->ip);
