@@ -12,6 +12,8 @@
       <!-- form start -->
       <?= $this->Form->create($config) ?>
       <div class="box-body">
+        <label><?= __("Description") ?></label><br>
+        <?=  h($config->description) ?>
 
 	    
         <div class="form-group">
