@@ -1141,6 +1141,8 @@ class ConfigController extends AppController
         $this->loadModel('Users');
         $users = $this->Users->find('list');
 
+        $orig_cportal_register_allowed_value = $cportal_register_allowed;
+
         if($this->request->is('post')) {
 
             $request_data = $this->request->getData();
@@ -1178,20 +1180,19 @@ class ConfigController extends AppController
                 foreach($request_data as $param => $value) {
                     $$param = $this->Config->save($$param);
                 }
-                if ($cportal_register_allowed->value == 3) {
-                    exec($this->kxycmd("config bind set_acl"), $output, $rc);
-                    if ($rc != 0) {
-                        $this->Flash->error(__('Unable to generate {0} config.', 'bind ACL'));
-                    }
-                    exec($this->kxycmd("service bind reload"), $output, $rc);
-                    if ($rc != 0) {
-                        $this->Flash->error(__('Service {0} {1} failed.', 'bind', 'reload'));
-                    }
-                    exec($this->kxycmd("service rules reload"), $output, $rc);
-                    if ($rc != 0) {
-                        $this->Flash->error(__('Service {0} {1} failed.', 'rules', 'reload'));
-                    }
+                exec($this->kxycmd("config bind set_acl"), $output, $rc);
+                if ($rc != 0) {
+                    $this->Flash->error(__('Unable to generate {0} config.', 'bind ACL'));
                 }
+                exec($this->kxycmd("service bind reload"), $output, $rc);
+                if ($rc != 0) {
+                    $this->Flash->error(__('Service {0} {1} failed.', 'bind', 'reload'));
+                }
+                exec($this->kxycmd("service rules reload"), $output, $rc);
+                if ($rc != 0) {
+                    $this->Flash->error(__('Service {0} {1} failed.', 'rules', 'reload'));
+                }
+
                 $this->Flash->success(__('Settings saved successfully.'));
             } else {
                 $this->Flash->error(__('Settings could not be saved.')." ".__('Please try again.'));

@@ -113,9 +113,11 @@ class ProfilesShell extends BoxShell
                 array_push($access_data, ['rules_template' => 'profile_default_prerouting_dnslog']);
             }
 
-            // Define if Tor Access by default
+            // Define Access to Tor or Direct
             if($profile['default_routing'] == 'tor') {
                 array_push($access_data, ['rules_template' => 'profile_default_prerouting_tor']);
+            } elseif ($profile['default_routing'] == 'direct') {
+                array_push($access_data, ['rules_template' => 'profile_default_prerouting_direct']);
             }
 
             array_push($access_data, ['rules_template' => 'profile_default_input']);
