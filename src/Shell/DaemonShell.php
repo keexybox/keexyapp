@@ -110,7 +110,7 @@ class DaemonShell extends BoxShell
         $users_shell = new UsersShell;
         $devices_shell = new DevicesShell;
 
-        // Enable access for all device if Captive Portal is disabled
+        // If internet access conditions is set to "None" grant internet access to all devices using the defined profile
         if ( $this->cportal_register_allowed == 3 ) {
             $devices_shell->EnableDefaultAccess($this->cportal_default_profile_id);
 

@@ -92,7 +92,7 @@
                     0 => __('Private'), 
                     1 => __('Registration'),
                     2 => __('Free'),
-                    3 => __('Disabled'),
+                    3 => __('None'),
                     ],
                 'class' => "form-control",
                 'id' => 'cportal_register_allowed',

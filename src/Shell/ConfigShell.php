@@ -579,11 +579,10 @@ class ConfigShell extends BoxShell
                 // Create ACL file for each profiles that exist
                 $rc = 0;
                 $profiles = $this->Profiles->find('all');
+
                 foreach($profiles as $profile) {
                     $profile_id = $profile['id'];
-
                     $params['ips'] = null;
-
                     $params['profile_id'] = $profile['id'];
                     $this->ResetConf($this->bind_root_dir."/etc/conf.d/acl_profile_".$profile_id.".conf", '//');
                     $rc = $rc + $this->AddConf("bind_acl_profile_conf.php", $this->bind_root_dir."/etc/conf.d/acl_profile_".$profile_id.".conf", $params);
@@ -593,16 +592,21 @@ class ConfigShell extends BoxShell
                 $actives_connecions = $this->ActivesConnections->find('all');
 
                 // By default localhost DNS resolv map to profile ID 1
-                $acl[1][] = "127.0.0.1";
+                $acl[1][] = "127.0.0.1/32";
+
+                // If internet access conditions is set to "None" allows all devices using the DNS 
+                if ( $this->cportal_register_allowed == 3 ) {
+                      $acl[$this->cportal_default_profile_id][] = "0.0.0.0/0";
+                }       
 
                 foreach($actives_connecions as $active_connecion) {
-                    $acl[$active_connecion['profile_id']][] = $active_connecion['ip'];
+                    $acl[$active_connecion['profile_id']][] = $active_connecion['ip']."/32";
                 }
 
                 if(isset($acl)) {
                     foreach($acl as $profile_id => $IPs) {
                         foreach($IPs as $ip) {
-                            $params['ips'] .= "\t".$ip."/32;\n";
+                            $params['ips'] .= "\t".$ip.";\n";
                         }
 
                         $params['profile_id'] = $profile_id;
