@@ -667,10 +667,20 @@ class ConfigShell extends BoxShell
         
                 $this->ResetConf($this->bind_root_dir."/etc/conf.d/profiles.conf", '//');
         
+                // The default profile set for captive portal have to be set at the bottom of bind config file (lowest priority for bind ACLs)
+                $last_params = null;
                 foreach ($profiles as $profile) {
-                    $params['profile_id'] = $profile['id'];
+                    if($this->cportal_default_profile_id == $profile['id']) {
+                        $last_params['profile_id'] = $profile['id'];
+                    } else {
+                        $params['profile_id'] = $profile['id'];
+                        $this->bind('update_profile_view', $profile['id'], false);
+                        $rc = $rc + $this->AddConf("bind_profiles_conf.php", $this->bind_root_dir."/etc/conf.d/profiles.conf", $params);
+                    }
+                }
+                if ($last_params != null) {
                     $this->bind('update_profile_view', $profile['id'], false);
-                    $rc = $rc + $this->AddConf("bind_profiles_conf.php", $this->bind_root_dir."/etc/conf.d/profiles.conf", $params);
+                    $rc = $rc + $this->AddConf("bind_profiles_conf.php", $this->bind_root_dir."/etc/conf.d/profiles.conf", $last_params);
                 }
             }
 

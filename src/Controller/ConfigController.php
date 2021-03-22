@@ -1184,6 +1184,10 @@ class ConfigController extends AppController
                 if ($rc != 0) {
                     $this->Flash->error(__('Unable to generate {0} config.', 'bind ACL'));
                 }
+                exec($this->kxycmd("config bind set_profiles"), $output, $rc);
+                if ($rc != 0) {
+                    $this->Flash->error(__('Unable to generate {0} config.', 'bind profiles'));
+                }
                 exec($this->kxycmd("service bind reload"), $output, $rc);
                 if ($rc != 0) {
                     $this->Flash->error(__('Service {0} {1} failed.', 'bind', 'reload'));
