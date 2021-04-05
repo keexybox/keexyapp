@@ -25,6 +25,7 @@
               <label>
                 <?= $this->Form->control('dhcp_enabled_input', [
                       'type' => 'checkbox',
+                      'id' => 'dhcp_enabled_input',
                       'label' => __('Enable DHCP'),
                       'default' => $dhcp_enabled_input->value
                     ])
@@ -87,6 +88,7 @@
               <label>
                 <?= $this->Form->control('dhcp_enabled_output', [
                       'type' => 'checkbox',
+                      'id' => 'dhcp_enabled_output',
                       'label' => __('Enable DHCP'),
                       'default' => $dhcp_enabled_output->value
                     ])
@@ -94,10 +96,16 @@
               </label>
             </div>
 
-            <div class="alert alert-info" id="dhcp_external_info">
+            <?php if ($host_interface_input_value == $host_interface_output_value): ?>
+		    <?php if($dhcp_enabled_input->value == 1 AND $dhcp_enabled_output->value == 1): ?>
+            <div class="alert alert-warning" id="dhcp_external_info">
+            <?php else: ?>
+            <div class="alert alert-warning" id="dhcp_external_info" style="display: none">
+            <?php endif ?>
               <i class="icon fa fa-info"></i>
 	            <?= __('DHCP will work on subnet {0} only for devices that have an IP address reserved. However, defining the IP range here is required.', $output_network_mask) ?>
             </div>
+            <?php endif ?>
 
             <div class="form-group col-md-6">
               <label for="inputipstart"><?= __('DHCP start IP') ?></label>
@@ -171,3 +179,21 @@
 	</div><!-- /.box -->
   </div><!-- /.col -->
 </div><!-- /.row -->
+<script>
+$(function () {
+        $("#dhcp_enabled_output").click(function () {
+            if ($(this).is(":checked") && $("#dhcp_enabled_input").is(":checked")) {
+                $("#dhcp_external_info").show();
+            } else {
+                $("#dhcp_external_info").hide();
+            }
+        });
+        $("#dhcp_enabled_input").click(function () {
+            if ($(this).is(":checked") && $("#dhcp_enabled_output").is(":checked")) {
+                $("#dhcp_external_info").show();
+            } else {
+                $("#dhcp_external_info").hide();
+            }
+        });
+    });
+</script>

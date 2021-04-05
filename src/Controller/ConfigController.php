@@ -667,9 +667,9 @@ class ConfigController extends AppController
         $dhcp_enabled_output = $this->Config->get('dhcp_enabled_output');
         //$dhcp_external = $this->Config->get('dhcp_external');
 
-        // Get used interface to advise a DHCP configuration depending on the network 
-        $host_interface_input = $this->Config->get('host_interface_input');
-        $host_interface_output = $this->Config->get('host_interface_output');
+        // Get used interface to advise a DHCP configuration depending on the network (str_replace to remove virtual interface syntax)
+        $host_interface_input_value = str_replace(":0", "", $this->Config->get('host_interface_input')->value);
+        $host_interface_output_value = str_replace(":0", "", $this->Config->get('host_interface_output')->value);
     
         // Get IP Param : Grouped for IP validation
         $params = array('dhcp_start_ip_input', 'dhcp_end_ip_input', 'dhcp_start_ip_output', 'dhcp_end_ip_output');
@@ -783,35 +783,37 @@ class ConfigController extends AppController
             }
 
             // loop for IP validations
-            foreach ($request_params as $subnet => $validation_params)
-            {
-                foreach ($validation_params['range_params'] as $param) {
-                    $confdata = array(
-                        'param' => $param,
-                        'value' => $this->request->data[$param]
-                    );
-        
-                    ${"data_$param"} = $this->Config->patchEntity($$param, $confdata, [
-                        'validate' => 'ipaddr',
-                    ]);
-        
-                    // IF VALIDATION RETURN ERROR
-                    if(${"data_$param"}->errors()) {
-                        $this->Flash->set(__('Invalid IP address'), [ 
-                            'key' => 'error_'.$param,
-                            'element' => 'custom_error' ]);
-                        $rc = 1;
-                    }
-    
-                    if ($rc != 1 and $rc != 2 and $rc != 3) {
-                        $ip_dhcp_subnet = $this->Ipv4->getNetwork($this->request->data[$param], $validation_params['netmask']);
-                        // Change return code if one of DHCP IPs does not match with subnets
-                        if ($ip_dhcp_subnet != $subnet) {
-                            $rc = 2;
+            if(isset($request_params)) {
+                foreach ($request_params as $subnet => $validation_params)
+                {
+                    foreach ($validation_params['range_params'] as $param) {
+                        $confdata = array(
+                            'param' => $param,
+                            'value' => $this->request->data[$param]
+                        );
+            
+                        ${"data_$param"} = $this->Config->patchEntity($$param, $confdata, [
+                            'validate' => 'ipaddr',
+                        ]);
+            
+                        // IF VALIDATION RETURN ERROR
+                        if(${"data_$param"}->errors()) {
+                            $this->Flash->set(__('Invalid IP address'), [ 
+                                'key' => 'error_'.$param,
+                                'element' => 'custom_error' ]);
+                            $rc = 1;
                         }
-                        foreach ($validation_params['used_ip'] as $used_ip) {
-                            if ($used_ip == $this->request->data[$param]) {
-                                $rc = 3;
+        
+                        if ($rc != 1 and $rc != 2 and $rc != 3) {
+                            $ip_dhcp_subnet = $this->Ipv4->getNetwork($this->request->data[$param], $validation_params['netmask']);
+                            // Change return code if one of DHCP IPs does not match with subnets
+                            if ($ip_dhcp_subnet != $subnet) {
+                                $rc = 2;
+                            }
+                            foreach ($validation_params['used_ip'] as $used_ip) {
+                                if ($used_ip == $this->request->data[$param]) {
+                                    $rc = 3;
+                                }
                             }
                         }
                     }
@@ -826,11 +828,12 @@ class ConfigController extends AppController
                 $this->Config->save($data_dhcp_enabled_output);
                 //$this->Config->save($data_dhcp_external);
 
-                foreach($request_params as $request_param) {
-                    foreach($request_param['range_params'] as $param) {
-                        $this->Config->save(${"$param"});
+                if(isset($request_params)) {
+                    foreach($request_params as $request_param) {
+                        foreach($request_param['range_params'] as $param) {
+                            $this->Config->save(${"$param"});
+                        }
                     }
-
                 }
 
                 exec($this->kxycmd("config dhcp main"), $output, $cmd_rc1);
@@ -839,7 +842,9 @@ class ConfigController extends AppController
 
                 if ($cmd_rc == 0) {
                     // Restart DHCP if it is enabled
-                    if($this->Config->get('dhcp_enabled')->value == 1) {
+                    //$start_dhcp_status = $data_dhcp_enabled_input->value + $data_dhcp_enabled_output
+
+                    if($this->Config->get('dhcp_enabled_input')->value == 1 OR $this->Config->get('dhcp_enabled_output')->value == 1 ) {
                         exec($this->kxycmd("service dhcp restart"), $output, $cmd_rc);
                     } else {
                         exec($this->kxycmd("service dhcp stop"), $output, $cmd_rc);
@@ -882,8 +887,8 @@ class ConfigController extends AppController
         //$this->set('dhcp_enabled', $dhcp_enabled);
         $this->set('dhcp_enabled_input', $dhcp_enabled_input);
         $this->set('dhcp_enabled_output', $dhcp_enabled_output);
-        $this->set('host_interface_input', $host_interface_input);
-        $this->set('host_interface_output', $host_interface_output);
+        $this->set('host_interface_input_value', $host_interface_input_value);
+        $this->set('host_interface_output_value', $host_interface_output_value);
         //$this->set('dhcp_external', $dhcp_external);
         $this->set('input_network_mask', $input_network_mask);
         $this->set('output_network_mask', $output_network_mask);
