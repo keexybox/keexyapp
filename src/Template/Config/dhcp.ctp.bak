@@ -14,24 +14,39 @@
       <?= $this->Form->create('config') ?>
       <div class="box-body">
 
+        <div class="checkbox">
+          <label>
+            <?= $this->Form->control('dhcp_enabled', [
+                  'type' => 'checkbox',
+                  'label' => __('Enable DHCP'),
+                  'default' => $dhcp_enabled->value
+                ])
+            ?>
+          </label>
+        </div>
+
+        <div class="checkbox">
+          <label>
+            <?= $this->Form->control('dhcp_external', [
+                  'type' => 'checkbox',
+                  'id' => 'check_dhcp_network',
+                  'label' => __('Check this box if you want to use KeexyBox as DNS only and do not want to use it as gateway.'),
+                  'default' => $dhcp_external->value
+                ])
+            ?>
+          </label>
+        </div>
+    
+		<?php if($dhcp_external->value == 0): ?>
         <div class="box" id="internal_dhcp">
+		<?php else: ?>
+        <div class="box" id="internal_dhcp" style="display: none">
+		<?php endif ?>
           <div class="box-header">
             <h5 class="box-title"><?= __('Address range for the network: {0}', $input_network_mask) ?></h5>
           </div>
 
           <div class="box-body">
-
-            <div class="checkbox">
-              <label>
-                <?= $this->Form->control('dhcp_enabled_input', [
-                      'type' => 'checkbox',
-                      'label' => __('Enable DHCP'),
-                      'default' => $dhcp_enabled_input->value
-                    ])
-                ?>
-              </label>
-            </div>
-
             <div class="form-group col-md-6">
               <label for="inputipstart"><?= __('DHCP start IP') ?></label>
               <div class="input-group">
@@ -83,18 +98,11 @@
 
           <div class="box-body">
 
-            <div class="checkbox">
-              <label>
-                <?= $this->Form->control('dhcp_enabled_output', [
-                      'type' => 'checkbox',
-                      'label' => __('Enable DHCP'),
-                      'default' => $dhcp_enabled_output->value
-                    ])
-                ?>
-              </label>
-            </div>
-
+		    <?php if($dhcp_external->value == 0): ?>
             <div class="alert alert-info" id="dhcp_external_info">
+		    <?php else: ?>
+            <div class="alert alert-info" id="dhcp_external_info" style="display: none">
+		    <?php endif ?>
               <i class="icon fa fa-info"></i>
 	            <?= __('DHCP will work on subnet {0} only for devices that have an IP address reserved. However, defining the IP range here is required.', $output_network_mask) ?>
             </div>
@@ -171,3 +179,18 @@
 	</div><!-- /.box -->
   </div><!-- /.col -->
 </div><!-- /.row -->
+<script>
+$(function () {
+        $("#check_dhcp_network").click(function () {
+            if ($(this).is(":checked")) {
+                $("#external_dhcp").show();
+                $("#internal_dhcp").hide();
+                $("#dhcp_external_info").hide();
+            } else {
+                $("#external_dhcp").show();
+                $("#internal_dhcp").show();
+                $("#dhcp_external_info").show();
+            }
+        });
+    });
+</script>
