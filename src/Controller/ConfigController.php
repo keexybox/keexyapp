@@ -836,9 +836,9 @@ class ConfigController extends AppController
                     }
                 }
 
-                exec($this->kxycmd("config dhcp main"), $output, $cmd_rc1);
-                exec($this->kxycmd("config dhcp reservations"), $output, $cmd_rc2);
-                $cmd_rc = $cmd_rc1 + $cmd_rc2;
+                exec($this->kxycmd("config dhcp all"), $output, $cmd_rc);
+                //exec($this->kxycmd("config dhcp reservations"), $output, $cmd_rc2);
+                //$cmd_rc = $cmd_rc1 + $cmd_rc2;
 
                 if ($cmd_rc == 0) {
                     // Restart DHCP if it is enabled

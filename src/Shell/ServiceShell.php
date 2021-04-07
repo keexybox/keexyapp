@@ -200,14 +200,14 @@ class ServiceShell extends BoxShell
     public function dhcp($action, $exit = null)
     {
         parent::initialize();
-        if($this->dhcp_enabled == false and $action == 'start') {
+        if($this->dhcp_enabled_input == false and $this->dhcp_enabled_output == false and $action == 'start') {
             $this->service_begin(__FUNCTION__, $action);
             $return = [
                 'output' => [__('DHCP service is disabled')],
                 'rc' => 1,
                 ];
             $this->service_exit($return, $exit);
-        } elseif($this->dhcp_enabled == false and $action == 'restart') {
+        } elseif($this->dhcp_enabled_input == false and $this->dhcp_enabled_output == false and $action == 'restart') {
             $this->service_begin(__FUNCTION__, $action);
             $this->RunCmd("$this->bin_sudo $this->dhcp_init stop", 'service');
             $return = [

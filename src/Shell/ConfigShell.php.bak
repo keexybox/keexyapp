@@ -856,7 +856,7 @@ class ConfigShell extends BoxShell
      */
     public function dhcp($part, $exit = true)
     {
-        if($this->dhcp_enabled_input == true OR $this->dhcp_enabled_output == true) {
+        if($this->dhcp_enabled == true) {
             if(isset($part)) {
     
                 // Get and set subnet of output interface
@@ -866,21 +866,15 @@ class ConfigShell extends BoxShell
                 // Get and set subnet of input interface
                 $iIP = new IP4Calc($this->host_ip_input, $this->host_netmask_input);
                 $params['dhcp_subnet_input'] = $iIP->get(IP4Calc::NETWORK, IP4Calc::QUAD_DOTTED);
-
-                // Get interfaces
-                $host_interface_input_value = str_replace(":0", "", $this->host_interface_input);
-                $host_interface_output_value = str_replace(":0", "", $this->host_interface_output);
     
                 if($part == 'all') {
                     $rc = 0;
                     $rc = $rc + $this->dhcp('main', false);
                     $rc = $rc + $this->dhcp('reservations', false);
-                    $rc = $rc + $this->dhcp('interfaces', false);
                     exit($rc);
                 }
     
                 if($part == 'main') {
-                    /*
                     if ($this->dhcp_external == true) {
                         $this->ResetConf($this->dhcp_conffile);
                         $rc = $this->AddConf("dhcpd_single_conf.php", $this->dhcp_conffile, $params);
@@ -889,26 +883,22 @@ class ConfigShell extends BoxShell
                         $this->ResetConf($this->dhcp_conffile);
                         $rc = $this->AddConf("dhcpd_dual_conf.php", $this->dhcp_conffile, $params);
                     }
-                    */
-
-                    $this->ResetConf($this->dhcp_conffile);
-                    if ($this->dhcp_enabled_input == true AND $this->dhcp_enabled_output == true) {
-                        if ($host_interface_input_value == $host_interface_output_value) {
-                            $rc = $this->AddConf("dhcpd_single_in_out_conf.php", $this->dhcp_conffile, $params);
-                        } else {
-                            $rc = $this->AddConf("dhcpd_dual_in_out_conf.php", $this->dhcp_conffile, $params);
-                        }
-
-                    } elseif ($this->dhcp_enabled_input == true AND $this->dhcp_enabled_output == false) {
-                        $rc = $this->AddConf("dhcpd_single_in_conf.php", $this->dhcp_conffile, $params);
-
-                    } elseif ($this->dhcp_enabled_input == false AND $this->dhcp_enabled_output == true) {
-                        $rc = $this->AddConf("dhcpd_single_out_conf.php", $this->dhcp_conffile, $params);
-                    }
                 }
     
                 if($part == 'reservations') {
-                    if ($this->dhcp_enabled_input == true AND $this->dhcp_enabled_output == true) {
+                    if ($this->dhcp_external == true) {
+                        $rc = 0;
+                        $this->ResetConf($this->dhcp_reservations_conffile);
+                        $devices = $this->Devices->find('all', ['conditions' => ['not' => ['dhcp_reservation_ip' => '']]]);
+                        //$devices = $this->Devices->find('all');
+                        foreach($devices as $device) {
+                            $params['devicename'] = $device->devicename;
+                            $params['mac'] = $device->mac;
+                            $params['ip'] = $device->dhcp_reservation_ip;
+        
+                            $rc = $rc + $this->AddConf("dhcp_reservation_conf.php", $this->dhcp_reservations_conffile, $params);
+                        }
+                    } else {
                         $rc = 0;
                         $this->ResetConf($this->dhcp_reservations_conffile);
                         $devices = $this->Devices->find('all', ['conditions' => ['not' => ['dhcp_reservation_ip' => '']]]);
@@ -933,38 +923,8 @@ class ConfigShell extends BoxShell
         
                             $rc = $rc + $this->AddConf("dhcp_reservation_dual_conf.php", $this->dhcp_reservations_conffile, $params);
                         }
-                    } else {
-                        $rc = 0;
-                        $this->ResetConf($this->dhcp_reservations_conffile);
-                        $devices = $this->Devices->find('all', ['conditions' => ['not' => ['dhcp_reservation_ip' => '']]]);
-                        //$devices = $this->Devices->find('all');
-                        foreach($devices as $device) {
-                            $params['devicename'] = $device->devicename;
-                            $params['mac'] = $device->mac;
-                            $params['ip'] = $device->dhcp_reservation_ip;
-        
-                            $rc = $rc + $this->AddConf("dhcp_reservation_conf.php", $this->dhcp_reservations_conffile, $params);
-                        }
                     }
                 }
-                if($part == 'interfaces') {
-                    $this->ResetConf($this->dhcp_interfaces_conffile);
-                    if ($this->dhcp_enabled_input == true AND $this->dhcp_enabled_output == true) {
-                        if ($host_interface_input_value == $host_interface_output_value) {
-                            $params['listening_interfaces'] = $host_interface_output_value;
-                        } else {
-                            $params['listening_interfaces'] = $host_interface_output_value." ".$host_interface_input_value;
-                        }
-                    } elseif ($this->dhcp_enabled_input == true AND $this->dhcp_enabled_output == false) { 
-                        $params['listening_interfaces'] = $host_interface_input_value;
-
-                    } elseif ($this->dhcp_enabled_input == false AND $this->dhcp_enabled_output == true) { 
-                        $params['listening_interfaces'] = $host_interface_output_value;
-
-                    }
-                    $rc = $rc + $this->AddConf("dhcpd_interfaces_conf.php", $this->dhcp_interfaces_conffile, $params);
-                }
-
             // if DHCP disable return 0
             } else {
                 $rc = 0;
