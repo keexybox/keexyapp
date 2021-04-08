@@ -33,6 +33,12 @@
               </label>
             </div>
 
+            <div class="alert alert-warning" id="dhcp_internal_info" style="display: none">
+              <i class="icon fa fa-info"></i>
+	            <?= __('DHCP cannot be enabled on this network if it is not enabled on the {0} network', $output_network_mask) ?>
+            </div>
+
+
             <div class="form-group col-md-6">
               <label for="inputipstart"><?= __('DHCP start IP') ?></label>
               <div class="input-group">
@@ -197,3 +203,23 @@ $(function () {
         });
     });
 </script>
+<?php if ($host_interface_input_value == $host_interface_output_value): ?>
+<script>
+$(function () {
+        $("#dhcp_enabled_input").click(function () {
+            if ($(this).is(":checked") && $("#dhcp_enabled_output").is(":not(:checked)")) {
+                $("#dhcp_external_info").show();
+                $("#dhcp_internal_info").show();
+                $('#dhcp_enabled_output').prop('checked', true);
+            } 
+        });
+        $("#dhcp_enabled_output").click(function () {
+            if ($(this).not(":checked") && $("#dhcp_enabled_input").is(":checked")) {
+                $("#dhcp_external_info").hide();
+                $("#dhcp_internal_info").show();
+                $('#dhcp_enabled_input').prop('checked', false);
+            } 
+        });
+    });
+</script>
+<?php endif ?>
