@@ -35,7 +35,7 @@
 
             <div class="alert alert-warning" id="dhcp_internal_info" style="display: none">
               <i class="icon fa fa-info"></i>
-	            <?= __('DHCP cannot be enabled on this network if it is not enabled on the {0} network', $output_network_mask) ?>
+	            <?= __('DHCP cannot be enabled on this network if it is not enabled on the {0} network.', $output_network_mask) ?>
             </div>
 
 
