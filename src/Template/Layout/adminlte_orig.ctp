@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
 
-  <title>KeexyBox | <?= __('The box to keep the Internet under your control') ?></title>
+  <title>AdminLTE 3 | Dashboard 3</title>
   <?= $this->element('css_load') ?>
   <?= $this->element('js_load') ?>
 
@@ -20,7 +20,7 @@ to get the desired effect
 |               | sidebar-mini                            |
 |---------------------------------------------------------|
 -->
-<body class="hold-transition sidebar-mini skin-keexybox">
+<body class="hold-transition sidebar-mini">
 <div class="wrapper">
   <!-- Navbar -->
   <nav class="main-header navbar navbar-expand navbar-white navbar-light">
@@ -29,116 +29,117 @@ to get the desired effect
       <li class="nav-item">
         <a class="nav-link" data-widget="pushmenu" href="#"><i class="fas fa-bars"></i></a>
       </li>
+      <li class="nav-item d-none d-sm-inline-block">
+        <a href="index3.html" class="nav-link">Home</a>
+      </li>
+      <li class="nav-item d-none d-sm-inline-block">
+        <a href="#" class="nav-link">Contact</a>
+      </li>
     </ul>
+
+    <!-- SEARCH FORM -->
+    <form class="form-inline ml-3">
+      <div class="input-group input-group-sm">
+        <input class="form-control form-control-navbar" type="search" placeholder="Search" aria-label="Search">
+        <div class="input-group-append">
+          <button class="btn btn-navbar" type="submit">
+            <i class="fas fa-search"></i>
+          </button>
+        </div>
+      </div>
+    </form>
 
     <!-- Right navbar links -->
     <ul class="navbar-nav ml-auto">
-
+      <!-- Messages Dropdown Menu -->
       <li class="nav-item dropdown">
         <a class="nav-link" data-toggle="dropdown" href="#">
-          <i class="far fa-flag"></i>
+          <i class="far fa-comments"></i>
+          <span class="badge badge-danger navbar-badge">3</span>
         </a>
         <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
-
-          <div class="dropdown-divider"></div>
-          <?php foreach($languages_list as $lang_link => $language) : ?>
-          <a href="<?= $lang_link ?>" class="dropdown-item">
-	     	<?= $language ?>
+          <a href="#" class="dropdown-item">
+            <!-- Message Start -->
+            <div class="media">
+              <img src="dist/img/user1-128x128.jpg" alt="User Avatar" class="img-size-50 mr-3 img-circle">
+              <div class="media-body">
+                <h3 class="dropdown-item-title">
+                  Brad Diesel
+                  <span class="float-right text-sm text-danger"><i class="fas fa-star"></i></span>
+                </h3>
+                <p class="text-sm">Call me whenever you can...</p>
+                <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
+              </div>
+            </div>
+            <!-- Message End -->
           </a>
-          <?php endforeach ?>
-
-        </div>
-      </li>
-
-      <li class="nav-item dropdown">
-        <a class="nav-link" data-toggle="dropdown" href="#">
-          <i class="fa fa-cog"></i><?= __('Admin') ?>
-          <!--<span class="badge badge-warning navbar-badge">15</span>-->
-        </a>
-        <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
-          <span class="dropdown-item dropdown-header"><?= __('KeexyBox management') ?></span>
-		  <?php if(isset($lo_client['session_status'])): ?>
           <div class="dropdown-divider"></div>
           <a href="#" class="dropdown-item">
-            <i class="fas fa-user mr-2"></i>
-            <?= h($lo_client['session_details']['Auth']['User']['username']) ?>
-            <span class="float-right text-muted text-sm"><?= '('.__('Login').')' ?></span>
+            <!-- Message Start -->
+            <div class="media">
+              <img src="dist/img/user8-128x128.jpg" alt="User Avatar" class="img-size-50 img-circle mr-3">
+              <div class="media-body">
+                <h3 class="dropdown-item-title">
+                  John Pierce
+                  <span class="float-right text-sm text-muted"><i class="fas fa-star"></i></span>
+                </h3>
+                <p class="text-sm">I got your message bro</p>
+                <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
+              </div>
+            </div>
+            <!-- Message End -->
           </a>
-          <a href="#" class="dropdown-item">
-            <i class="fas fa-id-card mr-2"></i>
-            <?= h($lo_client['session_details']['Auth']['User']['displayname']) ?>
-            <span class="float-right text-muted text-sm"><?= '('.__('Display name').')' ?></span>
-          </a>
-		  <?php else: ?>
-		    <?= __('Click on Manage to edit your account or manage KeexyBox') ?>
-		  <?php endif ?>
-
           <div class="dropdown-divider"></div>
-		  <?php if(isset($lo_client['session_status'])): ?>
-          <a href="/users/logout" class="dropdown-item dropdown-footer"><?= __('Quit') ?></a>
-          <?php else: ?>
-          <a href="/users/adminlogin" class="dropdown-item dropdown-footer"><?= __('Sign in') ?></a>
-          <?php endif ?>
+          <a href="#" class="dropdown-item">
+            <!-- Message Start -->
+            <div class="media">
+              <img src="dist/img/user3-128x128.jpg" alt="User Avatar" class="img-size-50 img-circle mr-3">
+              <div class="media-body">
+                <h3 class="dropdown-item-title">
+                  Nora Silvester
+                  <span class="float-right text-sm text-warning"><i class="fas fa-star"></i></span>
+                </h3>
+                <p class="text-sm">The subject goes here</p>
+                <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
+              </div>
+            </div>
+            <!-- Message End -->
+          </a>
+          <div class="dropdown-divider"></div>
+          <a href="#" class="dropdown-item dropdown-footer">See All Messages</a>
         </div>
       </li>
-
+      <!-- Notifications Dropdown Menu -->
       <li class="nav-item dropdown">
         <a class="nav-link" data-toggle="dropdown" href="#">
-          <?php if(isset($lo_client['connection_status']) and $lo_client['connection_status'] == 'running'): ?>
-            <i class="fa fa-circle fa-circle-online"></i><?= __('Online') ?>
-          <?php elseif(isset($lo_client['connection_status']) and $lo_client['connection_status'] == 'pause'): ?>
-            <i class="fa fa-circle fa-circle-pause"></i><?= __('Paused') ?>
-          <?php else: ?>
-            <i class="fa fa-circle fa-circle-offline"></i><?= __('Offline') ?>
-          <?php endif ?>
+          <i class="far fa-bell"></i>
+          <span class="badge badge-warning navbar-badge">15</span>
         </a>
         <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
-	    <?php if(isset($lo_client['connection_status'])): ?>
-          <span class="dropdown-item dropdown-header"><?= __('Connected to the Internet') ?></span>
+          <span class="dropdown-item dropdown-header">15 Notifications</span>
           <div class="dropdown-divider"></div>
-          <span class="dropdown-item">
-            <i class="fas fa-user mr-2"></i>
-            <?= h($lo_client['connection_details']['name']) ?>
-            <span class="float-right text-muted text-sm"><?= '('.__('Login').')' ?></span>
-          </span>
-          <span class="dropdown-item">
-            <i class="fas fa-tag mr-2"></i>
-            <?= h($lo_client['connection_details']['type']) ?>
-            <span class="float-right text-muted text-sm"><?= '('.__('Connected as').')' ?></span>
-          </span>
-          <span class="dropdown-item">
-            <i class="fas fa-network-wired mr-2"></i>
-            <?= h($lo_client['connection_details']['profile']['default_routing']) ?>
-            <span class="float-right text-muted text-sm"><?= '('.__('Default connection type').')' ?></span>
-          </span>
-          <span class="dropdown-item">
-            <i class="fas fa-fire mr-2"></i>
-            <?= h($lo_client['connection_details']['profile']['default_ipfilter']) ?>
-            <span class="float-right text-muted text-sm"><?= '('.__('Default Firewall rule').')' ?></span>
-          </span>
-          <span class="dropdown-item">
-            <i class="fas fa-laptop mr-2"></i>
-            <?= h($lo_client['connection_details']['ip']) ?>
-            <span class="float-right text-muted text-sm"><?= '('.__('IP Address').')' ?></span>
-          </span>
-          <span class="dropdown-item">
-            <i class="fas fa-sliders-h mr-2"></i>
-            <?= h($lo_client['connection_details']['profile']['profilename']) ?> </small>
-            <span class="float-right text-muted text-sm"><?= '('.__('Profile').')' ?></span>
-          </span>
+          <a href="#" class="dropdown-item">
+            <i class="fas fa-envelope mr-2"></i> 4 new messages
+            <span class="float-right text-muted text-sm">3 mins</span>
+          </a>
           <div class="dropdown-divider"></div>
-          <div class="dropdown-footer">
-              <div class="float-left"><a href="/connections/view" class="btn btn-default"><?= __('Info') ?></a></div>
-              <div class="pull-right"><a href="/users/disconnect" class="btn btn-default"><?= __('Disconnect') ?></a></div>
-          </div>
-        <?php else: ?>
-          <span class="dropdown-item dropdown-header"><?= __('Disconnected from the Internet') ?></span>
+          <a href="#" class="dropdown-item">
+            <i class="fas fa-users mr-2"></i> 8 friend requests
+            <span class="float-right text-muted text-sm">12 hours</span>
+          </a>
           <div class="dropdown-divider"></div>
-          <div class="dropdown-footer">
-            <a href="/users/portal" class="btn btn-default"><?= __('Connect') ?></a>
-          </div>
-        <?php endif ?>
-      <li>
+          <a href="#" class="dropdown-item">
+            <i class="fas fa-file mr-2"></i> 3 new reports
+            <span class="float-right text-muted text-sm">2 days</span>
+          </a>
+          <div class="dropdown-divider"></div>
+          <a href="#" class="dropdown-item dropdown-footer">See All Notifications</a>
+        </div>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" data-widget="control-sidebar" data-slide="true" href="#"><i
+            class="fas fa-th-large"></i></a>
+      </li>
     </ul>
   </nav>
   <!-- /.navbar -->

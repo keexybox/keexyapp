@@ -1,7 +1,6 @@
   <!-- CSS LOAD -->
   <!-- Font Awesome -->
-  <!--<link rel="stylesheet" href="/adminlte/plugins/fontawesome-free/css/fontawesome.min.css">-->
-  <link rel="stylesheet" href="/adminlte/plugins/fontawesome-free/css/all.min.css">
+  <link rel="stylesheet" href="/adminlte/plugins/fontawesome-free/css/fontawesome.min.css">
   <!-- Ionicons -->
   <link rel="stylesheet" href="/adminlte/plugins/ionicons/ionicons.min.css">
   <!-- Theme style -->

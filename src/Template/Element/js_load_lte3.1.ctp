@@ -3,7 +3,7 @@
 <!--<script src="/adminlte/bower_components/jquery/dist/jquery.min.js"></script>-->
 <script src="/adminlte/plugins/jquery/jquery.min.js"></script>
 <!-- Bootstrap 3.3.7 -->
-<script src="/adminlte/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="/adminlte/plugins/bootstrap/js/bootstrap.min.js"></script>
 <!-- Select2 -->
 <script src="/adminlte/plugins/select2/js/select2.full.min.js"></script>
 <!-- InputMask -->
