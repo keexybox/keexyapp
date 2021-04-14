@@ -2,8 +2,11 @@
 <!-- jQuery 3 -->
 <!--<script src="/adminlte/bower_components/jquery/dist/jquery.min.js"></script>-->
 <script src="/adminlte/plugins/jquery/jquery.min.js"></script>
+<script src="/adminlte/plugins/jquery-ui/jquery-ui.min.js"></script>
 <!-- Bootstrap 3.3.7 -->
 <script src="/adminlte/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<!-- AdminLTE App -->
+<script src="/adminlte/dist/js/adminlte.js"></script>
 <!-- Select2 -->
 <script src="/adminlte/plugins/select2/js/select2.full.min.js"></script>
 <!-- InputMask -->
@@ -34,8 +37,6 @@
 <script src="/chartjs/Chart.js"></script>
 <!-- Lib for scrolling tables -->
 <script src="/adminlte/plugins/datatables/jquery.dataTables.min.js"></script>
-<!-- AdminLTE App -->
-<script src="/adminlte/dist/js/adminlte.min.js"></script>
 <!-- UA Parser (https://github.com/faisalman/ua-parser-js) -->
 <script src="/js/ua-parser.js"></script>
 
