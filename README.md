@@ -4,7 +4,7 @@ KeexyBox Project
 
 [![KeexyBox License](https://img.shields.io/static/v1?label=license&message=GPLv3&color=blue)](http://www.gnu.org/licenses/)
 [![CakePHP version](https://img.shields.io/static/v1?label=CakePHP&message=v3.8.10&color=red)](https://cakephp.org/)
-[![AdminLTE version](https://img.shields.io/static/v1?label=AdminLTE&message=v2.3.11&color=green)](https://adminlte.io/)
+[![AdminLTE version](https://img.shields.io/static/v1?label=AdminLTE&message=v2.4.18&color=green)](https://adminlte.io/)
 
 
 ## Presentation

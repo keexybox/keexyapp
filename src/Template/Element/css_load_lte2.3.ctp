@@ -5,8 +5,7 @@
   <!-- Ionicons -->
   <link rel="stylesheet" href="/adminlte/bower_components/Ionicons/css/ionicons.min.css">
   <!-- Theme style -->
-  <!--<link rel="stylesheet" href="/adminlte/dist/css/AdminLTE.min.css">-->
-  <link rel="stylesheet" href="/adminlte/dist/css/adminlte.css">
+  <link rel="stylesheet" href="/adminlte/dist/css/AdminLTE.min.css">
   <!-- AdminLTE KeexyBox Skins. -->
   <link rel="stylesheet" href="/adminlte/dist/css/skins/skin-keexybox.css">
   <!-- <link rel="stylesheet" href="/adminlte/dist/css/skins/skin-purple.css"> -->

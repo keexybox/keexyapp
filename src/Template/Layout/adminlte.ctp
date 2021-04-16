@@ -1,278 +1,367 @@
 <!DOCTYPE html>
-<html lang="en">
+<!--
+This is a starter template page. Use this page to start your new project from
+scratch. This page gets rid of all links and provides the needed markup only.
+-->
+<html>
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta http-equiv="x-ua-compatible" content="ie=edge">
-
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>KeexyBox | <?= __('The box to keep the Internet under your control') ?></title>
+  <!-- Tell the browser to be responsive to screen width -->
+  <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+  <link rel="icon" type="image/png" href="/kxb-favicon.png" />
+
   <?= $this->element('css_load') ?>
   <?= $this->element('js_load') ?>
 
+  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]>
+  <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+  <![endif]-->
+
+
+  <!-- Google Font -->
+  <!-- <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">-->
 </head>
 <!--
 BODY TAG OPTIONS:
 =================
-Apply one or more of the following classes to to the body tag
-to get the desired effect
+Apply one or more of the following classes to get the
+desired effect
 |---------------------------------------------------------|
-|LAYOUT OPTIONS | sidebar-collapse                        |
+| SKINS         | skin-blue                               |
+|               | skin-black                              |
+|               | skin-purple                             |
+|               | skin-yellow                             |
+|               | skin-red                                |
+|               | skin-green                              |
+|---------------------------------------------------------|
+|LAYOUT OPTIONS | fixed                                   |
+|               | layout-boxed                            |
+|               | layout-top-nav                          |
+|               | sidebar-collapse                        |
 |               | sidebar-mini                            |
 |---------------------------------------------------------|
 -->
-<body class="hold-transition sidebar-mini skin-keexybox">
+<body class="hold-transition skin-keexybox sidebar-mini">
 <div class="wrapper">
-  <!-- Navbar -->
-  <nav class="main-header navbar navbar-expand navbar-white navbar-light">
-    <!-- Left navbar links -->
-    <ul class="navbar-nav">
-      <li class="nav-item">
-        <a class="nav-link" data-widget="pushmenu" href="#"><i class="fas fa-bars"></i></a>
-      </li>
-    </ul>
 
-    <!-- Right navbar links -->
-    <ul class="navbar-nav ml-auto">
+  <!-- Main Header -->
+  <header class="main-header">
 
-      <li class="nav-item dropdown">
-        <a class="nav-link" data-toggle="dropdown" href="#">
-          <i class="far fa-flag"></i>
-        </a>
-        <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
-
-          <div class="dropdown-divider"></div>
-          <?php foreach($languages_list as $lang_link => $language) : ?>
-          <a href="<?= $lang_link ?>" class="dropdown-item">
-	     	<?= $language ?>
-          </a>
-          <?php endforeach ?>
-
-        </div>
-      </li>
-
-      <li class="nav-item dropdown">
-        <a class="nav-link" data-toggle="dropdown" href="#">
-          <i class="fa fa-cog"></i><?= __('Admin') ?>
-          <!--<span class="badge badge-warning navbar-badge">15</span>-->
-        </a>
-        <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
-          <span class="dropdown-item dropdown-header"><?= __('KeexyBox management') ?></span>
-		  <?php if(isset($lo_client['session_status'])): ?>
-          <div class="dropdown-divider"></div>
-          <a href="#" class="dropdown-item">
-            <i class="fas fa-user mr-2"></i>
-            <?= h($lo_client['session_details']['Auth']['User']['username']) ?>
-            <span class="float-right text-muted text-sm"><?= '('.__('Login').')' ?></span>
-          </a>
-          <a href="#" class="dropdown-item">
-            <i class="fas fa-id-card mr-2"></i>
-            <?= h($lo_client['session_details']['Auth']['User']['displayname']) ?>
-            <span class="float-right text-muted text-sm"><?= '('.__('Display name').')' ?></span>
-          </a>
-		  <?php else: ?>
-		    <?= __('Click on Manage to edit your account or manage KeexyBox') ?>
-		  <?php endif ?>
-
-          <div class="dropdown-divider"></div>
-		  <?php if(isset($lo_client['session_status'])): ?>
-          <a href="/users/logout" class="dropdown-item dropdown-footer"><?= __('Quit') ?></a>
-          <?php else: ?>
-          <a href="/users/adminlogin" class="dropdown-item dropdown-footer"><?= __('Sign in') ?></a>
-          <?php endif ?>
-        </div>
-      </li>
-
-      <li class="nav-item dropdown">
-        <a class="nav-link" data-toggle="dropdown" href="#">
-          <?php if(isset($lo_client['connection_status']) and $lo_client['connection_status'] == 'running'): ?>
-            <i class="fa fa-circle fa-circle-online"></i><?= __('Online') ?>
-          <?php elseif(isset($lo_client['connection_status']) and $lo_client['connection_status'] == 'pause'): ?>
-            <i class="fa fa-circle fa-circle-pause"></i><?= __('Paused') ?>
-          <?php else: ?>
-            <i class="fa fa-circle fa-circle-offline"></i><?= __('Offline') ?>
-          <?php endif ?>
-        </a>
-        <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
-	    <?php if(isset($lo_client['connection_status'])): ?>
-          <span class="dropdown-item dropdown-header"><?= __('Connected to the Internet') ?></span>
-          <div class="dropdown-divider"></div>
-          <span class="dropdown-item">
-            <i class="fas fa-user mr-2"></i>
-            <?= h($lo_client['connection_details']['name']) ?>
-            <span class="float-right text-muted text-sm"><?= '('.__('Login').')' ?></span>
-          </span>
-          <span class="dropdown-item">
-            <i class="fas fa-tag mr-2"></i>
-            <?= h($lo_client['connection_details']['type']) ?>
-            <span class="float-right text-muted text-sm"><?= '('.__('Connected as').')' ?></span>
-          </span>
-          <span class="dropdown-item">
-            <i class="fas fa-network-wired mr-2"></i>
-            <?= h($lo_client['connection_details']['profile']['default_routing']) ?>
-            <span class="float-right text-muted text-sm"><?= '('.__('Default connection type').')' ?></span>
-          </span>
-          <span class="dropdown-item">
-            <i class="fas fa-fire mr-2"></i>
-            <?= h($lo_client['connection_details']['profile']['default_ipfilter']) ?>
-            <span class="float-right text-muted text-sm"><?= '('.__('Default Firewall rule').')' ?></span>
-          </span>
-          <span class="dropdown-item">
-            <i class="fas fa-laptop mr-2"></i>
-            <?= h($lo_client['connection_details']['ip']) ?>
-            <span class="float-right text-muted text-sm"><?= '('.__('IP address').')' ?></span>
-          </span>
-          <span class="dropdown-item">
-            <i class="fas fa-sliders-h mr-2"></i>
-            <?= h($lo_client['connection_details']['profile']['profilename']) ?>
-            <span class="float-right text-muted text-sm"><?= '('.__('Profile').')' ?></span>
-          </span>
-          <div class="dropdown-divider"></div>
-          <div class="dropdown-footer">
-              <div class="float-left"><a href="/connections/view" class="btn btn-default"><?= __('Info') ?></a></div>
-              <div class="pull-right"><a href="/users/disconnect" class="btn btn-default"><?= __('Disconnect') ?></a></div>
-          </div>
-        <?php else: ?>
-          <span class="dropdown-item dropdown-header"><?= __('Disconnected from the Internet') ?></span>
-          <div class="dropdown-divider"></div>
-          <div class="dropdown-footer">
-            <a href="/users/portal" class="btn btn-default"><?= __('Connect') ?></a>
-          </div>
-        <?php endif ?>
-        </div>
-      </li>
-    </ul>
-  </nav>
-  <!-- /.navbar -->
-
-  <!-- Main Sidebar Container -->
-  <aside class="main-sidebar sidebar-dark-primary elevation-4">
-    <!-- Brand Logo -->
-    <a href="index3.html" class="brand-link">
-      <img src="/img/kxb-favicon-white.png" alt="KeexyBox" class="brand-image"
-           style="opacity: .8">
-      <span class="brand-text font-weight-light"><img src="/img/logo-keexybox.png"></span>
+    <!-- Logo -->
+    <a href="#" class="logo">
+      <!-- mini logo for sidebar mini 50x50 pixels -->
+      <!--<span class="logo-mini"><b><font color="#33cc33">K</font><font color="#ff00ff">x</font></b><font color="#ff8533">B</font></span>-->
+      <span class="logo-mini"><img src="/img/kxb-favicon-white.png" class="logo-image" alt="KeexyBox"></span>
+      <!-- logo for regular state and mobile devices -->
+      <!-- <span class="logo-lg"><b>Keexy</b>BOX</span> -->
+      <span class="logo-lg"><img src="/img/logo-keexybox.png" class="logo-image" alt="KeexyBox"></span>
+              <!-- <img src="/adminlte/dist/img/user2-160x160.jpg" class="user-image" alt="User Image">-->
     </a>
 
-    <!-- Sidebar -->
-    <div class="sidebar">
+    <!-- Header Navbar -->
+    <nav class="navbar navbar-static-top" role="navigation">
+      <!-- Sidebar toggle button-->
+      <a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button">
+        <span class="sr-only">Toggle navigation</span>
+      </a>
+      <!-- Navbar Right Menu -->
+      <div class="navbar-custom-menu">
+        <ul class="nav navbar-nav">
+
+          <li class="dropdown notifications-menu">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+              <i class="fa fa-flag"></i>
+              <!--<span class="label label-warning">10</span>-->
+            </a>
+            <ul class="dropdown-menu">
+              <li>
+                <!-- inner menu: contains the actual data -->
+                <ul class="menu">
+                  <?php foreach($languages_list as $lang_link => $language) : ?>
+                  <li>
+                    <a href="<?= $lang_link ?>">
+					  <?= $language ?>
+                    </a>
+                  </li>
+                <?php endforeach ?>
+                </ul>
+              </li>
+            </ul>
+          </li>
+          <!-- /.messages-menu -->
+		  <li class="dropdown user user-menu">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+		      <i class="fa fa-cog"></i><?= __('Admin') ?>
+			</a>
+            <ul class="dropdown-menu">
+              <li class="user-header">
+                <p class="user-info">
+		          <?php if(isset($lo_client['session_status'])): ?>
+				    <?= __('KeexyBox management') ?>
+                    <small><?= __('Login: {0}', $lo_client['session_details']['Auth']['User']['username']) ?></small>
+                    <small><?= __('Name: {0}', $lo_client['session_details']['Auth']['User']['displayname']) ?></small>
+			      <?php else: ?>
+				    <?= __('Click on Manage to edit your account or manage KeexyBox') ?>
+			      <?php endif ?>
+				</p>
+			  </li>
+              <li class="user-footer">
+                <div class="pull-right">
+		          <?php if(isset($lo_client['session_status'])): ?>
+                    <a href="/users/logout" class="btn btn-default btn-flat"><?= __('Quit') ?></a>
+			      <?php else: ?>
+                    <a href="/users/adminlogin" class="btn btn-default btn-flat"><?= __('Sign in') ?></a>
+			      <?php endif ?>
+                </div>
+              </li>
+			</ul>
+		  </li>
+
+          <!-- User Account Menu -->
+          <li class="dropdown user user-menu">
+            <!-- Menu Toggle Button -->
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+              <!-- The user image in the navbar-->
+              <!-- <img src="/adminlte/dist/img/user2-160x160.jpg" class="user-image" alt="User Image"> -->
+			  <?php if(isset($lo_client['connection_status']) and $lo_client['connection_status'] == 'running'): ?>
+              <i class="fa fa-circle fa-circle-online"></i><?= __('Online') ?>
+			  <?php elseif(isset($lo_client['connection_status']) and $lo_client['connection_status'] == 'pause'): ?>
+              <i class="fa fa-circle fa-circle-pause"></i><?= __('Paused') ?>
+			  <?php else: ?>
+              <i class="fa fa-circle fa-circle-offline"></i><?= __('Offline') ?>
+			  <?php endif ?>
+              <!-- hidden-xs hides the username on small devices so only the image appears. -->
+            </a>
+            <ul class="dropdown-menu">
+              <!-- The user image in the menu -->
+              <li class="user-header">
+                <!-- <img src="/adminlte/dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">-->
+                <p class="user-info">
+			      <?php if(isset($lo_client['connection_status'])): ?>
+                  <?= __('Connected to the Internet', $lo_client['connection_details']['type']) ?>
+                  <small><?= __('Name: {0}', $lo_client['connection_details']['name']) ?> </small>
+                  <small><?= __('Type').': ' . __($lo_client['connection_details']['type']) ?> </small>
+                  <small><?= __('Default connection type').': ' . __($lo_client['connection_details']['profile']['default_routing']) ?> </small>
+                  <small><?= __('Default Firewall rule').': ' . __($lo_client['connection_details']['profile']['default_ipfilter']) ?> </small>
+                  <small><?= __('IP Address: {0}', $lo_client['connection_details']['ip']) ?> </small>
+                  <small><?= __('Profile: {0}', $lo_client['connection_details']['profile']['profilename']) ?> </small>
+				  <?php else: ?>
+                  <?= __('Disconnected from the Internet') ?>
+			      <?php endif ?>
+                </p>
+              </li>
+              <li class="user-footer">
+		        <?php if(isset($lo_client['connection_status'])): ?>
+                  <div class="pull-left">
+                    <a href="/connections/view" class="btn btn-default btn-flat"><?= __('Info') ?></a>
+				  </div>
+                  <div class="pull-right">
+                    <a href="/users/disconnect" class="btn btn-default btn-flat"><?= __('Disconnect') ?></a>
+				  </div>
+			    <?php else: ?>
+                  <div class="pull-right">
+                    <a href="/users/portal" class="btn btn-default btn-flat"><?= __('Connect') ?></a>
+                  </div>
+			    <?php endif ?>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+  <!-- Left side column. contains the logo and sidebar -->
+  <aside class="main-sidebar">
+
+    <!-- sidebar: style can be found in sidebar.less -->
+    <section class="sidebar">
 
       <!-- Sidebar Menu -->
-      <nav class="mt-2">
-        <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+      <ul class="sidebar-menu" data-widget="tree">
+        <?php if($current_controller == 'Statistics'): ?> <li class="active"> <?php else: ?> <li> <?php endif ?>
+		<a href="/statistics"><i class="fa fa-bar-chart"></i> <span><?= __('Statistics') ?></span></a></li>
+        <?php if($current_controller == 'Connections'): ?> <li class="active"> <?php else: ?> <li> <?php endif ?>
+		<a href="/connections"><i class="fa fa-users"></i> <span><?= __('Connections') ?></span></a></li>
 
-          <?php if($current_controller == 'Statistics'): ?> <li class="nav-item active"> <?php else: ?> <li class="nav-item"> <?php endif ?>
-          <a href="/statistics" class="nav-link"><i class="nav-icon fas fa-chart-bar"></i> <p><?= __('Statistics') ?></p></a></li>
+        <?php if($current_controller == 'Users' or $current_controller == 'Devices' or $current_controller == 'Profiles' or $current_controller == 'Blacklist'): ?> <li class="treeview active"> <?php else: ?> <li class="treeview"> <?php endif ?>
+          <a href="#"><i class="fa fa-globe"></i> <span><?= __('Connection settings') ?></span>
+            <span class="pull-right-container">
+                <i class="fa fa-angle-left pull-right"></i>
+              </span>
+          </a>
+          <ul class="treeview-menu">
+            <li><a href="/blacklist"><i class="fa fa-minus-circle"></i><?= __('Blacklist') ?></a></li>
+            <li><a href="/profiles"><i class="fa fa-sliders"></i><?= __('Profiles') ?></a></li>
+            <li><a href="/users"><i class="fa fa-user"></i><?= __('Users') ?></a></li>
+            <li><a href="/devices"><i class="fa fa-tablet"></i><?= __('Devices') ?></a></li>
+          </ul>
+        </li>
 
-          <?php if($current_controller == 'Connections'): ?> <li class="nav-item active"> <?php else: ?> <li class="nav-item"> <?php endif ?>
-          <a href="/connections" class="nav-link"><i class="nav-icon fas fa-users"></i> <p><?= __('Connections') ?></p></a></li>
-  
-          <?php if($current_controller == 'Users' or $current_controller == 'Devices' or $current_controller == 'Profiles' or $current_controller == 'Blacklist'): ?> <li class="nav-item has-treeview menu-open"> <?php else: ?> <li class="nav-item has-treeview"> <?php endif ?>
-            <a href="#" class="nav-link"><i class="nav-icon fas fa-globe"></i>
-              <p><?= __('Connection settings') ?>
-                <i class="right fas fa-angle-left"></i>
-              </p>
-            </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item"><a href="/blacklist" class="nav-link"><i class="nav-icon fa fa-minus-circle"></i><p><?= __('Blacklist') ?></p></a></li>
-              <li class="nav-item"><a href="/profiles" class="nav-link"><i class="nav-icon fa fa-sliders-h"></i><p><?= __('Profiles') ?></p></a></li>
-              <li class="nav-item"><a href="/users" class="nav-link"><i class="nav-icon fa fa-user"></i><p><?= __('Users') ?></p></a></li>
-              <li class="nav-item"><a href="/devices" class="nav-link"><i class="nav-icon fa fa-tablet"></i><p><?= __('Devices') ?></p></a></li>
-            </ul>
-          </li>
+        <?php if($current_controller == 'Config'): ?> <li class="treeview active"> <?php else: ?> <li class="treeview"> <?php endif ?>
+          <a href="#"><i class="fa fa-cogs"></i> <span><?= __('System settings') ?></span>
+            <span class="pull-right-container">
+                <i class="fa fa-angle-left pull-right"></i>
+              </span>
+          </a>
+          <ul class="treeview-menu">
+            <li><a href="/config/network"><i class="fa fa-laptop"></i><?= __('Network') ?></a></li>
+            <li><a href="/config/datetime"><i class="fa fa-clock-o"></i><?= __('Date and time') ?></a></li>
+            <li><a href="/config/dhcp"><i class="fa fa-server"></i><?= __('DHCP') ?></a></li>
+            <li><a href="/config/wifiap"><i class="fa fa-wifi"></i><?= __('Wireless Access Point') ?></a></li>
+            <li><a href="/config/captiveportal"><i class="fa fa-road"></i><?= __('Captive portal') ?></a></li>
+            <li><a href="/config/certificate"><i class="fa fa-certificate"></i><?= __('SSL Certificate') ?></a></li>
+            <li><a href="/config/misc"><i class="fa fa-cog"></i><?= __('Miscellaneous') ?></a></li>
+          </ul>
+        </li>
 
+        <?php if($current_controller == 'Tools'): ?> <li class="treeview active"> <?php else: ?> <li class="treeview"> <?php endif ?>
+          <a href="#"><i class="fa fa-wrench"></i> <span><?= __('Tools & diagnostics') ?></span>
+            <span class="pull-right-container">
+                <i class="fa fa-angle-left pull-right"></i>
+              </span>
+          </a>
+          <ul class="treeview-menu">
+            <li><a href="/tools/services"><i class="fa fa-power-off"></i><?= __('Services and power') ?></a></li>
+            <li><a href="/tools/domain-issue"><i class="fa fa-check-circle-o"></i><?= __('Domain check') ?></a></li>
+            <li><a href="/tools/system-state"><i class="fa fa-heartbeat"></i><?= __('System state') ?></a></li>
+            <li><a href="/tools/update?step=1"><i class="fa fa-cloud-download"></i><?= __('Update') ?></a></li>
+          </ul>
+        </li>
 
-          <?php if($current_controller == 'Config'): ?> <li class="nav-item has-treeview menu-open"> <?php else: ?> <li class="nav-item has-treeview"> <?php endif ?>
-            <a href="#" class="nav-link"><i class="nav-icon fas fa-cogs"></i>
-              <p><?= __('System settings') ?>
-                <i class="right fas fa-angle-left"></i>
-              </p>
-            </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item"><a href="/config/network" class="nav-link"><i class="nav-icon fa fa-laptop"></i><p><?= __('Network') ?></p></a></li>
-              <li class="nav-item"><a href="/config/datetime" class="nav-link"><i class="nav-icon fa fa-clock"></i><p><?= __('Date and time') ?></p></a></li>
-              <li class="nav-item"><a href="/config/dhcp" class="nav-link"><i class="nav-icon fa fa-server"></i><p><?= __('DHCP') ?></p></a></li>
-              <li class="nav-item"><a href="/config/wifiap" class="nav-link"><i class="nav-icon fa fa-wifi"></i><p><?= __('Wireless Access Point') ?></p></a></li>
-              <li class="nav-item"><a href="/config/captiveportal" class="nav-link"><i class="nav-icon fa fa-road"></i><p><?= __('Captive portal') ?></p></a></li>
-              <li class="nav-item"><a href="/config/certificate" class="nav-link"><i class="nav-icon fa fa-certificate"></i><p><?= __('SSL Certificate') ?></p></a></li>
-              <li class="nav-item"><a href="/config/misc" class="nav-link"><i class="nav-icon fa fa-cog"></i><p><?= __('Miscellaneous') ?></p></a></li>
-            </ul>
-          </li>
+        <?php if($current_controller == 'Help'): ?> <li class="treeview active"> <?php else: ?> <li class="treeview"> <?php endif ?>
+          <a href="#"><i class="fa fa-question-circle"></i> <span><?= __('Help') ?></span>
+            <span class="pull-right-container">
+                <i class="fa fa-angle-left pull-right"></i>
+              </span>
+          </a>
+          <ul class="treeview-menu">
+            <li><a href="http://keexybox.org" target="_blank"><i class="fa fa-external-link"></i><?= __('Website') ?></a></li>
+            <li><a href="http://wiki.keexybox.org" target="_blank"><i class="fa fa-book"></i><?= __('Documentation') ?></a></li>
+            <li><a href="http://keexybox.org/donate" target="_blank"><i class="fa fa-star"></i><?= __('Donate') ?></a></li>
+            <li><a href="/help/licenses"><i class="fa fa-file-text-o"></i><?= __('Licenses') ?></a></li>
+          </ul>
+        </li>
 
-
-          <?php if($current_controller == 'Tools'): ?> <li class="nav-item has-treeview menu-open"> <?php else: ?> <li class="nav-item has-treeview"> <?php endif ?>
-            <a href="#" class="nav-link"><i class="nav-icon fas fa-wrench"></i>
-              <p><?= __('Tools & diagnostics') ?>
-                <i class="right fas fa-angle-left"></i>
-              </p>
-            </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item"><a href="/tools/services" class="nav-link"><i class="nav-icon fas fa-power-off"></i><p><?= __('Services and power') ?></p></a></li>
-              <li class="nav-item"><a href="/tools/domain-issue" class="nav-link"><i class="nav-icon fas fa-check-square"></i><p><?= __('Domain check') ?></p></a></li>
-              <li class="nav-item"><a href="/tools/system-state" class="nav-link"><i class="nav-icon fas fa-heartbeat"></i><p><?= __('System state') ?></p></a></li>
-              <li class="nav-item"><a href="/tools/update?step=1" class="nav-link"><i class="nav-icon fas fa-cloud-download-alt"></i><p><?= __('Update') ?></p></a></li>
-            </ul>
-          </li>
-
-          <?php if($current_controller == 'Help'): ?> <li class="nav-item has-treeview menu-open"> <?php else: ?> <li class="nav-item has-treeview"> <?php endif ?>
-            <a href="#" class="nav-link"><i class="nav-icon fa fa-question-circle"></i>
-              <p><?= __('Help') ?>
-                <i class="right fas fa-angle-left"></i>
-              </p>
-            </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item"><a href="http://keexybox.org" target="_blank" class="nav-link"><i class="nav-icon fa fa-external-link-alt"></i><p><?= __('Website') ?></p></a></li>
-              <li class="nav-item"><a href="http://wiki.keexybox.org" target="_blank" class="nav-link"><i class="nav-icon fa fa-book"></i><p><?= __('Documentation') ?></p></a></li>
-              <li class="nav-item"><a href="http://keexybox.org/donate" target="_blank" class="nav-link"><i class="nav-icon fa fa-star"></i><p><?= __('Donate') ?></p></a></li>
-              <li class="nav-item"><a href="/help/licenses" class="nav-link"><i class="nav-icon fa fa-file-alt"></i><p><?= __('Licenses') ?></p></a></li>
-            </ul>
-          </li>
-
-
-        </ul>
-      </nav>
+      </ul>
       <!-- /.sidebar-menu -->
-    </div>
+    </section>
     <!-- /.sidebar -->
   </aside>
 
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
-    <!-- Content Header (Page header) -->
-    <div class="content-header">
-      <div class="container-fluid">
-      </div><!-- /.container-fluid -->
-    </div>
-    <!-- /.content-header -->
-
     <!-- Main content -->
-    <div class="content">
-      <div class="container-fluid">
-        <?= $this->Flash->render() ?>
-        <?= $this->fetch('content') ?>
-      </div>
-      <!-- /.container-fluid -->
-    </div>
+    <section class="content container-fluid">
+
+	<!-- PAGE CONTENT -->
+
+				<?= $this->Flash->render() ?>
+				<?= $this->fetch('content') ?>
+
+	<!-- END PAGE CONTENT -->
+    </section>
     <!-- /.content -->
   </div>
   <!-- /.content-wrapper -->
 
-  <!-- Control Sidebar -->
-  <aside class="control-sidebar control-sidebar-dark">
-    <!-- Control sidebar content goes here -->
-  </aside>
-  <!-- /.control-sidebar -->
-
   <!-- Main Footer -->
   <footer class="main-footer">
-    <?= $this->element('copyright') ?>
-    All rights reserved.
-    <div class="float-right d-none d-sm-inline-block">
-      KeexyBox - <?= __("The box to keep the Internet under your control") ?>
+    <!-- To the right -->
+    <div class="pull-right hidden-xs">
+	  KeexyBox - <?= __("The box to keep the Internet under your control") ?>
     </div>
+    <!-- Default to the left -->
+    <?= $this->element('copyright') ?>
   </footer>
 
+  <!-- Control Sidebar -->
+  <aside class="control-sidebar control-sidebar-dark">
+    <!-- Create the tabs -->
+    <ul class="nav nav-tabs nav-justified control-sidebar-tabs">
+      <li class="active"><a href="#control-sidebar-home-tab" data-toggle="tab"><i class="fa fa-home"></i></a></li>
+      <li><a href="#control-sidebar-settings-tab" data-toggle="tab"><i class="fa fa-gears"></i></a></li>
+    </ul>
+    <!-- Tab panes -->
+    <div class="tab-content">
+      <!-- Home tab content -->
+      <div class="tab-pane active" id="control-sidebar-home-tab">
+        <h3 class="control-sidebar-heading">Recent Activity</h3>
+        <ul class="control-sidebar-menu">
+          <li>
+            <a href="javascript:;">
+              <i class="menu-icon fa fa-birthday-cake bg-red"></i>
+
+              <div class="menu-info">
+                <h4 class="control-sidebar-subheading">Langdon's Birthday</h4>
+
+                <p>Will be 23 on April 24th</p>
+              </div>
+            </a>
+          </li>
+        </ul>
+        <!-- /.control-sidebar-menu -->
+
+        <h3 class="control-sidebar-heading">Tasks Progress</h3>
+        <ul class="control-sidebar-menu">
+          <li>
+            <a href="javascript:;">
+              <h4 class="control-sidebar-subheading">
+                Custom Template Design
+                <span class="pull-right-container">
+                    <span class="label label-danger pull-right">70%</span>
+                  </span>
+              </h4>
+
+              <div class="progress progress-xxs">
+                <div class="progress-bar progress-bar-danger" style="width: 70%"></div>
+              </div>
+            </a>
+          </li>
+        </ul>
+        <!-- /.control-sidebar-menu -->
+
+      </div>
+      <!-- /.tab-pane -->
+      <!-- Stats tab content -->
+      <div class="tab-pane" id="control-sidebar-stats-tab">Stats Tab Content</div>
+      <!-- /.tab-pane -->
+      <!-- Settings tab content -->
+      <div class="tab-pane" id="control-sidebar-settings-tab">
+        <form method="post">
+          <h3 class="control-sidebar-heading">General Settings</h3>
+
+          <div class="form-group">
+            <label class="control-sidebar-subheading">
+              Report panel usage
+              <input type="checkbox" class="pull-right" checked>
+            </label>
+
+            <p>
+              Some information about this general settings option
+            </p>
+          </div>
+          <!-- /.form-group -->
+        </form>
+      </div>
+      <!-- /.tab-pane -->
+    </div>
+  </aside>
+  <!-- /.control-sidebar -->
+  <!-- Add the sidebar's background. This div must be placed
+  immediately after the control sidebar -->
+  <div class="control-sidebar-bg"></div>
 </div>
 <!-- ./wrapper -->
 
+
+<!-- Optionally, you can add Slimscroll and FastClick plugins.
+     Both of these plugins are recommended to enhance the
+     user experience. -->
 </body>
 </html>
