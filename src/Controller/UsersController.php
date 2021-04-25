@@ -807,6 +807,8 @@ class UsersController extends AppController
         $connection_default_time = $this->Config->get('connection_default_time');
         $connection_max_time = $this->Config->get('connection_max_time');
         $cportal_register_allowed = $this->Config->get('cportal_register_allowed')->value;
+        $cportal_brand_name = $this->Config->get('cportal_brand_name')->value;
+        $cportal_brand_logo_url = $this->Config->get('cportal_brand_logo_url')->value;
 
         // If Internet Access is Free without login requirement, redirect to fastlogin page to connect
         /*
@@ -873,6 +875,8 @@ class UsersController extends AppController
         $this->set('connection_max_time', $connection_max_time);
         $this->set('duration_list', $duration_list);
         $this->set('cportal_register_allowed', $cportal_register_allowed);
+        $this->set('cportal_brand_name', $cportal_brand_name);
+        $this->set('cportal_brand_logo_url', $cportal_brand_logo_url);
         $this->viewBuilder()->setLayout('loginlte');
     }
 
@@ -919,6 +923,8 @@ class UsersController extends AppController
         $connection_max_time = $this->Config->get('connection_max_time');
         $cportal_register_allowed = $this->Config->get('cportal_register_allowed')->value;
         $cportal_terms = $this->Config->get('cportal_terms')->value;
+        $cportal_brand_name = $this->Config->get('cportal_brand_name')->value;
+        $cportal_brand_logo_url = $this->Config->get('cportal_brand_logo_url')->value;
 
         $this->loadComponent('ConnectionDuration');
         $duration_list = $this->ConnectionDuration->GetDurationList();
@@ -984,6 +990,8 @@ class UsersController extends AppController
         $this->set('duration_list', $duration_list);
         $this->set('cportal_register_allowed', $cportal_register_allowed);
         $this->set('cportal_terms', $cportal_terms);
+        $this->set('cportal_brand_name', $cportal_brand_name);
+        $this->set('cportal_brand_logo_url', $cportal_brand_logo_url);
         $this->viewBuilder()->setLayout('loginlte');
     }
 

@@ -42,6 +42,26 @@
         </div>
 
         <div class="form-group">
+            <label for="inputtime"><?= __('Your brand name to display on the captive portal') ?></label>
+                <?= $this->Form->control('cportal_brand_name', [
+                        'label' => false,
+                        'class' => "form-control input",
+                        'default' => $cportal_brand_name,
+                    ]);
+                ?>
+        </div>
+
+        <div class="form-group">
+            <label for="inputtime"><?= __('Your brand logo URL to display on the captive portal') ?></label>
+                <?= $this->Form->control('cportal_brand_logo_url', [
+                        'label' => false,
+                        'class' => "form-control input",
+                        'default' => $cportal_brand_logo_url,
+                    ]);
+                ?>
+        </div>
+
+        <div class="form-group">
             <label for="inputtime"><?= __('URL for internet browsing') ?></label>
                 <?= $this->Form->control('cportal_homepage_button_url', [
                         'label' => false,

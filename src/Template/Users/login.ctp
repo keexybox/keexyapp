@@ -1,7 +1,21 @@
   <div class="login-box">
+    <?php if($cportal_brand_name != ''): ?>
+      <h2><center><?= h($cportal_brand_name)?></center></h2>
+    <?php endif ?>
+    <?php if($cportal_brand_logo_url != ''): ?>
+    <center>
+      <div id="cportal_img_div">
+        <img src="<?= $cportal_brand_logo_url ?>" class="cportal_img">
+      </div>
+    </center>
+    <?php endif ?>
+    <?php if($cportal_brand_name != '' OR $cportal_brand_logo_url != ''): ?>
+      <hr>
+    <?php endif ?>
     <div class="box-header with-border">
       <h3 class="box-title login-page"><?= __('Connect to the Internet')?></h3>
     </div>
+
 
 	<?= $this->Form->create('login', [ 'class' => 'form-signin'] ) ?>
 

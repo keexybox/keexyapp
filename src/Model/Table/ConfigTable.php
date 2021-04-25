@@ -49,6 +49,24 @@ class ConfigTable extends Table
     }
 
     /**
+     * Empty validation rules.
+     *
+     * @param \Cake\Validation\Validator $validator Validator instance.
+     * @return \Cake\Validation\Validator
+     */
+    public function validationEmptyconfig(Validator $validator)
+    {
+        $validator
+            ->allowEmpty('param', 'create');
+            
+        $validator
+            ->allowEmpty('value', 'update');
+
+        return $validator;
+    }
+
+
+    /**
      * Ipv4 validation rule.
      *
      * @param \Cake\Validation\Validator $validator Validator instance.

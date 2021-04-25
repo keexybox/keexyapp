@@ -250,3 +250,6 @@
   padding-bottom: 10px;
   padding-left: 10px;
 }
+
+img.cportal_img { max-width: 100%;}
+div#cportal_img_div { width: 200px; }

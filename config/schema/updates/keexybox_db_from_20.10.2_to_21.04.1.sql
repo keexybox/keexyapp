@@ -1,5 +1,6 @@
 UPDATE config SET value='21.04.1' WHERE param='version';
 ALTER TABLE `config` MODIFY description VARCHAR(300);
+ALTER TABLE `config` MODIFY value TEXT(20000) CHARACTER SET utf8mb4;
 UPDATE config SET description='Bahavior of the Captive Portal - 0=Private (admin need to create accounts for users), 1=Registration (The user can create his account himself), 2=Free (Free access by accepting terms and conditions), 3=None (Captive portal is not needed to access the Internet)' WHERE param='cportal_register_allowed';
 INSERT INTO `config` VALUES ('dhcp_enabled_input', '0', 'setting', 'Enable/Disable DHCP for input network. set 1 to enable.');
 INSERT INTO `config` VALUES ('dhcp_enabled_output', '0', 'setting', 'Enable/Disable DHCP for output network. set 1 to enable.');
@@ -13,3 +14,5 @@ UPDATE config SET value =
          ((SELECT value FROM config WHERE param='dhcp_external' LIMIT 1) = 1 AND (SELECT value FROM config WHERE param='dhcp_enabled' LIMIT 1) = 0)
          ,0, 1)
 WHERE config.param = 'dhcp_enabled_input';
+INSERT INTO `config` VALUES ('cportal_brand_name', '', 'setting', 'Brand name to display on captive portal.');
+INSERT INTO `config` VALUES ('cportal_brand_logo_url', '', 'setting', 'Brand logo url to display on captive portal.');

@@ -1171,7 +1171,7 @@ class ConfigController extends AppController
     {
         // List of params to load
         //$params = array('dns_expiration_delay', 'connection_default_time', 'connection_max_time', 'log_db_retention', 'log_retention', 'bind_use_redirectors', 'locale');
-        $params = array('connection_default_time', 'locale', 'cportal_register_allowed', 'cportal_register_code', 'cportal_register_expiration', 'cportal_default_profile_id', 'cportal_default_user_id', 'cportal_record_useragent', 'cportal_record_mac', 'cportal_homepage_button_url', 'cportal_ip_info_url');
+        $params = array('connection_default_time', 'locale', 'cportal_register_allowed', 'cportal_register_code', 'cportal_register_expiration', 'cportal_default_profile_id', 'cportal_default_user_id', 'cportal_record_useragent', 'cportal_record_mac', 'cportal_homepage_button_url', 'cportal_ip_info_url', 'cportal_brand_name', 'cportal_brand_logo_url');
 
         // Load params
         foreach($params as $setting) {
@@ -1221,6 +1221,12 @@ class ConfigController extends AppController
                 // Validate Data
                 if ($param == 'cportal_register_code') {
                     $$param = $this->Config->patchEntity($$param, $data, ['validate' => 'regcode']);
+                } 
+                elseif ( $param == 'cportal_brand_name' ) {
+                    $$param = $this->Config->patchEntity($$param, $data, ['validate' => 'emptyconfig']);
+                }
+                elseif ( $param == 'cportal_brand_logo_url' ) {
+                    $$param = $this->Config->patchEntity($$param, $data, ['validate' => 'emptyconfig']);
                 } else {
                     $$param = $this->Config->patchEntity($$param, $data);
                 }
@@ -1229,6 +1235,7 @@ class ConfigController extends AppController
                 if($$param->errors()) {
                     $validation_errors++;
                 }
+
             }
 
             // If no error, save each data

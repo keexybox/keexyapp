@@ -1,4 +1,17 @@
 <div class="login-box">
+  <?php if($cportal_brand_name != ''): ?>
+    <h2><center><?= h($cportal_brand_name)?></center></h2>
+  <?php endif ?>
+  <?php if($cportal_brand_logo_url != ''): ?>
+    <center>
+      <div id="cportal_img_div">
+        <img src="<?= $cportal_brand_logo_url ?>" class="cportal_img">
+      </div>
+    </center>
+  <?php endif ?>
+  <?php if($cportal_brand_name != '' OR $cportal_brand_logo_url != ''): ?>
+    <hr>
+  <?php endif ?>
   <div class="box-header with-border">
     <h3 class="box-title login-page"><?= __('Connect to the Internet')?></h3>
   </div>
@@ -32,11 +45,13 @@
 	  ?>
     </div>
     <div class="col-xs-12 col-sm-12">
+      <center>
 	  <?= $this->Html->link(
             __('Or connect with an account'),
             '/users/login',
           )
 	  ?>
+      </center>
     </div>
 
     <input type="hidden" id="client_details" name="client_details" value="">
