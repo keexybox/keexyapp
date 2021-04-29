@@ -185,6 +185,8 @@ class ConnectionsController extends AppController
         $this->set('cportal_homepage_button_name', $this->Config->get('cportal_homepage_button_name')->value);
         $this->set('cportal_homepage_button_url', $this->Config->get('cportal_homepage_button_url')->value);
         $this->set('cportal_ip_info_url', $this->Config->get('cportal_ip_info_url')->value);
+        $this->set('cportal_brand_name', $this->Config->get('cportal_brand_name')->value);
+        $this->set('cportal_brand_logo_url', $this->Config->get('cportal_brand_logo_url')->value);
 
         $ip = env('REMOTE_ADDR');
         $connection = $this->ActivesConnections->findByIp($ip)->contain(['Profiles'])->first();

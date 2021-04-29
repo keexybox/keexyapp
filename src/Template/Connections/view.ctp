@@ -5,6 +5,21 @@
     <div class="box box-info">
       <div class="box-header with-border"></div>
       <div class="box-body">
+
+         <?php if($cportal_brand_name != ''): ?>
+           <h2><center><?= h($cportal_brand_name)?></center></h2>
+         <?php endif ?>
+         <?php if($cportal_brand_logo_url != ''): ?>
+         <center>
+           <div id="cportal_img_div">
+             <img src="<?= $cportal_brand_logo_url ?>" class="cportal_img">
+           </div>
+         </center>
+         <?php endif ?>
+         <?php if($cportal_brand_name != '' OR $cportal_brand_logo_url != ''): ?>
+           <hr>
+         <?php endif ?>
+
          <center>
          <a href="<?= h($cportal_homepage_button_url) ?>" class="btn btn-lg btn-success" target="_blank">
               <i class="fa fa-globe"></i>&nbsp;<?= h($cportal_homepage_button_name) ?>
