@@ -1201,39 +1201,57 @@ class ConfigController extends AppController
 
         if($this->request->is('post')) {
 
-            $request_data = $this->request->getData();
-            foreach ($request_data as $param => $value) {
-                $$param = $this->Config->get($param);
+            /*
+            if(move_uploaded_file($this->request->data['cportal_logo_img']['tmp_name'], "upload/".$this->request->data['cportal_logo_img']['name'])){
             }
+            */
+
+            $request_data = $this->request->getData();
+            
+            if($request_data['cportal_logo_img']['type'] == 'image/jpeg' OR $request_data['cportal_logo_img']['type'] == 'image/png') {
+                if(move_uploaded_file($request_data['cportal_logo_img']['tmp_name'], "img/".$request_data['cportal_logo_img']['name'])){
+                    $request_data['cportal_brand_logo_url'] = "/img/".$request_data['cportal_logo_img']['name'];
+                }
+            }
+
+            foreach ($request_data as $param => $value) {
+                // catch all param except img of logo
+                if($param != 'cportal_logo_img') {
+                    $$param = $this->Config->get($param);
+                }
+            }
+
 
             // Set and validate each request data
             $validation_errors = 0;
             foreach ($request_data as $param => $value) {
-                //debug($param);
-                // Prepare data to commit
-                $data = ['value' => $value];
+                if($param != 'cportal_logo_img') {
 
-                // Manage some exceptions
-                if ( $param == 'connection_default_time' ) {
-                    $data = ['value' => $value * 60];
-                }
-
-                // Validate Data
-                if ($param == 'cportal_register_code') {
-                    $$param = $this->Config->patchEntity($$param, $data, ['validate' => 'regcode']);
-                } 
-                elseif ( $param == 'cportal_brand_name' ) {
-                    $$param = $this->Config->patchEntity($$param, $data, ['validate' => 'emptyconfig']);
-                }
-                elseif ( $param == 'cportal_brand_logo_url' ) {
-                    $$param = $this->Config->patchEntity($$param, $data, ['validate' => 'emptyconfig']);
-                } else {
-                    $$param = $this->Config->patchEntity($$param, $data);
-                }
-
-                // Count error
-                if($$param->errors()) {
-                    $validation_errors++;
+                    // Prepare data to commit
+                    $data = ['value' => $value];
+    
+                    // Manage some exceptions
+                    if ( $param == 'connection_default_time' ) {
+                        $data = ['value' => $value * 60];
+                    }
+    
+                    // Validate Data
+                    if ($param == 'cportal_register_code') {
+                        $$param = $this->Config->patchEntity($$param, $data, ['validate' => 'regcode']);
+                    } 
+                    elseif ( $param == 'cportal_brand_name' ) {
+                        $$param = $this->Config->patchEntity($$param, $data, ['validate' => 'emptyconfig']);
+                    }
+                    elseif ( $param == 'cportal_brand_logo_url' ) {
+                        $$param = $this->Config->patchEntity($$param, $data, ['validate' => 'emptyconfig']);
+                    } else {
+                        $$param = $this->Config->patchEntity($$param, $data);
+                    }
+    
+                    // Count error
+                    if($$param->errors()) {
+                        $validation_errors++;
+                    }
                 }
 
             }
@@ -1241,7 +1259,9 @@ class ConfigController extends AppController
             // If no error, save each data
             if ($validation_errors == 0) {
                 foreach($request_data as $param => $value) {
-                    $$param = $this->Config->save($$param);
+                    if($param != 'cportal_logo_img') {
+                        $$param = $this->Config->save($$param);
+                    }
                 }
                 exec($this->kxycmd("config bind set_acl"), $output, $rc);
                 if ($rc != 0) {

@@ -11,7 +11,7 @@
 
       <!-- form start -->
 
-      <?= $this->Form->create('config') ?>
+      <?= $this->Form->create('config', [ 'type' => 'file']) ?>
       <div class="box-body">
 
         <div class="form-group">
@@ -67,7 +67,7 @@
         <?php endif ?>
         <div class="form-group">
              <?= __('Upload logo') ?>
-               <?= $this->Form->control('logo_img', [
+               <?= $this->Form->control('cportal_logo_img', [
 				'type' => 'file',
                 'label' => false,
 	          	'class' => "form-control-file",
