@@ -3578,3 +3578,11 @@ msgstr "Profil par défaut à utiliser"
 
 msgid "DHCP cannot be enabled on this network if it is not enabled on the {0} network."
 msgstr "Le DHCP ne peut pas être activé sur ce réseau s'il n'est pas activé sur le réseau {0}."
+
+#: /Template/Config/captiveportal.ctp:45
+msgid "Name to display on the captive portal"
+msgstr "Nom à afficher sur le portail captif"
+
+#: /Template/Config/captiveportal.ctp:55
+msgid "Logo to display on the captive portal"
+msgstr "Logo à afficher sur le portail captif"

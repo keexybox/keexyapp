@@ -42,7 +42,7 @@
         </div>
 
         <div class="form-group">
-            <label for="inputtime"><?= __('Your brand name to display on the captive portal') ?></label>
+            <label for="inputtime"><?= __('Name to display on the captive portal') ?></label>
                 <?= $this->Form->control('cportal_brand_name', [
                         'label' => false,
                         'class' => "form-control input",
@@ -52,13 +52,30 @@
         </div>
 
         <div class="form-group">
-            <label for="inputtime"><?= __('Your brand logo URL to display on the captive portal') ?></label>
+            <label for="inputtime"><?= __('Logo to display on the captive portal') ?></label>
                 <?= $this->Form->control('cportal_brand_logo_url', [
                         'label' => false,
                         'class' => "form-control input",
                         'default' => $cportal_brand_logo_url,
                     ]);
                 ?>
+        </div>
+        <?php if($cportal_brand_logo_url != ''): ?>
+        <div id="cportal_img_div">
+          <img src="<?= $cportal_brand_logo_url ?>" class="cportal_img">
+        </div>
+        <?php endif ?>
+        <div class="form-group">
+             <?= __('Upload logo') ?>
+               <?= $this->Form->control('logo_img', [
+				'type' => 'file',
+                'label' => false,
+	          	'class' => "form-control-file",
+	          	'id' => "input_img_logo",
+		  		//'required' => 'required',
+		  		'value' => ''
+	          ]);
+              ?>
         </div>
 
         <div class="form-group">

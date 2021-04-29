@@ -24,6 +24,7 @@
 	          ]);
               ?>
 		    <?= $this->Flash->render('error_address') ?>
+          </div>
         </div>
         <!-- /.box-body -->
 
