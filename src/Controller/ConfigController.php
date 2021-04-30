@@ -486,130 +486,136 @@ class ConfigController extends AppController
             /** Update data in database **/ 
             // Retrieve requested data from Database
             $request_data = $this->request->getData();
-            foreach ($request_data as $param => $value) {
-                $$param = $this->Config->get($param);
-            }
 
-            // Set and validate each request data
-            $validation_errors = 0;
-            foreach ($request_data as $param => $value) {
-                //debug($param);
-                // Prepare data to commit
-                $data = ['value' => $value];
-                // Check data
-                if ( $param == 'hostapd_ssid' ) {
-                    $$param = $this->Config->patchEntity($$param, $data, ['validate' => 'ssid']);
+            if ($request_data['hostapd_interface'] == null AND $request_data['hostapd_enabled' == 1]) {
+
+                foreach ($request_data as $param => $value) {
+                    $$param = $this->Config->get($param);
+                }
+    
+                // Set and validate each request data
+                $validation_errors = 0;
+                foreach ($request_data as $param => $value) {
+                    //debug($param);
+                    // Prepare data to commit
+                    $data = ['value' => $value];
+                    // Check data
+                    if ( $param == 'hostapd_ssid' ) {
+                        $$param = $this->Config->patchEntity($$param, $data, ['validate' => 'ssid']);
+                    } else {
+                        $$param = $this->Config->patchEntity($$param, $data);
+                    }
+                    // Count error
+                    if($$param->errors()) {
+                        $this->Flash->set(__($$param->errors()['value']['hostapd']), [
+                            'key' => 'error_'.$param,
+                            'element' => 'custom_error' ]);
+                        $validation_errors++;
+                    }
+                }
+    
+                // If no error, save each data
+                if ($validation_errors == 0) {
+                    foreach($request_data as $param => $value) {
+                        $$param = $this->Config->save($$param);
+                    }
+                }
+    
+                if ($hostapd_was_enabled == 0 && $hostapd_enabled->value == 1) {
+                    //debug('Change network configuration for Access Point');
+                    // 1 - Save values of input and output interfaces
+                    // Backup value of input interface
+                    $data = ['value' => $this->Config->get('host_interface_input')->value];
+                    $hostapd_host_interface_input_bak = $this->Config->get('hostapd_host_interface_input_bak');
+                    $hostapd_host_interface_input_bak = $this->Config->patchEntity($hostapd_host_interface_input_bak, $data);
+                    $hostapd_host_interface_input_bak = $this->Config->save($hostapd_host_interface_input_bak);
+    
+                    // Backup value of output interface
+                    $data = ['value' => $this->Config->get('host_interface_output')->value];
+                    $hostapd_host_interface_output_bak = $this->Config->get('hostapd_host_interface_output_bak');
+                    $hostapd_host_interface_output_bak = $this->Config->patchEntity($hostapd_host_interface_output_bak, $data);
+                    $hostapd_host_interface_output_bak = $this->Config->save($hostapd_host_interface_output_bak);
+    
+                    // 2 - Set Bridge interface as input and output interfaces
+                    // Set new input interface
+                    $data = ['value' => $this->Config->get('hostapd_bridge')->value.":0"];
+                    $host_interface_input = $this->Config->get('host_interface_input');
+                    $host_interface_input = $this->Config->patchEntity($host_interface_input, $data);
+                    $host_interface_input = $this->Config->save($host_interface_input);
+    
+                    // Set new output interface
+                    $data = ['value' => $this->Config->get('hostapd_bridge')->value];
+                    $host_interface_output = $this->Config->get('host_interface_output');
+                    $host_interface_output = $this->Config->patchEntity($host_interface_output, $data);
+                    $host_interface_output = $this->Config->save($host_interface_output);
+    
+                    // 3 - Update network and hostapd configs
+                    // array that list command to run in shell 
+                    $config_cmds = [
+                        'config network main',
+                        'config hostapd main',
+                        ];
+    
+    
+                } elseif ($hostapd_was_enabled == 1 && $hostapd_enabled->value == 0) {
+                    //debug('Restore network configuration');
+                    // 1 - Restore values of input and output interfaces
+                    $data = ['value' => $this->Config->get('hostapd_host_interface_input_bak')->value];
+                    $host_interface_input = $this->Config->get('host_interface_input');
+                    $host_interface_input = $this->Config->patchEntity($host_interface_input, $data);
+                    $host_interface_input = $this->Config->save($host_interface_input);
+    
+                    $data = ['value' => $this->Config->get('hostapd_host_interface_output_bak')->value];
+                    $host_interface_output = $this->Config->get('host_interface_output');
+                    $host_interface_output = $this->Config->patchEntity($host_interface_output, $data);
+                    $host_interface_output = $this->Config->save($host_interface_output);
+    
+                    // 2 - Update network and hostapd configs
+                    // array that list command to run in shell 
+                    $config_cmds = [
+                        'config network main',
+                        'config hostapd main',
+                        ];
+    
+                } elseif ($hostapd_was_enabled == 1 && $hostapd_enabled->value == 1) {
+                    //debug('Update hostapd config only');
+                    // 1 - Update hostapd config only
+                    // array that list command to run in shell 
+                    $config_cmds = [
+                        'config hostapd main',
+                        ];
+                } 
+    
+                // Updating configuration files 
+                // var to count write configuration errors
+                $count_cmd_rc = 0;
+    
+                // Running commands
+                if (isset($config_cmds)) {
+                    foreach($config_cmds as $config_cmd) {
+                        exec($this->kxycmd("$config_cmd"), $o, $cmd_rc);
+                        $count_cmd_rc = $count_cmd_rc + $cmd_rc;
+                    }
+                }
+    
+                if($count_cmd_rc == 0) {
+                    // Only use for wizard config
+                    $run_wizard = $this->Config->get('run_wizard');
+                    $install_type = null;
+                    if (null !== $this->request->getQuery('install_type')) {
+                        $install_type = $this->request->getQuery('install_type');
+                    }
+    
+                    if ($run_wizard->value == 1) {
+                        return $this->redirect(['controller' => 'Config', 'action' => 'wdhcp', 'install_type' => $install_type]);
+                    } else {
+                        $this->Flash->success(__('Wireless Access Point settings successfully saved.'));
+                    }
                 } else {
-                    $$param = $this->Config->patchEntity($$param, $data);
-                }
-                // Count error
-                if($$param->errors()) {
-                    $this->Flash->set(__($$param->errors()['value']['hostapd']), [
-                        'key' => 'error_'.$param,
-                        'element' => 'custom_error' ]);
-                    $validation_errors++;
-                }
-            }
-
-            // If no error, save each data
-            if ($validation_errors == 0) {
-                foreach($request_data as $param => $value) {
-                    $$param = $this->Config->save($$param);
-                }
-            }
-
-            if ($hostapd_was_enabled == 0 && $hostapd_enabled->value == 1) {
-                //debug('Change network configuration for Access Point');
-                // 1 - Save values of input and output interfaces
-                // Backup value of input interface
-                $data = ['value' => $this->Config->get('host_interface_input')->value];
-                $hostapd_host_interface_input_bak = $this->Config->get('hostapd_host_interface_input_bak');
-                $hostapd_host_interface_input_bak = $this->Config->patchEntity($hostapd_host_interface_input_bak, $data);
-                $hostapd_host_interface_input_bak = $this->Config->save($hostapd_host_interface_input_bak);
-
-                // Backup value of output interface
-                $data = ['value' => $this->Config->get('host_interface_output')->value];
-                $hostapd_host_interface_output_bak = $this->Config->get('hostapd_host_interface_output_bak');
-                $hostapd_host_interface_output_bak = $this->Config->patchEntity($hostapd_host_interface_output_bak, $data);
-                $hostapd_host_interface_output_bak = $this->Config->save($hostapd_host_interface_output_bak);
-
-                // 2 - Set Bridge interface as input and output interfaces
-                // Set new input interface
-                $data = ['value' => $this->Config->get('hostapd_bridge')->value.":0"];
-                $host_interface_input = $this->Config->get('host_interface_input');
-                $host_interface_input = $this->Config->patchEntity($host_interface_input, $data);
-                $host_interface_input = $this->Config->save($host_interface_input);
-
-                // Set new output interface
-                $data = ['value' => $this->Config->get('hostapd_bridge')->value];
-                $host_interface_output = $this->Config->get('host_interface_output');
-                $host_interface_output = $this->Config->patchEntity($host_interface_output, $data);
-                $host_interface_output = $this->Config->save($host_interface_output);
-
-                // 3 - Update network and hostapd configs
-                // array that list command to run in shell 
-                $config_cmds = [
-                    'config network main',
-                    'config hostapd main',
-                    ];
-
-
-            } elseif ($hostapd_was_enabled == 1 && $hostapd_enabled->value == 0) {
-                //debug('Restore network configuration');
-                // 1 - Restore values of input and output interfaces
-                $data = ['value' => $this->Config->get('hostapd_host_interface_input_bak')->value];
-                $host_interface_input = $this->Config->get('host_interface_input');
-                $host_interface_input = $this->Config->patchEntity($host_interface_input, $data);
-                $host_interface_input = $this->Config->save($host_interface_input);
-
-                $data = ['value' => $this->Config->get('hostapd_host_interface_output_bak')->value];
-                $host_interface_output = $this->Config->get('host_interface_output');
-                $host_interface_output = $this->Config->patchEntity($host_interface_output, $data);
-                $host_interface_output = $this->Config->save($host_interface_output);
-
-                // 2 - Update network and hostapd configs
-                // array that list command to run in shell 
-                $config_cmds = [
-                    'config network main',
-                    'config hostapd main',
-                    ];
-
-            } elseif ($hostapd_was_enabled == 1 && $hostapd_enabled->value == 1) {
-                //debug('Update hostapd config only');
-                // 1 - Update hostapd config only
-                // array that list command to run in shell 
-                $config_cmds = [
-                    'config hostapd main',
-                    ];
-            } 
-
-            // Updating configuration files 
-            // var to count write configuration errors
-            $count_cmd_rc = 0;
-
-            // Running commands
-            if (isset($config_cmds)) {
-                foreach($config_cmds as $config_cmd) {
-                    exec($this->kxycmd("$config_cmd"), $o, $cmd_rc);
-                    $count_cmd_rc = $count_cmd_rc + $cmd_rc;
-                }
-            }
-
-            if($count_cmd_rc == 0) {
-                // Only use for wizard config
-                $run_wizard = $this->Config->get('run_wizard');
-                $install_type = null;
-                if (null !== $this->request->getQuery('install_type')) {
-                    $install_type = $this->request->getQuery('install_type');
-                }
-
-                if ($run_wizard->value == 1) {
-                    return $this->redirect(['controller' => 'Config', 'action' => 'wdhcp', 'install_type' => $install_type]);
-                } else {
-                    $this->Flash->success(__('Wireless Access Point settings successfully saved.'));
+                    $this->Flash->error(__('Unable to write {0} configuration files.', null));
                 }
             } else {
-                $this->Flash->error(__('Unable to write {0} configuration files.', null));
+                $this->Flash->error(__('No wireless interface available to activate the WiFi access point.'));
             }
         }
 
@@ -1200,11 +1206,6 @@ class ConfigController extends AppController
         $orig_cportal_register_allowed_value = $cportal_register_allowed;
 
         if($this->request->is('post')) {
-
-            /*
-            if(move_uploaded_file($this->request->data['cportal_logo_img']['tmp_name'], "upload/".$this->request->data['cportal_logo_img']['name'])){
-            }
-            */
 
             $request_data = $this->request->getData();
             
