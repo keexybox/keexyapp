@@ -2,6 +2,17 @@
 
 All notable changes on KeexyApp for KeexyBox is documented below.
 
+## [21.04.1]
+### Added
+ - Possibility to define a default profile for the entire network. This allows devices to be connected to the internet without having to declare them in KeexyBox.
+ - Possibility of using the captive portal to override the connection profile defined for the entire network.
+ - Possibility to customize the captive portal with a name and a logo
+ - Possibility of enable/disable DHCP independently on the input network and the output network (Requires 2 independent interfaces)
+
+### Changed
+ - Do not activate the Wifi access point when no wireless interface is available
+ - WUI updated AdminLTE from 2.3 to 2.4
+
 ## [20.10.2]
 ### Added
  - Links and useful tools for users in the login information page
