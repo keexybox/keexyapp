@@ -3546,3 +3546,24 @@ msgstr "互联网浏览网址"
 
 msgid "URL to check the IP address"
 msgstr "用于检查IP地址的URL"
+
+#: New translations KeexyBox 21.04.1
+msgid "Default profile to use"
+msgstr "要使用的默认配置文件"
+
+msgid "DHCP cannot be enabled on this network if it is not enabled on the {0} network."
+msgstr "如果未在{0}网络上启用DHCP，则无法在该网络上启用DHCP。"
+
+#: /Template/Config/captiveportal.ctp:45
+msgid "Name to display on the captive portal"
+msgstr "显示在强制门户网站上的名称"
+
+#: /Template/Config/captiveportal.ctp:55
+msgid "Logo to display on the captive portal"
+msgstr "显示在强制门户上的徽标"
+
+msgid "No wireless interface available to activate the WiFi access point."
+msgstr "没有可用的无线接口来激活WiFi接入点。"
+
+msgid "Upload logo"
+msgstr "上载徽标"

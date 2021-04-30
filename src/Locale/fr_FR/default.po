@@ -3588,4 +3588,7 @@ msgid "Logo to display on the captive portal"
 msgstr "Logo à afficher sur le portail captif"
 
 msgid "No wireless interface available to activate the WiFi access point."
-msgstr "Aucune interface sans fil disponible pour activer le point d'accès Wi-Fi"
+msgstr "Aucune interface sans fil disponible pour activer le point d'accès Wi-Fi."
+
+msgid "Upload logo"
+msgstr "Upload logo"

@@ -3546,3 +3546,24 @@ msgstr "URL para navegar por Internet"
 
 msgid "URL to check the IP address"
 msgstr "URL para verificar la dirección IP"
+
+#: New translations KeexyBox 21.04.1
+msgid "Default profile to use"
+msgstr "Perfil predeterminado para usar"
+
+msgid "DHCP cannot be enabled on this network if it is not enabled on the {0} network."
+msgstr "DHCP no se puede habilitar en esta red si no está habilitado en la red {0}."
+
+#: /Template/Config/captiveportal.ctp:45
+msgid "Name to display on the captive portal"
+msgstr "Nombre para mostrar en el portal cautivo"
+
+#: /Template/Config/captiveportal.ctp:55
+msgid "Logo to display on the captive portal"
+msgstr "Logotipo para mostrar en el portal cautivo"
+
+msgid "No wireless interface available to activate the WiFi access point."
+msgstr "No hay una interfaz inalámbrica disponible para activar el punto de acceso WiFi."
+
+msgid "Upload logo"
+msgstr "Subir logo"
