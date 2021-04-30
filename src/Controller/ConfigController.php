@@ -487,7 +487,11 @@ class ConfigController extends AppController
             // Retrieve requested data from Database
             $request_data = $this->request->getData();
 
-            if ($request_data['hostapd_interface'] == null AND $request_data['hostapd_enabled' == 1]) {
+            if ($request_data['hostapd_interface'] == null AND $request_data['hostapd_enabled'] == 1) {
+
+                $this->Flash->error(__('No wireless interface available to activate the WiFi access point.'));
+
+            } else {
 
                 foreach ($request_data as $param => $value) {
                     $$param = $this->Config->get($param);
@@ -614,8 +618,6 @@ class ConfigController extends AppController
                 } else {
                     $this->Flash->error(__('Unable to write {0} configuration files.', null));
                 }
-            } else {
-                $this->Flash->error(__('No wireless interface available to activate the WiFi access point.'));
             }
         }
 
