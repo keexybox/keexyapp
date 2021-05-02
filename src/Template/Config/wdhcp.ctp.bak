@@ -48,31 +48,40 @@
       <?= $this->Form->create('config') ?>
       <div class="box-body">
 
+        <div class="checkbox" id="checkbox_dhcp_enabled">
+          <label>
+            <?= $this->Form->control('dhcp_enabled', [
+                  'type' => 'checkbox',
+				  'id' => 'dhcp_enabled',
+                  'label' => __('Enable DHCP'),
+                  //'default' => $dhcp_enabled->value
+                ])
+            ?>
+          </label>
+        </div>
+
+        <div class="checkbox" id="checkbox_dhcp_external">
+          <label>
+            <?= $this->Form->control('dhcp_external', [
+                  'type' => 'checkbox',
+                  'id' => 'check_dhcp_network',
+                  'label' => __('Check this box if you want to use KeexyBox as DNS only and do not want to use it as gateway.'),
+                  //'default' => $dhcp_external->value
+                ])
+            ?>
+          </label>
+        </div>
+    
+		<?php if($dhcp_external->value == 0): ?>
         <div class="box" id="internal_dhcp">
+		<?php else: ?>
+        <div class="box" id="internal_dhcp" style="display: none">
+		<?php endif ?>
           <div class="box-header">
             <h5 class="box-title"><?= __('Address range for the network: {0}', $input_network_mask) ?></h5>
           </div>
 
           <div class="box-body">
-
-            <div class="checkbox">
-              <label>
-                <?= $this->Form->control('dhcp_enabled_input', [
-                      'type' => 'checkbox',
-                      'id' => 'dhcp_enabled_input',
-                      'label' => __('Enable DHCP'),
-                      'default' => $dhcp_enabled_input->value
-                    ])
-                ?>
-              </label>
-            </div>
-
-            <div class="alert alert-warning" id="dhcp_internal_info" style="display: none">
-              <i class="icon fa fa-info"></i>
-	            <?= __('DHCP cannot be enabled on this network if it is not enabled on the {0} network.', $output_network_mask) ?>
-            </div>
-
-
             <div class="form-group col-md-6">
               <label for="inputipstart"><?= __('DHCP start IP') ?></label>
               <div class="input-group">
@@ -124,28 +133,14 @@
 
           <div class="box-body">
 
-            <div class="checkbox">
-              <label>
-                <?= $this->Form->control('dhcp_enabled_output', [
-                      'type' => 'checkbox',
-                      'id' => 'dhcp_enabled_output',
-                      'label' => __('Enable DHCP'),
-                      'default' => $dhcp_enabled_output->value
-                    ])
-                ?>
-              </label>
-            </div>
-
-            <?php if ($host_interface_input_value == $host_interface_output_value): ?>
-		    <?php if($dhcp_enabled_input->value == 1 AND $dhcp_enabled_output->value == 1): ?>
-            <div class="alert alert-warning" id="dhcp_external_info">
-            <?php else: ?>
-            <div class="alert alert-warning" id="dhcp_external_info" style="display: none">
-            <?php endif ?>
+		    <?php if($dhcp_external->value == 0): ?>
+            <div class="alert alert-info" id="dhcp_external_info">
+		    <?php else: ?>
+            <div class="alert alert-info" id="dhcp_external_info" style="display: none">
+		    <?php endif ?>
               <i class="icon fa fa-info"></i>
 	            <?= __('DHCP will work on subnet {0} only for devices that have an IP address reserved. However, defining the IP range here is required.', $output_network_mask) ?>
             </div>
-            <?php endif ?>
 
             <div class="form-group col-md-6">
               <label for="inputipstart"><?= __('DHCP start IP') ?></label>
@@ -195,7 +190,6 @@
       <!-- /.box-body -->
 
       <div class="box-footer">
-
         <a onclick="back_link()" class="btn btn-default"><span class="glyphicon glyphicon-chevron-left" aria-hidden="true" title="<?= __('Back') ?>"></span>&nbsp;<?= __('Back') ?></a>
         <?= $this->Form->button(__('Next')."&nbsp;".
             $this->Html->tag('span', '', [
@@ -214,42 +208,19 @@
 </div><!-- /.row -->
 <script>
 $(function () {
-        $("#dhcp_enabled_output").click(function () {
-            if ($(this).is(":checked") && $("#dhcp_enabled_input").is(":checked")) {
-                $("#dhcp_external_info").show();
-            } else {
+        $("#check_dhcp_network").click(function () {
+            if ($(this).is(":checked")) {
+                $("#external_dhcp").show();
+                $("#internal_dhcp").hide();
                 $("#dhcp_external_info").hide();
-            }
-        });
-        $("#dhcp_enabled_input").click(function () {
-            if ($(this).is(":checked") && $("#dhcp_enabled_output").is(":checked")) {
-                $("#dhcp_external_info").show();
             } else {
-                $("#dhcp_external_info").hide();
+                $("#external_dhcp").show();
+                $("#internal_dhcp").show();
+                $("#dhcp_external_info").show();
             }
         });
     });
 </script>
-<?php if ($host_interface_input_value == $host_interface_output_value): ?>
-<script>
-$(function () {
-        $("#dhcp_enabled_input").click(function () {
-            if ($(this).is(":checked") && $("#dhcp_enabled_output").is(":not(:checked)")) {
-                $("#dhcp_external_info").show();
-                $("#dhcp_internal_info").show();
-                $('#dhcp_enabled_output').prop('checked', true);
-            } 
-        });
-        $("#dhcp_enabled_output").click(function () {
-            if ($(this).not(":checked") && $("#dhcp_enabled_input").is(":checked")) {
-                $("#dhcp_external_info").hide();
-                $("#dhcp_internal_info").show();
-                $('#dhcp_enabled_input').prop('checked', false);
-            } 
-        });
-    });
-</script>
-<?php endif ?>
 <script>
 var urlParams = new URLSearchParams(location.search);
 var install_type = urlParams.get('install_type');
