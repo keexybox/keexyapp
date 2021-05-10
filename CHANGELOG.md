@@ -2,6 +2,11 @@
 
 All notable changes on KeexyApp for KeexyBox is documented below.
 
+## [21.04.2] - 2021-05-11
+
+### Changed
+ - Fix issue [#20](https://github.com/keexybox/keexyapp/issues/20)
+
 ## [21.04.1] - 2021-05-05
 
 ### Added
