@@ -558,6 +558,7 @@ class ConfigController extends AppController
                     $config_cmds = [
                         'config network main',
                         'config hostapd main',
+                        'config dhcp all',
                         ];
     
     
@@ -579,6 +580,7 @@ class ConfigController extends AppController
                     $config_cmds = [
                         'config network main',
                         'config hostapd main',
+                        'config dhcp all',
                         ];
     
                 } elseif ($hostapd_was_enabled == 1 && $hostapd_enabled->value == 1) {

@@ -2,7 +2,8 @@
 
 All notable changes on KeexyApp for KeexyBox is documented below.
 
-## [21.04.1]
+## [21.04.1] - 2021-05-05
+
 ### Added
  - Possibility to define a default profile for the entire network. This allows devices to be connected to the internet without having to declare them in KeexyBox.
  - Possibility of using the captive portal to override the connection profile defined for the entire network.
@@ -13,7 +14,8 @@ All notable changes on KeexyApp for KeexyBox is documented below.
  - Do not activate the Wifi access point when no wireless interface is available
  - WUI updated AdminLTE from 2.3 to 2.4
 
-## [20.10.2]
+## [20.10.2] - 2021-02-01
+
 ### Added
  - Links and useful tools for users in the login information page
  - Add check and update from WebUI
@@ -22,7 +24,7 @@ All notable changes on KeexyApp for KeexyBox is documented below.
  - Fixed an issue when updating the Apache configuration
  - Fix issue [#11](https://github.com/keexybox/keexyapp/issues/11)
 
-## [20.10.1] - 2020-10
+## [20.10.1] - 2020-10-07
 
 ### Added
  - Wireless Access Point
