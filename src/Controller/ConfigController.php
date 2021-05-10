@@ -802,7 +802,6 @@ class ConfigController extends AppController
                 $this->Config->save($data_dhcp_enabled_output);
                 //$this->Config->save($data_dhcp_external);
 
-                debug($request_params);
                 if(isset($request_params)) {
                     foreach($request_params as $request_param) {
                         foreach($request_param['range_params'] as $param) {
