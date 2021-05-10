@@ -706,27 +706,6 @@ class ConfigController extends AppController
             // Return code to know if all validations are ok
             $rc = 0;
     
-            // Validate dhcp_enabled
-            /*
-            $confdata = array(
-                'param' => 'dhcp_enabled',
-                'value' => $this->request->data['dhcp_enabled']
-                );
-            $data_dhcp_enabled = $this->Config->patchEntity($dhcp_enabled, $confdata);
-            if($data_dhcp_enabled->errors()) {
-                $rc = 1;
-            }
-
-            // Validate dhcp_external
-            $confdata = array(
-                'param' => 'dhcp_external',
-                'value' => $this->request->data['dhcp_external']
-                );
-            $data_dhcp_external = $this->Config->patchEntity($dhcp_external, $confdata);
-            if($data_dhcp_external->errors()) {
-                $rc = 1;
-            }
-            */
             $confdata = array(
                 'param' => 'dhcp_enabled_input',
                 'value' => $this->request->data['dhcp_enabled_input']
@@ -747,47 +726,32 @@ class ConfigController extends AppController
 
             // Define and organize IP params to check
             $request_params = null;
-            /*
-            if($this->request->data['dhcp_external'] == true) {
+
+            $hoNet_data = [
+               'netmask' => $host_netmask_output,
+               'range_params' => ['dhcp_start_ip_output', 'dhcp_end_ip_output'],
+               'used_ip' => [$OutputInfo['ip'], $InputInfo['ip'], $OutputInfo['gateway']]
+               ];
+            $hiNet_data = [
+               'netmask' => $host_netmask_input,
+               'range_params' => ['dhcp_start_ip_input', 'dhcp_end_ip_input'],
+               'used_ip' => [$OutputInfo['ip'], $InputInfo['ip'], $OutputInfo['gateway']],
+               ];
+
+
+            if($this->request->data['dhcp_enabled_output'] == true AND $this->request->data['dhcp_enabled_input'] == true) {
                 $request_params = array(
-                        $hoNet => [
-                            'netmask' => $host_netmask_output,
-                            'range_params' => ['dhcp_start_ip_output', 'dhcp_end_ip_output'],
-                            'used_ip' => [$OutputInfo['ip'], $InputInfo['ip'], $OutputInfo['gateway']],
-                            ],
-                        );
-            } else {
+                    $hoNet => $hoNet_data,
+                    $hiNet => $hiNet_data,
+                    );
+            } elseif ($this->request->data['dhcp_enabled_output'] == true AND $this->request->data['dhcp_enabled_input'] == false) {
                 $request_params = array(
-                        $hoNet => [
-                            'netmask' => $host_netmask_output,
-                            'range_params' => ['dhcp_start_ip_output', 'dhcp_end_ip_output'],
-                            'used_ip' => [$OutputInfo['ip'], $InputInfo['ip'], $OutputInfo['gateway']],
-                            ],
-                        $hiNet => [
-                            'netmask' => $host_netmask_input,
-                            'range_params' => ['dhcp_start_ip_input', 'dhcp_end_ip_input'],
-                            'used_ip' => [$OutputInfo['ip'], $InputInfo['ip'], $OutputInfo['gateway']],
-                            ],
-                        );
-            }
-            */
-            if($this->request->data['dhcp_enabled_output'] == true) {
+                    $hoNet => $hoNet_data,
+                    );
+            } elseif ($this->request->data['dhcp_enabled_output'] == false AND $this->request->data['dhcp_enabled_input'] == true) {
                 $request_params = array(
-                        $hoNet => [
-                            'netmask' => $host_netmask_output,
-                            'range_params' => ['dhcp_start_ip_output', 'dhcp_end_ip_output'],
-                            'used_ip' => [$OutputInfo['ip'], $InputInfo['ip'], $OutputInfo['gateway']],
-                            ],
-                        );
-            }
-            if($this->request->data['dhcp_enabled_input'] == true) {
-                $request_params = array(
-                        $hoNet => [
-                            'netmask' => $host_netmask_output,
-                            'range_params' => ['dhcp_start_ip_output', 'dhcp_end_ip_output'],
-                            'used_ip' => [$OutputInfo['ip'], $InputInfo['ip'], $OutputInfo['gateway']],
-                            ],
-                        );
+                    $hiNet => $hiNet_data,
+                    );
             }
 
             // loop for IP validations
@@ -836,6 +800,7 @@ class ConfigController extends AppController
                 $this->Config->save($data_dhcp_enabled_output);
                 //$this->Config->save($data_dhcp_external);
 
+                debug($request_params);
                 if(isset($request_params)) {
                     foreach($request_params as $request_param) {
                         foreach($request_param['range_params'] as $param) {
